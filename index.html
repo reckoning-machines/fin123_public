@@ -63,6 +63,8 @@
                     <div class="hero-meta">
                         <span class="meta-item">Versioned models</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Parameters</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Scenario runs</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Deterministic verification</span>
@@ -148,6 +150,16 @@
                         <p>
                             Base, upside, downside, and perturbations run against the same committed model. Table
                             materialization is reused when only scalar parameters change.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Parameters</h3>
+                        <p>
+                            Parameters are explicit model inputs, not hidden cell state. Builds record effective
+                            parameters, scenario overlays,
+                            and a parameter fingerprint so you can run the same model with different params. For
+                            example: same model, different "tickers".
                         </p>
                     </div>
 
