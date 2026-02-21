@@ -425,3 +425,25 @@ pre.code code {
         transform: none;
     }
 }
+
+.hero-banner {
+    margin-bottom: 16px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.22);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.30);
+}
+
+.hero-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Optional: slightly tighter on small screens */
+@media (max-width: 760px) {
+    .hero-banner {
+        margin-bottom: 14px;
+    }
+}
