@@ -2,16 +2,18 @@
    Dark, terminal-adjacent aesthetic. No gimmicks. */
 
 :root {
-    --bg: #0f1115;
-    --bg2: #111522;
+    --bg: #141312;
+    --bg2: #1b1917;
     --panel: rgba(255, 255, 255, 0.04);
     --panel2: rgba(255, 255, 255, 0.06);
     --border: rgba(255, 255, 255, 0.10);
     --text: rgba(255, 255, 255, 0.88);
     --muted: rgba(255, 255, 255, 0.66);
     --dim: rgba(255, 255, 255, 0.46);
-    --accent: #4f7cff;
-    --accent2: #2c57ff;
+    --accent: #f59e0b;
+    --accent2: #fb923c;
+    --link: #93c5fd;
+    --ring: 0 0 0 2px rgba(245, 158, 11, 0.35);
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     --radius: 14px;
     --maxw: 900px;
@@ -29,8 +31,8 @@ body {
 body {
     margin: 0;
     color: var(--text);
-    background: radial-gradient(1200px 600px at 20% 0%, rgba(79, 124, 255, 0.10), transparent 60%),
-        radial-gradient(900px 500px at 100% 10%, rgba(79, 124, 255, 0.06), transparent 55%),
+    background: radial-gradient(1200px 600px at 20% 0%, rgba(245, 158, 11, 0.06), transparent 60%),
+        radial-gradient(900px 500px at 100% 80%, rgba(0, 0, 0, 0.25), transparent 55%),
         var(--bg);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "JetBrains Mono", "Liberation Mono",
         "Courier New", monospace;
@@ -68,7 +70,7 @@ a {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(15, 17, 21, 0.70);
+    background: rgba(20, 19, 18, 0.70);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -129,6 +131,11 @@ a {
 .nav a:hover {
     color: rgba(255, 255, 255, 0.92);
     background: rgba(255, 255, 255, 0.06);
+}
+
+.nav a:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
 }
 
 .site-main {
@@ -243,8 +250,8 @@ a {
 
 .callout {
     margin-top: 14px;
-    border: 1px solid rgba(79, 124, 255, 0.25);
-    background: rgba(79, 124, 255, 0.07);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    background: rgba(245, 158, 11, 0.07);
     border-radius: var(--radius);
     padding: 14px 16px;
 }
@@ -311,8 +318,8 @@ pre.code code {
     justify-content: center;
     padding: 10px 12px;
     border-radius: 12px;
-    border: 1px solid rgba(79, 124, 255, 0.38);
-    background: rgba(79, 124, 255, 0.14);
+    border: 1px solid rgba(245, 158, 11, 0.38);
+    background: rgba(245, 158, 11, 0.14);
     color: rgba(255, 255, 255, 0.92);
     font-size: 13px;
     font-weight: 600;
@@ -320,9 +327,14 @@ pre.code code {
 }
 
 .btn:hover {
-    background: rgba(79, 124, 255, 0.20);
-    border-color: rgba(79, 124, 255, 0.55);
+    background: rgba(245, 158, 11, 0.20);
+    border-color: rgba(245, 158, 11, 0.55);
     transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
 }
 
 .btn:active {
@@ -370,15 +382,15 @@ pre.code code {
 }
 
 .link {
-    color: rgba(79, 124, 255, 0.92);
+    color: var(--link);
     text-decoration: underline;
-    text-decoration-color: rgba(79, 124, 255, 0.35);
+    text-decoration-color: rgba(147, 197, 253, 0.35);
     text-underline-offset: 3px;
 }
 
 .link:hover {
-    color: rgba(79, 124, 255, 1);
-    text-decoration-color: rgba(79, 124, 255, 0.60);
+    color: #bdd7fe;
+    text-decoration-color: rgba(147, 197, 253, 0.60);
 }
 
 .site-footer {
