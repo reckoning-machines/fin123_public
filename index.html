@@ -31,6 +31,7 @@
                 <a href="./index.html#concepts">Lifecycle</a>
                 <a href="#why">Why</a>
                 <a href="#excel">Compatibility</a>
+                <a href="#builtins">Built-ins</a>
                 <a href="#determinism">Determinism</a>
                 <a href="#safety">Safety</a>
                 <a href="#cli">Run it</a>
@@ -72,7 +73,9 @@
                     <div class="hero-meta">
                         <span class="meta-item">Keyboard-first UI</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">XLSX import/export</span>
+                        <span class="meta-item">XLSX import + export</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Built-ins (Bloomberg, SQL)</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">SQL datasheets → local caches</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
@@ -80,9 +83,7 @@
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Commit → Build → Verify → Release</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Optional team pod</span>
-                        <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Custom plugins (AI-assisted)</span>
+                        <span class="meta-item">Plugins (user, AI-assisted)</span>
                     </div>
 
                 </div>
@@ -143,6 +144,8 @@
                             across a
                             universe, producing versioned outputs you can diff and compare — not a manual spreadsheet
                             ritual.
+                            Batch runs can stamp a shared build batch ID so outputs can be grouped, diffed, and released
+                            as sets.
                         </p>
                     </div>
 
@@ -155,6 +158,8 @@
                             overlays per
                             build so you can say “same model, different ticker” and know exactly what changed — and what
                             did not.
+                            Parameters can be bound to sheet cells using <code>PARAM()</code> proxy formulas, and builds
+                            record hashes for effective params and scenario overlays.
                         </p>
                     </div>
 
@@ -203,6 +208,15 @@
                     </div>
 
                     <div class="panel">
+                        <h3 class="panel-title">XLSX export is deterministic</h3>
+                        <p>
+                            Export produces a clean XLSX for sharing: values, formulas, and font color (current scope).
+                            Exports are artifacts of a specific committed model + build inputs, and can be verified and
+                            diffed the same way as parquet outputs.
+                        </p>
+                    </div>
+
+                    <div class="panel">
                         <h3 class="panel-title">What fin123 intentionally does not do</h3>
                         <p>
                             No macros/VBA, no pivots, no charts, no conditional formatting, no volatile functions
@@ -225,6 +239,59 @@
                             appropriate.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="builtins" class="section">
+            <div class="container">
+                <h2 class="section-title">Built-ins: vendor data, governed ingestion</h2>
+                <p class="section-lede">
+                    fin123 separates data acquisition from evaluation. Built-ins fetch vendor data during
+                    <code>fin123 sync</code> and write local parquet caches with provenance. Builds are offline and read
+                    only local files.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">SQL datasheets → local parquet caches</h3>
+                        <p>
+                            Datasheets declare a connection and a query (inline or <code>.sql</code> file). Sync writes
+                            parquet caches and records provenance (query hash, rowcount, output file hash) so you can
+                            reproduce and audit exactly what inputs were used.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Bloomberg built-in (Terminal + blpapi)</h3>
+                        <p>
+                            The Bloomberg built-in is sync-only and local-only. It reads a
+                            <code>connectors/bloomberg.yaml</code> dataset spec and supports BDP (reference) and BDH
+                            (historical) requests. If <code>blpapi</code> is not installed, it is skipped; if the
+                            Terminal/service is unavailable, sync fails loudly with diagnostics.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Built-ins vs plugins</h3>
+                        <p>
+                            Built-ins are shipped integrations for third-party systems (Bloomberg, SQL datasheets) and
+                            are enabled by project config and production-mode allowlists. Plugins are user-created code
+                            bundles (often AI-assisted) that add custom functions, workflows, and connectors — versioned
+                            and pinned so builds run with the exact operators you approved.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">No live vendor calls during builds</div>
+                        <div class="callout-body">
+                            <code>sync</code> is the only step allowed to touch external systems. <code>build</code>
+                            reads only local parquet/CSV caches so outputs are deterministic and verifiable.
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -470,12 +537,11 @@ fin123 release build &lt;build_id&gt;</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Custom plugins, safely governed (AI-assisted)</h3>
+                        <h3 class="panel-title">Plugins are user code, safely governed (AI-assisted)</h3>
                         <p>
-                            Extend fin123 with custom scalar functions, table functions, connectors, and workflow steps.
-                            AI can help generate plugin
-                            code and manifests, but plugins are versioned, pinned, and validated for engine
-                            compatibility. In production mode, missing
+                            Plugins are user-created bundles: custom scalar functions, table functions, workflows, and
+                            (optionally) custom connectors. AI can help generate plugin code and manifests, but plugins
+                            are versioned, pinned, and validated for engine compatibility. In production mode, missing
                             plugin pins can block builds.
                         </p>
                     </div>
