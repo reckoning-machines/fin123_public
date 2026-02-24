@@ -457,15 +457,20 @@ pre.code code {
 .hero-banner-badge {
     position: absolute;
     left: 12px;
-    top: 16px;
+    top: 42px;
+    /* lower */
     display: inline-flex;
     align-items: baseline;
-    gap: 12px;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    backdrop-filter: none;
+    gap: 10px;
+    /* slightly tighter */
+    padding: 10px 14px;
+    /* smaller */
+    border-radius: 18px;
+    /* rounded edges */
+    background: rgba(0, 0, 0, 0.52);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(6px);
     pointer-events: none;
     white-space: nowrap;
     text-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
@@ -473,37 +478,36 @@ pre.code code {
 
 .hero-banner-prompt {
     font-weight: 700;
-    font-size: 28px;
+    font-size: 20px;
+    /* smaller */
     line-height: 1;
     color: var(--dim);
-    /* grey like your second image */
+    /* grey prompt */
 }
 
 .hero-banner-name {
-    font-weight: 800;
-    letter-spacing: -0.8px;
-    font-size: 40px;
+    font-weight: 850;
+    letter-spacing: -0.7px;
+    font-size: 30px;
+    /* smaller */
     line-height: 1;
     color: rgba(255, 255, 255, 0.90);
-    /* not pure white */
-}
-
-.hero-banner-badge {
-    background: rgba(0, 0, 0, 0.60);
-    border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 @media (max-width: 760px) {
     .hero-banner-badge {
-        left: 12px;
-        top: 10px;
+        left: 10px;
+        top: 34px;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 16px;
     }
 
     .hero-banner-name {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .hero-banner-prompt {
-        font-size: 22px;
+        font-size: 18px;
     }
 }
