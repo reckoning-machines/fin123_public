@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 — deterministic financial model infrastructure: Excel familiarity with offline, reproducible builds and an operator-grade lifecycle." />
+        content="fin123 — the build system for financial models: Excel familiarity with offline, reproducible builds and audit-grade releases." />
     <title>fin123 — Why this matters</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,6 +33,7 @@
                 <a href="#excel">Compatibility</a>
                 <a href="#builtins">Built-ins</a>
                 <a href="#determinism">Determinism</a>
+                <a href="#audit">Audit</a>
                 <a href="#safety">Safety</a>
                 <a href="#cli">Run it</a>
                 <a href="#pod">Pod</a>
@@ -53,10 +54,10 @@
                     </div>
 
                     <div class="kicker">Why this matters</div>
-                    <h3 class="title">fin123: A Spreadsheet for Wall Street</h3>
+                    <h3 class="title">fin123: The build system for financial models</h3>
 
                     <p class="subtitle">
-                        Excel familiarity. Software discipline.
+                        Excel familiarity. Deterministic builds. Audit-grade releases.
                     </p>
 
                     <p class="value">
@@ -64,8 +65,8 @@
                         (Polars).
                         Treat scenarios and parameters as first-class inputs for bulk updates. Sync vendor data via
                         built-ins (Bloomberg/Visible Alpha + SQL datasheets) into local parquet caches. Build offline,
-                        verify objectively, and release only what you approve — locally, or through an optional team
-                        pod.
+                        verify drift objectively, and release only what you approve — locally, or through an optional
+                        team pod.
                     </p>
 
                     <div class="hero-actions">
@@ -84,6 +85,8 @@
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Commit → Build → Verify → Release</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Audit trail + provenance</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Plugins (user, AI-assisted)</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Fast on real data (Polars)</span>
@@ -98,22 +101,21 @@
             <div class="container">
                 <h2 class="section-title">Why this matters</h2>
                 <p class="section-lede">
-                    fin123 is for teams who need Excel’s mental model but cannot accept Excel’s failure modes. Models
-                    become versioned artifacts with a real lifecycle: commit changes, build deterministic outputs,
-                    verify
-                    drift, then release what you approve. You keep analyst speed in a grid — and gain reproducibility,
+                    fin123 is for teams who need Excel’s mental model but cannot accept spreadsheet fragility. It treats
+                    a model like a build artifact: commit changes, build deterministic outputs, verify drift, then
+                    release only what you approve. You keep analyst speed in a grid — and gain reproducibility,
                     reviewability, and scale across tickers, scenarios, and parameter sets.
                 </p>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">Spreadsheet UX, operator-grade execution</h3>
+                        <h3 class="panel-title">Spreadsheet UX, real lifecycle</h3>
                         <p>
                             Dark, dense, keyboard-first. The grid is fast, the UI stays out of your way, and common
-                            workflows are
-                            designed around navigation and batch edits. You keep the spreadsheet mental model — but runs
-                            and outputs are treated like software artifacts.
+                            workflows are designed around navigation and batch edits. The difference is operational:
+                            your
+                            model has a lifecycle and produces versioned outputs you can audit and reproduce.
                         </p>
                     </div>
 
@@ -141,8 +143,7 @@
                             Teams do not run a model once. They run it across many tickers, scenarios, and parameter
                             sets. fin123 treats this as a structured build process: the same committed model runs
                             headlessly across a universe, producing versioned outputs you can diff and compare. Batch
-                            runs can stamp a shared build batch ID so outputs can be grouped, diffed, and released as
-                            sets.
+                            runs can stamp a shared build batch ID so outputs can be grouped and released as sets.
                         </p>
                     </div>
 
@@ -164,7 +165,8 @@
                             Scenario sweeps, batch runs, and post-processing are modeled as workflows that emit
                             versioned
                             artifacts with lineage. AI can generate artifacts (notes, summaries, derived outputs), but
-                            it is never embedded in live cell evaluation. Core computation stays deterministic.
+                            it
+                            is never embedded in live cell evaluation. Core computation stays deterministic.
                         </p>
                     </div>
 
@@ -187,8 +189,7 @@
                 <h2 class="section-title">Excel compatibility envelope</h2>
                 <p class="section-lede">
                     fin123 keeps the spreadsheet mental model and supports XLSX import/export, but it is not trying to
-                    be
-                    Excel parity. The goal is deterministic modeling you can scale and audit.
+                    be Excel parity. The goal is deterministic modeling you can scale and audit.
                 </p>
 
                 <div class="stack">
@@ -351,6 +352,57 @@ fin123 release → approved outputs (releases/)</code></pre>
         </section>
 
 
+        <section id="audit" class="section">
+            <div class="container">
+                <h2 class="section-title">Audit and governance</h2>
+                <p class="section-lede">
+                    fin123 is designed for auditability: you can answer “what ran, with which inputs, under which
+                    assumptions, and who approved the output” without reconstructing history from filenames.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">Every run is traceable</h3>
+                        <p>
+                            Builds record a workbook hash, input file hashes, effective parameters, scenario overlays,
+                            and engine version. Verification fails if recorded fingerprints drift. Releases can be gated
+                            on a verify pass in production mode.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Vendor data is versioned with provenance</h3>
+                        <p>
+                            Sync produces local parquet caches and a provenance record (query/spec hash, rowcount,
+                            output
+                            file hash, timestamps). Builds consume only these local versions, keeping evaluation offline
+                            and reproducible.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Release only what you approve</h3>
+                        <p>
+                            A release is an explicit act: mark outputs as approved and publish them as immutable release
+                            records. Teams can group releases as sets (for batch runs) and treat released outputs as the
+                            canonical artifacts downstream systems consume.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">Spreadsheet modeling as supply chain</div>
+                        <div class="callout-body">
+                            Source (workbook) → dependencies (datasheets/built-ins) → build → verify → release. fin123
+                            makes the chain explicit, versioned, and enforceable.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
         <section id="safety" class="section">
             <div class="container">
                 <h2 class="section-title">Finance-safe lookups and joins</h2>
@@ -454,10 +506,10 @@ fin123 release build &lt;build_id&gt;</code></pre>
                     </div>
 
                     <div class="callout">
-                        <div class="callout-title">Local-first by default</div>
+                        <div class="callout-title">DevOps for models, when you need it</div>
                         <div class="callout-body">
-                            Adopt fin123 locally and add the pod later when you want centralized execution, shared
-                            caches, or governance.
+                            When teams want centralized execution and governance, the pod turns builds and releases into
+                            an automatable service. Local-first remains the default.
                         </div>
                     </div>
 
