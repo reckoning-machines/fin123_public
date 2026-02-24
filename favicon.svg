@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="fin123 favicon">
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#141312"></rect>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"></rect>
+  <text x="32" y="42" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'JetBrains Mono', 'Liberation Mono', 'Courier New', monospace" font-size="40" font-weight="700" fill="#f59e0b">$</text>
+</svg>
