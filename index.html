@@ -60,7 +60,8 @@
 
                     <p class="value">
                         Commit a model, build deterministic outputs, verify drift, release what you approve.
-                        Keyboard-first UI. Fast on real data (Polars). Offline builds with provable fingerprints.
+                        Keyboard-first UI. Fast on real data (Polars). Offline builds with provable fingerprints. Teams
+                        can share approved plugin bundles in the pod so everyone runs the same operators.
                     </p>
 
                     <div class="hero-actions">
@@ -80,6 +81,8 @@
                         <span class="meta-item">Commit → Build → Verify → Release</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Optional team pod</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Custom plugins (AI-assisted)</span>
                     </div>
 
                 </div>
@@ -463,6 +466,17 @@ fin123 release build &lt;build_id&gt;</code></pre>
                             Run fully standalone on the filesystem. Enable the shared pod and registry when you want
                             centralized
                             execution, shared caches, and team governance.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Custom plugins, safely governed (AI-assisted)</h3>
+                        <p>
+                            Extend fin123 with custom scalar functions, table functions, connectors, and workflow steps.
+                            AI can help generate plugin
+                            code and manifests, but plugins are versioned, pinned, and validated for engine
+                            compatibility. In production mode, missing
+                            plugin pins can block builds.
                         </p>
                     </div>
 
