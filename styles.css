@@ -164,9 +164,9 @@ a {
 
 .title {
     margin: 0;
-    font-size: 44px;
-    letter-spacing: -0.8px;
-    line-height: 1.05;
+    font-size: clamp(28px, 3.6vw, 36px);
+    letter-spacing: -0.5px;
+    line-height: 1.10;
 }
 
 .subtitle {
@@ -409,21 +409,6 @@ pre.code code {
 
 .footer-right {
     color: rgba(255, 255, 255, 0.40);
-}
-
-/* Responsive */
-@media (max-width: 760px) {
-    .title {
-        font-size: 38px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .brand {
-        min-width: auto;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
