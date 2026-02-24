@@ -435,50 +435,7 @@ pre.code code {
     }
 }
 
-.hero-banner {
-    position: relative;
-    margin-bottom: 16px;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(0, 0, 0, 0.22);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.30);
-}
-
-/* Optional: slightly tighter on small screens */
-@media (max-width: 760px) {
-    .hero-banner {
-        margin-bottom: 14px;
-    }
-}
-
-.hero-product {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    color: var(--text);
-}
-
-.hero-product-mark {
-    color: var(--muted);
-    font-weight: 600;
-}
-
-.hero-product-name {
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    font-size: 14px;
-}
-
-.hero-product-tag {
-    font-size: 12px;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    background: var(--panel);
-    padding: 2px 8px;
-    border-radius: 999px;
-}
+/* Hero banner with in-image fin123 badge */
 
 .hero-banner {
     position: relative;
@@ -493,44 +450,43 @@ pre.code code {
 .hero-banner img {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
 .hero-banner-badge {
     position: absolute;
-    left: 12px;
-    top: 10px;
-    padding: 6px 10px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.30);
+    left: 16px;
+    top: 14px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(6px);
     pointer-events: none;
 }
 
 .hero-banner-name {
-    font-weight: 700;
-    letter-spacing: -0.3px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
     color: var(--text);
-    font-size: 13px;
+    font-size: 26px;
+    line-height: 1;
 }
 
-
-.hero-banner-sub {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-@media (max-width: 520px) {
-    .hero-banner-badge {
-        left: 10px;
-        top: 10px;
-        padding: 5px 8px;
-        gap: 8px;
+@media (max-width: 760px) {
+    .hero-banner {
+        margin-bottom: 14px;
     }
 
-    .hero-banner-sub {
-        display: none;
+    .hero-banner-badge {
+        left: 12px;
+        top: 10px;
+        padding: 8px 12px;
+    }
+
+    .hero-banner-name {
+        font-size: 22px;
     }
 }
