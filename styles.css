@@ -482,22 +482,30 @@ pre.code code {
 
 .hero-banner {
     position: relative;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.22);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.30);
+}
+
+.hero-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .hero-banner-badge {
     position: absolute;
-    left: 14px;
-    top: 12px;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 10px;
+    left: 12px;
+    top: 10px;
     padding: 6px 10px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.48);
+    background: rgba(0, 0, 0, 0.45);
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.30);
     backdrop-filter: blur(6px);
-    white-space: nowrap;
     pointer-events: none;
 }
 
@@ -507,6 +515,7 @@ pre.code code {
     color: var(--text);
     font-size: 13px;
 }
+
 
 .hero-banner-sub {
     color: var(--muted);
