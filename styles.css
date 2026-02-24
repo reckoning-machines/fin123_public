@@ -81,6 +81,7 @@ a {
     justify-content: space-between;
     padding: 14px 0;
     gap: 16px;
+    min-width: 0;
 }
 
 .brand {
@@ -115,9 +116,18 @@ a {
 .nav {
     display: flex;
     align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
+    gap: 10px;
+    flex-wrap: nowrap;
     justify-content: flex-end;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    min-width: 0;
+}
+
+.nav::-webkit-scrollbar {
+    display: none;
 }
 
 .nav a {
@@ -126,6 +136,7 @@ a {
     padding: 6px 10px;
     border-radius: 10px;
     transition: background 140ms ease, color 140ms ease;
+    flex: 0 0 auto;
 }
 
 .nav a:hover {
