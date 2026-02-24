@@ -29,10 +29,13 @@
 
             <nav class="nav">
                 <a href="./index.html#concepts">Lifecycle</a>
-                <a href="#guarantees">Guarantees</a>
                 <a href="#why">Why</a>
+                <a href="#excel">Compatibility</a>
+                <a href="#determinism">Determinism</a>
+                <a href="#safety">Safety</a>
                 <a href="#cli">Run it</a>
                 <a href="#pod">Pod</a>
+                <a href="#guarantees">Guarantees</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -52,20 +55,13 @@
                     <h3 class="title">fin123 - A Spreadsheet for Wall Street</h3>
 
                     <p class="subtitle">
-                        fin123: faster, simpler, programmable, built for Wall Street workflows
+                        Author like Excel. Operate like Git.
                     </p>
 
                     <p class="value">
-                        Build and run with a familiar UI, or a headless CLI. Built on Polars for speed. Scenarios- and
-                        Parameters- native
-                        for bulk
-                        updating. Import and export XLSX. Sync Bloomberg / Visible
-                        Alpha / alt-data via
-                        native SQL datasheets
-                        into
-                        local parquet caches. Verify objectively. Release only what you approve —
-                        locally,
-                        or via a shared pod for teams.
+                        Commit a model, build deterministic outputs, verify drift, release what you approve.
+                        Sync vendor data to local caches once; builds run offline and reproducibly.
+                        Scale the same committed model across tickers, scenarios, and parameter sets.
                     </p>
 
                     <div class="hero-actions">
@@ -80,7 +76,7 @@
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Scenarios + parameters</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Workflows + artifacts</span>
+                        <span class="meta-item">Commit → Build → Verify → Release</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Fast on real data (Polars)</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
@@ -113,22 +109,21 @@
                     </div>
 
                     <div class="panel">
+                        <h3 class="panel-title">Stop saving spreadsheets. Start shipping models.</h3>
+                        <p>
+                            Spreadsheet workflows blur editing, execution, and publication. fin123 forces boundaries:
+                            commit changes, build deterministic outputs, verify integrity, then release only what you
+                            approve. Reproducibility becomes a system property, not a social contract.
+                        </p>
+                    </div>
+
+                    <div class="panel">
                         <h3 class="panel-title">Scale the same model across cases and names</h3>
                         <p>
                             Professional teams do not run a model once. They run it across many tickers, scenarios, and
                             parameter sets. fin123 treats this as a structured build process: the same committed model
                             runs headlessly across a universe, producing versioned outputs you can diff and compare —
                             not a manual spreadsheet ritual.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Reproducibility you can prove</h3>
-                        <p>
-                            Builds record the committed model version, effective parameters, scenario overlays, and
-                            input fingerprints. Verification checks that outputs match what was recorded. If anything
-                            drifts — model, inputs, parameters, overlays — verification fails. Reproducibility becomes a
-                            system property, not a social contract.
                         </p>
                     </div>
 
@@ -165,15 +160,145 @@
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Discipline applied to spreadsheets</h3>
+                        <h3 class="panel-title">Common spreadsheet failures we eliminate</h3>
                         <p>
-                            Spreadsheet workflows blur editing, execution, and publication. fin123 forces boundaries:
-                            commit changes, build deterministic outputs, verify integrity, then release only what you
-                            approve. Nothing updates silently. Quant teams get repeatability; CTOs get auditability;
-                            analysts get speed and a workflow that feels familiar.
+                            Broken links, “who edited this cell,” copy/paste drift, silent lookup fan-out,
+                            unreviewed changes, and “which file is the real one.” fin123 makes the model state explicit,
+                            versioned, and verifiable.
                         </p>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+
+        <section id="excel" class="section">
+            <div class="container">
+                <h2 class="section-title">Excel compatibility envelope</h2>
+                <p class="section-lede">
+                    fin123 keeps the workflow familiar, but it is not trying to be Excel parity.
+                    The goal is deterministic modeling you can scale and audit.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <h3 class="panel-title">What stays familiar</h3>
+                        <p>
+                            Grid editing with a formula bar, multi-sheet workbooks, copy/paste TSV behavior, and XLSX
+                            import/export. Scalar formulas use Excel-like <code>=expression</code> syntax, plus
+                            finance-oriented lookup semantics.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">What fin123 intentionally does not do</h3>
+                        <p>
+                            No macros/VBA, no pivots, no charts, no conditional formatting, no volatile functions
+                            (<code>NOW()</code>, <code>RAND()</code>), no dynamic reference functions
+                            (<code>INDIRECT()</code>, <code>OFFSET()</code>), no spill/array formulas, no range
+                            expressions (<code>A1:A10</code> — use named ranges), and NO PRINT BUTTON.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Import is best-effort, never silent</h3>
+                        <p>
+                            XLSX import preserves formulas as-is and generates a versioned import report that classifies
+                            every formula (supported, unsupported function, parse error, external link, plugin formula).
+                            Unsupported formulas are never rewritten; review actions include marking TODO and converting
+                            to values when appropriate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="determinism" class="section">
+            <div class="container">
+                <h2 class="section-title">Determinism contract</h2>
+                <p class="section-lede">
+                    Determinism is enforced by design: sync is separated from build, builds run offline, and every build
+                    records the fingerprints needed to prove reproducibility.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <h3 class="panel-title">Offline builds</h3>
+                        <p>
+                            <code>fin123 sync</code> fetches vendor data and writes local parquet caches with
+                            provenance.
+                            <code>fin123 build</code> reads only local files and never touches a live database.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Two-graph evaluation model</h3>
+                        <p>
+                            Table computations compile Polars LazyFrame plans and materialize at the end; scalar
+                            computations evaluate a named DAG with explicit dependencies. Lookups read from a run-local
+                            materialization cache, not ad-hoc queries.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Build fingerprints and verification</h3>
+                        <p>
+                            Each build records workbook hash, input hashes, effective params, scenario overlay hash, and
+                            engine version. Verification fails if recorded fingerprints drift. Release can be gated on a
+                            verify pass in production mode.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Byte-stable exports</h3>
+                        <p>
+                            When a plan does not specify a sort, fin123 applies a deterministic secondary sort at export
+                            time so the same inputs produce byte-identical parquet outputs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="safety" class="section">
+            <div class="container">
+                <h2 class="section-title">Finance-safe lookups and joins</h2>
+                <p class="section-lede">
+                    Silent row multiplication is unacceptable in finance. fin123 defaults to deterministic, validated
+                    join and lookup semantics.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <h3 class="panel-title">Deterministic joins with cardinality validation</h3>
+                        <p>
+                            <code>join_left</code> defaults to <code>many_to_one</code> validation so the right-side
+                            keys
+                            must be unique. Duplicate keys fail with sample duplicates; null keys are rejected under
+                            strict validation. Join key dtypes are checked up front to prevent silent mismatch.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">VLOOKUP semantics with diagnostics</h3>
+                        <p>
+                            <code>lookup_scalar</code> is exact-match and defaults to error on missing or duplicate
+                            keys.
+                            Errors surface available columns and key samples for fast debugging. Declared primary keys
+                            can be enforced at materialization time.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">Fail fast, not quietly</div>
+                        <div class="callout-body">
+                            If a lookup is ambiguous or a join would multiply rows, the build should fail loudly with
+                            actionable diagnostics.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -196,7 +321,18 @@
                     <pre class="code"><code>fin123 sync
 fin123 commit
 fin123 build --scenario base --set ticker=AAPL
-fin123 verify-build &lt;build_id&gt;</code></pre>
+fin123 verify-build &lt;build_id&gt;
+fin123 release build &lt;build_id&gt;</code></pre>
+                </div>
+
+                <div class="code-panel" role="region" aria-label="Lifecycle overview">
+                    <div class="code-header">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="code-title">lifecycle</span>
+                    </div>
+                    <pre class="code"><code>Edit → Commit → Build → Verify → Release → Distribute</code></pre>
                 </div>
             </div>
         </section>
@@ -206,44 +342,44 @@ fin123 verify-build &lt;build_id&gt;</code></pre>
             <div class="container">
                 <h2 class="section-title">Pod version (team mode)</h2>
                 <p class="section-lede">
-                    fin123 runs locally-first, but teams can opt into a shared pod that centralizes models, data caches,
-                    custom plugins, and headless execution.
+                    fin123 runs locally-first, but teams can opt into a shared pod: registry + runner for centralized
+                    execution, shared caches, and governance.
                 </p>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">Share models, data, and plugins</h3>
+                        <h3 class="panel-title">Optional registry (Postgres)</h3>
                         <p>
-                            The pod provides a shared registry for committed model versions, datasheet caches, and
-                            approved plugin bundles. Teams can reuse the same curated inputs and operators without
-                            copy-pasting files or rebuilding local state.
+                            A Postgres-backed registry can store model versions, builds, releases, and release sets with
+                            idempotent upserts. Local filesystem mode remains the default; DB is opt-in for team
+                            visibility and automation.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Headless automation for pipelines</h3>
+                        <h3 class="panel-title">Runner service for headless execution</h3>
                         <p>
-                            Trigger runs from CI, schedulers, or internal tooling. The pod executes builds headlessly
-                            and
-                            returns versioned artifacts with provenance. This turns “run the model” into an automatable
-                            backend capability.
+                            A pod runner executes a specific <code>(model_id, model_version_id)</code> with parameter
+                            overrides via a simple API (<code>POST /run</code>) and returns versioned outputs. This
+                            turns
+                            “run the model” into an automatable backend capability.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Determinism preserved</h3>
+                        <h3 class="panel-title">Prod mode gates</h3>
                         <p>
-                            The same contracts apply in pod mode: offline evaluation, recorded hashes, and verification
-                            gates. Centralization improves collaboration without sacrificing reproducibility.
+                            In production mode, builds can be blocked on import parse errors, missing SQL schema guards,
+                            missing plugin pins, or an unreachable registry. Releases can be gated on verify pass.
                         </p>
                     </div>
 
                     <div class="callout">
                         <div class="callout-title">Local-first by default</div>
                         <div class="callout-body">
-                            You can adopt fin123 locally and add the pod later when you want centralized execution,
-                            shared caches, or team-wide governance.
+                            Adopt fin123 locally and add the pod later when you want centralized execution,
+                            shared caches, or governance.
                         </div>
                     </div>
 
@@ -260,27 +396,21 @@ fin123 verify-build &lt;build_id&gt;</code></pre>
                 </p>
 
                 <div class="stack">
+
                     <div class="panel">
-                        <h3 class="panel-title">Authoring that feels like modeling</h3>
+                        <h3 class="panel-title">Analyst guarantees</h3>
                         <p>
-                            Grid authoring without coupling logic to presentation. Formatting stays separate and never
-                            changes what the model computes.
+                            Grid-first authoring with keyboard workflows, multi-sheet support, explicit parameters and
+                            scenarios, fast iteration on real data, and versioned runs you can diff. Imports never
+                            silently rewrite formulas; issues are surfaced in a report with a review workflow.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Scenarios are first-class</h3>
+                        <h3 class="panel-title">Operator guarantees</h3>
                         <p>
-                            Base, upside, downside are overlays on the same committed model. Table materialization can
-                            be reused when only scalar parameters change.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Parameters are explicit</h3>
-                        <p>
-                            Parameters are system inputs, not hidden state. Builds record effective parameters and a
-                            parameter fingerprint for reproducible runs.
+                            Offline builds, immutable snapshots and runs, bounded storage with GC + pinning, validated
+                            lookup/join semantics, and verification gates that fail when fingerprints drift.
                         </p>
                     </div>
 
@@ -293,18 +423,10 @@ fin123 verify-build &lt;build_id&gt;</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Guardrails for lookups and joins</h3>
-                        <p>
-                            Fail fast on ambiguous joins, duplicate keys, and missing required data. Silent row
-                            multiplication is unacceptable in finance.
-                        </p>
-                    </div>
-
-                    <div class="panel">
                         <h3 class="panel-title">Versioned artifacts and verification</h3>
                         <p>
                             Outputs are versioned artifacts with lineage. Verification fails when outputs drift from the
-                            recorded model and inputs.
+                            recorded model and inputs. Release can be restricted to verified builds.
                         </p>
                     </div>
 
@@ -323,6 +445,7 @@ fin123 verify-build &lt;build_id&gt;</code></pre>
                             centralized execution, shared caches, and team governance.
                         </p>
                     </div>
+
                 </div>
             </div>
         </section>
