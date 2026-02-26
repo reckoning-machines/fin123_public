@@ -65,11 +65,10 @@
 
                     <p class="value">
                         Author in a keyboard-first grid or run headless from the CLI. Compute fast on real data
-                        (Polars).
-                        Treat scenarios and parameters as first-class inputs for bulk updates. Sync vendor data via
-                        built-ins (Bloomberg/Visible Alpha + SQL datasheets) into local parquet caches. Build offline,
+                        (Polars). Treat scenarios and parameters as first-class inputs for bulk updates.
+                        Sync vendor data via built-ins and SQL datasheets into local parquet caches. Build offline,
                         verify drift objectively, and release only what you approve — locally, or through an optional
-                        team pod.
+                        team pod (registry + runner).
                     </p>
 
                     <div class="hero-actions">
@@ -82,23 +81,113 @@
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">XLSX import + export</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Built-ins: vendor sync → local caches</span>
+                        <span class="meta-item">Formulas + CellGraph (multi-sheet)</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Scenarios + parameters</span>
+                        <span class="meta-item">PARAM() bindings + params_hash</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Workflows + replay (idempotency)</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Commit → Build → Verify → Release</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Release sets (batch runs)</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Audit trail + provenance</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Plugins (user, AI-assisted)</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Fast on real data (Polars)</span>
+                        <span class="meta-item">Pod: registry + runner</span>
                     </div>
 
                 </div>
             </div>
         </section>
 
+        <section id="whats-new" class="section">
+            <div class="container">
+                <h2 class="section-title">What’s new</h2>
+                <p class="section-lede">
+                    Recent upgrades push fin123 from “deterministic spreadsheet engine” into a governed model lifecycle:
+                    versioned inputs, verifiable builds, and release-grade distribution — locally-first, with an
+                    optional team pod.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">Pod mode: Registry + Runner</h3>
+                        <p>
+                            Optional Postgres registry for model versions, builds, releases, and release sets — plus a
+                            headless
+                            runner service (<code>POST /run</code>) to execute a specific
+                            <code>(model_id, model_version_id)</code>
+                            with parameter overrides. Local filesystem mode remains the default.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Release system + release sets</h3>
+                        <p>
+                            Releases are explicit approvals of immutable builds. Batch runs can be grouped into named
+                            release sets
+                            so “ship the universe build” becomes a single governed operation. In production mode,
+                            releases can be
+                            gated on a verify pass.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Workflows v1 + replay (idempotency)</h3>
+                        <p>
+                            Step-based workflows (sync/build/verify/batch/sweep) record per-step idempotency keys.
+                            Replay runs
+                            can generate a drift report when a workflow no longer produces identical keys under the same
+                            spec.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">PARAM() bindings + parameter fingerprints</h3>
+                        <p>
+                            <code>PARAM("name")</code> proxy cells bind parameters directly to sheet locations. Builds
+                            record
+                            <code>params_hash</code> (effective params) and <code>overlay_hash</code> (scenario-only
+                            overrides)
+                            so you can prove exactly what changed between two builds.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Import hardening + review workflow</h3>
+                        <p>
+                            XLSX import now produces a versioned import report that classifies every formula (supported
+                            /
+                            unsupported function / parse error / external link / plugin formula). Unsupported formulas
+                            are never
+                            rewritten; review actions include mark-as-TODO and convert-to-value when safe.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Events, incidents, and project health</h3>
+                        <p>
+                            Runs and syncs emit structured NDJSON events. The UI surfaces failures as incident cards
+                            (build/verify/sync/import)
+                            and rolls them up into a single health status signal (ok / warn / error).
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">The headline change</div>
+                        <div class="callout-body">
+                            fin123 now supports a full supply chain:
+                            <code>sync → commit → build → verify → release</code>,
+                            with an optional pod for centralized execution and governance.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
         <section id="why" class="section">
             <div class="container">
@@ -118,8 +207,7 @@
                         <p>
                             Dark, dense, keyboard-first. The grid is fast, the UI stays out of your way, and common
                             workflows are designed around navigation and batch edits. The difference is operational:
-                            your
-                            model has a lifecycle and produces versioned outputs you can audit and reproduce.
+                            your model has a lifecycle and produces versioned outputs you can audit and reproduce.
                         </p>
                     </div>
 
@@ -147,7 +235,7 @@
                             Teams do not run a model once. They run it across many tickers, scenarios, and parameter
                             sets. fin123 treats this as a structured build process: the same committed model runs
                             headlessly across a universe, producing versioned outputs you can diff and compare. Batch
-                            runs can stamp a shared build batch ID so outputs can be grouped and released as sets.
+                            runs stamp a shared build batch ID so outputs can be grouped and released as sets.
                         </p>
                     </div>
 
@@ -158,8 +246,8 @@
                             on the same committed model, not forked workbooks. fin123 records effective params and
                             scenario overlays per build so you can say “same model, different ticker” and know exactly
                             what changed — and what did not. Parameters can be bound to sheet cells using
-                            <code>PARAM()</code> proxy formulas, and builds record fingerprints for effective params and
-                            scenario overlays.
+                            <code>PARAM()</code> proxy formulas, and builds record fingerprints for effective params
+                            (<code>params_hash</code>) and scenario overlays (<code>overlay_hash</code>).
                         </p>
                     </div>
 
@@ -167,10 +255,9 @@
                         <h3 class="panel-title">Workflows produce artifacts — including AI, safely bounded</h3>
                         <p>
                             Scenario sweeps, batch runs, and post-processing are modeled as workflows that emit
-                            versioned
-                            artifacts with lineage. AI can generate artifacts (notes, summaries, derived outputs), but
-                            it
-                            is never embedded in live cell evaluation. Core computation stays deterministic.
+                            versioned artifacts with lineage. Workflows have step idempotency keys and optional replay
+                            reports to detect drift. AI can generate artifacts (notes, summaries, derived outputs),
+                            but it is never embedded in live cell evaluation. Core computation stays deterministic.
                         </p>
                     </div>
 
@@ -179,7 +266,8 @@
                         <p>
                             Broken links, “who edited this cell,” copy/paste drift, silent lookup fan-out, unreviewed
                             changes, and “which file is the real one.” fin123 makes model state explicit, versioned, and
-                            verifiable.
+                            verifiable — and surfaces issues as incidents (build/verify/sync/import) rather than hiding
+                            them in logs.
                         </p>
                     </div>
 
@@ -203,6 +291,19 @@
                             Grid authoring with a formula bar, multi-sheet workbooks, copy/paste TSV behavior, and XLSX
                             import/export (values, formulas, and font color). Scalar formulas support Excel-like
                             <code>=expression</code> syntax plus finance-oriented lookup semantics.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Formula engine + CellGraph</h3>
+                        <p>
+                            fin123 supports Excel-like expressions (<code>+ - * / ^</code>, comparisons, percent) and a
+                            growing function set. In the UI, the CellGraph evaluates cell formulas on-demand with
+                            memoization,
+                            cross-sheet references (<code>Sheet!A1</code>), named ranges for aggregates, and cycle
+                            detection.
+                            Errors render as <code>#ERR!</code> / <code>#CIRC!</code> instead of silently corrupting
+                            outputs.
                         </p>
                     </div>
 
@@ -231,7 +332,7 @@
                             XLSX import preserves formulas as-is and generates a versioned import report that classifies
                             every formula (supported, unsupported function, parse error, external link, plugin formula).
                             Unsupported formulas are never rewritten; review actions include marking TODO and converting
-                            to values when appropriate.
+                            formulas to values when appropriate.
                         </p>
                     </div>
                 </div>
@@ -254,7 +355,8 @@
                         <h3 class="panel-title">SQL datasheets → local parquet caches</h3>
                         <p>
                             Datasheets declare a connection and a query (inline or <code>.sql</code> file). Sync writes
-                            parquet caches and records provenance (query hash, rowcount, output file hash) so you can
+                            parquet caches and records provenance (query/spec hash, rowcount, output file hash) so you
+                            can
                             reproduce and audit exactly what inputs were used.
                         </p>
                     </div>
@@ -265,9 +367,9 @@
                             Built-ins are shipped integrations for third-party systems. They run during
                             <code>fin123 sync</code>, write local parquet outputs, and record provenance. Bloomberg is
                             sync-only and local-only (Terminal + <code>blpapi</code>), supporting BDP (reference) and
-                            BDH (historical) requests. If required libraries are missing, the built-in can be skipped;
-                            if
-                            the service is unavailable, sync fails loudly with diagnostics.
+                            BDH (historical) requests. Optional dependencies use safe detection: missing libraries are
+                            treated as <em>skipped</em> (with a warning), while service failures are <em>fail</em> with
+                            diagnostics.
                         </p>
                     </div>
 
@@ -322,11 +424,12 @@
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Build fingerprints and verification</h3>
+                        <h3 class="panel-title">Fingerprints: params, overlays, exports</h3>
                         <p>
-                            Each build records workbook hash, input hashes, effective params, scenario overlay hash, and
-                            engine version. Verification fails if recorded fingerprints drift. Release can be gated on a
-                            verify pass in production mode.
+                            Each build records workbook hash, input hashes, effective params (<code>params_hash</code>),
+                            scenario overlay (<code>overlay_hash</code>), plugin configuration
+                            (<code>plugin_hash</code>),
+                            and outputs (<code>export_hash</code>). Verification fails if recorded fingerprints drift.
                         </p>
                     </div>
 
@@ -345,11 +448,11 @@
                             <span class="dot" aria-hidden="true"></span>
                             <span class="code-title">workflow</span>
                         </div>
-                        <pre class="code"><code>fin123 sync  → local caches + provenance (sync_runs/)
+                        <pre class="code"><code>fin123 sync   → local caches + provenance (sync_runs/)
 fin123 commit → immutable snapshots (snapshots/)
 fin123 build  → immutable builds (runs/) + outputs + hashes
-fin123 verify → drift checks (params, overlays, exports)
-fin123 release → approved outputs (releases/)</code></pre>
+fin123 verify → drift checks (params, overlays, exports, plugins)
+fin123 release → approved outputs (releases/) + release sets</code></pre>
                     </div>
                 </div>
             </div>
@@ -370,8 +473,8 @@ fin123 release → approved outputs (releases/)</code></pre>
                         <h3 class="panel-title">Every run is traceable</h3>
                         <p>
                             Builds record a workbook hash, input file hashes, effective parameters, scenario overlays,
-                            and engine version. Verification fails if recorded fingerprints drift. Releases can be gated
-                            on a verify pass in production mode.
+                            engine version, and (optionally) plugin pins. Verification fails if fingerprints drift.
+                            In production mode, verification and assertion policies can hard-fail builds.
                         </p>
                     </div>
 
@@ -388,17 +491,30 @@ fin123 release → approved outputs (releases/)</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">Release only what you approve</h3>
                         <p>
-                            A release is an explicit act: mark outputs as approved and publish them as immutable release
-                            records. Teams can group releases as sets (for batch runs) and treat released outputs as the
-                            canonical artifacts downstream systems consume.
+                            A release is an explicit act: mark a build as approved and publish it as an immutable
+                            record.
+                            Batch builds can be grouped into <em>release sets</em> so you can ship a universe run as one
+                            governed unit.
+                            In production mode, releases can be gated on a verify pass.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Events, incidents, and health</h3>
+                        <p>
+                            fin123 emits structured NDJSON events for runs and syncs and surfaces failures as incident
+                            cards:
+                            sync errors, build errors, verify failures, assertion failures, and import issues. Project
+                            health
+                            aggregates these into a single status signal (ok / warn / error).
                         </p>
                     </div>
 
                     <div class="callout">
                         <div class="callout-title">Spreadsheet modeling as supply chain</div>
                         <div class="callout-body">
-                            Source (workbook) → dependencies (datasheets/built-ins) → build → verify → release. fin123
-                            makes the chain explicit, versioned, and enforceable.
+                            Source (workbook) → dependencies (datasheets/built-ins/plugins) → build → verify → release.
+                            fin123 makes the chain explicit, versioned, and enforceable.
                         </div>
                     </div>
 
@@ -465,8 +581,16 @@ fin123 release → approved outputs (releases/)</code></pre>
                     <pre class="code"><code>fin123 sync
 fin123 commit
 fin123 build --scenario base --set ticker=AAPL
-fin123 verify-build &lt;build_id&gt;
-fin123 release build &lt;build_id&gt;</code></pre>
+fin123 verify-build &lt;run_id&gt;
+fin123 release build &lt;run_id&gt;
+
+# batch (universe)
+fin123 batch build &lt;dir&gt; --params-file params.csv --scenario base
+fin123 release set create --name spx_base --from-batch &lt;build_batch_id&gt; --require-verify-pass
+
+# workflows (step-based)
+fin123 workflow run build_and_verify &lt;dir&gt;
+fin123 workflow run build_and_verify &lt;dir&gt; --replay wfr_0007</code></pre>
                 </div>
             </div>
         </section>
@@ -477,7 +601,7 @@ fin123 release build &lt;build_id&gt;</code></pre>
                 <h2 class="section-title">Pod version (team mode)</h2>
                 <p class="section-lede">
                     fin123 runs locally-first, but teams can opt into a shared pod: registry + runner for centralized
-                    execution, shared caches, and governance.
+                    execution, shared version tracking, and governance.
                 </p>
 
                 <div class="stack">
@@ -487,7 +611,7 @@ fin123 release build &lt;build_id&gt;</code></pre>
                         <p>
                             A Postgres-backed registry can store model versions, builds, releases, and release sets with
                             idempotent upserts. Local filesystem mode remains the default; DB is opt-in for team
-                            visibility and automation.
+                            visibility, automation, and shared audit trails.
                         </p>
                     </div>
 
@@ -497,7 +621,8 @@ fin123 release build &lt;build_id&gt;</code></pre>
                             A pod runner executes a specific <code>(model_id, model_version_id)</code> with parameter
                             overrides via a simple API (<code>POST /run</code>) and returns versioned outputs. This
                             turns
-                            “run the model” into an automatable backend capability.
+                            “run the model” into an automatable backend capability for schedulers, pipelines, and
+                            services.
                         </p>
                     </div>
 
@@ -506,14 +631,15 @@ fin123 release build &lt;build_id&gt;</code></pre>
                         <p>
                             In production mode, builds can be blocked on import parse errors, missing SQL schema guards,
                             missing plugin pins, or an unreachable registry. Releases can be gated on verify pass.
+                            Assertions with severity <code>error</code> can hard-fail builds.
                         </p>
                     </div>
 
                     <div class="callout">
                         <div class="callout-title">DevOps for models, when you need it</div>
                         <div class="callout-body">
-                            When teams want centralized execution and governance, the pod turns builds and releases into
-                            an automatable service. Local-first remains the default.
+                            The pod turns builds and releases into an automatable service while keeping the engine
+                            local-first and deterministic by default.
                         </div>
                     </div>
 
@@ -544,7 +670,8 @@ fin123 release build &lt;build_id&gt;</code></pre>
                         <h3 class="panel-title">Operator guarantees</h3>
                         <p>
                             Offline builds, immutable snapshots and runs, bounded storage with GC + pinning, validated
-                            lookup/join semantics, and verification gates that fail when fingerprints drift.
+                            lookup/join semantics, structured events + incidents, and verification gates that fail when
+                            fingerprints drift.
                         </p>
                     </div>
 
@@ -560,7 +687,7 @@ fin123 release build &lt;build_id&gt;</code></pre>
                         <h3 class="panel-title">DB optional, pod optional</h3>
                         <p>
                             Run fully standalone on the filesystem. Enable the shared pod and registry when you want
-                            centralized execution, shared caches, and team governance.
+                            centralized execution, shared version tracking, and team governance.
                         </p>
                     </div>
 
