@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="fin123 — the operating standard for financial models: deterministic builds, governance, and audit-grade releases." />
+    <title>fin123 — Why this matters</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <a class="skip" href="#content">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="prompt" aria-hidden="true">$</span>
+                <a class="brand-link" href="./index.html" aria-label="fin123 home">fin123</a>
+            </div>
+
+            <nav class="nav">
+                <a href="#why">Why</a>
+                <a href="#opensource">Open Source</a>
+                <a href="#pod">Pod</a>
+                <a href="#downloads">Downloads</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="content" class="site-main">
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-card">
+                    <div class="hero-banner" aria-label="fin123 UI preview">
+                        <div class="hero-banner-badge" aria-hidden="true">
+                            <span class="hero-banner-prompt">$</span>
+                            <span class="hero-banner-name">fin123</span>
+                        </div>
+                        <img src="./banner.png" alt="fin123 interface preview" loading="eager" />
+                    </div>
+                    <div class="kicker">Why this matters</div>
+                    <h3 class="title">The operating standard for financial models</h3>
+
+                    <p class="subtitle">
+                        A finance-aware, deterministic modeling infrastructure embedded in firm workflows.
+                    </p>
+
+                    <p class="value">
+                        fin123 turns financial models into versioned, reproducible artifacts with audit
+                        trails, governance controls, and controlled release workflows. Author locally.
+                        Build deterministically. Approve and deploy with institutional discipline —
+                        individually or through a licensed team pod (registry + runner).
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn" href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request a walkthrough</a>
+                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core on GitHub</a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <span class="meta-item">Versioned models + inputs</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Deterministic builds</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Cryptographic verification</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Governed release workflows</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Scenario + parameter management</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Batch runs + release sets</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Audit trail + provenance</span>
+                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-item">Team registry + runner (Pod)</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="whats-new" class="section">
+            <div class="container">
+                <h2 class="section-title">What's new</h2>
+                <p class="section-lede">
+                    Latest release: 0.3.2 — built-in demo suite, deterministic output verification,
+                    16 formula functions, and interactive sort/filter.
+                </p>
+
+                <div class="stack">
+
+                    <div class="callout">
+                        <div class="callout-title">Release 0.3.2</div>
+                        <div class="callout-body">
+                            Demo suite with four end-to-end scenarios, deterministic output
+                            verification, 16 new formula functions, interactive table sort/filter,
+                            and expanded operational documentation.
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Built-in demo suite</h3>
+                        <p>
+                            Four self-contained demos run the full build lifecycle end-to-end with no
+                            external data or configuration:
+                            <code>fin123-core demo ai-governance</code>,
+                            <code>fin123-core demo deterministic-build</code>,
+                            <code>fin123-core demo batch-sweep</code>,
+                            <code>fin123-core demo data-guardrails</code>.
+                            Each demo produces deterministic, hash-stable output.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Determinism verification</h3>
+                        <p>
+                            The <code>deterministic-build</code> demo scaffolds a project, builds it
+                            twice, and confirms identical outputs via SHA-256 hash comparison. Combined
+                            with <code>verify-build</code>, this provides end-to-end proof that
+                            identical inputs always produce identical results.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">16 new formula functions</h3>
+                        <p>
+                            The formula engine now supports:
+                            <strong>Financial</strong> — <code>NPV</code>, <code>IRR</code>, <code>XNPV</code>, <code>XIRR</code>;
+                            <strong>Date</strong> — <code>DATE</code>, <code>YEAR</code>, <code>MONTH</code>, <code>DAY</code>, <code>EOMONTH</code>;
+                            <strong>Lookup</strong> — <code>MATCH</code>, <code>INDEX</code>, <code>XLOOKUP</code>;
+                            <strong>Logical</strong> — <code>AND</code>, <code>OR</code>, <code>NOT</code>;
+                            <strong>Error</strong> — <code>ISERROR</code>.
+                            All formulas evaluate deterministically with no external dependencies.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">View sort and filter</h3>
+                        <p>
+                            Click a column header to sort. Right-click to filter by numeric range,
+                            text match, value list, or blanks. Transforms are view-only — model
+                            data is never mutated.
+                        </p>
+                    </div>
+
+                </div>
+
+                <p style="margin-top: 24px; font-size: 12px; color: var(--fg-dim);">
+                    Full release history:
+                    <a href="https://github.com/reckoning-machines/fin123_public/releases" style="color: var(--fg-dim); text-decoration: underline;">GitHub Releases</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="why" class="section">
+            <div class="container">
+                <h2 class="section-title">Why this matters</h2>
+                <p class="section-lede">
+                    fin123 is for teams who need Excel's design model but cannot accept spreadsheet fragility. It gives
+                    financial models a real lifecycle: commit changes, build deterministic outputs, verify drift, then
+                    release only what you approve. You keep analyst speed in a grid — and gain reproducibility,
+                    auditability, and scale across tickers, scenarios, and parameter sets in a governed model supply
+                    chain.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">Spreadsheet UX, real lifecycle</h3>
+                        <p>
+                            Dark, dense, keyboard-first. The grid is fast, the UI stays out of your way, and common
+                            workflows are designed around navigation and batch edits. The difference is operational:
+                            your model has a lifecycle and produces versioned outputs you can audit and reproduce.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Stop saving files. Start shipping models.</h3>
+                        <p>
+                            Spreadsheet workflows blur editing, execution, and publication. fin123 enforces boundaries:
+                            commit changes, build deterministic outputs, verify integrity, then release only what you
+                            approve. Reproducibility becomes a system property, not a social contract.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Fast on real data</h3>
+                        <p>
+                            Table computations compile as Polars LazyFrame plans and materialize at the end. That means
+                            the engine optimizes work before it runs, and repeated "try another case" loops get cheaper.
+                            Sync once into local parquet caches; builds stay offline.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Scale one committed model across tickers and cases</h3>
+                        <p>
+                            Teams do not run a model once. They run it across many tickers, scenarios, and parameter
+                            sets. fin123 treats this as a structured build process: the same committed model runs
+                            headlessly across a universe, producing versioned outputs you can diff and compare. Batch
+                            runs stamp a shared build batch ID so outputs can be grouped and released as sets.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Parameters and scenarios are first-class</h3>
+                        <p>
+                            Parameters are explicit system inputs, not invisible cell mutations. Scenarios are overlays
+                            on the same committed model, not forked workbooks. fin123 records effective params and
+                            scenario overlays per build so you can say "same model, different ticker" and know exactly
+                            what changed — and what did not. Parameters can be bound to sheet cells using
+                            <code>PARAM()</code> proxy formulas, and builds record fingerprints for effective params
+                            (<code>params_hash</code>) and scenario overlays (<code>overlay_hash</code>).
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Workflows produce artifacts — including AI, safely bounded</h3>
+                        <p>
+                            Scenario sweeps, batch runs, and post-processing are modeled as workflows that emit
+                            versioned artifacts with lineage. Workflows have step idempotency keys and optional replay
+                            reports to detect drift. AI can generate artifacts (notes, summaries, derived outputs),
+                            but it is never embedded in live cell evaluation. Core computation stays deterministic.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Common spreadsheet failures we eliminate</h3>
+                        <p>
+                            Broken links, "who edited this cell," copy/paste drift, silent lookup fan-out, unreviewed
+                            changes, and "which file is the real one." fin123 makes model state explicit, versioned, and
+                            verifiable — and surfaces issues as incidents (build/verify/sync/import) rather than hiding
+                            them in logs.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="excel" class="section">
+            <div class="container">
+                <h2 class="section-title">Excel compatibility envelope</h2>
+                <p class="section-lede">
+                    fin123 keeps the spreadsheet mental model and supports XLSX import/export, but it is not trying to
+                    be Excel parity. The goal is deterministic modeling you can scale and audit.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <h3 class="panel-title">What stays familiar</h3>
+                        <p>
+                            Grid authoring with a formula bar, multi-sheet workbooks, copy/paste TSV behavior, and XLSX
+                            import/export (values, formulas, and font color). Scalar formulas support Excel-like
+                            <code>=expression</code> syntax plus finance-oriented lookup semantics.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Formula engine + CellGraph</h3>
+                        <p>
+                            fin123 supports Excel-like expressions (<code>+ - * / ^</code>, comparisons, percent) and a
+                            growing function set. In the UI, the CellGraph evaluates cell formulas on-demand with
+                            memoization,
+                            cross-sheet references (<code>Sheet!A1</code>), named ranges for aggregates, and cycle
+                            detection.
+                            Errors render as <code>#ERR!</code> / <code>#CIRC!</code> instead of silently corrupting
+                            outputs.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">XLSX export is deterministic</h3>
+                        <p>
+                            Export produces a clean XLSX for sharing: values, formulas, and font color (current scope).
+                            Exports are artifacts of a specific committed model + build inputs, and can be verified and
+                            diffed the same way as parquet outputs.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">What fin123 intentionally does not do</h3>
+                        <p>
+                            No macros/VBA, no pivots, no charts, no conditional formatting, no volatile functions
+                            (<code>NOW()</code>, <code>RAND()</code>), no dynamic reference functions
+                            (<code>INDIRECT()</code>, <code>OFFSET()</code>), no spill/array formulas, no range
+                            expressions (<code>A1:A10</code> — use named ranges), and NO PRINT BUTTON.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Import is best-effort, never silent</h3>
+                        <p>
+                            XLSX import preserves formulas as-is and generates a versioned import report that classifies
+                            every formula (supported, unsupported function, parse error, external link, plugin formula).
+                            Unsupported formulas are never rewritten; review actions include marking TODO and converting
+                            formulas to values when appropriate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="builtins" class="section">
+            <div class="container">
+                <h2 class="section-title">Built-ins: vendor data, governed ingestion</h2>
+                <p class="section-lede">
+                    fin123 separates data acquisition from evaluation. Built-ins fetch vendor data during
+                    <code>fin123 sync</code> and write local parquet caches with provenance. Builds are offline and read
+                    only local files.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">SQL datasheets → local parquet caches</h3>
+                        <p>
+                            Datasheets declare a connection and a query (inline or <code>.sql</code> file). Sync writes
+                            parquet caches and records provenance (query/spec hash, rowcount, output file hash) so you
+                            can
+                            reproduce and audit exactly what inputs were used.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Bloomberg / Visible Alpha built-ins</h3>
+                        <p>
+                            Built-ins are shipped integrations for third-party systems. They run during
+                            <code>fin123 sync</code>, write local parquet outputs, and record provenance. Bloomberg is
+                            sync-only and local-only (Terminal + <code>blpapi</code>), supporting BDP (reference) and
+                            BDH (historical) requests. Optional dependencies use safe detection: missing libraries are
+                            treated as <em>skipped</em> (with a warning), while service failures are <em>fail</em> with
+                            diagnostics.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Built-ins vs plugins</h3>
+                        <p>
+                            Built-ins are shipped connectors for vendor data and are enabled by project config and
+                            production-mode allowlists. Plugins are user-created code bundles (often AI-assisted) that
+                            add custom functions, workflows, and connectors — versioned and pinned so builds run with
+                            the exact operators you approved.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">No live vendor calls during builds</div>
+                        <div class="callout-body">
+                            <code>sync</code> is the only step allowed to touch external systems. <code>build</code>
+                            reads only local parquet/CSV caches so outputs are deterministic and verifiable.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="determinism" class="section">
+            <div class="container">
+                <h2 class="section-title">Determinism contract</h2>
+                <p class="section-lede">
+                    Determinism is enforced by design: sync is separated from build, builds run offline, and every build
+                    records the fingerprints needed to prove reproducibility.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <h3 class="panel-title">Offline builds</h3>
+                        <p>
+                            <code>fin123 sync</code> fetches vendor data and writes local parquet caches with
+                            provenance.
+                            <code>fin123 build</code> reads only local files and never touches a live database.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Two-graph evaluation model</h3>
+                        <p>
+                            Table computations compile Polars LazyFrame plans and materialize at the end; scalar
+                            computations evaluate a named DAG with explicit dependencies. Lookups read from a run-local
+                            materialization cache, not ad-hoc queries.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Fingerprints: params, overlays, exports</h3>
+                        <p>
+                            Each build records workbook hash, input hashes, effective params (<code>params_hash</code>),
+                            scenario overlay (<code>overlay_hash</code>), plugin configuration
+                            (<code>plugin_hash</code>),
+                            and outputs (<code>export_hash</code>). Verification fails if recorded fingerprints drift.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Byte-stable exports</h3>
+                        <p>
+                            When a plan does not specify a sort, fin123 applies a deterministic secondary sort at export
+                            time so the same inputs produce byte-identical parquet outputs.
+                        </p>
+                    </div>
+
+                    <div class="code-panel" role="region" aria-label="Lifecycle overview">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">workflow</span>
+                        </div>
+                        <pre class="code"><code>fin123 sync   → local caches + provenance (sync_runs/)
+fin123 commit → immutable snapshots (snapshots/)
+fin123 build  → immutable builds (runs/) + outputs + hashes
+fin123 verify → drift checks (params, overlays, exports, plugins)
+fin123 release → approved outputs (releases/) + release sets</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="audit" class="section">
+            <div class="container">
+                <h2 class="section-title">Audit and governance</h2>
+                <p class="section-lede">
+                    fin123 is designed for auditability: you can answer "what ran, with which inputs, under which
+                    assumptions, and who approved the output" without reconstructing history from filenames.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">Every run is traceable</h3>
+                        <p>
+                            Builds record a workbook hash, input file hashes, effective parameters, scenario overlays,
+                            engine version, and (optionally) plugin pins. Verification fails if fingerprints drift.
+                            In production mode, verification and assertion policies can hard-fail builds.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Vendor data is versioned with provenance</h3>
+                        <p>
+                            Sync produces local parquet caches and a provenance record (query/spec hash, rowcount,
+                            output
+                            file hash, timestamps). Builds consume only these local versions, keeping evaluation offline
+                            and reproducible.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Release only what you approve</h3>
+                        <p>
+                            A release is an explicit act: mark a build as approved and publish it as an immutable
+                            record.
+                            Batch builds can be grouped into <em>release sets</em> so you can ship a universe run as one
+                            governed unit.
+                            In production mode, releases can be gated on a verify pass.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Events, incidents, and health</h3>
+                        <p>
+                            fin123 emits structured NDJSON events for runs and syncs and surfaces failures as incident
+                            cards:
+                            sync errors, build errors, verify failures, assertion failures, and import issues. Project
+                            health
+                            aggregates these into a single status signal (ok / warn / error).
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">Spreadsheet modeling as supply chain</div>
+                        <div class="callout-body">
+                            Source (workbook) → dependencies (datasheets/built-ins/plugins) → build → verify → release.
+                            fin123 makes the chain explicit, versioned, and enforceable.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="safety" class="section">
+            <div class="container">
+                <h2 class="section-title">Finance-safe lookups and joins</h2>
+                <p class="section-lede">
+                    Silent row multiplication is unacceptable in finance. fin123 defaults to deterministic, validated
+                    join and lookup semantics.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <h3 class="panel-title">Deterministic joins with cardinality validation</h3>
+                        <p>
+                            <code>join_left</code> defaults to <code>many_to_one</code> validation so the right-side
+                            keys
+                            must be unique. Duplicate keys fail with sample duplicates; null keys are rejected under
+                            strict validation. Join key dtypes are checked up front to prevent silent mismatch.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">VLOOKUP semantics with diagnostics</h3>
+                        <p>
+                            <code>lookup_scalar</code> is exact-match and defaults to error on missing or duplicate
+                            keys.
+                            Errors surface available columns and key samples for fast debugging. Declared primary keys
+                            can be enforced at materialization time.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">Fail fast, not quietly</div>
+                        <div class="callout-body">
+                            If a lookup is ambiguous or a join would multiply rows, the build should fail loudly with
+                            actionable diagnostics.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="cli" class="section">
+            <div class="container">
+                <h2 class="section-title">Run it</h2>
+                <p class="section-lede">
+                    Keep the UI for authoring. Use the CLI for scale. Sync data once, then run offline.
+                </p>
+
+                <div class="code-panel" role="region" aria-label="CLI examples">
+                    <div class="code-header">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="code-title">terminal</span>
+                    </div>
+                    <pre class="code"><code>fin123 sync
+fin123 commit
+fin123 build --scenario base --set ticker=AAPL
+fin123 verify-build &lt;run_id&gt;
+fin123 release build &lt;run_id&gt;
+
+# batch (universe)
+fin123 batch build &lt;dir&gt; --params-file params.csv --scenario base
+fin123 release set create --name spx_base --from-batch &lt;build_batch_id&gt; --require-verify-pass
+
+# workflows (step-based)
+fin123 workflow run build_and_verify &lt;dir&gt;
+fin123 workflow run build_and_verify &lt;dir&gt; --replay wfr_0007</code></pre>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="opensource" class="section">
+            <div class="container">
+                <h2 class="section-title">Open source — fin123-core</h2>
+                <p class="section-lede">
+                    The core engine is open source under the Apache-2.0 license. It is a complete, standalone
+                    product — no database, no server, no account required. Install it, build models, and
+                    use the browser UI entirely on your own machine.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">What's included (open source)</h3>
+                        <p>
+                            Workbook engine (scalar DAG + table LazyFrame evaluation), Lark LALR(1) formula parser,
+                            CellGraph with cross-sheet references and named ranges, local browser UI (FastAPI on
+                            localhost, canvas grid, keyboard-first), immutable versioning (snapshots, builds, artifacts),
+                            batch builds, diff engine, verify, GC, XLSX import with formula classification, and
+                            project templates.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Full lifecycle, no dependencies</h3>
+                        <p>
+                            Edit → Commit → Build → Verify. Every build is deterministic and reproducible from local
+                            files alone. The CLI and browser UI ship together. No external services needed.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">Apache-2.0 license</div>
+                        <div class="callout-body">
+                            Use, modify, and distribute freely. The core engine will always be open source.
+                            <br><br>
+                            <a class="btn" href="https://github.com/reckoning-machines/fin123-core">View on GitHub</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="pod" class="section">
+            <div class="container">
+                <h2 class="section-title">Pod — enterprise and team layer (private)</h2>
+                <p class="section-lede">
+                    fin123-pod is a proprietary add-on for teams that need shared state, automation, and
+                    governance. It extends fin123-core with database-backed infrastructure. Requires a license.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">What Pod adds</h3>
+                        <p>
+                            SQL sync (Postgres → local parquet caches with provenance), Bloomberg and plugin connectors,
+                            Postgres model registry (versions, builds, releases), headless runner service
+                            (<code>POST /run</code>), multi-step workflows with replay, release system with release sets,
+                            and production mode gates.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Registry + runner for centralized execution</h3>
+                        <p>
+                            Push model versions to a shared Postgres registry. The headless runner executes a specific
+                            <code>(model_id, model_version_id)</code> with parameter overrides and returns versioned
+                            outputs — turning "run the model" into an automatable backend capability.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Production mode governance</h3>
+                        <p>
+                            In production mode, builds can be blocked on import parse errors, missing SQL schema guards,
+                            missing plugin pins, or an unreachable registry. Releases are gated on verify pass.
+                            Assertions with severity <code>error</code> hard-fail builds.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">Proprietary — contact us for access</div>
+                        <div class="callout-body">
+                            Pod is closed source. It depends on fin123-core (open source) and adds enterprise
+                            capabilities. The core engine works fully standalone without Pod.
+                            <a class="link" href="mailto:reckoningmachines@gmail.com">Contact us</a> for licensing.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="guarantees" class="section">
+            <div class="container">
+                <h2 class="section-title">System guarantees</h2>
+                <p class="section-lede">
+                    These are the guarantees fin123 is designed to enforce — the contract teams can rely on.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">Analyst guarantees</h3>
+                        <p>
+                            Keyboard-first grid authoring, multi-sheet support, explicit parameters and scenarios, fast
+                            iteration on real data, and versioned builds you can diff. Imports never silently rewrite
+                            formulas; issues are surfaced in a report with a review workflow.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Operator guarantees</h3>
+                        <p>
+                            Offline builds, immutable snapshots and runs, bounded storage with GC + pinning, validated
+                            lookup/join semantics, structured events + incidents, and verification gates that fail when
+                            fingerprints drift.
+                        </p>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout-title">AI is an artifact producer, not a live dependency</div>
+                        <div class="callout-body">
+                            AI steps can generate versioned artifacts, but core evaluation stays deterministic. AI is
+                            never embedded in live cell computation.
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">DB optional, pod optional</h3>
+                        <p>
+                            Run fully standalone on the filesystem. Enable the shared pod and registry when you want
+                            centralized execution, shared version tracking, and team governance.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Plugins are user code, safely governed (AI-assisted)</h3>
+                        <p>
+                            Plugins are user-created bundles: custom scalar functions, table functions, workflows, and
+                            (optionally) custom connectors. AI can help generate plugin code and manifests, but plugins
+                            are versioned, pinned, and validated for engine compatibility. In production mode, missing
+                            plugin pins can block builds.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="downloads" class="section">
+            <div class="container">
+                <h2 class="section-title">Downloads</h2>
+                <p class="section-lede">
+                    fin123 v0.3.2 — standalone binaries. No Python required.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn" href="https://github.com/reckoning-machines/fin123_public/releases/download/core-v0.3.2/fin123-core-0.3.2-macos-arm64.zip">macOS arm64 (.zip)</a>
+                    <a class="btn" href="https://github.com/reckoning-machines/fin123_public/releases/download/core-v0.3.2/fin123-core-0.3.2-windows-x86_64.zip">Windows x86_64 (.zip)</a>
+                    <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123_public/releases/download/core-v0.3.2/SHA256SUMS.txt">SHA256SUMS</a>
+                </div>
+
+                <p style="margin-top: 20px; font-size: 11px; color: var(--fg-dim); letter-spacing: 0.5px; text-transform: uppercase;">Release: core-v0.3.2</p>
+                <div class="code-panel" style="margin-top: 6px;" role="region" aria-label="Verify download integrity">
+                    <div class="code-header">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="code-title">verify integrity</span>
+                    </div>
+                    <pre class="code"><code># macOS / Linux — download SHA256SUMS.txt into the same folder, then:
+shasum -a 256 -c SHA256SUMS.txt
+
+# Windows (PowerShell):
+certutil -hashfile fin123-core-0.3.2-windows-x86_64.zip SHA256</code></pre>
+                </div>
+
+                <div class="stack" style="margin-top: 40px;">
+                    <div class="panel">
+                        <h3 class="panel-title">Quick start (macOS — no Python required)</h3>
+                        <p>
+                            Download and extract <code>fin123-core-0.3.2-macos-arm64.zip</code>.
+                            Open Terminal in the extracted folder and run:
+                        </p>
+                    </div>
+
+                    <div class="code-panel" role="region" aria-label="macOS quick start">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">terminal</span>
+                        </div>
+                        <pre class="code"><code># see bundled templates
+./fin123-core template list
+
+# scaffold a demo project
+./fin123-core new demo --template demo_fin123
+
+# build it
+./fin123-core build demo
+
+# open the browser UI
+./fin123-core ui demo</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Quick start (Windows — no Python required)</h3>
+                        <p>
+                            Download and extract <code>fin123-core-0.3.2-windows-x86_64.zip</code>.
+                            Open a terminal (Command Prompt or PowerShell) in the extracted folder and run:
+                        </p>
+                    </div>
+
+                    <div class="code-panel" role="region" aria-label="Windows quick start">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">terminal</span>
+                        </div>
+                        <pre class="code"><code># see bundled templates
+fin123-core.exe template list
+
+# scaffold a demo project
+fin123-core.exe new demo --template demo_fin123
+
+# build it
+fin123-core.exe build demo
+
+# open the browser UI
+fin123-core.exe ui demo</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">What the demo shows</h3>
+                        <p>
+                            The <code>demo_fin123</code> template creates a project with tables, scalar formulas,
+                            <code>PARAM()</code> bindings, and assertions. After the build you can explore outputs,
+                            override parameters, diff two runs, and try the full
+                            commit → build → verify → release lifecycle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <div class="container">
+                <div class="callout" style="text-align:center;">
+                    <div class="callout-title">Shaping the operating standard</div>
+                    <div class="callout-body">
+                        <p>
+                            fin123 is onboarding a small number of institutional design partners.
+                            If your team is evaluating deterministic model governance or reproducible
+                            research workflows, request a walkthrough to discuss early access.
+                        </p>
+                        <p style="margin-top:1.25rem;">
+                            <a class="btn"
+                                href="mailto:reckoningmachines@gmail.com?subject=fin123%20walkthrough%20request">Request
+                                a walkthrough</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="panel">
+                    <p class="contact-line">
+                        Email the maintainer for beta:
+                        <a class="link" href="mailto:reckoningmachines@gmail.com">reckoningmachines@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2026 Reckoning Machines · Core is <a class="link" href="https://github.com/reckoning-machines/fin123-core">open source</a> (Apache-2.0)</div>
+            <div class="footer-right">No tracking. Static site.</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
