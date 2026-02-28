@@ -159,6 +159,7 @@ em { font-style: italic; color: var(--fg-dim); }
 
 /* ── Panel (card) ── */
 .panel {
+    position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -200,8 +201,24 @@ em { font-style: italic; color: var(--fg-dim); }
     color: var(--fg);
 }
 
+/* ── Warm edge accent ── */
+.panel::before,
+.hero-card::before,
+.code-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(245, 158, 11, 0.24), transparent);
+    pointer-events: none;
+    border-radius: var(--radius) 0 0 0;
+}
+
 /* ── Code panel ── */
 .code-panel {
+    position: relative;
     background: var(--bg-code);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -253,6 +270,7 @@ pre.code code {
 }
 
 .hero-card {
+    position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
