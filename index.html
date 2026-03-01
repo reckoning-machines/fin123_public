@@ -108,10 +108,10 @@
                         <p>
                             Four self-contained demos run the full build lifecycle end-to-end with no
                             external data or configuration:
-                            <code>fin123-core demo ai-governance</code>,
-                            <code>fin123-core demo deterministic-build</code>,
-                            <code>fin123-core demo batch-sweep</code>,
-                            <code>fin123-core demo data-guardrails</code>.
+                            <code>fin123 demo ai-governance</code>,
+                            <code>fin123 demo deterministic-build</code>,
+                            <code>fin123 demo batch-sweep</code>,
+                            <code>fin123 demo data-guardrails</code>.
                             Each demo produces deterministic, hash-stable output.
                         </p>
                     </div>
@@ -121,7 +121,7 @@
                         <p>
                             The <code>deterministic-build</code> demo scaffolds a project, builds it
                             twice, and confirms identical outputs via SHA-256 hash comparison. Combined
-                            with <code>verify-build</code>, this provides end-to-end proof that
+                            with <code>verify</code>, this provides end-to-end proof that
                             identical inputs always produce identical results.
                         </p>
                     </div>
@@ -552,7 +552,7 @@ fin123 release → approved outputs (releases/) + release sets</code></pre>
                     <pre class="code"><code>fin123 sync
 fin123 commit
 fin123 build --scenario base --set ticker=AAPL
-fin123 verify-build &lt;run_id&gt;
+fin123 verify &lt;run_id&gt;
 fin123 release build &lt;run_id&gt;
 
 # batch (universe)
@@ -774,16 +774,16 @@ certutil -hashfile fin123-core-0.3.2-windows-x86_64.zip SHA256</code></pre>
                             <span class="code-title">terminal</span>
                         </div>
                         <pre class="code"><code># see bundled templates
-./fin123-core template list
+./fin123 template list
 
 # scaffold a demo project
-./fin123-core new demo --template demo_fin123
+./fin123 init demo --template demo_fin123
 
 # build it
-./fin123-core build demo
+./fin123 build demo
 
 # open the browser UI
-./fin123-core ui demo</code></pre>
+./fin123 ui demo</code></pre>
                     </div>
 
                     <div class="panel">
@@ -802,16 +802,16 @@ certutil -hashfile fin123-core-0.3.2-windows-x86_64.zip SHA256</code></pre>
                             <span class="code-title">terminal</span>
                         </div>
                         <pre class="code"><code># see bundled templates
-fin123-core.exe template list
+fin123.exe template list
 
 # scaffold a demo project
-fin123-core.exe new demo --template demo_fin123
+fin123.exe init demo --template demo_fin123
 
 # build it
-fin123-core.exe build demo
+fin123.exe build demo
 
 # open the browser UI
-fin123-core.exe ui demo</code></pre>
+fin123.exe ui demo</code></pre>
                     </div>
 
                     <div class="panel">
