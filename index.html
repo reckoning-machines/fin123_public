@@ -88,18 +88,18 @@
             <div class="container">
                 <h2 class="section-title">What's new</h2>
                 <p class="section-lede">
-                    Latest release: 0.3.2 — built-in demo suite, deterministic output verification,
-                    16 formula functions, and interactive sort/filter.
+                    Latest release: 0.3.3 — unified CLI, doctor command, JSON contract,
+                    and CI contract drift check.
                 </p>
 
                 <div class="stack">
 
                     <div class="callout">
-                        <div class="callout-title">Release 0.3.2</div>
+                        <div class="callout-title">Release 0.3.3</div>
                         <div class="callout-body">
-                            Demo suite with four end-to-end scenarios, deterministic output
-                            verification, 16 new formula functions, interactive table sort/filter,
-                            and expanded operational documentation.
+                            Unified <code>fin123</code> CLI entrypoint, <code>fin123 doctor</code> with
+                            JSON contract and structured exit codes, CLI specification with CI
+                            contract drift check.
                         </div>
                     </div>
 
@@ -154,7 +154,7 @@
 
                 <p style="margin-top: 24px; font-size: 12px; color: var(--fg-dim);">
                     Full release history:
-                    <a href="https://github.com/reckoning-machines/fin123_public/releases"
+                    <a href="https://github.com/reckoning-machines/fin123-core/releases"
                         style="color: var(--fg-dim); text-decoration: underline;">GitHub Releases</a>
                 </p>
             </div>
@@ -727,22 +727,22 @@ fin123 workflow run build_and_verify &lt;dir&gt; --replay wfr_0007</code></pre>
             <div class="container">
                 <h2 class="section-title">Downloads</h2>
                 <p class="section-lede">
-                    fin123 v0.3.2 — standalone binaries. No Python required.
+                    fin123 v0.3.3 — standalone binaries. No Python required.
                 </p>
                 <div class="hero-actions">
                     <a class="btn"
-                        href="https://github.com/reckoning-machines/fin123_public/releases/download/core-v0.3.2/fin123-core-0.3.2-macos-arm64.zip">macOS
+                        href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.3.3/fin123-core-0.3.3-macos-arm64.zip">macOS
                         arm64 (.zip)</a>
                     <a class="btn"
-                        href="https://github.com/reckoning-machines/fin123_public/releases/download/core-v0.3.2/fin123-core-0.3.2-windows-x86_64.zip">Windows
+                        href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.3.3/fin123-core-0.3.3-windows-x86_64.zip">Windows
                         x86_64 (.zip)</a>
                     <a class="btn btn-ghost"
-                        href="https://github.com/reckoning-machines/fin123_public/releases/download/core-v0.3.2/SHA256SUMS.txt">SHA256SUMS</a>
+                        href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.3.3/SHA256SUMS.txt">SHA256SUMS</a>
                 </div>
 
                 <p
                     style="margin-top: 20px; font-size: 11px; color: var(--fg-dim); letter-spacing: 0.5px; text-transform: uppercase;">
-                    Release: core-v0.3.2</p>
+                    Release: core-v0.3.3</p>
                 <div class="code-panel" style="margin-top: 6px;" role="region" aria-label="Verify download integrity">
                     <div class="code-header">
                         <span class="dot" aria-hidden="true"></span>
@@ -754,14 +754,14 @@ fin123 workflow run build_and_verify &lt;dir&gt; --replay wfr_0007</code></pre>
 shasum -a 256 -c SHA256SUMS.txt
 
 # Windows (PowerShell):
-certutil -hashfile fin123-core-0.3.2-windows-x86_64.zip SHA256</code></pre>
+certutil -hashfile fin123-core-0.3.3-windows-x86_64.zip SHA256</code></pre>
                 </div>
 
                 <div class="stack" style="margin-top: 40px;">
                     <div class="panel">
                         <h3 class="panel-title">Quick start (macOS — no Python required)</h3>
                         <p>
-                            Download and extract <code>fin123-core-0.3.2-macos-arm64.zip</code>.
+                            Download and extract <code>fin123-core-0.3.3-macos-arm64.zip</code>.
                             Open Terminal in the extracted folder and run:
                         </p>
                     </div>
@@ -789,7 +789,7 @@ certutil -hashfile fin123-core-0.3.2-windows-x86_64.zip SHA256</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">Quick start (Windows — no Python required)</h3>
                         <p>
-                            Download and extract <code>fin123-core-0.3.2-windows-x86_64.zip</code>.
+                            Download and extract <code>fin123-core-0.3.3-windows-x86_64.zip</code>.
                             Open a terminal (Command Prompt or PowerShell) in the extracted folder and run:
                         </p>
                     </div>
