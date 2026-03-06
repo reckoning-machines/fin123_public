@@ -60,6 +60,15 @@
                         Built for mission-critical financial models.
                     </p>
 
+                    <p class="value" style="margin-top: 12px;">
+                        <strong>Embed operational worksheets in applications without writing spreadsheet
+                            logic in HTML or JavaScript.</strong>
+                    </p>
+                    <p class="value" style="margin-top: 4px; font-size: 13px; color: var(--fg-dim);">
+                        Define worksheet views over tabular data, compile them into verifiable artifacts,
+                        and render them in a thin viewer.
+                    </p>
+
                     <div class="hero-actions">
                         <a class="btn"
                             href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request a
@@ -532,6 +541,128 @@ fin123 release → approved outputs (releases/) + release sets</code></pre>
                             If a lookup is ambiguous or a join would multiply rows, the build should fail loudly with
                             actionable diagnostics.
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="worksheet-runtime" class="section">
+            <div class="container">
+                <h2 class="section-title">Release 0.4.0 — Worksheet Runtime</h2>
+                <p class="section-lede">
+                    fin123 can now compile deterministic operational worksheets from build outputs.
+                    This replaces spreadsheet logic embedded in application UI tables.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <h3 class="panel-title">Architecture pipeline</h3>
+                        <pre class="code" style="background: var(--panel-bg); padding: 20px; font-size: 13px; line-height: 1.8;"><code><strong>ViewTable</strong>          typed tabular substrate (Polars DataFrame + column schema)
+  ↓
+<strong>WorksheetView</strong>       declarative YAML spec (columns, sorts, flags, groups)
+  ↓
+<strong>CompiledWorksheet</strong>   immutable JSON artifact (rows, provenance, errors)
+  ↓
+<strong>Renderer</strong>            read-only DOM viewer (sticky headers, formatting, flags)</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Capabilities</h3>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>Derived columns — row-local expressions evaluated in dependency order</li>
+                            <li>Grouped headers — single-level column grouping for rendering</li>
+                            <li>Compile-time sorting — output rows in deterministic sort order</li>
+                            <li>Row-level flags — boolean expressions with severity and message</li>
+                            <li>Structured provenance — source, version, per-column lineage</li>
+                            <li>Deterministic compiled artifacts — content-hashable, diffable JSON</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-panel" style="margin-top: 24px;" role="region"
+                    aria-label="Worksheet compile example">
+                    <div class="code-header">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="code-title">terminal</span>
+                    </div>
+                    <pre class="code"><code>fin123 worksheet compile valuation_review.yaml --table priced_estimates</code></pre>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="why-worksheets" class="section">
+            <div class="container">
+                <h2 class="section-title">Why this exists</h2>
+                <p class="section-lede">
+                    Operational applications routinely reimplement spreadsheet logic in HTML and JavaScript tables.
+                </p>
+
+                <div class="stack">
+                    <div class="panel">
+                        <p>
+                            Every internal tool that displays tabular data eventually needs derived columns,
+                            formatting rules, flags, grouped headers, and audit context. Teams build these
+                            features ad hoc — one application at a time — with no shared runtime, no
+                            provenance, and no way to verify that the output is correct.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            fin123 provides a deterministic worksheet runtime to replace that pattern.
+                            Define the worksheet as a YAML spec. Compile it against build outputs. Render
+                            the compiled artifact in a thin viewer. The runtime handles derived expressions,
+                            dependency ordering, error propagation, display formatting, and provenance — so
+                            the application code does not have to.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="lotus-architecture" class="section">
+            <div class="container">
+                <h2 class="section-title">A familiar architecture — rediscovered</h2>
+
+                <div class="stack">
+                    <div class="panel">
+                        <p>
+                            While building this system we realized something interesting.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            The architecture we arrived at unintentionally recreates the structure of the
+                            original Lotus 1-2-3.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            Lotus separated three ideas:
+                        </p>
+                        <ul style="margin: 8px 0; padding-left: 20px; line-height: 1.8;">
+                            <li>tabular data</li>
+                            <li>worksheet definitions</li>
+                            <li>the rendered spreadsheet</li>
+                        </ul>
+                        <p style="margin-top: 12px;">
+                            fin123 arrived at the same structure:
+                        </p>
+                        <pre class="code" style="background: var(--panel-bg); padding: 16px; font-size: 13px; line-height: 1.8; margin-top: 8px;"><code>ViewTable
+  ↓
+WorksheetView
+  ↓
+CompiledWorksheet
+  ↓
+Renderer</code></pre>
+                        <p style="margin-top: 16px;">
+                            We didn't start by trying to copy Lotus.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            We were trying to solve a practical problem: how to stop writing spreadsheet
+                            logic in application code.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            But the result ended up looking very familiar.
+                        </p>
                     </div>
                 </div>
             </div>
