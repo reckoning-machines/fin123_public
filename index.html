@@ -517,54 +517,6 @@ compiled worksheet
         </section>
 
 
-        <section id="lotus-architecture" class="section">
-            <div class="container">
-                <h2 class="section-title">A familiar architecture — rediscovered</h2>
-
-                <div class="stack">
-                    <div class="panel">
-                        <p>
-                            While building this system we realized something interesting.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            The architecture we arrived at unintentionally recreates the structure of the
-                            original Lotus 1-2-3.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            Lotus separated three ideas:
-                        </p>
-                        <ul style="margin: 8px 0; padding-left: 20px; line-height: 1.8;">
-                            <li>tabular data</li>
-                            <li>worksheet definitions</li>
-                            <li>the rendered spreadsheet</li>
-                        </ul>
-                        <p style="margin-top: 12px;">
-                            fin123 arrived at the same structure:
-                        </p>
-                        <pre class="code"
-                            style="background: var(--panel-bg); padding: 16px; font-size: 13px; line-height: 1.8; margin-top: 8px;"><code>ViewTable
-  ↓
-WorksheetView
-  ↓
-CompiledWorksheet
-  ↓
-Renderer</code></pre>
-                        <p style="margin-top: 16px;">
-                            We didn't start by trying to copy Lotus.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            We were trying to solve a practical problem: how to stop writing spreadsheet
-                            logic in application code.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            But the result ended up looking very familiar.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
         <section id="opensource" class="section">
             <div class="container">
                 <h2 class="section-title">Open source — fin123-core</h2>
@@ -676,6 +628,54 @@ Renderer</code></pre>
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+
+        <section id="lotus-architecture" class="section">
+            <div class="container">
+                <h2 class="section-title">A familiar architecture — rediscovered</h2>
+
+                <div class="stack">
+                    <div class="panel">
+                        <p>
+                            While building this system we realized something interesting.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            The architecture we arrived at unintentionally recreates the structure of the
+                            original Lotus 1-2-3.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            Lotus separated three ideas:
+                        </p>
+                        <ul style="margin: 8px 0; padding-left: 20px; line-height: 1.8;">
+                            <li>tabular data</li>
+                            <li>worksheet definitions</li>
+                            <li>the rendered spreadsheet</li>
+                        </ul>
+                        <p style="margin-top: 12px;">
+                            fin123 arrived at the same structure:
+                        </p>
+                        <pre class="code"
+                            style="background: var(--panel-bg); padding: 16px; font-size: 13px; line-height: 1.8; margin-top: 8px;"><code>ViewTable
+  ↓
+WorksheetView
+  ↓
+CompiledWorksheet
+  ↓
+Renderer</code></pre>
+                        <p style="margin-top: 16px;">
+                            We didn't start by trying to copy Lotus.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            We were trying to solve a practical problem: how to stop writing spreadsheet
+                            logic in application code.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            But the result ended up looking very familiar.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
