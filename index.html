@@ -375,6 +375,125 @@ fin123 release → approved outputs (releases/) + release sets</code></pre>
         </section>
 
 
+        <section id="new-workflow" class="section">
+            <div class="container">
+                <h2 class="section-title">New workflow</h2>
+                <p class="section-lede">
+                    Today in most trading desks it looks like this:
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <pre class="code"
+                            style="background: var(--panel-bg); padding: 20px; font-size: 13px; line-height: 1.8;"><code>Analyst
+  ↓
+Excel model / spreadsheet logic
+  ↓
+Developer rewrites logic in UI code
+  ↓
+Application table</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <p>
+                            The rewrite step is painful and error-prone. Developers have to translate
+                            spreadsheet logic into application code &mdash; formulas, derived columns, flags,
+                            formatting, ordering, and audit hints &mdash; usually in JavaScript or Python.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">With fin123</h3>
+                        <pre class="code"
+                            style="background: var(--panel-bg); padding: 20px; font-size: 13px; line-height: 1.8;"><code>Analyst
+  ↓
+WorksheetView (YAML spec)
+  ↓
+CompiledWorksheet (artifact)
+  ↓
+Developer embeds viewer</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <table style="width: 100%; font-size: 13px; line-height: 1.7; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Role</th>
+                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Responsibility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px; color: var(--fg);">Analyst</td>
+                                    <td style="padding: 6px 12px; color: var(--fg);">Define worksheet logic</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px; color: var(--fg);">fin123 runtime</td>
+                                    <td style="padding: 6px 12px; color: var(--fg);">Evaluate and compile the worksheet</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 6px 12px; color: var(--fg);">Developer</td>
+                                    <td style="padding: 6px 12px; color: var(--fg);">Embed the viewer in the application</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="panel">
+                        <p><strong>The developer never rewrites spreadsheet logic.</strong></p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="architecture-change" class="section">
+            <div class="container">
+                <h2 class="section-title">How fin123 changes the architecture</h2>
+                <p class="section-lede">
+                    Operational finance tools repeatedly rebuild spreadsheet logic inside application
+                    code. fin123 separates worksheet logic from the application layer and turns it
+                    into a compiled artifact.
+                </p>
+
+                <div class="stack">
+
+                    <div class="code-panel" role="region" aria-label="Architecture diagram">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">architecture</span>
+                        </div>
+                        <pre class="code"><code>   Analyst defines worksheet
+              ↓
+     WorksheetView (spec)
+              ↓
+   fin123 runtime compiles
+              ↓
+  CompiledWorksheet (artifact)
+              ↓
+ Applications render the result</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <p>
+                            The worksheet becomes a portable artifact. Analysts define it once.
+                            fin123 compiles it deterministically. Any application can render the
+                            result without rewriting spreadsheet logic.
+                        </p>
+                        <p style="margin-top: 12px; color: var(--fg-dim); font-style: italic;">
+                            This turns spreadsheet logic into infrastructure instead of application code.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
         <section id="why-worksheets" class="section">
             <div class="container">
                 <h2 class="section-title">Why this exists</h2>
