@@ -641,22 +641,20 @@ Renderer</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">What Pod adds</h3>
+                        <h3 class="panel-title">Shared registry and runner</h3>
                         <p>
-                            SQL sync (Postgres → local parquet caches with provenance), Bloomberg and plugin connectors,
-                            Postgres model registry (versions, builds, releases), headless runner service
-                            (<code>POST /run</code>), multi-step workflows with replay, release system with release
-                            sets,
-                            and production mode gates.
+                            Pod extends fin123-core with the shared execution infrastructure teams need
+                            in production. SQL sync pulls Postgres tables into local parquet caches with
+                            full provenance. Bloomberg and plugin connectors bring vendor data into the
+                            same governed sync path. A Postgres-backed registry stores model versions,
+                            builds, and releases so teams operate against a single shared state.
                         </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Registry + runner for centralized execution</h3>
-                        <p>
-                            Push model versions to a shared Postgres registry. The headless runner executes a specific
-                            <code>(model_id, model_version_id)</code> with parameter overrides and returns versioned
-                            outputs — turning "run the model" into an automatable backend capability.
+                        <p style="margin-top: 12px;">
+                            The headless runner executes a specific
+                            <code>(model_id, model_version_id)</code> with parameter overrides and
+                            returns versioned outputs, turning centralized execution into an automatable
+                            backend capability. Multi-step workflows with replay let teams chain builds
+                            and promotions into repeatable operational sequences.
                         </p>
                     </div>
 
