@@ -1,0 +1,20 @@
+{
+  "worksheet": "valuation_review",
+  "version": "0.4.0",
+  "columns": [
+    { "name": "ticker",     "type": "string" },
+    { "name": "price",      "type": "number", "format": "currency" },
+    { "name": "estimate",   "type": "number", "format": "currency" },
+    { "name": "upside_pct", "type": "number", "format": "percent" }
+  ],
+  "flags": [
+    { "name": "high_upside", "rule": "upside_pct > 0.15" }
+  ],
+  "rows": [
+    { "ticker": "AAPL",  "price": 189.84, "estimate": 215.00, "upside_pct": 0.1325, "flags": [] },
+    { "ticker": "MSFT",  "price": 378.91, "estimate": 450.00, "upside_pct": 0.1875, "flags": ["high_upside"] },
+    { "ticker": "GOOG",  "price": 141.80, "estimate": 170.00, "upside_pct": 0.1988, "flags": ["high_upside"] },
+    { "ticker": "JPM",   "price": 196.52, "estimate": 210.00, "upside_pct": 0.0686, "flags": [] },
+    { "ticker": "GS",    "price": 464.20, "estimate": 540.00, "upside_pct": 0.1633, "flags": ["high_upside"] }
+  ]
+}
