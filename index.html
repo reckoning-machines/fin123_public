@@ -621,6 +621,26 @@ Renderer</code></pre>
                 <div class="stack">
 
                     <div class="panel">
+                        <h3 class="panel-title">GitHub for worksheets</h3>
+                        <p>
+                            Pod provides a complete registry and governance path for worksheet artifacts.
+                            An analyst defines worksheet logic, fin123 compiles it into a deterministic
+                            artifact, and the artifact is pushed to a shared Postgres registry where it is
+                            versioned, reviewed, and promoted through approval stages. Released worksheet
+                            builds become the governed, distributable unit that downstream applications and
+                            internal tools consume directly.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            Applications never reimplement spreadsheet logic. They embed released worksheet
+                            artifacts from the registry. When worksheet logic changes, teams review and
+                            approve the new version centrally, and every consumer picks up the approved
+                            release. The registry becomes the system of record for worksheet versions,
+                            creating a shared artifact layer between analysts, platform teams, and the
+                            applications they support.
+                        </p>
+                    </div>
+
+                    <div class="panel">
                         <h3 class="panel-title">What Pod adds</h3>
                         <p>
                             SQL sync (Postgres → local parquet caches with provenance), Bloomberg and plugin connectors,
