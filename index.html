@@ -70,7 +70,7 @@ flags:
   - name: high_upside
     expression: upside_pct > 0.15</code></pre>
                     </div>
-                    <p class="hero-demo-caption">Worksheet specification &mdash; the application does not contain this logic.</p>
+                    <p class="hero-demo-caption">Worksheet specification compiled into a portable artifact.</p>
 
                     <div class="hero-demo">
                         <div class="hero-demo-header">
@@ -94,10 +94,6 @@ flags:
                         For serious finance teams and the developers who support them.
                     </p>
 
-                    <p class="value" style="margin-top: 8px;">
-                        Model → Commit → Build → Verified artifact
-                    </p>
-
                     <div class="hero-actions">
                         <a class="btn"
                             href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request a
@@ -118,19 +114,6 @@ flags:
                         <span class="meta-item">Team registry + runner (Pod)</span>
                     </div>
 
-                </div>
-            </div>
-        </section>
-
-
-        <section class="section">
-            <div class="container">
-                <div class="callout" style="text-align:center;">
-                    <div class="callout-title">Financial models should behave like software.</div>
-                    <div class="callout-body">
-                        <code>commit → build → verify → release</code>
-                        <p style="margin-top: 0.75rem;">fin123 turns spreadsheet models into verifiable artifacts.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -323,9 +306,8 @@ fin123 release → approved outputs (releases/) + release sets</code></pre>
             <div class="container">
                 <h2 class="section-title">Release 0.4.0 — Deterministic Worksheets</h2>
                 <p class="section-lede">
-                    fin123 can now compile deterministic operational worksheets from tabular data.
-                    Instead of implementing spreadsheet logic inside application UI tables, define a
-                    worksheet spec and compile it into a portable artifact.
+                    fin123 can now compile deterministic operational worksheets from tabular data
+                    into portable artifacts.
                 </p>
 
                 <div class="stack">
@@ -440,9 +422,6 @@ Developer embeds viewer</code></pre>
                         </table>
                     </div>
 
-                    <div class="panel">
-                        <p><strong>The developer never rewrites spreadsheet logic.</strong></p>
-                    </div>
 
                 </div>
             </div>
@@ -502,16 +481,6 @@ Developer embeds viewer</code></pre>
                     Derived columns, grouped headers, flags, and formatting get rebuilt in
                     backend services and JavaScript tables.
                 </p>
-
-                <div class="stack">
-                    <div class="panel">
-                        <p>
-                            fin123 moves the calculations into the worksheet itself. Define the
-                            worksheet once, compile it into a verifiable artifact, and render it
-                            anywhere.
-                        </p>
-                    </div>
-                </div>
 
                 <div class="stack" style="margin-top: 24px;">
                     <div class="panel">
