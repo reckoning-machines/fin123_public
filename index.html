@@ -52,6 +52,26 @@
 
                     <p class="hero-bridge">Standalone by default. Embeddable by design.</p>
 
+                    <div class="code-panel" role="region" aria-label="Worksheet spec example">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">valuation_review.yaml</span>
+                        </div>
+                        <pre class="code"><code>columns:
+  - source: ticker
+  - source: price
+  - source: estimate
+  - name: upside_pct
+    expression: (estimate - price) / price
+
+flags:
+  - name: high_upside
+    expression: upside_pct > 0.15</code></pre>
+                    </div>
+                    <p class="hero-demo-caption">Worksheet specification &mdash; the application does not contain this logic.</p>
+
                     <div class="hero-demo">
                         <div class="hero-demo-header">
                             <span class="hero-demo-dot"></span>
