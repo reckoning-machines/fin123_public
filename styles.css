@@ -335,7 +335,7 @@ pre.code code {
 
 .value {
     font-size: 13px;
-    color: var(--fg);
+    color: var(--fg-dim);
     line-height: 1.7;
     margin-bottom: 24px;
 }
