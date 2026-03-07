@@ -333,23 +333,17 @@ fin123 release → approved outputs (releases/) + release sets</code></pre>
             <div class="container">
                 <h2 class="section-title">Why this exists</h2>
                 <p class="section-lede">
-                    Applications repeatedly implement spreadsheet logic in HTML and JavaScript tables.
-                    fin123 replaces that with a deterministic worksheet runtime.
+                    Most application teams still write spreadsheet logic in application code.
+                    Derived columns, grouped headers, flags, and formatting get rebuilt in
+                    backend services and JavaScript tables.
                 </p>
 
                 <div class="stack">
                     <div class="panel">
                         <p>
-                            Every internal tool that displays tabular data eventually needs derived columns,
-                            formatting rules, flags, grouped headers, and audit context. Teams build these
-                            features ad hoc — one application at a time — with no shared runtime, no
-                            provenance, and no way to verify that the output is correct.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            Define the worksheet as a YAML spec. Compile it against build outputs. Render
-                            the compiled artifact in a thin viewer. The runtime handles derived expressions,
-                            dependency ordering, error propagation, display formatting, and provenance — so
-                            the application code does not have to.
+                            fin123 moves the calculations into the worksheet itself. Define the
+                            worksheet once, compile it into a verifiable artifact, and render it
+                            anywhere.
                         </p>
                     </div>
                 </div>
