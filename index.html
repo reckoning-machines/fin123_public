@@ -347,6 +347,38 @@ fin123 release → approved outputs (releases/) + release sets</code></pre>
                         </p>
                     </div>
                 </div>
+
+                <div class="stack" style="margin-top: 24px;">
+                    <div class="panel">
+                        <div class="panel-title">Where spreadsheet logic lives</div>
+                        <div class="compare-columns">
+                            <div class="compare-col">
+                                <h4 class="compare-heading">Typical application</h4>
+                                <pre class="code"><code>application code
+        ↓
+    UI tables
+        ↓
+hand-built spreadsheet logic</code></pre>
+                                <p class="compare-caption">
+                                    Derived columns, flags, grouping, and formatting get implemented
+                                    in backend code and JavaScript tables.
+                                </p>
+                            </div>
+                            <div class="compare-col">
+                                <h4 class="compare-heading">fin123</h4>
+                                <pre class="code"><code>worksheet spec
+        ↓
+compiled worksheet
+        ↓
+   thin viewer</code></pre>
+                                <p class="compare-caption">
+                                    The calculations live in the worksheet itself and compile into
+                                    a verifiable artifact.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
