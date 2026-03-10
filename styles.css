@@ -266,7 +266,7 @@ pre.code code {
 
 /* ── Hero ── */
 .hero {
-    padding: 80px 0 0;
+    padding: 28px 0 0;
 }
 
 .hero-card {
@@ -562,7 +562,7 @@ pre.code code {
     :root { --space: 16px; }
 
     .nav { gap: 12px; font-size: 11px; }
-    .hero { padding: 40px 0 0; }
+    .hero { padding: 14px 0 0; }
     .hero-card { padding: 20px; }
     .hero-card .title { font-size: 18px; }
     .section { padding: 48px 0 0; }
