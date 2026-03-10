@@ -28,6 +28,7 @@
             </div>
 
             <nav class="nav">
+                <a href="#products">Products</a>
                 <a href="#why-switch">Why</a>
                 <a href="#opensource">Open Source</a>
                 <a href="#pod">Pod</a>
@@ -112,6 +113,107 @@ flags:
                         <span class="meta-item">Governed AI artifacts</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Team registry + runner (Pod)</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <div class="container">
+                <div class="callout" style="text-align: center;">
+                    <div class="callout-title" style="font-size: 16px;">One system. Three products.</div>
+                    <div class="callout-body">
+                        <p style="color: var(--fg-bright); font-weight: 600; margin-bottom: 12px;">
+                            Financial models should behave like software.
+                        </p>
+                        <p>
+                            fin123 works as a standalone spreadsheet runtime, an embeddable worksheet runtime
+                            for applications, and a hosted worksheet platform for teams.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title">Three products in one stack</h2>
+                <p class="section-lede">
+                    fin123 starts as a standalone spreadsheet system, extends into applications as a worksheet
+                    runtime, and scales into a hosted platform for governed delivery.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
+                        <p>
+                            Use fin123 as a finance-grade spreadsheet and modeling system on your own machine.
+                            Build models, run scenarios, verify outputs, and ship deterministic artifacts with
+                            no server required.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            This is the spreadsheet, rebuilt for finance: fast grid UX, explicit parameters,
+                            deterministic builds, auditability, and headless execution when needed.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">2. Embeddable worksheet runtime for applications</h3>
+                        <p>
+                            Internal tools and trading desk applications repeatedly rebuild spreadsheet logic
+                            in application code. fin123 moves that logic into a worksheet specification that
+                            compiles into a deterministic artifact.
+                        </p>
+                        <p style="margin-top: 12px; color: var(--fg-bright); font-weight: 600;">
+                            The calculations live in the worksheet &mdash; not your application code.
+                        </p>
+                        <div class="code-panel" style="margin-top: 16px;" role="region" aria-label="Embeddable worksheet flow">
+                            <div class="code-header">
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="code-title">embed flow</span>
+                            </div>
+                            <pre class="code"><code>WorksheetView
+  ↓
+CompiledWorksheet
+  ↓
+Viewer embedded in app</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">3. Hosted worksheet platform</h3>
+                        <p>
+                            Teams can publish, approve, release, and serve compiled worksheets from a central
+                            system. Applications request released worksheet artifacts over an API instead of
+                            re-implementing spreadsheet logic locally.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            This turns worksheets into governed, versioned infrastructure for
+                            applications &mdash; not one-off UI code.
+                        </p>
+                        <div class="code-panel" style="margin-top: 16px;" role="region" aria-label="Hosted platform flow">
+                            <div class="code-header">
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="code-title">platform flow</span>
+                            </div>
+                            <pre class="code"><code>Analyst
+  ↓
+Worksheet spec
+  ↓
+Compiled artifact
+  ↓
+Released worksheet
+  ↓
+Application embed</code></pre>
+                        </div>
                     </div>
 
                 </div>
