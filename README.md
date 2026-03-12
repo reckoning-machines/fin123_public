@@ -62,7 +62,7 @@ fin123 build my-model
 
 Or download a binary from [releases](https://github.com/reckoning-machines/fin123-core/releases).
 
-**Pod** (proprietary — [contact us](mailto:jed@reckoningmachines.com?subject=fin123-pod%20access%20request) for access):
+**Pod** (proprietary — [contact us](mailto:reckoningmachines@gmail.com?subject=fin123-pod%20access%20request) for access):
 
 ```bash
 pip install "fin123-pod @ git+https://github.com/reckoning-machines/fin123-pod.git@main"
@@ -72,5 +72,5 @@ pip install "fin123-pod @ git+https://github.com/reckoning-machines/fin123-pod.g
 
 ## Contact
 
-- **Walkthrough request:** [jed@reckoningmachines.com](mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request)
+- **Walkthrough request:** [reckoningmachines@gmail.com](mailto:reckoningmachines@gmail.com?subject=fin123%20walkthrough%20request)
 - **General:** [reckoningmachines@gmail.com](mailto:reckoningmachines@gmail.com)
