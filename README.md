@@ -2,7 +2,7 @@
 
 Faster than Excel. Built like software. Designed for finance.
 
-**Website:** [fin123.reckoningmachines.com](https://fin123.reckoningmachines.com) *(or open `index.html` locally)*
+**Website:** [reckoning-machines.github.io/fin123_public](https://reckoning-machines.github.io/fin123_public/) *(or open `index.html` locally)*
 
 ---
 
