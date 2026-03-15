@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 compiles spreadsheet models into deterministic runtime artifacts. Stop rewriting spreadsheet logic in application code." />
+        content="fin123 compiles spreadsheet models into deterministic compiled worksheets that applications run directly. Stop rewriting model logic in Python." />
     <title>fin123 — The operating standard for financial models</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,10 +53,9 @@
                         Stop rewriting spreadsheet logic in application code.
                     </p>
                     <p class="value">
-                        fin123 compiles financial models &mdash; DCF valuations, revenue forecasts,
-                        sensitivity analyses &mdash; into deterministic runtime artifacts.
-                        Applications execute the compiled artifact directly. No translation step,
-                        no logic drift.
+                        fin123 compiles your models &mdash; valuations, forecasts, credit models,
+                        scenario sweeps &mdash; into compiled worksheets that run headlessly at scale.
+                        The application never reimplements the model logic.
                     </p>
 
                     <div class="hero-actions">
@@ -77,7 +76,7 @@
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Finance-safe joins and lookups</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Governed AI artifacts</span>
+                        <span class="meta-item">Governed AI outputs</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Team registry + runner (Pod)</span>
                     </div>
@@ -100,7 +99,7 @@ flags:
   - name: high_upside
     expression: upside_pct > 0.15</code></pre>
                     </div>
-                    <p class="hero-demo-caption">Analyst defines the worksheet. fin123 compiles it into a runtime artifact.</p>
+                    <p class="hero-demo-caption">Analyst defines the worksheet. fin123 compiles it. Application runs it.</p>
 
                     <div class="hero-demo">
                         <div class="hero-demo-header">
@@ -111,7 +110,7 @@ flags:
                         </div>
                         <div id="hero-worksheet" data-worksheet="./demo_worksheet.json"></div>
                     </div>
-                    <p class="hero-demo-caption">The application renders the compiled artifact. No spreadsheet logic in your code.</p>
+                    <p class="hero-demo-caption">The application runs the compiled worksheet. No model logic in your codebase.</p>
 
                 </div>
             </div>
@@ -145,10 +144,10 @@ Build Outputs (scalars + tables)
         |
         |  fin123 worksheet compile
         v
-Compiled Worksheet Artifact (immutable JSON)
+Compiled Worksheet (immutable JSON, runs headlessly)
         |
         v
-Applications / dashboards / reports</code></pre>
+Applications / dashboards / batch jobs</code></pre>
                     </div>
 
                     <div class="panel">
@@ -162,21 +161,20 @@ Applications / dashboards / reports</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Compile &rarr; runtime artifact</h3>
+                        <h3 class="panel-title">Compile &rarr; compiled worksheet</h3>
                         <p>
-                            <code>fin123 build</code> compiles the model into an immutable JSON artifact
-                            with a deterministic content hash. The artifact contains the compiled
-                            calculation graph, evaluated outputs, display formatting, flags, and
-                            full provenance.
+                            <code>fin123 build</code> compiles the model into an immutable JSON worksheet
+                            with a deterministic content hash. It contains the calculation graph,
+                            evaluated outputs, display formatting, flags, and full audit trail.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Execute &rarr; applications consume the artifact directly</h3>
+                        <h3 class="panel-title">Execute &rarr; run the compiled worksheet directly</h3>
                         <p>
-                            Applications render or serve the compiled artifact. No one rewrites the
-                            spreadsheet logic in Python or JavaScript. The model and the production
-                            system stay in sync because they are the same artifact.
+                            Applications run the compiled worksheet. Nobody rewrites the model
+                            in Python or JavaScript. The model and the production system stay
+                            in sync because they are the same thing. Runs headlessly at scale.
                         </p>
                     </div>
 
@@ -211,9 +209,9 @@ Applications / dashboards / reports</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
                         <p>
-                            For engineers building applications. Compile model outputs into structured
-                            artifacts that your app executes directly. No spreadsheet logic in your
-                            codebase.
+                            For engineers building apps. Compile the model, ship the compiled
+                            worksheet, run it in your application. The application never reimplements
+                            the model logic.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             fin123-core &middot; open source &middot; Apache-2.0
@@ -223,8 +221,9 @@ Applications / dashboards / reports</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">3. Hosted worksheet platform</h3>
                         <p>
-                            For teams and governance. Publish, version, and serve worksheet artifacts
-                            from a central registry. Applications fetch released artifacts over an API.
+                            For teams shipping models to production. Publish, version, and serve
+                            compiled worksheets from a central registry. Applications pull released
+                            versions over an API.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             fin123-pod &middot; requires license
@@ -262,7 +261,7 @@ Applications / dashboards / reports</code></pre>
                             <a class="link"
                                 href="https://github.com/reckoning-machines/fin123-examples/blob/main/architecture/how_fin123_works.md">architecture
                                 doc</a>
-                            to see how spreadsheets become compiled artifacts.
+                            to see how spreadsheets become compiled worksheets.
                         </p>
                     </div>
 
@@ -315,11 +314,11 @@ fin123 ui demo</code></pre>
                                 Valuation</a>
                         </h3>
                         <p style="margin-bottom: 8px;">
-                            Finance-native model authoring. Scalar formula DAG with <code>NPV()</code>,
-                            explicit parameters, assertions, and named scenarios.
+                            Scalar formula DAG with <code>NPV()</code>, explicit parameters,
+                            assertions, and named scenarios (base / bull / bear).
                         </p>
                         <p style="font-size: 11px; color: var(--fg-dim);">
-                            Concept: how fin123 evaluates a financial model deterministically.
+                            Shows: compile a valuation model, run it headlessly, verify the output.
                         </p>
                     </div>
 
@@ -330,12 +329,11 @@ fin123 ui demo</code></pre>
                                 Review Worksheet</a>
                         </h3>
                         <p style="margin-bottom: 8px;">
-                            Worksheet as structured output view. Quarterly results with derived
-                            metrics, display formatting, and row-level flags compiled into a
-                            portable artifact.
+                            Quarterly results with derived metrics, display formatting, and
+                            row-level flags compiled into a worksheet your app can run directly.
                         </p>
                         <p style="font-size: 11px; color: var(--fg-dim);">
-                            Concept: how build outputs become artifacts applications can render.
+                            Shows: build outputs become compiled worksheets. No UI code needed.
                         </p>
                     </div>
 
@@ -350,7 +348,7 @@ fin123 ui demo</code></pre>
                             parameter matrix with structurally comparable, verifiable outputs.
                         </p>
                         <p style="font-size: 11px; color: var(--fg-dim);">
-                            Concept: how fin123 runs one model across many assumptions reproducibly.
+                            Shows: same model, 9 parameter sets, headless batch execution at scale.
                         </p>
                     </div>
 
@@ -429,10 +427,10 @@ fin123 ui demo</code></pre>
                         <span class="dot" aria-hidden="true"></span>
                         <span class="code-title">lifecycle</span>
                     </div>
-                    <pre class="code"><code>fin123 commit  -> immutable snapshots
-fin123 build   -> deterministic outputs + hashes
-fin123 verify  -> drift detection
-fin123 release -> approved, governed artifacts</code></pre>
+                    <pre class="code"><code>fin123 commit  -> snapshot the model
+fin123 build   -> compile + hash the outputs
+fin123 verify  -> detect drift
+fin123 release -> ship the compiled worksheet</code></pre>
                 </div>
 
             </div>
@@ -454,10 +452,10 @@ fin123 release -> approved, governed artifacts</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">Worksheet registry and governance</h3>
                         <p>
-                            Teams publish compiled worksheet artifacts to a shared Postgres registry.
-                            Artifacts are versioned, reviewed, and promoted through approval stages.
-                            Applications consume released artifacts from the registry instead of
-                            reimplementing spreadsheet logic.
+                            Teams publish compiled worksheets to a shared Postgres registry.
+                            Versions are reviewed and promoted through approval stages.
+                            Applications pull released versions from the registry. The application
+                            never reimplements the model logic.
                         </p>
                         <div class="code-panel" style="margin-top: 16px;" role="region"
                             aria-label="Registry UI preview">
@@ -485,7 +483,7 @@ v0003   archived</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">Shared registry and runner</h3>
                         <p>
-                            SQL sync pulls Postgres tables into local parquet caches with provenance.
+                            SQL sync pulls Postgres tables into local parquet caches with full audit trail.
                             Bloomberg and plugin connectors bring vendor data into the same governed
                             sync path. A Postgres-backed registry stores model versions, builds, and
                             releases. The headless runner executes models by
