@@ -28,37 +28,41 @@
             </div>
 
             <nav class="nav">
+                <a href="#architecture">Architecture</a>
                 <a href="#products">Products</a>
-                <a href="#why-switch">Why</a>
-                <a href="#opensource">Open Source</a>
+                <a href="#get-started">Get Started</a>
+                <a href="#examples">Examples</a>
+                <a href="#why">Why</a>
                 <a href="#pod">Pod</a>
-                <a href="#downloads">Downloads</a>
-                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
     <main id="content" class="site-main">
 
+
+        <!-- ═══════════════════ HERO ═══════════════════ -->
+
         <section class="hero">
             <div class="container">
                 <div class="hero-card">
+                    <div class="kicker">fin123.dev</div>
                     <h3 class="title">The operating standard for financial models</h3>
 
                     <p class="value">
-                        Faster than Excel. Built like software. Designed for finance.
-                    </p>
-
-                    <p class="value">
-                        For serious finance teams and the developers who support them.
+                        Financial models should behave like software.
+                        fin123 compiles spreadsheet models into deterministic artifacts
+                        that applications and teams can run reliably.
                     </p>
 
                     <div class="hero-actions">
-                        <a class="btn"
+                        <a class="btn" href="https://github.com/reckoning-machines/fin123-core">View Core on
+                            GitHub</a>
+                        <a class="btn btn-ghost"
+                            href="https://github.com/reckoning-machines/fin123-examples">View Examples</a>
+                        <a class="btn btn-ghost"
                             href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request a
                             walkthrough</a>
-                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core on
-                            GitHub</a>
                     </div>
 
                     <div class="hero-meta">
@@ -71,19 +75,6 @@
                         <span class="meta-item">Governed AI artifacts</span>
                         <span class="meta-dot" aria-hidden="true">•</span>
                         <span class="meta-item">Team registry + runner (Pod)</span>
-                    </div>
-
-                    <div class="callout" style="text-align: center;">
-                        <div class="callout-title" style="font-size: 16px;">One system. Three products.</div>
-                        <div class="callout-body">
-                            <p style="color: var(--fg-bright); font-weight: 600; margin-bottom: 12px;">
-                                Financial models should behave like software.
-                            </p>
-                            <p>
-                                fin123 works as a standalone spreadsheet runtime, an embeddable worksheet runtime
-                                for applications, and a hosted worksheet platform for teams.
-                            </p>
-                        </div>
                     </div>
 
                     <div class="code-panel" role="region" aria-label="Worksheet spec example">
@@ -115,91 +106,120 @@ flags:
                         </div>
                         <div id="hero-worksheet" data-worksheet="./demo_worksheet.json"></div>
                     </div>
-                    <p class="hero-demo-caption">The calculations live in the worksheet &mdash; not your application code.</p>
-
-                    <p class="hero-bridge">Standalone by default. Embeddable by design.</p>
+                    <p class="hero-demo-caption">The calculations live in the worksheet &mdash; not your application
+                        code.</p>
 
                 </div>
             </div>
         </section>
 
 
+        <!-- ═══════════════════ ARCHITECTURE ═══════════════════ -->
+
+        <section id="architecture" class="section">
+            <div class="container">
+                <h2 class="section-title">How fin123 works</h2>
+                <p class="section-lede">
+                    fin123 separates model authoring, model execution, and model delivery.
+                </p>
+
+                <div class="stack">
+
+                    <div class="code-panel" role="region" aria-label="Architecture diagram">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">execution model</span>
+                        </div>
+                        <pre class="code"><code>Spreadsheet (workbook.yaml)
+        |
+        |  fin123 build
+        v
+Build Outputs (scalars + tables)
+        |
+        |  fin123 worksheet compile
+        v
+Compiled Worksheet Artifact (immutable JSON)
+        |
+        v
+Applications / dashboards / reports</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Spreadsheet = model authoring</h3>
+                        <p>
+                            A YAML workbook with explicit parameters, formulas, table plans, and
+                            assertions. This is where the financial logic lives. Built deterministically
+                            from local files &mdash; no database, no network calls.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Worksheet = structured view of model output</h3>
+                        <p>
+                            A declarative YAML spec that projects build results into derived columns,
+                            display formats, sorts, and flags. This is what analysts define. Compiled
+                            at build time, not reimplemented in application code.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Compiled worksheet artifact = what applications consume</h3>
+                        <p>
+                            An immutable JSON file with full provenance and a deterministic content hash.
+                            Applications embed, serve, or verify the artifact directly. The calculations
+                            live in the worksheet &mdash; not your code.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════ THREE PRODUCT TIERS ═══════════════════ -->
+
         <section id="products" class="section">
             <div class="container">
-                <h2 class="section-title">Three products in one stack</h2>
-                <p class="section-lede">
-                    fin123 starts as a standalone spreadsheet system, extends into applications as a worksheet
-                    runtime, and scales into a hosted platform for governed delivery.
-                </p>
+                <h2 class="section-title">One system, three products</h2>
 
                 <div class="stack">
 
                     <div class="panel">
                         <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
                         <p>
-                            Use fin123 as a finance-grade spreadsheet and modeling system on your own machine.
-                            Build models, run scenarios, verify outputs, and ship deterministic artifacts with
-                            no server required.
+                            Run finance-grade spreadsheets locally with deterministic builds,
+                            verification, and versioned artifacts. Fast grid UX, explicit parameters,
+                            headless execution. No server required.
                         </p>
-                        <p style="margin-top: 12px;">
-                            This is the spreadsheet, rebuilt for finance: fast grid UX, explicit parameters,
-                            deterministic builds, auditability, and headless execution when needed.
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            Open source &mdash; Apache-2.0
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">2. Embeddable worksheet runtime for applications</h3>
+                        <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
                         <p>
-                            Internal tools and trading desk applications repeatedly rebuild spreadsheet logic
-                            in application code. fin123 moves that logic into a worksheet specification that
-                            compiles into a deterministic artifact.
+                            Compile models into worksheet artifacts that applications can render
+                            without reimplementing spreadsheet logic. Derived columns, flags, formatting,
+                            and provenance are resolved at compile time.
                         </p>
-                        <p style="margin-top: 12px; color: var(--fg-bright); font-weight: 600;">
-                            The calculations live in the worksheet &mdash; not your application code.
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            Open source &mdash; Apache-2.0
                         </p>
-                        <div class="code-panel" style="margin-top: 16px;" role="region" aria-label="Embeddable worksheet flow">
-                            <div class="code-header">
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="code-title">embed flow</span>
-                            </div>
-                            <pre class="code"><code>WorksheetView
-  ↓
-CompiledWorksheet
-  ↓
-Viewer embedded in app</code></pre>
-                        </div>
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">3. Hosted worksheet platform</h3>
                         <p>
-                            Teams can publish, approve, release, and serve compiled worksheets from a central
-                            system. Applications request released worksheet artifacts over an API instead of
-                            re-implementing spreadsheet logic locally.
+                            Publish, approve, release, and serve compiled worksheets from a central
+                            system. Applications request released worksheet artifacts over an API.
+                            Worksheet lifecycle governance: draft &rarr; approved &rarr; released &rarr; archived.
                         </p>
-                        <p style="margin-top: 12px;">
-                            This turns worksheets into governed, versioned infrastructure for
-                            applications &mdash; not one-off UI code.
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            Requires fin123-pod license
                         </p>
-                        <div class="code-panel" style="margin-top: 16px;" role="region" aria-label="Hosted platform flow">
-                            <div class="code-header">
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="code-title">platform flow</span>
-                            </div>
-                            <pre class="code"><code>Analyst
-  ↓
-Worksheet spec
-  ↓
-Compiled artifact
-  ↓
-Released worksheet
-  ↓
-Application embed</code></pre>
-                        </div>
                     </div>
 
                 </div>
@@ -207,44 +227,180 @@ Application embed</code></pre>
         </section>
 
 
-        <section id="why-switch" class="section">
+        <!-- ═══════════════════ GET STARTED ═══════════════════ -->
+
+        <section id="get-started" class="section">
             <div class="container">
-                <h2 class="section-title">Why teams switch</h2>
+                <h2 class="section-title">Get started</h2>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">Faster than Excel</h3>
+                        <h3 class="panel-title">Install</h3>
                         <p>
-                            Spreadsheet UX backed by a columnar compute engine designed for financial workloads.
+                            Standalone binaries (no Python required) are available for
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-macos-arm64.zip">macOS
+                                arm64</a>
+                            and
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-windows-x86_64.zip">Windows
+                                x86_64</a>.
+                        </p>
+                        <p style="margin-top: 10px;">
+                            For source installs:
                         </p>
                     </div>
+
+                    <div class="code-panel" role="region" aria-label="Source install">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">terminal</span>
+                        </div>
+                        <pre class="code"><code>git clone https://github.com/reckoning-machines/fin123-core.git
+cd fin123-core
+pip install -e ".[dev]"
+fin123 doctor</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Build your first model</h3>
+                        <p>
+                            The <code>demo_fin123</code> template creates a project with tables, scalar formulas,
+                            <code>PARAM()</code> bindings, assertions, and a worksheet spec.
+                        </p>
+                    </div>
+
+                    <div class="code-panel" role="region" aria-label="Quick start">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">terminal</span>
+                        </div>
+                        <pre class="code"><code># scaffold a demo project
+fin123 init demo --template demo_fin123
+
+# build it
+fin123 build demo
+
+# open the browser UI
+fin123 ui demo</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Explore</h3>
+                        <p>
+                            <a class="link" href="https://github.com/reckoning-machines/fin123-core">fin123-core</a>
+                            &mdash; the open-source engine (Apache-2.0)
+                        </p>
+                        <p style="margin-top: 6px;">
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-examples">fin123-examples</a>
+                            &mdash; worked examples: DCF valuation, earnings review, sensitivity sweep
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════ EXAMPLES ═══════════════════ -->
+
+        <section id="examples" class="section">
+            <div class="container">
+                <h2 class="section-title">Examples</h2>
+                <p class="section-lede">
+                    Worked examples demonstrating how financial models become deterministic
+                    worksheet artifacts in fin123.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/dcf-valuation">DCF
+                                Valuation</a>
+                        </h3>
+                        <p>
+                            Discounted cash flow model with scalar formulas, <code>NPV()</code>,
+                            parameter-driven assumptions, build-time assertions, and named scenarios
+                            (base / bull / bear).
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/earnings-review">Earnings
+                                Review Worksheet</a>
+                        </h3>
+                        <p>
+                            Worksheet view of quarterly financial results with derived metrics
+                            (growth %, margin %, EPS surprise), display formatting, and row-level
+                            flags. Demonstrates compiled worksheet artifacts.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/sensitivity-sweep">Sensitivity
+                                Sweep</a>
+                        </h3>
+                        <p>
+                            Batch model execution across a 9-scenario parameter matrix.
+                            Demonstrates headless execution and deterministic output comparison
+                            via <code>fin123 diff</code>.
+                        </p>
+                    </div>
+
+                </div>
+
+                <p style="margin-top: 16px; font-size: 12px; color: var(--fg-dim);">
+                    All examples:
+                    <a class="link" href="https://github.com/reckoning-machines/fin123-examples">fin123-examples on
+                        GitHub</a>
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════ WHY ═══════════════════ -->
+
+        <section id="why" class="section">
+            <div class="container">
+                <h2 class="section-title">Why fin123</h2>
+                <p class="section-lede">
+                    Financial systems repeatedly reimplement spreadsheet logic inside
+                    application code. fin123 moves that logic into deterministic worksheet
+                    artifacts.
+                </p>
+
+                <div class="stack">
 
                     <div class="panel">
                         <h3 class="panel-title">Built like software</h3>
                         <p>
-                            Commit → build → verify → release lifecycle. Versioning and audit are native.
+                            Commit &rarr; build &rarr; verify &rarr; release lifecycle.
+                            Versioning and audit are native.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">AI as a controlled tool</h3>
+                        <h3 class="panel-title">Fast where Excel slows down</h3>
                         <p>
-                            AI can generate artifacts and assist workflows, but does not run inside
-                            deterministic computation.
+                            Table computations run on a columnar engine.
+                            fin123 compiles table plans and executes them against real datasets.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Bloomberg-connected</h3>
-                        <p>
-                            Vendor data can be synchronized into governed local caches for offline,
-                            reproducible builds.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Headless at scale</h3>
+                        <h3 class="panel-title">Headless execution</h3>
                         <p>
                             Run the same committed model across tickers, scenarios, and parameter sets
                             without someone sitting in front of a spreadsheet.
@@ -259,430 +415,74 @@ Application embed</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Embeddable worksheets</h3>
-                        <p>
-                            Trading desk applications repeatedly rebuild spreadsheet logic in UI tables.
-                            fin123 moves that logic into a worksheet specification that compiles into a
-                            deterministic artifact. Applications simply render the result.
-                        </p>
-                        <p style="margin-top: 12px; color: var(--fg-dim); font-style: italic;">
-                            The calculations live in the worksheet &mdash; not your application code.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <section id="spreadsheet-rebuilt" class="section">
-            <div class="container">
-                <h2 class="section-title">The spreadsheet, rebuilt for finance</h2>
-                <p class="section-lede">
-                    fin123 keeps the speed and mental model of spreadsheets, but gives financial models a real lifecycle,
-                    safer data handling, and the ability to run beyond the desktop.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">Fast where Excel slows down</h3>
-                        <p>
-                            The grid and formula workflow remain familiar, but table computations run on a columnar
-                            engine designed for real workloads. Instead of recalculating entire spreadsheets repeatedly,
-                            fin123 compiles table plans and executes them efficiently against real datasets.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Versioned and auditable by default</h3>
-                        <p>
-                            Models follow a lifecycle: commit changes, build deterministic outputs, verify integrity,
-                            and release approved results. Every build records its inputs, parameters, and outputs so
-                            results can always be reproduced and audited.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Headless when you need scale</h3>
-                        <p>
-                            The same committed model can run across many tickers, scenarios, and parameter sets without
-                            someone driving a spreadsheet manually. Batch builds produce versioned outputs that can be
-                            compared, verified, and released as sets.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Connected to real market data</h3>
-                        <p>
-                            Vendor data and SQL sources synchronize into governed local parquet caches. Builds then run
-                            offline against those inputs, keeping results deterministic while still integrating with
-                            real financial data systems.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <section id="determinism" class="section">
-            <div class="container">
-                <h2 class="section-title">Deterministic by design</h2>
-                <p class="section-lede">
-                    Determinism is enforced by architecture: sync is separated from build, builds run offline,
-                    and every output is fingerprinted and verifiable.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">Offline builds</h3>
-                        <p>
-                            <code>fin123 sync</code> fetches vendor data and writes local parquet caches with
-                            provenance.
-                            <code>fin123 build</code> reads only local files and never touches a live database.
-                            Table computations compile as Polars LazyFrame plans and materialize at the end.
-                            When a plan does not specify a sort, fin123 applies a deterministic secondary sort
-                            so the same inputs produce byte-identical parquet outputs.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Verified outputs</h3>
-                        <p>
-                            Each build records workbook hash, input hashes, effective parameters
-                            (<code>params_hash</code>), scenario overlays (<code>overlay_hash</code>),
-                            and exports (<code>export_hash</code>). Verification fails if fingerprints drift.
-                            Releases are explicit: mark a build as approved and publish it as an immutable record.
-                            In production mode, releases can be gated on a verify pass.
-                        </p>
-                    </div>
-
-                    <div class="panel">
                         <h3 class="panel-title">Finance-safe joins and lookups</h3>
                         <p>
-                            Silent row multiplication is unacceptable in finance. <code>join_left</code> defaults to
-                            <code>many_to_one</code> validation so right-side keys must be unique.
-                            <code>lookup_scalar</code> is exact-match and defaults to error on missing or duplicate
-                            keys.
-                            If a lookup is ambiguous or a join would multiply rows, the build fails with
-                            actionable diagnostics.
+                            <code>join_left</code> defaults to <code>many_to_one</code> validation so
+                            right-side keys must be unique. <code>lookup_scalar</code> is exact-match
+                            and errors on missing or duplicate keys. Silent row multiplication is
+                            rejected with actionable diagnostics.
                         </p>
                     </div>
 
-                    <div class="code-panel" role="region" aria-label="Lifecycle overview">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">workflow</span>
-                        </div>
-                        <pre class="code"><code>fin123 sync   → local caches + provenance (sync_runs/)
-fin123 commit → immutable snapshots (snapshots/)
-fin123 build  → immutable builds (runs/) + outputs + hashes
-fin123 verify → drift checks (params, overlays, exports, plugins)
-fin123 release → approved outputs (releases/) + release sets</code></pre>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <section id="worksheet-runtime" class="section">
-            <div class="container">
-                <h2 class="section-title">Release 0.4.0 — Deterministic Worksheets</h2>
-                <p class="section-lede">
-                    fin123 can now compile deterministic operational worksheets from tabular data
-                    into portable artifacts.
-                </p>
-
-                <p style="font-size: 13px; color: var(--fg-dim); margin-top: 12px;">
-                    Spreadsheet = the model. Worksheet = a structured view of model output.
-                </p>
-
-                <div class="stack">
-
                     <div class="panel">
-                        <pre class="code"
-                            style="background: var(--panel-bg); padding: 20px; font-size: 13px; line-height: 1.8;"><code><strong>ViewTable</strong>          typed tabular substrate
-  ↓
-<strong>WorksheetView</strong>       declarative worksheet spec
-  ↓
-<strong>CompiledWorksheet</strong>   immutable JSON artifact
-  ↓
-<strong>Renderer</strong>            thin read-only viewer</code></pre>
+                        <h3 class="panel-title">Deterministic by design</h3>
+                        <p>
+                            Sync is separated from build. Builds run offline against local files.
+                            Every output is fingerprinted. <code>fin123 verify</code> detects
+                            post-build tampering. Identical inputs always produce identical outputs.
+                        </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Capabilities</h3>
-                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
-                            <li>Derived columns — row-local expressions in dependency order</li>
-                            <li>Grouped headers — single-level column grouping</li>
-                            <li>Compile-time sorting — deterministic row order</li>
-                            <li>Row-level flags — boolean expressions with severity and message</li>
-                            <li>Structured provenance — source, version, per-column lineage</li>
-                            <li>Content-hashable, diffable JSON artifacts</li>
-                        </ul>
+                        <h3 class="panel-title">Bloomberg-connected</h3>
+                        <p>
+                            Vendor data can be synchronized into governed local caches for
+                            offline, reproducible builds. Requires fin123-pod.
+                        </p>
                     </div>
 
                 </div>
 
-                <div class="code-panel" style="margin-top: 24px;" role="region"
-                    aria-label="Worksheet compile example">
+                <div class="code-panel" style="margin-top: 24px;" role="region" aria-label="Lifecycle overview">
                     <div class="code-header">
                         <span class="dot" aria-hidden="true"></span>
                         <span class="dot" aria-hidden="true"></span>
                         <span class="dot" aria-hidden="true"></span>
-                        <span class="code-title">terminal</span>
+                        <span class="code-title">lifecycle</span>
                     </div>
-                    <pre class="code"><code>fin123 worksheet compile valuation_review.yaml --table priced_estimates</code></pre>
+                    <pre class="code"><code>fin123 commit  -> immutable snapshots (snapshots/)
+fin123 build   -> immutable builds (runs/) + outputs + hashes
+fin123 verify  -> drift checks (params, overlays, exports)
+fin123 release -> approved outputs (releases/) + release sets</code></pre>
                 </div>
 
-                <p style="margin-top: 24px; font-size: 12px; color: var(--fg-dim);">
-                    Full release history:
-                    <a href="https://github.com/reckoning-machines/fin123-core/releases"
-                        style="color: var(--fg-dim); text-decoration: underline;">GitHub Releases</a>
-                </p>
             </div>
         </section>
 
 
-        <section id="new-workflow" class="section">
-            <div class="container">
-                <h2 class="section-title">New workflow</h2>
-                <p class="section-lede">
-                    Today in most trading desks it looks like this:
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <pre class="code"
-                            style="background: var(--panel-bg); padding: 20px; font-size: 13px; line-height: 1.8;"><code>Analyst
-  ↓
-Excel model / spreadsheet logic
-  ↓
-Developer rewrites logic in UI code
-  ↓
-Application table</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <p>
-                            The rewrite step is painful and error-prone. Developers have to translate
-                            spreadsheet logic into application code &mdash; formulas, derived columns, flags,
-                            formatting, ordering, and audit hints &mdash; usually in JavaScript or Python.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">With fin123</h3>
-                        <pre class="code"
-                            style="background: var(--panel-bg); padding: 20px; font-size: 13px; line-height: 1.8;"><code>Analyst
-  ↓
-WorksheetView (YAML spec)
-  ↓
-CompiledWorksheet (artifact)
-  ↓
-Developer embeds viewer</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <table style="width: 100%; font-size: 13px; line-height: 1.7; border-collapse: collapse;">
-                            <thead>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Role</th>
-                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Responsibility</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px; color: var(--fg);">Analyst</td>
-                                    <td style="padding: 6px 12px; color: var(--fg);">Define worksheet logic</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px; color: var(--fg);">fin123 runtime</td>
-                                    <td style="padding: 6px 12px; color: var(--fg);">Evaluate and compile the worksheet</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 6px 12px; color: var(--fg);">Developer</td>
-                                    <td style="padding: 6px 12px; color: var(--fg);">Embed the viewer in the application</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>
-
-
-        <section id="architecture-change" class="section">
-            <div class="container">
-                <h2 class="section-title">How fin123 changes the architecture</h2>
-                <p class="section-lede">
-                    Operational finance tools repeatedly rebuild spreadsheet logic inside application
-                    code. fin123 separates worksheet logic from the application layer and turns it
-                    into a compiled artifact.
-                </p>
-
-                <div class="stack">
-
-                    <div class="code-panel" role="region" aria-label="Architecture diagram">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">architecture</span>
-                        </div>
-                        <pre class="code"><code>   Analyst defines worksheet
-              ↓
-     WorksheetView (spec)
-              ↓
-   fin123 runtime compiles
-              ↓
-  CompiledWorksheet (artifact)
-              ↓
- Applications render the result</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <p>
-                            The worksheet becomes a portable artifact. Analysts define it once.
-                            fin123 compiles it deterministically. Any application can render the
-                            result without rewriting spreadsheet logic.
-                        </p>
-                        <p style="margin-top: 12px; color: var(--fg-dim); font-style: italic;">
-                            This turns spreadsheet logic into infrastructure instead of application code.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <section id="why-worksheets" class="section">
-            <div class="container">
-                <h2 class="section-title">Why this exists</h2>
-                <p class="section-lede">
-                    Most application teams still write spreadsheet logic in application code.
-                    Derived columns, grouped headers, flags, and formatting get rebuilt in
-                    backend services and JavaScript tables.
-                </p>
-
-                <div class="stack" style="margin-top: 24px;">
-                    <div class="panel">
-                        <div class="panel-title">Where spreadsheet logic lives</div>
-                        <div class="compare-columns">
-                            <div class="compare-col">
-                                <h4 class="compare-heading">Typical application</h4>
-                                <pre class="code"><code>application code
-        ↓
-    UI tables
-        ↓
-hand-built spreadsheet logic</code></pre>
-                                <p class="compare-caption">
-                                    Derived columns, flags, grouping, and formatting get implemented
-                                    in backend code and JavaScript tables.
-                                </p>
-                            </div>
-                            <div class="compare-col">
-                                <h4 class="compare-heading">fin123</h4>
-                                <pre class="code"><code>worksheet spec
-        ↓
-compiled worksheet
-        ↓
-   thin viewer</code></pre>
-                                <p class="compare-caption">
-                                    The calculations live in the worksheet itself and compile into
-                                    a verifiable artifact.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="opensource" class="section">
-            <div class="container">
-                <h2 class="section-title">Open source — fin123-core</h2>
-                <p class="section-lede">
-                    The core engine is open source under the Apache-2.0 license. It is a complete, standalone
-                    product — no database, no server, no account required. Install it, build models, and
-                    use the browser UI entirely on your own machine.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">What's included (open source)</h3>
-                        <p>
-                            Workbook engine (scalar DAG + table LazyFrame evaluation), Lark LALR(1) formula parser,
-                            CellGraph with cross-sheet references and named ranges, local browser UI (FastAPI on
-                            localhost, canvas grid, keyboard-first), immutable versioning (snapshots, builds,
-                            artifacts),
-                            batch builds, diff engine, verify, GC, XLSX import with formula classification, and
-                            project templates.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Full lifecycle, no dependencies</h3>
-                        <p>
-                            Edit → Commit → Build → Verify. Every build is deterministic and reproducible from local
-                            files alone. The CLI and browser UI ship together. No external services needed.
-                        </p>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Apache-2.0 license</div>
-                        <div class="callout-body">
-                            Use, modify, and distribute freely. The core engine will always be open source.
-                            <br><br>
-                            <a class="btn" href="https://github.com/reckoning-machines/fin123-core">View on GitHub</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
+        <!-- ═══════════════════ POD ═══════════════════ -->
 
         <section id="pod" class="section">
             <div class="container">
-                <h2 class="section-title">Pod — enterprise and team layer (private)</h2>
+                <h2 class="section-title">Hosted platform — fin123-pod</h2>
                 <p class="section-lede">
-                    fin123-pod is a proprietary add-on for teams that need shared state, automation, and
-                    governance. It extends fin123-core with database-backed infrastructure. Requires a license.
+                    fin123-pod is a proprietary add-on for teams that need shared state,
+                    automation, and governance. It extends fin123-core with database-backed
+                    infrastructure. Requires a license.
                 </p>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">GitHub for worksheets</h3>
+                        <h3 class="panel-title">Worksheet registry and governance</h3>
                         <p>
-                            Pod provides a complete registry and governance path for worksheet artifacts.
-                            An analyst defines worksheet logic, fin123 compiles it into a deterministic
-                            artifact, and the artifact is pushed to a shared Postgres registry where it is
-                            versioned, reviewed, and promoted through approval stages. Released worksheet
-                            builds become the governed, distributable unit that downstream applications and
-                            internal tools consume directly.
+                            Teams publish compiled worksheet artifacts to a shared Postgres registry.
+                            Artifacts are versioned, reviewed, and promoted through approval stages.
+                            Applications consume released artifacts from the registry instead of
+                            reimplementing spreadsheet logic.
                         </p>
-                        <p style="margin-top: 12px;">
-                            Applications never reimplement spreadsheet logic. They embed released worksheet
-                            artifacts from the registry. When worksheet logic changes, teams review and
-                            approve the new version centrally, and every consumer picks up the approved
-                            release. The registry becomes the system of record for worksheet versions,
-                            creating a shared artifact layer between analysts, platform teams, and the
-                            applications they support.
-                        </p>
-                        <div class="code-panel" style="margin-top: 16px;" role="region" aria-label="Registry UI preview">
+                        <div class="code-panel" style="margin-top: 16px;" role="region"
+                            aria-label="Registry UI preview">
                             <div class="code-header">
                                 <span class="dot" aria-hidden="true"></span>
                                 <span class="dot" aria-hidden="true"></span>
@@ -690,53 +490,45 @@ compiled worksheet
                                 <span class="code-title">registry preview</span>
                             </div>
                             <pre class="code" style="font-size: 12px; line-height: 1.55;"><code>Worksheet Lifecycle
-Authoring → Compile → Draft → Approved → Released → Alias → Application
+Authoring -> Compile -> Draft -> Approved -> Released -> Alias -> Application
 
 Latest activity:
 revenue_summary v0005 compiled
 revenue_summary v0004 released
-production alias → v0004
+production alias -> v0004
 
 Worksheet: revenue_summary
 v0005   draft      approve
 v0004   released   archive
 v0003   archived</code></pre>
                         </div>
-                        <p style="margin-top: 8px; font-size: 11px; color: var(--fg-dim);">Registry UI preview</p>
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">Shared registry and runner</h3>
                         <p>
-                            Pod extends fin123-core with the shared execution infrastructure teams need
-                            in production. SQL sync pulls Postgres tables into local parquet caches with
-                            full provenance. Bloomberg and plugin connectors bring vendor data into the
-                            same governed sync path. A Postgres-backed registry stores model versions,
-                            builds, and releases so teams operate against a single shared state.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            The headless runner executes a specific
-                            <code>(model_id, model_version_id)</code> with parameter overrides and
-                            returns versioned outputs, turning centralized execution into an automatable
-                            backend capability. Multi-step workflows with replay let teams chain builds
-                            and promotions into repeatable operational sequences.
+                            SQL sync pulls Postgres tables into local parquet caches with provenance.
+                            Bloomberg and plugin connectors bring vendor data into the same governed
+                            sync path. A Postgres-backed registry stores model versions, builds, and
+                            releases. The headless runner executes models by
+                            <code>(model_id, model_version_id)</code> with parameter overrides.
                         </p>
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">Production mode governance</h3>
                         <p>
-                            In production mode, builds can be blocked on import parse errors, missing SQL schema guards,
-                            missing plugin pins, or an unreachable registry. Releases are gated on verify pass.
-                            Assertions with severity <code>error</code> hard-fail builds.
+                            Builds can be blocked on import parse errors, missing SQL schema guards,
+                            missing plugin pins, or an unreachable registry. Releases are gated on
+                            verify pass. Assertions with severity <code>error</code> hard-fail builds.
                         </p>
                     </div>
 
                     <div class="callout">
-                        <div class="callout-title">Proprietary — contact us for access</div>
+                        <div class="callout-title">Contact for access</div>
                         <div class="callout-body">
-                            Pod is closed source. It depends on fin123-core (open source) and adds enterprise
-                            capabilities. The core engine works fully standalone without Pod.
+                            Pod is closed source. It depends on fin123-core (open source) and adds
+                            enterprise capabilities. The core engine works fully standalone without Pod.
                             <a class="link" href="mailto:reckoningmachines@gmail.com">Contact us</a> for licensing.
                         </div>
                     </div>
@@ -746,214 +538,11 @@ v0003   archived</code></pre>
         </section>
 
 
-        <section id="lotus-architecture" class="section">
-            <div class="container">
-                <h2 class="section-title">A familiar architecture — rediscovered</h2>
-
-                <div class="stack">
-                    <div class="panel">
-                        <p>
-                            While building this system we realized something interesting.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            The architecture we arrived at unintentionally recreates the structure of the
-                            original Lotus 1-2-3.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            Lotus separated three ideas:
-                        </p>
-                        <ul style="margin: 8px 0; padding-left: 20px; line-height: 1.8;">
-                            <li>tabular data</li>
-                            <li>worksheet definitions</li>
-                            <li>the rendered spreadsheet</li>
-                        </ul>
-                        <p style="margin-top: 12px;">
-                            fin123 arrived at the same structure:
-                        </p>
-                        <pre class="code"
-                            style="background: var(--panel-bg); padding: 16px; font-size: 13px; line-height: 1.8; margin-top: 8px;"><code>ViewTable
-  ↓
-WorksheetView
-  ↓
-CompiledWorksheet
-  ↓
-Renderer</code></pre>
-                        <p style="margin-top: 16px;">
-                            We didn't start by trying to copy Lotus.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            We were trying to solve a practical problem: how to stop writing spreadsheet
-                            logic in application code.
-                        </p>
-                        <p style="margin-top: 12px;">
-                            But the result ended up looking very familiar.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="downloads" class="section">
-            <div class="container">
-                <h2 class="section-title">Downloads</h2>
-                <p class="section-lede">
-                    fin123 v0.4.0 — standalone binaries. No Python required.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn"
-                        href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-macos-arm64.zip">macOS
-                        arm64 (.zip)</a>
-                    <a class="btn"
-                        href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-windows-x86_64.zip">Windows
-                        x86_64 (.zip)</a>
-                    <a class="btn btn-ghost"
-                        href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/SHA256SUMS.txt">SHA256SUMS</a>
-                </div>
-
-                <p
-                    style="margin-top: 20px; font-size: 11px; color: var(--fg-dim); letter-spacing: 0.5px; text-transform: uppercase;">
-                    Release: core-v0.4.0</p>
-                <div class="code-panel" style="margin-top: 6px;" role="region" aria-label="Verify download integrity">
-                    <div class="code-header">
-                        <span class="dot" aria-hidden="true"></span>
-                        <span class="dot" aria-hidden="true"></span>
-                        <span class="dot" aria-hidden="true"></span>
-                        <span class="code-title">verify integrity</span>
-                    </div>
-                    <pre class="code"><code># macOS / Linux — download SHA256SUMS.txt into the same folder, then:
-shasum -a 256 -c SHA256SUMS.txt
-
-# Windows (PowerShell):
-certutil -hashfile fin123-core-0.4.0-windows-x86_64.zip SHA256</code></pre>
-                </div>
-
-                <div class="stack" style="margin-top: 40px;">
-                    <div class="panel">
-                        <h3 class="panel-title">Quick start (macOS — no Python required)</h3>
-                        <p>
-                            Download and extract <code>fin123-core-0.4.0-macos-arm64.zip</code>.
-                            Open Terminal in the extracted folder and run:
-                        </p>
-                    </div>
-
-                    <div class="code-panel" role="region" aria-label="macOS quick start">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">terminal</span>
-                        </div>
-                        <pre class="code"><code># see bundled templates
-./fin123 template list
-
-# scaffold a demo project
-./fin123 init demo --template demo_fin123
-
-# build it
-./fin123 build demo
-
-# open the browser UI
-./fin123 ui demo</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Quick start (Windows — no Python required)</h3>
-                        <p>
-                            Download and extract <code>fin123-core-0.4.0-windows-x86_64.zip</code>.
-                            Open a terminal (Command Prompt or PowerShell) in the extracted folder and run:
-                        </p>
-                    </div>
-
-                    <div class="code-panel" role="region" aria-label="Windows quick start">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">terminal</span>
-                        </div>
-                        <pre class="code"><code># see bundled templates
-fin123.exe template list
-
-# scaffold a demo project
-fin123.exe init demo --template demo_fin123
-
-# build it
-fin123.exe build demo
-
-# open the browser UI
-fin123.exe ui demo</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">What the demo shows</h3>
-                        <p>
-                            The <code>demo_fin123</code> template creates a project with tables, scalar formulas,
-                            <code>PARAM()</code> bindings, and assertions. After the build you can explore outputs,
-                            override parameters, diff two runs, and try the full
-                            commit → build → verify → release lifecycle.
-                        </p>
-                    </div>
-
-                    <div class="callout" style="margin-top: 16px;">
-                        <div class="callout-title">Source install and verification</div>
-                        <div class="callout-body">
-                            <p>
-                                Binaries are the fastest way to try fin123-core. For engineering evaluation
-                                and integration, both <strong>fin123-core</strong> and <strong>fin123-pod</strong>
-                                support reproducible source installs. Bootstrap scripts, smoke tests, acceptance
-                                tests, and CI make setup reproducible out of the box.
-                            </p>
-                            <p style="margin-top: 10px;">
-                                Checked-in runbooks under <code>ops/claude/</code> can be followed by
-                                Claude Code to install, verify, upgrade, and triage cleanly.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <section class="section">
-            <div class="container">
-                <div class="callout" style="text-align:center;">
-                    <div class="callout-title">Shaping the operating standard</div>
-                    <div class="callout-body">
-                        <p>
-                            fin123 is onboarding a small number of institutional design partners.
-                            If your team is evaluating deterministic model governance or reproducible
-                            research workflows, request a walkthrough to discuss early access.
-                        </p>
-                        <p style="margin-top:1.25rem;">
-                            <a class="btn"
-                                href="mailto:reckoningmachines@gmail.com?subject=fin123%20walkthrough%20request">Request
-                                a walkthrough</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Contact</h2>
-                <div class="panel">
-                    <p class="contact-line">
-                        Email the maintainer:
-                        <a class="link" href="mailto:reckoningmachines@gmail.com">reckoningmachines@gmail.com</a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <div>© 2026 Reckoning Machines · Core is <a class="link"
+            <div>&copy; 2026 Reckoning Machines &middot; Core is <a class="link"
                     href="https://github.com/reckoning-machines/fin123-core">open source</a> (Apache-2.0)</div>
             <div class="footer-right">No tracking. Static site.</div>
         </div>
