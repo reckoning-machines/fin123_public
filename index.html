@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 — the operating standard for financial models: deterministic builds, governance, and audit-grade releases." />
+        content="fin123 compiles spreadsheet models into deterministic runtime artifacts. Stop rewriting spreadsheet logic in application code." />
     <title>fin123 — The operating standard for financial models</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,11 +50,12 @@
                     <h3 class="title">The operating standard for financial models</h3>
 
                     <p class="subtitle" style="color: var(--fg-bright); font-weight: 600;">
-                        Financial models should behave like software.
+                        Stop rewriting spreadsheet logic in application code.
                     </p>
                     <p class="value">
-                        fin123 compiles spreadsheet models into deterministic, verifiable
-                        artifacts that applications and teams can execute reliably.
+                        fin123 compiles spreadsheet models into deterministic runtime artifacts.
+                        Applications execute the compiled artifact directly &mdash; no translation
+                        step, no logic drift.
                     </p>
 
                     <div class="hero-actions">
@@ -98,7 +99,7 @@ flags:
   - name: high_upside
     expression: upside_pct > 0.15</code></pre>
                     </div>
-                    <p class="hero-demo-caption">Worksheet specification compiled into a portable artifact.</p>
+                    <p class="hero-demo-caption">Analyst defines the worksheet. fin123 compiles it into a runtime artifact.</p>
 
                     <div class="hero-demo">
                         <div class="hero-demo-header">
@@ -109,8 +110,7 @@ flags:
                         </div>
                         <div id="hero-worksheet" data-worksheet="./demo_worksheet.json"></div>
                     </div>
-                    <p class="hero-demo-caption">The calculations live in the worksheet &mdash; not your application
-                        code.</p>
+                    <p class="hero-demo-caption">The application renders the compiled artifact. No spreadsheet logic in your code.</p>
 
                 </div>
             </div>
@@ -123,7 +123,8 @@ flags:
             <div class="container">
                 <h2 class="section-title">How fin123 works</h2>
                 <p class="section-lede">
-                    fin123 separates model authoring, model execution, and model delivery.
+                    Today: analyst builds a spreadsheet, engineer rewrites the logic in Python, logic drifts.
+                    fin123 replaces the rewrite step with a compiler.
                 </p>
 
                 <div class="stack">
@@ -150,29 +151,29 @@ Applications / dashboards / reports</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Spreadsheet = model authoring</h3>
+                        <h3 class="panel-title">Spreadsheet &rarr; model authoring</h3>
                         <p>
-                            A YAML workbook with explicit parameters, formulas, table plans, and
-                            assertions. This is where the financial logic lives. Built deterministically
-                            from local files &mdash; no database, no network calls.
+                            Analysts define financial logic in a YAML workbook: parameters, formulas,
+                            table plans, assertions. No database, no network calls. The model is the
+                            source of truth.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Worksheet = structured view of model output</h3>
+                        <h3 class="panel-title">Compile &rarr; runtime artifact</h3>
                         <p>
-                            A declarative YAML spec that projects build results into derived columns,
-                            display formats, sorts, and flags. This is what analysts define. Compiled
-                            at build time, not reimplemented in application code.
+                            <code>fin123 build</code> compiles the model into an immutable JSON artifact
+                            with a deterministic content hash. The artifact contains the evaluated output,
+                            display formatting, flags, and full provenance.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Compiled worksheet artifact = what applications consume</h3>
+                        <h3 class="panel-title">Execute &rarr; applications consume the artifact directly</h3>
                         <p>
-                            An immutable JSON file with full provenance and a deterministic content hash.
-                            Applications embed, serve, or verify the artifact directly. The calculations
-                            live in the worksheet &mdash; not your code.
+                            Applications render or serve the compiled artifact. No one rewrites the
+                            spreadsheet logic in Python or JavaScript. The model and the production
+                            system stay in sync because they are the same artifact.
                         </p>
                     </div>
 
@@ -195,8 +196,9 @@ Applications / dashboards / reports</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
                         <p>
-                            Author and execute finance-grade models locally. Deterministic builds,
-                            immutable versioning, headless batch execution. No server required.
+                            For analysts and quants. Author and execute finance-grade models locally.
+                            Deterministic builds, immutable versioning, headless batch execution.
+                            No server required.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             fin123-core &middot; open source &middot; Apache-2.0
@@ -206,8 +208,9 @@ Applications / dashboards / reports</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
                         <p>
-                            Compile model outputs into structured worksheet artifacts. Applications
-                            render the compiled result instead of reimplementing spreadsheet logic.
+                            For engineers building applications. Compile model outputs into structured
+                            artifacts that your app executes directly. No spreadsheet logic in your
+                            codebase.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             fin123-core &middot; open source &middot; Apache-2.0
@@ -217,8 +220,8 @@ Applications / dashboards / reports</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">3. Hosted worksheet platform</h3>
                         <p>
-                            Publish, govern, and serve worksheet artifacts from a central registry.
-                            Applications fetch released artifacts over an API.
+                            For teams and governance. Publish, version, and serve worksheet artifacts
+                            from a central registry. Applications fetch released artifacts over an API.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             fin123-pod &middot; requires license
@@ -365,8 +368,9 @@ fin123 ui demo</code></pre>
             <div class="container">
                 <h2 class="section-title">Why fin123</h2>
                 <p class="section-lede">
-                    Finance teams should not have to reimplement spreadsheet logic in
-                    application code. fin123 compiles it into artifacts instead.
+                    Every time an engineer rewrites spreadsheet logic in Python or
+                    JavaScript, the production system drifts from the model. fin123
+                    eliminates the rewrite.
                 </p>
 
                 <div class="stack">
