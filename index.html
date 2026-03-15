@@ -28,9 +28,9 @@
             </div>
 
             <nav class="nav">
+                <a href="#products">Products</a>
                 <a href="#architecture">Architecture</a>
                 <a href="#benchmark">Benchmark</a>
-                <a href="#products">Products</a>
                 <a href="#get-started">Get Started</a>
                 <a href="#examples">Examples</a>
                 <a href="#why">Why</a>
@@ -123,11 +123,63 @@ flags:
         </section>
 
 
+        <!-- ═══════════════════ THREE PRODUCT TIERS ═══════════════════ -->
+
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title">One system, three products</h2>
+                <p class="section-lede">
+                    Local authoring &rarr; embedded execution &rarr; hosted delivery.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
+                        <p>
+                            For analysts and quants. Author and execute models locally &mdash;
+                            DCF valuations, forecasts, scenario sweeps. Deterministic builds,
+                            immutable versioning, headless batch execution. No server required.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            fin123-core &middot; open source &middot; Apache-2.0
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
+                        <p>
+                            For engineers building apps. Compile the model, ship the compiled
+                            worksheet, run it in your application. The application never reimplements
+                            the model logic.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            fin123-core &middot; open source &middot; Apache-2.0
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">3. Hosted worksheet platform</h3>
+                        <p>
+                            For teams shipping models to production. Publish, version, and serve
+                            compiled worksheets from a central registry. Applications pull released
+                            versions over an API.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            fin123-pod &middot; requires license
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
         <!-- ═══════════════════ ARCHITECTURE ═══════════════════ -->
 
         <section id="architecture" class="section">
             <div class="container">
-                <h2 class="section-title">How fin123 works</h2>
+                <h2 class="section-title">How fin123 works for developers</h2>
                 <p class="section-lede">
                     Today: analyst builds a spreadsheet, engineer rewrites the logic in Python, logic drifts.
                     fin123 replaces the rewrite step with a compiler.
@@ -193,7 +245,7 @@ Applications / dashboards / batch jobs</code></pre>
 
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Versioned Spreadsheet Models</h2>
+                <h2 class="section-title">For Analysts: Speed and Versioned Spreadsheet Models</h2>
                 <p class="section-lede">
                     Think of fin123 as <strong>GitHub for spreadsheet models.</strong>
                 </p>
@@ -321,58 +373,6 @@ fin123 build bench                                    # single build
 fin123 build bench --set active_ticker=MSFT           # change ticker
 fin123 batch build bench --params-file inputs/scenarios.csv    # 20 scenarios
 fin123 batch build bench --params-file inputs/sensitivity.csv  # 5x5 grid</code></pre>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════════════ THREE PRODUCT TIERS ═══════════════════ -->
-
-        <section id="products" class="section">
-            <div class="container">
-                <h2 class="section-title">One system, three products</h2>
-                <p class="section-lede">
-                    Local authoring &rarr; embedded execution &rarr; hosted delivery.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
-                        <p>
-                            For analysts and quants. Author and execute models locally &mdash;
-                            DCF valuations, forecasts, scenario sweeps. Deterministic builds,
-                            immutable versioning, headless batch execution. No server required.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-core &middot; open source &middot; Apache-2.0
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
-                        <p>
-                            For engineers building apps. Compile the model, ship the compiled
-                            worksheet, run it in your application. The application never reimplements
-                            the model logic.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-core &middot; open source &middot; Apache-2.0
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">3. Hosted worksheet platform</h3>
-                        <p>
-                            For teams shipping models to production. Publish, version, and serve
-                            compiled worksheets from a central registry. Applications pull released
-                            versions over an API.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-pod &middot; requires license
-                        </p>
                     </div>
 
                 </div>
