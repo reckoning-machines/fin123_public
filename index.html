@@ -53,9 +53,10 @@
                         Stop rewriting spreadsheet logic in application code.
                     </p>
                     <p class="value">
-                        fin123 compiles spreadsheet models into deterministic runtime artifacts.
-                        Applications execute the compiled artifact directly &mdash; no translation
-                        step, no logic drift.
+                        fin123 compiles financial models &mdash; DCF valuations, revenue forecasts,
+                        sensitivity analyses &mdash; into deterministic runtime artifacts.
+                        Applications execute the compiled artifact directly. No translation step,
+                        no logic drift.
                     </p>
 
                     <div class="hero-actions">
@@ -154,7 +155,8 @@ Applications / dashboards / reports</code></pre>
                         <h3 class="panel-title">Spreadsheet &rarr; model authoring</h3>
                         <p>
                             Analysts define financial logic in a YAML workbook: parameters, formulas,
-                            table plans, assertions. No database, no network calls. The model is the
+                            table plans, assertions. Models range from DCF valuations and revenue
+                            forecasts to credit models and scenario analyses. The model is the
                             source of truth.
                         </p>
                     </div>
@@ -163,8 +165,9 @@ Applications / dashboards / reports</code></pre>
                         <h3 class="panel-title">Compile &rarr; runtime artifact</h3>
                         <p>
                             <code>fin123 build</code> compiles the model into an immutable JSON artifact
-                            with a deterministic content hash. The artifact contains the evaluated output,
-                            display formatting, flags, and full provenance.
+                            with a deterministic content hash. The artifact contains the compiled
+                            calculation graph, evaluated outputs, display formatting, flags, and
+                            full provenance.
                         </p>
                     </div>
 
@@ -196,9 +199,9 @@ Applications / dashboards / reports</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
                         <p>
-                            For analysts and quants. Author and execute finance-grade models locally.
-                            Deterministic builds, immutable versioning, headless batch execution.
-                            No server required.
+                            For analysts and quants. Author and execute models locally &mdash;
+                            DCF valuations, forecasts, scenario sweeps. Deterministic builds,
+                            immutable versioning, headless batch execution. No server required.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             fin123-core &middot; open source &middot; Apache-2.0
