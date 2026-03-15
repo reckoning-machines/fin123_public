@@ -59,14 +59,14 @@
                         The application never reimplements the model logic.
                     </p>
                     <p style="font-size: 11px; color: var(--fg-dim); margin-bottom: 16px;">
-                        The operating standard for financial models.
+                        fin123: The operating standard for financial models.
                     </p>
 
                     <div class="hero-actions">
-                        <a class="btn btn-ghost"
-                            href="https://github.com/reckoning-machines/fin123-core">View Core on GitHub</a>
-                        <a class="btn btn-ghost"
-                            href="https://github.com/reckoning-machines/fin123-examples">View Examples</a>
+                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core on
+                            GitHub</a>
+                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-examples">View
+                            Examples</a>
                         <a class="btn btn-ghost"
                             href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request
                             a Walkthrough</a>
@@ -103,7 +103,8 @@ flags:
   - name: high_upside
     expression: upside_pct > 0.15</code></pre>
                     </div>
-                    <p class="hero-demo-caption">Analyst defines the worksheet. fin123 compiles it. Application runs it.</p>
+                    <p class="hero-demo-caption">Analyst defines the worksheet. fin123 compiles it. Application runs it.
+                    </p>
 
                     <div class="hero-demo">
                         <div class="hero-demo-header">
@@ -114,7 +115,8 @@ flags:
                         </div>
                         <div id="hero-worksheet" data-worksheet="./demo_worksheet.json"></div>
                     </div>
-                    <p class="hero-demo-caption">The application runs the compiled worksheet. No model logic in your codebase.</p>
+                    <p class="hero-demo-caption">The application runs the compiled worksheet. No model logic in your
+                        codebase.</p>
 
                 </div>
             </div>
@@ -261,26 +263,41 @@ Applications / dashboards / batch jobs</code></pre>
                         <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
                             <thead>
                                 <tr style="border-bottom: 1px solid var(--border);">
-                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Operation</th>
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">fin123 (measured)</th>
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Excel (expected)</th>
+                                    <th
+                                        style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
+                                        Operation</th>
+                                    <th
+                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
+                                        fin123 (measured)</th>
+                                    <th
+                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
+                                        Excel (expected)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr style="border-bottom: 1px solid var(--border);">
                                     <td style="padding: 6px 12px;">Single build (warm)</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~35 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2&ndash;5 s</td>
+                                    <td
+                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
+                                        ~35 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2&ndash;5 s
+                                    </td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--border);">
                                     <td style="padding: 6px 12px;">20-scenario sweep</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.4 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40&ndash;100 s</td>
+                                    <td
+                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
+                                        ~1.4 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40&ndash;100
+                                        s</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 6px 12px;">5&times;5 sensitivity grid</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.8 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">est. 30&ndash;120 s</td>
+                                    <td
+                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
+                                        ~1.8 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">est.
+                                        30&ndash;120 s</td>
                                 </tr>
                             </tbody>
                         </table>
