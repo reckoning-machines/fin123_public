@@ -49,10 +49,12 @@
                     <div class="kicker">fin123.dev</div>
                     <h3 class="title">The operating standard for financial models</h3>
 
-                    <p class="value">
+                    <p class="subtitle" style="color: var(--fg-bright); font-weight: 600;">
                         Financial models should behave like software.
-                        fin123 compiles spreadsheet models into deterministic artifacts
-                        that applications and teams can run reliably.
+                    </p>
+                    <p class="value">
+                        fin123 compiles spreadsheet models into deterministic, verifiable
+                        artifacts that applications and teams can execute reliably.
                     </p>
 
                     <div class="hero-actions">
@@ -183,42 +185,42 @@ Applications / dashboards / reports</code></pre>
         <section id="products" class="section">
             <div class="container">
                 <h2 class="section-title">One system, three products</h2>
+                <p class="section-lede">
+                    Local authoring &rarr; embedded execution &rarr; hosted delivery.
+                </p>
 
                 <div class="stack">
 
                     <div class="panel">
                         <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
                         <p>
-                            Run finance-grade spreadsheets locally with deterministic builds,
-                            verification, and versioned artifacts. Fast grid UX, explicit parameters,
-                            headless execution. No server required.
+                            Author and execute finance-grade models locally. Deterministic builds,
+                            immutable versioning, headless batch execution. No server required.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Open source &mdash; Apache-2.0
+                            fin123-core &middot; open source &middot; Apache-2.0
                         </p>
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
                         <p>
-                            Compile models into worksheet artifacts that applications can render
-                            without reimplementing spreadsheet logic. Derived columns, flags, formatting,
-                            and provenance are resolved at compile time.
+                            Compile model outputs into structured worksheet artifacts. Applications
+                            render the compiled result instead of reimplementing spreadsheet logic.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Open source &mdash; Apache-2.0
+                            fin123-core &middot; open source &middot; Apache-2.0
                         </p>
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">3. Hosted worksheet platform</h3>
                         <p>
-                            Publish, approve, release, and serve compiled worksheets from a central
-                            system. Applications request released worksheet artifacts over an API.
-                            Worksheet lifecycle governance: draft &rarr; approved &rarr; released &rarr; archived.
+                            Publish, govern, and serve worksheet artifacts from a central registry.
+                            Applications fetch released artifacts over an API.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Requires fin123-pod license
+                            fin123-pod &middot; requires license
                         </p>
                     </div>
 
@@ -236,71 +238,54 @@ Applications / dashboards / reports</code></pre>
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">Install</h3>
+                        <h3 class="panel-title">1. Explore the examples</h3>
                         <p>
-                            Standalone binaries (no Python required) are available for
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-examples">fin123-examples</a>
+                            walks through three finance use cases: DCF valuation, earnings review
+                            worksheets, and batch sensitivity sweeps.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">2. Understand the architecture</h3>
+                        <p>
+                            Read the <a class="link" href="#architecture">execution model</a> above
+                            or the full
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-examples/blob/main/architecture/how_fin123_works.md">architecture
+                                doc</a>
+                            to see how spreadsheets become compiled artifacts.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">3. Install fin123-core</h3>
+                        <p>
+                            Standalone binaries (no Python required):
                             <a class="link"
                                 href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-macos-arm64.zip">macOS
                                 arm64</a>
-                            and
+                            &middot;
                             <a class="link"
                                 href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-windows-x86_64.zip">Windows
-                                x86_64</a>.
-                        </p>
-                        <p style="margin-top: 10px;">
-                            For source installs:
+                                x86_64</a>
                         </p>
                     </div>
 
-                    <div class="code-panel" role="region" aria-label="Source install">
+                    <div class="code-panel" role="region" aria-label="Source install and quick start">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span>
                             <span class="dot" aria-hidden="true"></span>
                             <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">terminal</span>
+                            <span class="code-title">source install + first build</span>
                         </div>
                         <pre class="code"><code>git clone https://github.com/reckoning-machines/fin123-core.git
-cd fin123-core
-pip install -e ".[dev]"
-fin123 doctor</code></pre>
-                    </div>
+cd fin123-core && pip install -e ".[dev]"
 
-                    <div class="panel">
-                        <h3 class="panel-title">Build your first model</h3>
-                        <p>
-                            The <code>demo_fin123</code> template creates a project with tables, scalar formulas,
-                            <code>PARAM()</code> bindings, assertions, and a worksheet spec.
-                        </p>
-                    </div>
-
-                    <div class="code-panel" role="region" aria-label="Quick start">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">terminal</span>
-                        </div>
-                        <pre class="code"><code># scaffold a demo project
 fin123 init demo --template demo_fin123
-
-# build it
 fin123 build demo
-
-# open the browser UI
 fin123 ui demo</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Explore</h3>
-                        <p>
-                            <a class="link" href="https://github.com/reckoning-machines/fin123-core">fin123-core</a>
-                            &mdash; the open-source engine (Apache-2.0)
-                        </p>
-                        <p style="margin-top: 6px;">
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-examples">fin123-examples</a>
-                            &mdash; worked examples: DCF valuation, earnings review, sensitivity sweep
-                        </p>
                     </div>
 
                 </div>
@@ -313,10 +298,6 @@ fin123 ui demo</code></pre>
         <section id="examples" class="section">
             <div class="container">
                 <h2 class="section-title">Examples</h2>
-                <p class="section-lede">
-                    Worked examples demonstrating how financial models become deterministic
-                    worksheet artifacts in fin123.
-                </p>
 
                 <div class="stack">
 
@@ -326,10 +307,12 @@ fin123 ui demo</code></pre>
                                 href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/dcf-valuation">DCF
                                 Valuation</a>
                         </h3>
-                        <p>
-                            Discounted cash flow model with scalar formulas, <code>NPV()</code>,
-                            parameter-driven assumptions, build-time assertions, and named scenarios
-                            (base / bull / bear).
+                        <p style="margin-bottom: 8px;">
+                            Finance-native model authoring. Scalar formula DAG with <code>NPV()</code>,
+                            explicit parameters, assertions, and named scenarios.
+                        </p>
+                        <p style="font-size: 11px; color: var(--fg-dim);">
+                            Concept: how fin123 evaluates a financial model deterministically.
                         </p>
                     </div>
 
@@ -339,10 +322,13 @@ fin123 ui demo</code></pre>
                                 href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/earnings-review">Earnings
                                 Review Worksheet</a>
                         </h3>
-                        <p>
-                            Worksheet view of quarterly financial results with derived metrics
-                            (growth %, margin %, EPS surprise), display formatting, and row-level
-                            flags. Demonstrates compiled worksheet artifacts.
+                        <p style="margin-bottom: 8px;">
+                            Worksheet as structured output view. Quarterly results with derived
+                            metrics, display formatting, and row-level flags compiled into a
+                            portable artifact.
+                        </p>
+                        <p style="font-size: 11px; color: var(--fg-dim);">
+                            Concept: how build outputs become artifacts applications can render.
                         </p>
                     </div>
 
@@ -352,10 +338,12 @@ fin123 ui demo</code></pre>
                                 href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/sensitivity-sweep">Sensitivity
                                 Sweep</a>
                         </h3>
-                        <p>
-                            Batch model execution across a 9-scenario parameter matrix.
-                            Demonstrates headless execution and deterministic output comparison
-                            via <code>fin123 diff</code>.
+                        <p style="margin-bottom: 8px;">
+                            Deterministic batch execution. The same model runs across a 9-scenario
+                            parameter matrix with structurally comparable, verifiable outputs.
+                        </p>
+                        <p style="font-size: 11px; color: var(--fg-dim);">
+                            Concept: how fin123 runs one model across many assumptions reproducibly.
                         </p>
                     </div>
 
@@ -376,68 +364,51 @@ fin123 ui demo</code></pre>
             <div class="container">
                 <h2 class="section-title">Why fin123</h2>
                 <p class="section-lede">
-                    Financial systems repeatedly reimplement spreadsheet logic inside
-                    application code. fin123 moves that logic into deterministic worksheet
-                    artifacts.
+                    Finance teams should not have to reimplement spreadsheet logic in
+                    application code. fin123 compiles it into artifacts instead.
                 </p>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">Built like software</h3>
+                        <h3 class="panel-title">Software lifecycle for models</h3>
                         <p>
-                            Commit &rarr; build &rarr; verify &rarr; release lifecycle.
-                            Versioning and audit are native.
+                            Commit &rarr; build &rarr; verify &rarr; release.
+                            Explicit parameters, named scenarios, immutable versioning. No hidden
+                            cell edits.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Fast where Excel slows down</h3>
+                        <h3 class="panel-title">Columnar execution engine</h3>
                         <p>
-                            Table computations run on a columnar engine.
-                            fin123 compiles table plans and executes them against real datasets.
+                            Table computations compile as Polars LazyFrame plans and execute
+                            against real datasets. Faster than recalculating spreadsheets.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Headless execution</h3>
+                        <h3 class="panel-title">Headless batch execution</h3>
                         <p>
-                            Run the same committed model across tickers, scenarios, and parameter sets
-                            without someone sitting in front of a spreadsheet.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Parameters and scenarios are first-class</h3>
-                        <p>
-                            Explicit system inputs and structured overlays, not hidden cell edits.
+                            The same committed model runs across tickers, scenarios, and parameter
+                            sets without someone sitting in front of a spreadsheet.
                         </p>
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">Finance-safe joins and lookups</h3>
                         <p>
-                            <code>join_left</code> defaults to <code>many_to_one</code> validation so
-                            right-side keys must be unique. <code>lookup_scalar</code> is exact-match
-                            and errors on missing or duplicate keys. Silent row multiplication is
-                            rejected with actionable diagnostics.
+                            <code>join_left</code> defaults to <code>many_to_one</code> &mdash;
+                            silent row multiplication is rejected.
+                            <code>lookup_scalar</code> errors on missing or duplicate keys.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Deterministic by design</h3>
+                        <h3 class="panel-title">Deterministic and verifiable</h3>
                         <p>
-                            Sync is separated from build. Builds run offline against local files.
-                            Every output is fingerprinted. <code>fin123 verify</code> detects
-                            post-build tampering. Identical inputs always produce identical outputs.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Bloomberg-connected</h3>
-                        <p>
-                            Vendor data can be synchronized into governed local caches for
-                            offline, reproducible builds. Requires fin123-pod.
+                            Builds run offline against local files. Every output is fingerprinted.
+                            <code>fin123 verify</code> detects post-build tampering.
                         </p>
                     </div>
 
@@ -450,10 +421,10 @@ fin123 ui demo</code></pre>
                         <span class="dot" aria-hidden="true"></span>
                         <span class="code-title">lifecycle</span>
                     </div>
-                    <pre class="code"><code>fin123 commit  -> immutable snapshots (snapshots/)
-fin123 build   -> immutable builds (runs/) + outputs + hashes
-fin123 verify  -> drift checks (params, overlays, exports)
-fin123 release -> approved outputs (releases/) + release sets</code></pre>
+                    <pre class="code"><code>fin123 commit  -> immutable snapshots
+fin123 build   -> deterministic outputs + hashes
+fin123 verify  -> drift detection
+fin123 release -> approved, governed artifacts</code></pre>
                 </div>
 
             </div>
@@ -466,9 +437,8 @@ fin123 release -> approved outputs (releases/) + release sets</code></pre>
             <div class="container">
                 <h2 class="section-title">Hosted platform — fin123-pod</h2>
                 <p class="section-lede">
-                    fin123-pod is a proprietary add-on for teams that need shared state,
-                    automation, and governance. It extends fin123-core with database-backed
-                    infrastructure. Requires a license.
+                    Shared state, automation, and governance for teams.
+                    Extends fin123-core with Postgres-backed infrastructure.
                 </p>
 
                 <div class="stack">
