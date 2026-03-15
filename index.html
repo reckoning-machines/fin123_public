@@ -29,6 +29,7 @@
 
             <nav class="nav">
                 <a href="#architecture">Architecture</a>
+                <a href="#benchmark">Benchmark</a>
                 <a href="#products">Products</a>
                 <a href="#get-started">Get Started</a>
                 <a href="#examples">Examples</a>
@@ -202,6 +203,106 @@ Applications / dashboards / batch jobs</code></pre>
                             The application never reimplements the model logic.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════ BENCHMARK ═══════════════════ -->
+
+        <section id="benchmark" class="section">
+            <div class="container">
+                <h2 class="section-title">Benchmark: DCF Operating Model</h2>
+                <p class="section-lede">
+                    A real analyst-style operating model, implemented as a fin123 template, running
+                    against the actual fin123 runtime. Not a synthetic micro-benchmark.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">The model</h3>
+                        <p>
+                            Quarterly operating history for 10 tickers across 5 segments, 3 regions,
+                            and 5 product lines. 66,000 rows of historical data. The table graph
+                            derives gross profit, EBIT, EBITDA, NOPAT, FCF, and margins across all
+                            rows, then aggregates by ticker. The scalar graph runs a 5-year DCF
+                            valuation with terminal value for the selected ticker.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Why Excel slows down</h3>
+                        <p>
+                            Excel recalculates analyst models cell by cell. A 66,000-row table
+                            with 8 derived columns is ~528,000 formula evaluations on every
+                            recalculation. Each scenario change triggers the full chain again.
+                            A 20-scenario sweep means 20 full recalculations, each taking seconds.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Why fin123 is faster</h3>
+                        <p>
+                            fin123 compiles the table derivations into a Polars LazyFrame plan and
+                            executes them as vectorized columnar operations in a single pass. The
+                            scalar DCF chain resolves in one topological sweep. Scenario sweeps
+                            reuse the same compiled execution path with different parameters.
+                        </p>
+                    </div>
+
+                    <!-- ── BENCHMARK NUMBERS (edit here to update metrics) ── -->
+                    <div class="panel" id="benchmark-numbers">
+                        <h3 class="panel-title">Current benchmark results</h3>
+
+                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Operation</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">fin123 (measured)</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Excel (expected)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px;">Single build (warm)</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~35 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2&ndash;5 s</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px;">20-scenario sweep</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.4 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40&ndash;100 s</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 6px 12px;">5&times;5 sensitivity grid</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.8 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">est. 30&ndash;120 s</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
+                            fin123 numbers measured on the implemented benchmark template (benchmark_dcf).
+                            Excel numbers are projected estimates pending formal validation on an equivalent workbook.
+                        </p>
+                    </div>
+                    <!-- ── END BENCHMARK NUMBERS ── -->
+
+                    <div class="code-panel" role="region" aria-label="Benchmark CLI">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">run the benchmark</span>
+                        </div>
+                        <pre class="code"><code>fin123 init bench --template benchmark_dcf
+fin123 build bench                                    # single build
+fin123 build bench --set active_ticker=MSFT           # change ticker
+fin123 batch build bench --params-file inputs/scenarios.csv    # 20 scenarios
+fin123 batch build bench --params-file inputs/sensitivity.csv  # 5x5 grid</code></pre>
+                    </div>
+
                 </div>
             </div>
         </section>
