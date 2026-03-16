@@ -37,12 +37,12 @@
             </div>
 
             <nav class="nav">
-                <a href="#products">Products</a>
-                <a href="#architecture">Architecture</a>
+                <a href="#problem">Problem</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#version-control">Versioning</a>
                 <a href="#benchmark">Benchmark</a>
+                <a href="#products">Products</a>
                 <a href="#get-started">Get Started</a>
-                <a href="#examples">Examples</a>
-                <a href="#why">Why</a>
                 <a href="#pod">Pod</a>
             </nav>
         </div>
@@ -80,13 +80,13 @@
 
                     <div class="hero-meta">
                         <span class="meta-item">Deterministic build + verify</span>
-                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-dot" aria-hidden="true">&bull;</span>
                         <span class="meta-item">Batch scenario sweeps</span>
-                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-dot" aria-hidden="true">&bull;</span>
                         <span class="meta-item">Finance-safe joins and lookups</span>
-                        <span class="meta-dot" aria-hidden="true">•</span>
-                        <span class="meta-item">Governed AI outputs</span>
-                        <span class="meta-dot" aria-hidden="true">•</span>
+                        <span class="meta-dot" aria-hidden="true">&bull;</span>
+                        <span class="meta-item">Versioned model releases</span>
+                        <span class="meta-dot" aria-hidden="true">&bull;</span>
                         <span class="meta-item">Team registry + runner (Pod)</span>
                     </div>
 
@@ -128,50 +128,46 @@ flags:
         </section>
 
 
-        <!-- ═══════════════════ THREE PRODUCT TIERS ═══════════════════ -->
+        <!-- ═══════════════════ THE PROBLEM ═══════════════════ -->
 
-        <section id="products" class="section">
+        <section id="problem" class="section">
             <div class="container">
-                <h2 class="section-title">One system, three products</h2>
+                <h2 class="section-title">The problem: spreadsheets don't ship</h2>
                 <p class="section-lede">
-                    Local authoring &rarr; embedded execution &rarr; hosted delivery.
+                    The spreadsheet is the real model. But production systems cannot run
+                    spreadsheets.
                 </p>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
+                        <h3 class="panel-title">The workflow today</h3>
                         <p>
-                            For analysts and quants. Author and execute models locally &mdash;
-                            DCF valuations, forecasts, scenario sweeps. Deterministic builds,
-                            immutable versioning, headless batch execution. No server required.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-core &middot; open source &middot; Apache-2.0
+                            An analyst builds a valuation model, an operating model, or a forecast
+                            in a spreadsheet. That model works. Then an engineer rewrites the same
+                            logic in Python or JavaScript so it can run in a production application.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
+                        <h3 class="panel-title">What goes wrong</h3>
                         <p>
-                            For engineers building apps. Compile the model, ship the compiled
-                            worksheet, run it in your application. The application never reimplements
-                            the model logic.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-core &middot; open source &middot; Apache-2.0
+                            Now there are two copies of the model. The spreadsheet version and the
+                            code version. They drift. Nobody knows which version produced which
+                            number. When the analyst updates the model, the engineer has to rewrite
+                            it again. The cycle repeats.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">3. Hosted worksheet platform</h3>
+                        <h3 class="panel-title">What fin123 changes</h3>
                         <p>
-                            For teams shipping models to production. Publish, version, and serve
-                            compiled worksheets from a central registry. Applications pull released
-                            versions over an API.
+                            fin123 compiles the spreadsheet model into a compiled worksheet that
+                            applications run directly. No rewrite. No second copy. The model is
+                            authored once, compiled once, and executed wherever it is needed.
                         </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-pod &middot; requires license
+                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
+                            The application never reimplements the model logic.
                         </p>
                     </div>
 
@@ -180,19 +176,18 @@ flags:
         </section>
 
 
-        <!-- ═══════════════════ ARCHITECTURE ═══════════════════ -->
+        <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
 
-        <section id="architecture" class="section">
+        <section id="how-it-works" class="section">
             <div class="container">
-                <h2 class="section-title">How fin123 Works for Developers</h2>
+                <h2 class="section-title">How it works</h2>
                 <p class="section-lede">
-                    Today: analyst builds a spreadsheet, engineer rewrites the logic in Python, logic drifts.
-                    fin123 replaces the rewrite step with a compiler.
+                    The model is authored once, compiled once, then run directly.
                 </p>
 
                 <div class="stack">
 
-                    <div class="code-panel" role="region" aria-label="Architecture diagram">
+                    <div class="code-panel" role="region" aria-label="Execution model">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span>
                             <span class="dot" aria-hidden="true"></span>
@@ -214,30 +209,31 @@ Applications / dashboards / batch jobs</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Spreadsheet &rarr; model authoring</h3>
+                        <h3 class="panel-title">Author</h3>
                         <p>
-                            Analysts define financial logic in a YAML workbook: parameters, formulas,
-                            table plans, assertions. Models range from DCF valuations and revenue
-                            forecasts to credit models and scenario analyses. The model is the
-                            source of truth.
+                            Analysts define the model in a workbook: parameters, formulas, table
+                            plans, assertions. The model can be a DCF valuation, a revenue forecast,
+                            a credit model, a scenario analysis &mdash; anything that would
+                            otherwise live in a spreadsheet.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Compile &rarr; compiled worksheet</h3>
+                        <h3 class="panel-title">Compile</h3>
                         <p>
-                            <code>fin123 build</code> compiles the model into an immutable JSON worksheet
-                            with a deterministic content hash. It contains the calculation graph,
-                            evaluated outputs, display formatting, flags, and full audit trail.
+                            <code>fin123 build</code> compiles the model into an immutable
+                            worksheet with a deterministic content hash. The compiled worksheet
+                            contains the calculation graph, evaluated outputs, display formatting,
+                            flags, and a full audit trail.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Execute &rarr; run the compiled worksheet directly</h3>
+                        <h3 class="panel-title">Run</h3>
                         <p>
-                            Applications run the compiled worksheet. Nobody rewrites the model
-                            in Python or JavaScript. The model and the production system stay
-                            in sync because they are the same thing. Runs headlessly at scale.
+                            Applications run the compiled worksheet directly. The same compiled
+                            model runs in a dashboard, a batch job, a risk system, or an API.
+                            It runs headlessly, at scale, without anyone opening a spreadsheet.
                         </p>
                     </div>
 
@@ -246,25 +242,54 @@ Applications / dashboards / batch jobs</code></pre>
         </section>
 
 
-        <!-- ═══════════════════ VERSIONED MODELS ═══════════════════ -->
+        <!-- ═══════════════════ VERSION CONTROL ═══════════════════ -->
 
-        <section class="section">
+        <section id="version-control" class="section">
             <div class="container">
-                <h2 class="section-title">For Analysts: Speed and Versioned Spreadsheet Models</h2>
+                <h2 class="section-title">GitHub for spreadsheet models</h2>
                 <p class="section-lede">
-                    Think of fin123 as <strong>GitHub for spreadsheet models.</strong>
+                    Which version of the model generated this number?
                 </p>
 
                 <div class="stack">
+
                     <div class="panel">
                         <p>
-                            Models have commits, diffs, releases, and reproducible runs.
-                            Applications execute the compiled model instead of rewriting it.
+                            Every model in fin123 has commits, diffs, releases, and reproducible
+                            runs. When a number is produced, it traces back to a specific model
+                            version, a specific set of inputs, and a specific content hash.
                         </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            The application never reimplements the model logic.
+                        <p style="margin-top: 10px;">
+                            This is the same discipline that software teams apply to code. fin123
+                            brings it to spreadsheet models: snapshot the model, build it, verify
+                            the output, release it. If anything changes, the hash changes. If the
+                            hash matches, the output is guaranteed identical.
                         </p>
                     </div>
+
+                    <div class="code-panel" role="region" aria-label="Model lifecycle">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">model lifecycle</span>
+                        </div>
+                        <pre class="code"><code>fin123 commit  -> snapshot the model
+fin123 build   -> compile + hash the outputs
+fin123 verify  -> detect drift
+fin123 release -> ship the compiled worksheet</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Why this matters in finance</h3>
+                        <p>
+                            Regulators ask which model produced a number. Auditors ask whether the
+                            model changed between runs. Portfolio managers ask whether the forecast
+                            they approved is the same one running in production. fin123 answers all
+                            of these with a hash.
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -274,10 +299,10 @@ Applications / dashboards / batch jobs</code></pre>
 
         <section id="benchmark" class="section">
             <div class="container">
-                <h2 class="section-title">Benchmark: DCF Operating Model</h2>
+                <h2 class="section-title">Benchmark: DCF operating model</h2>
                 <p class="section-lede">
-                    A real analyst-style operating model, implemented as a fin123 template, running
-                    against the actual fin123 runtime. Not a synthetic micro-benchmark.
+                    A real analyst-style operating model running against the actual fin123
+                    runtime. Not a synthetic micro-benchmark.
                 </p>
 
                 <div class="stack">
@@ -290,26 +315,6 @@ Applications / dashboards / batch jobs</code></pre>
                             derives gross profit, EBIT, EBITDA, NOPAT, FCF, and margins across all
                             rows, then aggregates by ticker. The scalar graph runs a 5-year DCF
                             valuation with terminal value for the selected ticker.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Why Excel slows down</h3>
-                        <p>
-                            Excel recalculates analyst models cell by cell. A 66,000-row table
-                            with 8 derived columns is ~528,000 formula evaluations on every
-                            recalculation. Each scenario change triggers the full chain again.
-                            A 20-scenario sweep means 20 full recalculations, each taking seconds.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Why fin123 is faster</h3>
-                        <p>
-                            fin123 compiles the table derivations into a Polars LazyFrame plan and
-                            executes them as vectorized columnar operations in a single pass. The
-                            scalar DCF chain resolves in one topological sweep. Scenario sweeps
-                            reuse the same compiled execution path with different parameters.
                         </p>
                     </div>
 
@@ -361,7 +366,7 @@ Applications / dashboards / batch jobs</code></pre>
 
                         <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
                             fin123 numbers measured on the implemented benchmark template (benchmark_dcf).
-                            Excel numbers are projected estimates pending formal validation on an equivalent workbook.
+                            Excel numbers are projected estimates pending formal validation.
                         </p>
                     </div>
                     <!-- ── END BENCHMARK NUMBERS ── -->
@@ -385,6 +390,92 @@ fin123 batch build bench --params-file inputs/sensitivity.csv  # 5x5 grid</code>
         </section>
 
 
+        <!-- ═══════════════════ SPEED IS A SIDE EFFECT ═══════════════════ -->
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Speed is a side effect</h2>
+                <p class="section-lede">
+                    fin123 is not fast because it was optimized for speed. It is fast because
+                    the architecture eliminates unnecessary work.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <p>
+                            Excel recalculates models cell by cell, propagating changes through the
+                            entire dependency graph on every input change. fin123 compiles the
+                            data-heavy parts into vectorized columnar execution plans and resolves
+                            scalar formulas in a single topological pass. Scenario sweeps reuse
+                            the same compiled execution path with different parameters.
+                        </p>
+                        <p style="margin-top: 10px;">
+                            The result is that a 66,000-row operating model builds in tens of
+                            milliseconds and a 20-scenario sweep completes in about a second. But
+                            the speed is a consequence of the architecture, not the goal. The goal
+                            is: compile the model once, run it everywhere, and know exactly which
+                            version produced which number.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════ THREE PRODUCT TIERS ═══════════════════ -->
+
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title">One system, three products</h2>
+                <p class="section-lede">
+                    Local authoring &rarr; embedded execution &rarr; hosted delivery.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
+                        <p>
+                            For analysts and quants. Author and execute models locally &mdash;
+                            DCF valuations, forecasts, scenario sweeps. Deterministic builds,
+                            immutable versioning, headless batch execution. No server required.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            fin123-core &middot; open source &middot; Apache-2.0
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">2. Embeddable worksheet runtime</h3>
+                        <p>
+                            For engineers building applications. Compile the model, ship the
+                            compiled worksheet, run it in your application. The application
+                            never reimplements the model logic.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            fin123-core &middot; open source &middot; Apache-2.0
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">3. Hosted worksheet platform</h3>
+                        <p>
+                            For teams shipping models to production. Publish, version, and serve
+                            compiled worksheets from a central registry. Applications pull released
+                            versions over an API.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            fin123-pod &middot; requires license
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
         <!-- ═══════════════════ GET STARTED ═══════════════════ -->
 
         <section id="get-started" class="section">
@@ -394,7 +485,7 @@ fin123 batch build bench --params-file inputs/sensitivity.csv  # 5x5 grid</code>
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">1. Explore the examples</h3>
+                        <h3 class="panel-title">Examples</h3>
                         <p>
                             <a class="link"
                                 href="https://github.com/reckoning-machines/fin123-examples">fin123-examples</a>
@@ -404,19 +495,7 @@ fin123 batch build bench --params-file inputs/sensitivity.csv  # 5x5 grid</code>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">2. Understand the architecture</h3>
-                        <p>
-                            Read the <a class="link" href="#architecture">execution model</a> above
-                            or the full
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-examples/blob/main/architecture/how_fin123_works.md">architecture
-                                doc</a>
-                            to see how spreadsheets become compiled worksheets.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">3. Install fin123-core</h3>
+                        <h3 class="panel-title">Install</h3>
                         <p>
                             Standalone binaries (no Python required):
                             <a class="link"
@@ -449,149 +528,11 @@ fin123 ui demo</code></pre>
         </section>
 
 
-        <!-- ═══════════════════ EXAMPLES ═══════════════════ -->
-
-        <section id="examples" class="section">
-            <div class="container">
-                <h2 class="section-title">Examples</h2>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/dcf-valuation">DCF
-                                Valuation</a>
-                        </h3>
-                        <p style="margin-bottom: 8px;">
-                            Scalar formula DAG with <code>NPV()</code>, explicit parameters,
-                            assertions, and named scenarios (base / bull / bear).
-                        </p>
-                        <p style="font-size: 11px; color: var(--fg-dim);">
-                            Shows: compile a valuation model, run it headlessly, verify the output.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/earnings-review">Earnings
-                                Review Worksheet</a>
-                        </h3>
-                        <p style="margin-bottom: 8px;">
-                            Quarterly results with derived metrics, display formatting, and
-                            row-level flags compiled into a worksheet your app can run directly.
-                        </p>
-                        <p style="font-size: 11px; color: var(--fg-dim);">
-                            Shows: build outputs become compiled worksheets. No UI code needed.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-examples/tree/main/examples/sensitivity-sweep">Sensitivity
-                                Sweep</a>
-                        </h3>
-                        <p style="margin-bottom: 8px;">
-                            Deterministic batch execution. The same model runs across a 9-scenario
-                            parameter matrix with structurally comparable, verifiable outputs.
-                        </p>
-                        <p style="font-size: 11px; color: var(--fg-dim);">
-                            Shows: same model, 9 parameter sets, headless batch execution at scale.
-                        </p>
-                    </div>
-
-                </div>
-
-                <p style="margin-top: 16px; font-size: 12px; color: var(--fg-dim);">
-                    All examples:
-                    <a class="link" href="https://github.com/reckoning-machines/fin123-examples">fin123-examples on
-                        GitHub</a>
-                </p>
-            </div>
-        </section>
-
-
-        <!-- ═══════════════════ WHY ═══════════════════ -->
-
-        <section id="why" class="section">
-            <div class="container">
-                <h2 class="section-title">Why fin123</h2>
-                <p class="section-lede">
-                    Every time an engineer rewrites spreadsheet logic in Python or
-                    JavaScript, the production system drifts from the model. fin123
-                    eliminates the rewrite.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">Software lifecycle for models</h3>
-                        <p>
-                            Commit &rarr; build &rarr; verify &rarr; release.
-                            Explicit parameters, named scenarios, immutable versioning. No hidden
-                            cell edits.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Columnar execution engine</h3>
-                        <p>
-                            Table computations compile as Polars LazyFrame plans and execute
-                            against real datasets. Faster than recalculating spreadsheets.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Headless batch execution</h3>
-                        <p>
-                            The same committed model runs across tickers, scenarios, and parameter
-                            sets without someone sitting in front of a spreadsheet.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Finance-safe joins and lookups</h3>
-                        <p>
-                            <code>join_left</code> defaults to <code>many_to_one</code> &mdash;
-                            silent row multiplication is rejected.
-                            <code>lookup_scalar</code> errors on missing or duplicate keys.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Deterministic and verifiable</h3>
-                        <p>
-                            Builds run offline against local files. Every output is fingerprinted.
-                            <code>fin123 verify</code> detects post-build tampering.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="code-panel" style="margin-top: 24px;" role="region" aria-label="Lifecycle overview">
-                    <div class="code-header">
-                        <span class="dot" aria-hidden="true"></span>
-                        <span class="dot" aria-hidden="true"></span>
-                        <span class="dot" aria-hidden="true"></span>
-                        <span class="code-title">lifecycle</span>
-                    </div>
-                    <pre class="code"><code>fin123 commit  -> snapshot the model
-fin123 build   -> compile + hash the outputs
-fin123 verify  -> detect drift
-fin123 release -> ship the compiled worksheet</code></pre>
-                </div>
-
-            </div>
-        </section>
-
-
         <!-- ═══════════════════ POD ═══════════════════ -->
 
         <section id="pod" class="section">
             <div class="container">
-                <h2 class="section-title">Hosted platform — fin123-pod</h2>
+                <h2 class="section-title">Hosted platform &mdash; fin123-pod</h2>
                 <p class="section-lede">
                     Shared state, automation, and governance for teams.
                     Extends fin123-core with Postgres-backed infrastructure.
