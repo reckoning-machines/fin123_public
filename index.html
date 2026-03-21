@@ -5,17 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 compiles spreadsheet models into deterministic compiled worksheets that applications run directly. Stop rewriting model logic in Python." />
-    <meta property="og:title" content="fin123 — Spreadsheet models that behave like software" />
+        content="fin123 turns spreadsheet models into deterministic, executable systems. Sweeps, grids, scenarios, and AI add-ins -- every result has a run_id." />
+    <meta property="og:title" content="fin123 -- Run your spreadsheet like a program" />
     <meta property="og:description"
-        content="fin123 compiles analyst models into compiled worksheets that run headlessly at scale. The application never reimplements the model logic." />
+        content="Change an assumption. Commit. Compare scenarios. Sweep parameters. Every result is a real execution." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="fin123 — Spreadsheet models that behave like software" />
+    <meta name="twitter:title" content="fin123 -- Run your spreadsheet like a program" />
     <meta name="twitter:description"
-        content="fin123 compiles analyst models into compiled worksheets that run headlessly at scale." />
-    <title>fin123 — Spreadsheet models that behave like software</title>
+        content="Deterministic spreadsheet runtime. Sweeps, grids, scenarios. Every result has a run_id." />
+    <title>fin123 -- Run your spreadsheet like a program</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,10 +37,9 @@
             </div>
 
             <nav class="nav">
-                <a href="#problem">Problem</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#version-control">Versioning</a>
+                <a href="#sweep">Sweeps</a>
                 <a href="#benchmark">Benchmark</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="#products">Products</a>
                 <a href="#get-started">Get Started</a>
                 <a href="#pod">Pod</a>
@@ -51,26 +50,43 @@
     <main id="content" class="site-main">
 
 
-        <!-- ═══════════════════ HERO ═══════════════════ -->
+        <!-- ===================== HERO ===================== -->
 
         <section class="hero">
             <div class="container">
                 <div class="hero-card">
                     <div class="kicker">fin123.dev</div>
-                    <h3 class="title">fin123 makes spreadsheet models behave like software.</h3>
+                    <h3 class="title">Run your spreadsheet like a program.</h3>
 
-                    <p class="subtitle" style="color: var(--fg-bright); font-weight: 600;">
-                        Industrial infrastructure for spreadsheets.
-                    </p>
-                    <p class="value" style="color: var(--fg-dim); font-style: italic;">
-                        The spreadsheet is the real model. Production systems just can't run it.
-                    </p>
                     <p class="value">
-                        Analysts build valuation models, forecasts, and scenario analyses in
-                        spreadsheets. fin123 compiles those models into versioned, deterministic
-                        outputs that production systems run directly &mdash; without rewriting
-                        the logic in code.
+                        Change an assumption. Commit. Compare scenarios. Sweep parameters.
+                        Every result is a real execution with a run_id.
                     </p>
+
+                    <div class="code-panel" role="region" aria-label="Terminal workflow">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">terminal -- AAPL DCF</span>
+                        </div>
+                        <pre class="code"><code>fin123> set revenue_growth = 0.08
+fin123> commit
+  Build ID: 20260320_184211_run_1
+  Outputs: 12 scalars, 3 tables
+
+fin123> scenario save base
+fin123> set revenue_growth = 0.12
+fin123> commit --name bull
+
+fin123> compare base bull
+  revenue_growth    0.08 -> 0.12
+  value_per_share   1,402.63 -> 2,163.51
+
+fin123> sweep revenue_growth 0.04 0.06 0.08 0.10 0.12
+
+fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value_per_share</code></pre>
+                    </div>
 
                     <div class="hero-actions">
                         <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core on
@@ -80,103 +96,52 @@
                         <a class="btn btn-ghost"
                             href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request
                             a Walkthrough</a>
-                        <a class="btn" href="https://app.fin123.dev">Try the Runtime Demo &rarr;</a>
+                        <a class="btn" href="https://app.fin123.dev">Try the Runtime Demo</a>
                     </div>
-
-                    <div class="hero-meta">
-                        <span class="meta-item">Deterministic build + verify</span>
-                        <span class="meta-dot" aria-hidden="true">&bull;</span>
-                        <span class="meta-item">Terminal Mode: sweeps, grids, scenarios</span>
-                        <span class="meta-dot" aria-hidden="true">&bull;</span>
-                        <span class="meta-item">AI add-in workbench</span>
-                        <span class="meta-dot" aria-hidden="true">&bull;</span>
-                        <span class="meta-item">Versioned model releases</span>
-                        <span class="meta-dot" aria-hidden="true">&bull;</span>
-                        <span class="meta-item">Team registry + runner (Pod)</span>
-                    </div>
-
-                    <div class="code-panel" role="region" aria-label="Terminal experiment example">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">terminal &middot; AAPL DCF</span>
-                        </div>
-                        <pre class="code"><code>fin123&gt; set revenue_growth = 0.08
-fin123&gt; commit
-  Build ID: 20260320_184211_run_1
-  Outputs: 12 scalars, 3 tables
-
-fin123&gt; scenario save base
-fin123&gt; set revenue_growth = 0.12
-fin123&gt; commit --name bull
-
-fin123&gt; compare base bull
-  revenue_growth    0.08 &rarr; 0.12
-  value_per_share   1,402.63 &rarr; 2,163.51
-
-fin123&gt; sweep revenue_growth 0.04 0.06 0.08 0.10 0.12</code></pre>
-                    </div>
-                    <p class="hero-demo-caption">Every line is a real execution. Every row has a run_id.
-                    </p>
-
-                    <div class="hero-demo">
-                        <div class="hero-demo-header">
-                            <span class="hero-demo-dot"></span>
-                            <span class="hero-demo-dot"></span>
-                            <span class="hero-demo-dot"></span>
-                            <span class="hero-demo-label">worksheet viewer &middot; valuation_review</span>
-                        </div>
-                        <div id="hero-worksheet" data-worksheet="./demo_worksheet.json"></div>
-                    </div>
-                    <p class="hero-demo-caption">The application runs the compiled worksheet. No model logic in your
-                        codebase.</p>
 
                 </div>
             </div>
         </section>
 
 
-        <!-- ═══════════════════ THE PROBLEM ═══════════════════ -->
+        <!-- ===================== WHAT IS A SWEEP ===================== -->
 
-        <section id="problem" class="section">
+        <section id="sweep" class="section">
             <div class="container">
-                <h2 class="section-title">The problem: spreadsheets don't ship</h2>
+                <h2 class="section-title">What is a sweep?</h2>
                 <p class="section-lede">
-                    The spreadsheet is the real model. But production systems cannot run
-                    spreadsheets.
+                    A sweep runs the same model multiple times while varying one parameter.
+                    Each row is a real execution, not a recalculated cell.
                 </p>
 
                 <div class="stack">
 
-                    <div class="panel">
-                        <h3 class="panel-title">The workflow today</h3>
-                        <p>
-                            An analyst builds a valuation model, an operating model, or a forecast
-                            in a spreadsheet. That model works. Then an engineer rewrites the same
-                            logic in Python or JavaScript so it can run in a production application.
-                        </p>
+                    <div class="code-panel" role="region" aria-label="Sweep example">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">sweep</span>
+                        </div>
+                        <pre class="code"><code>fin123> sweep revenue_growth 0.04 0.06 0.08 0.10 0.12
+
+  revenue_growth  value_per_share  enterprise_value  Build ID
+  0.04            901.22           1,944,882         20260320_run_1
+  0.06            1,118.47         2,280,144         20260320_run_2
+  0.08            1,402.63         2,805,251         20260320_run_3
+  0.10            1,744.19         3,311,144         20260320_run_4
+  0.12            2,163.51         4,010,021         20260320_run_5</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">What goes wrong</h3>
                         <p>
-                            Now there are two copies of the model. The spreadsheet version and the
-                            code version. They drift. Nobody knows which version produced which
-                            number. When the analyst updates the model, the engineer has to rewrite
-                            it again. The cycle repeats.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">What fin123 changes</h3>
-                        <p>
-                            fin123 compiles the spreadsheet model into a compiled worksheet that
-                            applications run directly. No rewrite. No second copy. The model is
-                            authored once, compiled once, and executed wherever it is needed.
+                            In Excel, a Data Table recalculates cells. In fin123, a sweep runs
+                            the full model for each value. Every row has its own build, its own
+                            outputs, its own hash. A grid extends this to two parameters with
+                            matrix output.
                         </p>
                         <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            The application never reimplements the model logic.
+                            This replaces Excel Data Tables with deterministic, auditable execution.
                         </p>
                     </div>
 
@@ -185,7 +150,90 @@ fin123&gt; sweep revenue_growth 0.04 0.06 0.08 0.10 0.12</code></pre>
         </section>
 
 
-        <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+        <!-- ===================== BENCHMARK ===================== -->
+
+        <section id="benchmark" class="section">
+            <div class="container">
+                <h2 class="section-title">Benchmark</h2>
+                <p class="section-lede">
+                    Measured on real workloads. Not synthetic micro-benchmarks.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel" id="benchmark-numbers">
+                        <h3 class="panel-title">DCF operating model -- 66,000 rows, 10 tickers</h3>
+                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Operation</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">fin123</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Excel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px;">Single build</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">35 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2-5 s</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px;">20-scenario sweep</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">1.4 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40-100 s</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 6px 12px;">5x5 sensitivity grid</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">1.8 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">30-120 s</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Row-scaling test -- 100K to 10M rows</h3>
+                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Rows</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Runtime</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Table eval</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Memory</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px; text-align: right;">100K</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">16 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">3 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">113 MB</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px; text-align: right;">1M</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">94 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">15 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">382 MB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 6px 12px; text-align: right;">10M</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">1.05 s</td>
+                                    <td style="padding: 6px 12px; text-align: right;">147 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">1,854 MB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
+                            Sub-linear scaling. 100x rows, 67x runtime. No degradation through 10M rows.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================== HOW IT WORKS ===================== -->
 
         <section id="how-it-works" class="section">
             <div class="container">
@@ -222,7 +270,7 @@ Applications / dashboards / batch jobs</code></pre>
                         <p>
                             Analysts define the model in a workbook: parameters, formulas, table
                             plans, assertions. The model can be a DCF valuation, a revenue forecast,
-                            a credit model, a scenario analysis &mdash; anything that would
+                            a credit model, a scenario analysis -- anything that would
                             otherwise live in a spreadsheet.
                         </p>
                     </div>
@@ -251,164 +299,7 @@ Applications / dashboards / batch jobs</code></pre>
         </section>
 
 
-        <!-- ═══════════════════ BENCHMARK ═══════════════════ -->
-
-        <section id="benchmark" class="section">
-            <div class="container">
-                <h2 class="section-title">Benchmark</h2>
-                <p class="section-lede">
-                    Measured on real workloads. Not synthetic micro-benchmarks.
-                </p>
-
-                <div class="stack">
-
-                    <!-- ── DCF BENCHMARK ── -->
-                    <div class="panel">
-                        <h3 class="panel-title">DCF operating model &mdash; 66,000 rows</h3>
-                        <p>
-                            Quarterly operating history for 10 tickers across 5 segments, 3 regions,
-                            and 5 product lines. Table graph derives gross profit, EBIT, EBITDA, NOPAT,
-                            FCF, and margins. Scalar graph runs a 5-year DCF valuation.
-                        </p>
-                    </div>
-
-                    <!-- ── BENCHMARK NUMBERS (edit here to update metrics) ── -->
-                    <div class="panel" id="benchmark-numbers">
-                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
-                            <thead>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Operation</th>
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">fin123 (measured)</th>
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Excel (expected)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px;">Single build (warm)</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~35 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2&ndash;5 s</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px;">20-scenario sweep</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.4 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40&ndash;100 s</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 6px 12px;">5&times;5 sensitivity grid</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.8 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">est. 30&ndash;120 s</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- ── ROW SCALING ── -->
-                    <div class="panel">
-                        <h3 class="panel-title">Row-scaling test &mdash; 100K to 10M rows</h3>
-                        <p>
-                            Single table with derived column. Full commit/build cycle per point.
-                            Measured on Apple Silicon (M-series), Python 3.12, Polars backend.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
-                            <thead>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Rows</th>
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Runtime</th>
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Table eval</th>
-                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Memory</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px; text-align: right;">100K</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">16 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">3 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">113 MB</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px; text-align: right;">1M</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">94 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">15 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">382 MB</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 6px 12px; text-align: right;">10M</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">1.05 s</td>
-                                    <td style="padding: 6px 12px; text-align: right;">147 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">1,854 MB</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
-                            Scaling: O(n<sup>0.91</sup>) &mdash; sub-linear. 100x rows &rarr; 67x runtime.
-                            No degradation observed through 10M rows.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════════════ TERMINAL MODE ═══════════════════ -->
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Terminal Mode</h2>
-                <p class="section-lede">
-                    Operate models like programs. Every execution produces a run_id.
-                </p>
-
-                <div class="stack">
-
-                    <div class="code-panel" role="region" aria-label="Terminal Mode example">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">terminal session</span>
-                        </div>
-                        <pre class="code"><code>fin123> set revenue_growth = 0.08
-fin123> commit
-  Build ID: 20260320_184211_run_1
-  Outputs: 12 scalars, 3 tables
-
-fin123> scenario save base
-fin123> set revenue_growth = 0.12
-fin123> commit --name bull
-
-fin123> compare base bull
-  revenue_growth   0.08 → 0.12
-  value_per_share  1,402.63 → 2,163.51
-
-fin123> sweep revenue_growth range(0.04, 0.12, 0.02)
-fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value_per_share</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">What is a sweep?</h3>
-                        <p>
-                            A sweep runs the same model multiple times while varying one parameter.
-                            Each row is a real execution with its own run_id &mdash; not a
-                            recalculated cell. A grid extends this to two parameters with matrix
-                            output. Results are persisted and exportable as CSV.
-                        </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            This replaces Excel's Data Table feature with deterministic,
-                            auditable execution.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════════════ VERSION CONTROL ═══════════════════ -->
+        <!-- ===================== VERSION CONTROL ===================== -->
 
         <section id="version-control" class="section">
             <div class="container">
@@ -424,12 +315,6 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                             Every model in fin123 has commits, diffs, releases, and reproducible
                             runs. When a number is produced, it traces back to a specific model
                             version, a specific set of inputs, and a specific content hash.
-                        </p>
-                        <p style="margin-top: 10px;">
-                            This is the same discipline that software teams apply to code. fin123
-                            brings it to spreadsheet models: snapshot the model, build it, verify
-                            the output, release it. If anything changes, the hash changes. If the
-                            hash matches, the output is guaranteed identical.
                         </p>
                     </div>
 
@@ -461,47 +346,13 @@ fin123 release -> ship the compiled worksheet</code></pre>
         </section>
 
 
-        <!-- ═══════════════════ SPEED IS A SIDE EFFECT ═══════════════════ -->
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Speed is a side effect</h2>
-                <p class="section-lede">
-                    fin123 is not fast because it was optimized for speed. It is fast because
-                    the architecture eliminates unnecessary work.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <p>
-                            Excel recalculates models cell by cell, propagating changes through the
-                            entire dependency graph on every input change. fin123 compiles the
-                            data-heavy parts into vectorized columnar execution plans and resolves
-                            scalar formulas in a single topological pass. Scenario sweeps reuse
-                            the same compiled execution path with different parameters.
-                        </p>
-                        <p style="margin-top: 10px;">
-                            The result is that a 66,000-row operating model builds in tens of
-                            milliseconds and a 20-scenario sweep completes in about a second. But
-                            the speed is a consequence of the architecture, not the goal. The goal
-                            is: compile the model once, run it everywhere, and know exactly which
-                            version produced which number.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════════════ THREE PRODUCT TIERS ═══════════════════ -->
+        <!-- ===================== THREE PRODUCT TIERS ===================== -->
 
         <section id="products" class="section">
             <div class="container">
                 <h2 class="section-title">One system, three products</h2>
                 <p class="section-lede">
-                    Local authoring &rarr; embedded execution &rarr; hosted delivery.
+                    Local authoring. Embedded execution. Hosted delivery.
                 </p>
 
                 <div class="stack">
@@ -509,12 +360,12 @@ fin123 release -> ship the compiled worksheet</code></pre>
                     <div class="panel">
                         <h3 class="panel-title">1. Standalone spreadsheet runtime</h3>
                         <p>
-                            For analysts and quants. Author and execute models locally &mdash;
+                            For analysts and quants. Author and execute models locally --
                             DCF valuations, forecasts, scenario sweeps. Deterministic builds,
                             immutable versioning, headless batch execution. No server required.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-core &middot; open source &middot; Apache-2.0
+                            fin123-core -- open source -- Apache-2.0
                         </p>
                     </div>
 
@@ -526,7 +377,7 @@ fin123 release -> ship the compiled worksheet</code></pre>
                             never reimplements the model logic.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-core &middot; open source &middot; Apache-2.0
+                            fin123-core -- open source -- Apache-2.0
                         </p>
                     </div>
 
@@ -538,7 +389,7 @@ fin123 release -> ship the compiled worksheet</code></pre>
                             versions over an API.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            fin123-pod &middot; requires license
+                            fin123-pod -- requires license
                         </p>
                     </div>
 
@@ -547,7 +398,7 @@ fin123 release -> ship the compiled worksheet</code></pre>
         </section>
 
 
-        <!-- ═══════════════════ GET STARTED ═══════════════════ -->
+        <!-- ===================== GET STARTED ===================== -->
 
         <section id="get-started" class="section">
             <div class="container">
@@ -556,23 +407,13 @@ fin123 release -> ship the compiled worksheet</code></pre>
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">Examples</h3>
-                        <p>
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-examples">fin123-examples</a>
-                            walks through three finance use cases: DCF valuation, earnings review
-                            worksheets, and batch sensitivity sweeps.
-                        </p>
-                    </div>
-
-                    <div class="panel">
                         <h3 class="panel-title">Install</h3>
                         <p>
                             Standalone binaries (no Python required):
                             <a class="link"
                                 href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.5.0/fin123-core-0.5.0-macos-arm64.zip">macOS
                                 arm64</a>
-                            &middot;
+                            --
                             <a class="link"
                                 href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.5.0/fin123-core-0.5.0-windows-x86_64.zip">Windows
                                 x86_64</a>
@@ -589,9 +430,17 @@ fin123 release -> ship the compiled worksheet</code></pre>
                         <pre class="code"><code>git clone https://github.com/reckoning-machines/fin123-core.git
 cd fin123-core && pip install -e ".[dev]"
 
-fin123 init demo --template demo_fin123
-fin123 build demo
-fin123 ui demo</code></pre>
+fin123 init my_dcf --template benchmark_dcf
+fin123 ui my_dcf</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Examples</h3>
+                        <p>
+                            <a class="link"
+                                href="https://github.com/reckoning-machines/fin123-examples">fin123-examples</a>
+                            -- DCF valuation, earnings review worksheets, batch sensitivity sweeps.
+                        </p>
                     </div>
 
                 </div>
@@ -599,11 +448,11 @@ fin123 ui demo</code></pre>
         </section>
 
 
-        <!-- ═══════════════════ POD ═══════════════════ -->
+        <!-- ===================== POD ===================== -->
 
         <section id="pod" class="section">
             <div class="container">
-                <h2 class="section-title">Hosted platform &mdash; fin123-pod</h2>
+                <h2 class="section-title">Hosted platform -- fin123-pod</h2>
                 <p class="section-lede">
                     Shared state, automation, and governance for teams.
                     Extends fin123-core with Postgres-backed infrastructure.
@@ -619,27 +468,6 @@ fin123 ui demo</code></pre>
                             Applications pull released versions from the registry. The application
                             never reimplements the model logic.
                         </p>
-                        <div class="code-panel" style="margin-top: 16px;" role="region"
-                            aria-label="Registry UI preview">
-                            <div class="code-header">
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="dot" aria-hidden="true"></span>
-                                <span class="code-title">registry preview</span>
-                            </div>
-                            <pre class="code" style="font-size: 12px; line-height: 1.55;"><code>Worksheet Lifecycle
-Authoring -> Compile -> Draft -> Approved -> Released -> Alias -> Application
-
-Latest activity:
-revenue_summary v0005 compiled
-revenue_summary v0004 released
-production alias -> v0004
-
-Worksheet: revenue_summary
-v0005   draft      approve
-v0004   released   archive
-v0003   archived</code></pre>
-                        </div>
                     </div>
 
                     <div class="panel">
@@ -650,15 +478,6 @@ v0003   archived</code></pre>
                             sync path. A Postgres-backed registry stores model versions, builds, and
                             releases. The headless runner executes models by
                             <code>(model_id, model_version_id)</code> with parameter overrides.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Production mode governance</h3>
-                        <p>
-                            Builds can be blocked on import parse errors, missing SQL schema guards,
-                            missing plugin pins, or an unreachable registry. Releases are gated on
-                            verify pass. Assertions with severity <code>error</code> hard-fail builds.
                         </p>
                     </div>
 
@@ -680,7 +499,7 @@ v0003   archived</code></pre>
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <div>&copy; 2026 Reckoning Machines &middot; Core is <a class="link"
+            <div>2026 Reckoning Machines -- Core is <a class="link"
                     href="https://github.com/reckoning-machines/fin123-core">open source</a> (Apache-2.0)</div>
             <div class="footer-right">No tracking. Static site.</div>
         </div>
