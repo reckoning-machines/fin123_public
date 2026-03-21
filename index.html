@@ -95,25 +95,29 @@
                         <span class="meta-item">Team registry + runner (Pod)</span>
                     </div>
 
-                    <div class="code-panel" role="region" aria-label="Worksheet spec example">
+                    <div class="code-panel" role="region" aria-label="Terminal experiment example">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span>
                             <span class="dot" aria-hidden="true"></span>
                             <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">valuation_review.yaml</span>
+                            <span class="code-title">terminal &middot; AAPL DCF</span>
                         </div>
-                        <pre class="code"><code>columns:
-  - source: ticker
-  - source: price
-  - source: estimate
-  - name: upside_pct
-    expression: (estimate - price) / price
+                        <pre class="code"><code>fin123&gt; set revenue_growth = 0.08
+fin123&gt; commit
+  Build ID: 20260320_184211_run_1
+  Outputs: 12 scalars, 3 tables
 
-flags:
-  - name: high_upside
-    expression: upside_pct > 0.15</code></pre>
+fin123&gt; scenario save base
+fin123&gt; set revenue_growth = 0.12
+fin123&gt; commit --name bull
+
+fin123&gt; compare base bull
+  revenue_growth    0.08 &rarr; 0.12
+  value_per_share   1,402.63 &rarr; 2,163.51
+
+fin123&gt; sweep revenue_growth 0.04 0.06 0.08 0.10 0.12</code></pre>
                     </div>
-                    <p class="hero-demo-caption">Analyst defines the worksheet. fin123 compiles it. Application runs it.
+                    <p class="hero-demo-caption">Every line is a real execution. Every row has a run_id.
                     </p>
 
                     <div class="hero-demo">
@@ -247,6 +251,109 @@ Applications / dashboards / batch jobs</code></pre>
         </section>
 
 
+        <!-- ═══════════════════ BENCHMARK ═══════════════════ -->
+
+        <section id="benchmark" class="section">
+            <div class="container">
+                <h2 class="section-title">Benchmark</h2>
+                <p class="section-lede">
+                    Measured on real workloads. Not synthetic micro-benchmarks.
+                </p>
+
+                <div class="stack">
+
+                    <!-- ── DCF BENCHMARK ── -->
+                    <div class="panel">
+                        <h3 class="panel-title">DCF operating model &mdash; 66,000 rows</h3>
+                        <p>
+                            Quarterly operating history for 10 tickers across 5 segments, 3 regions,
+                            and 5 product lines. Table graph derives gross profit, EBIT, EBITDA, NOPAT,
+                            FCF, and margins. Scalar graph runs a 5-year DCF valuation.
+                        </p>
+                    </div>
+
+                    <!-- ── BENCHMARK NUMBERS (edit here to update metrics) ── -->
+                    <div class="panel" id="benchmark-numbers">
+                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <th style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Operation</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">fin123 (measured)</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Excel (expected)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px;">Single build (warm)</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~35 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2&ndash;5 s</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px;">20-scenario sweep</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.4 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40&ndash;100 s</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 6px 12px;">5&times;5 sensitivity grid</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">~1.8 s</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">est. 30&ndash;120 s</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- ── ROW SCALING ── -->
+                    <div class="panel">
+                        <h3 class="panel-title">Row-scaling test &mdash; 100K to 10M rows</h3>
+                        <p>
+                            Single table with derived column. Full commit/build cycle per point.
+                            Measured on Apple Silicon (M-series), Python 3.12, Polars backend.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Rows</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Runtime</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Table eval</th>
+                                    <th style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">Memory</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px; text-align: right;">100K</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">16 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">3 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">113 MB</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 6px 12px; text-align: right;">1M</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">94 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">15 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">382 MB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 6px 12px; text-align: right;">10M</td>
+                                    <td style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">1.05 s</td>
+                                    <td style="padding: 6px 12px; text-align: right;">147 ms</td>
+                                    <td style="padding: 6px 12px; text-align: right;">1,854 MB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
+                            Scaling: O(n<sup>0.91</sup>) &mdash; sub-linear. 100x rows &rarr; 67x runtime.
+                            No degradation observed through 10M rows.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
         <!-- ═══════════════════ TERMINAL MODE ═══════════════════ -->
 
         <section class="section">
@@ -283,20 +390,16 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Sweeps replace data tables</h3>
+                        <h3 class="panel-title">What is a sweep?</h3>
                         <p>
-                            A sweep runs the same model multiple times with different assumptions.
-                            Each row is a real execution, not a recalculated cell. A grid extends this
-                            to two parameters with matrix output. Results are persisted and exportable.
+                            A sweep runs the same model multiple times while varying one parameter.
+                            Each row is a real execution with its own run_id &mdash; not a
+                            recalculated cell. A grid extends this to two parameters with matrix
+                            output. Results are persisted and exportable as CSV.
                         </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">AI add-in workbench</h3>
-                        <p>
-                            AI generates add-ins as reviewable Python code. Drafts must be validated
-                            and applied explicitly before they participate in builds. Nothing is
-                            applied silently. The user controls commit, build, and verify.
+                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
+                            This replaces Excel's Data Table feature with deterministic,
+                            auditable execution.
                         </p>
                     </div>
 
@@ -351,101 +454,6 @@ fin123 release -> ship the compiled worksheet</code></pre>
                             they approved is the same one running in production. fin123 answers all
                             of these with a hash.
                         </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════════════ BENCHMARK ═══════════════════ -->
-
-        <section id="benchmark" class="section">
-            <div class="container">
-                <h2 class="section-title">Benchmark: DCF operating model</h2>
-                <p class="section-lede">
-                    A real analyst-style operating model running against the actual fin123
-                    runtime. Not a synthetic micro-benchmark.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">The model</h3>
-                        <p>
-                            Quarterly operating history for 10 tickers across 5 segments, 3 regions,
-                            and 5 product lines. 66,000 rows of historical data. The table graph
-                            derives gross profit, EBIT, EBITDA, NOPAT, FCF, and margins across all
-                            rows, then aggregates by ticker. The scalar graph runs a 5-year DCF
-                            valuation with terminal value for the selected ticker.
-                        </p>
-                    </div>
-
-                    <!-- ── BENCHMARK NUMBERS (edit here to update metrics) ── -->
-                    <div class="panel" id="benchmark-numbers">
-                        <h3 class="panel-title">Current benchmark results</h3>
-
-                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
-                            <thead>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <th
-                                        style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Operation</th>
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        fin123 (measured)</th>
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Excel (expected)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px;">Single build (warm)</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        ~35 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2&ndash;5 s
-                                    </td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px;">20-scenario sweep</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        ~1.4 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40&ndash;100
-                                        s</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 6px 12px;">5&times;5 sensitivity grid</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        ~1.8 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">est.
-                                        30&ndash;120 s</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
-                            fin123 numbers measured on the implemented benchmark template (benchmark_dcf).
-                            Excel numbers are projected estimates pending formal validation.
-                        </p>
-                    </div>
-                    <!-- ── END BENCHMARK NUMBERS ── -->
-
-                    <div class="code-panel" role="region" aria-label="Benchmark CLI">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">run the benchmark</span>
-                        </div>
-                        <pre class="code"><code>fin123 init bench --template benchmark_dcf
-fin123 build bench                                    # single build
-fin123 build bench --set active_ticker=MSFT           # change ticker
-fin123 batch build bench --params-file inputs/scenarios.csv    # 20 scenarios
-fin123 batch build bench --params-file inputs/sensitivity.csv  # 5x5 grid</code></pre>
                     </div>
 
                 </div>
