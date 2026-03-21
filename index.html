@@ -86,9 +86,9 @@
                     <div class="hero-meta">
                         <span class="meta-item">Deterministic build + verify</span>
                         <span class="meta-dot" aria-hidden="true">&bull;</span>
-                        <span class="meta-item">Batch scenario sweeps</span>
+                        <span class="meta-item">Terminal Mode: sweeps, grids, scenarios</span>
                         <span class="meta-dot" aria-hidden="true">&bull;</span>
-                        <span class="meta-item">Finance-safe joins and lookups</span>
+                        <span class="meta-item">AI add-in workbench</span>
                         <span class="meta-dot" aria-hidden="true">&bull;</span>
                         <span class="meta-item">Versioned model releases</span>
                         <span class="meta-dot" aria-hidden="true">&bull;</span>
@@ -239,6 +239,64 @@ Applications / dashboards / batch jobs</code></pre>
                             Applications run the compiled worksheet directly. The same compiled
                             model runs in a dashboard, a batch job, a risk system, or an API.
                             It runs headlessly, at scale, without anyone opening a spreadsheet.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════ TERMINAL MODE ═══════════════════ -->
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Terminal Mode</h2>
+                <p class="section-lede">
+                    Operate models like programs. Every execution produces a run_id.
+                </p>
+
+                <div class="stack">
+
+                    <div class="code-panel" role="region" aria-label="Terminal Mode example">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">terminal session</span>
+                        </div>
+                        <pre class="code"><code>fin123> set revenue_growth = 0.08
+fin123> commit
+  Build ID: 20260320_184211_run_1
+  Outputs: 12 scalars, 3 tables
+
+fin123> scenario save base
+fin123> set revenue_growth = 0.12
+fin123> commit --name bull
+
+fin123> compare base bull
+  revenue_growth   0.08 → 0.12
+  value_per_share  1,402.63 → 2,163.51
+
+fin123> sweep revenue_growth range(0.04, 0.12, 0.02)
+fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value_per_share</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Sweeps replace data tables</h3>
+                        <p>
+                            A sweep runs the same model multiple times with different assumptions.
+                            Each row is a real execution, not a recalculated cell. A grid extends this
+                            to two parameters with matrix output. Results are persisted and exportable.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">AI add-in workbench</h3>
+                        <p>
+                            AI generates add-ins as reviewable Python code. Drafts must be validated
+                            and applied explicitly before they participate in builds. Nothing is
+                            applied silently. The user controls commit, build, and verify.
                         </p>
                     </div>
 
@@ -504,11 +562,11 @@ fin123 batch build bench --params-file inputs/sensitivity.csv  # 5x5 grid</code>
                         <p>
                             Standalone binaries (no Python required):
                             <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-macos-arm64.zip">macOS
+                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.5.0/fin123-core-0.5.0-macos-arm64.zip">macOS
                                 arm64</a>
                             &middot;
                             <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.4.0/fin123-core-0.4.0-windows-x86_64.zip">Windows
+                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.5.0/fin123-core-0.5.0-windows-x86_64.zip">Windows
                                 x86_64</a>
                         </p>
                     </div>
