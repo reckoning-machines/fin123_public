@@ -59,6 +59,9 @@
                     <h3 class="title">Run your spreadsheet like a program.</h3>
 
                     <p class="value">
+                        Replace your scenario tabs and your Python scripts.
+                    </p>
+                    <p class="value">
                         Change an assumption. Commit. Compare scenarios. Sweep parameters.
                         Every result is a real execution with a run_id.
                     </p>
@@ -77,7 +80,8 @@ fin123> commit
 
 fin123> scenario save base
 fin123> set revenue_growth = 0.12
-fin123> commit --name bull
+fin123> commit
+fin123> scenario save bull
 
 fin123> compare base bull
   revenue_growth    0.08 -> 0.12
@@ -89,14 +93,14 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                     </div>
 
                     <div class="hero-actions">
-                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core on
-                            GitHub</a>
+                        <a class="btn" href="https://app.fin123.dev">Try the Runtime Demo</a>
                         <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-examples">View
                             Examples</a>
+                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core on
+                            GitHub</a>
                         <a class="btn btn-ghost"
                             href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request
                             a Walkthrough</a>
-                        <a class="btn" href="https://app.fin123.dev">Try the Runtime Demo</a>
                     </div>
 
                 </div>
