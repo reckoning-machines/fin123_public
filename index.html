@@ -514,6 +514,25 @@ fin123 ui my_dcf</code></pre>
                         </p>
                     </div>
 
+                    <div class="panel">
+                        <h3 class="panel-title">LLM workflow integration</h3>
+                        <p>
+                            LLMs are used as typed, constrained compute nodes inside a deterministic
+                            execution graph. Each LLM call is a single explicit node in a graph --
+                            not an autonomous agent. Inputs and outputs are schema-validated.
+                            No hidden loops, no implicit state.
+                        </p>
+                        <pre class="code-block"><code>build_base -> propose_sweep -> run_sweep -> interpret_results
+ (formula)       (llm)          (formula)       (llm)</code></pre>
+                        <p>
+                            The DCF sensitivity workflow builds a base model, uses an LLM to propose
+                            sweep values, executes the sweep deterministically in fin123, then uses
+                            an LLM to interpret results and produce a structural recommendation.
+                            Every step produces inspectable artifacts. The full run is persisted as
+                            a single JSON artifact with a transition record -- not narrative text.
+                        </p>
+                    </div>
+
                     <div class="callout">
                         <div class="callout-title">Contact for access</div>
                         <div class="callout-body">
