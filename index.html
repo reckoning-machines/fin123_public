@@ -37,6 +37,7 @@
             </div>
 
             <nav class="nav">
+                <a href="#surface">Surface</a>
                 <a href="#sweep">Sweeps</a>
                 <a href="#benchmark">Benchmark</a>
                 <a href="#how-it-works">How It Works</a>
@@ -102,6 +103,52 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                         <a class="btn btn-ghost"
                             href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request
                             a Walkthrough</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================== SURFACE MODE ===================== -->
+
+        <section id="surface" class="section">
+            <div class="container">
+                <h2 class="section-title">Surface Mode</h2>
+                <p class="section-lede">
+                    See the entire model at once. Two assumptions become axes.
+                    One output becomes a landscape. Move the cursor -- the model responds.
+                </p>
+
+                <div class="stack">
+
+                    <div class="panel">
+                        <img src="surface.png" alt="fin123 Surface Mode — 2D heatmap of Price Target across Revenue Growth and EBIT Margin"
+                            style="width:100%;border:1px solid var(--border);border-radius:4px;">
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">How it works</h3>
+                        <p>
+                            Pick two input assumptions as axes (e.g. Revenue Growth and EBIT Margin).
+                            The surface evaluates the model at every combination and renders a
+                            continuous heatmap. Move your cursor -- the primary metric updates live.
+                            Drag a secondary knob (WACC, Terminal Growth) and the entire landscape
+                            deforms in real time.
+                        </p>
+                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
+                            Every point on the surface is a real model evaluation. Not a chart. Not an approximation.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Exploration, not execution</h3>
+                        <p>
+                            Surface Mode is ephemeral. No commits, no builds, no runs created.
+                            Cursor movement and knob adjustment are instant previews against a
+                            pre-cached model. The spreadsheet and the surface show the same model --
+                            click Spreadsheet to go back to editing. Click Surface to explore again.
+                        </p>
                     </div>
 
                 </div>
@@ -557,10 +604,11 @@ fin123 ui my_dcf</code></pre>
 
         <section id="screenshots" class="section">
             <div class="container">
-                <h2 class="section-title">Three modes, one runtime</h2>
+                <h2 class="section-title">Four modes, one runtime</h2>
                 <p class="section-lede">
                     The fin123 UI adapts to how you work. Analyst mode for spreadsheeting.
                     System mode for interactive model execution. Terminal mode for headless operation.
+                    Surface mode for exploring the model as a landscape.
                 </p>
 
                 <div class="stack">
@@ -586,6 +634,13 @@ fin123 ui my_dcf</code></pre>
                         <p>Full command surface for headless execution. Sweeps, grids, scenarios, and batch operations.
                         </p>
                         <img src="terminal.png" alt="fin123 Terminal mode — full CLI"
+                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Surface</h3>
+                        <p>Explore the model as a 2D heatmap. Cursor moves, the Price Target updates live. Drag WACC -- the landscape deforms.</p>
+                        <img src="surface.png" alt="fin123 Surface mode — 2D heatmap exploration"
                             style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
                     </div>
 
