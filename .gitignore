@@ -2,7 +2,9 @@
 Thumbs.db
 *.swp
 *~
-uniform_diff.md
-demo_copy_changes.md
-versioned_models_section.md
-homepage_narrative_audit.md
+
+# Ignore all root .md files except README, CHANGELOG, ARCHITECTURE
+/*.md
+!README.md
+!CHANGELOG.md
+!ARCHITECTURE.md
