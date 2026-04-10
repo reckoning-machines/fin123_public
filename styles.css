@@ -580,34 +580,44 @@ pre.code code {
 }
 
 .persona-block {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    margin-bottom: 14px;
 }
 
 .persona-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--fg-bright);
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--fg-bright);
+    margin-bottom: 4px;
 }
 
 .persona-list {
     list-style: none;
-    padding-left: 19px;
-    font-size: 12px;
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+}
+
+.persona-list li {
+    position: relative;
+    margin: 3px 0;
     color: var(--fg-dim);
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 .persona-list li::before {
-    content: "-";
-    display: inline-block;
-    width: 12px;
-    margin-left: -12px;
+    content: '\2022';
+    position: absolute;
+    left: -14px;
     color: var(--fg-dim);
+}
+
+.persona-label,
+.persona-list,
+.persona-list li {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
 .section-cue {
