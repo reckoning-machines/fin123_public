@@ -63,9 +63,18 @@
                     <p class="value">
                         I spent 15 years building models in Excel, and another 15 years building systems in code.
                     </p>
-                    <p class="value">
-                        fin123 is what I wanted as an analyst: explore assumptions, compare outcomes, and keep the states that matter. It is also what I wanted as a coder: run spreadsheets headlessly, scale workflows, and embed models in applications without reimplementing them.
-                    </p>
+
+                    <div class="persona-blocks">
+                        <div class="persona-block">
+                            <span class="persona-label"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> As an analyst:</span>
+                            <span class="persona-items">explore assumptions, compare outcomes, keep the states that matter</span>
+                        </div>
+                        <div class="persona-block">
+                            <span class="persona-label"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> As a coder:</span>
+                            <span class="persona-items">run spreadsheets headlessly, embed models without reimplementing them, integrate LLMs as a controlled substrate</span>
+                        </div>
+                    </div>
+
                     <p class="value">
                         fin123: the operating system for spreadsheet models.
                     </p>
@@ -140,6 +149,7 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
 
         <section id="surface" class="section">
             <div class="container">
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst perspective</div>
                 <h2 class="section-title">See the full model, not just one path through it</h2>
                 <p class="section-lede">
                     Two assumptions become axes. One output becomes a landscape. Move the cursor -- the model responds.
@@ -191,6 +201,7 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
 
         <section class="section">
             <div class="container">
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst perspective</div>
                 <h2 class="section-title">The system remembers what you explored</h2>
                 <div class="stack">
                     <div class="panel">
@@ -213,10 +224,12 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
 
         <section id="sweep" class="section">
             <div class="container">
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst perspective</div>
                 <h2 class="section-title">Structured exploration</h2>
                 <p class="section-lede">
                     A sweep runs the same model multiple times while varying one parameter.
                     Each row is a real execution, not a recalculated cell.
+                    This is where analyst exploration becomes something the system can execute repeatedly and deterministically.
                 </p>
 
                 <div class="stack">
@@ -259,9 +272,12 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
 
         <section id="how-it-works" class="section">
             <div class="container">
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> <svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> both perspectives</div>
                 <h2 class="section-title">From exploration to production</h2>
                 <p class="section-lede">
                     This is where the analyst workflow becomes a system. Three steps. No code rewrite between them.
+                    For the analyst, exploration becomes something you can trust and revisit.
+                    For the coder, a model becomes something you can run, embed, and ship.
                 </p>
 
                 <div class="stack">
@@ -314,6 +330,7 @@ Applications / dashboards / batch jobs</code></pre>
                             Applications run the compiled worksheet directly. The same compiled
                             model runs in a dashboard, a batch job, a risk system, or an API.
                             It runs headlessly, at scale, without anyone opening a spreadsheet.
+                            The model the analyst explored is the same model the engineer runs.
                         </p>
                     </div>
 
@@ -326,9 +343,11 @@ Applications / dashboards / batch jobs</code></pre>
 
         <section id="version-control" class="section">
             <div class="container">
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder perspective</div>
                 <h2 class="section-title">Every number traces back to a model</h2>
                 <p class="section-lede">
                     Commits, diffs, releases, and reproducible runs. Built in, not bolted on.
+                    Analysts need every number to be explainable. Engineers need every run to be reproducible.
                 </p>
 
                 <div class="stack">
@@ -375,6 +394,7 @@ fin123 release -> ship the compiled worksheet</code></pre>
             <div class="container">
                 <h2 class="section-title">Benchmark</h2>
                 <p class="section-lede">
+                    This is what happens when spreadsheet models become executable systems.
                     Measured on real workloads. Not synthetic micro-benchmarks.
                 </p>
 
@@ -488,6 +508,7 @@ fin123 release -> ship the compiled worksheet</code></pre>
                 <p class="section-lede">
                     fin123-core is the system I wanted as an analyst.
                     fin123-pod is the system I wanted as a coder.
+                    They are two ways of interacting with the same model and the same system.
                 </p>
 
                 <div class="stack">
@@ -580,9 +601,10 @@ fin123 ui my_dcf</code></pre>
 
         <section id="pod" class="section">
             <div class="container">
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder perspective</div>
                 <h2 class="section-title">Inside fin123-pod</h2>
                 <p class="section-lede">
-                    Shared state, automation, and governance for teams.
+                    This is where the coder perspective becomes real: the model becomes shared, versioned, governed, and runnable across systems.
                     Extends fin123-core with Postgres-backed infrastructure.
                 </p>
 
@@ -610,10 +632,11 @@ fin123 ui my_dcf</code></pre>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">LLM workflow integration</h3>
+                        <h3 class="panel-title"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> LLM workflow integration</h3>
                         <p>
-                            LLMs are used as typed, constrained compute nodes inside a deterministic
-                            execution graph. Each LLM call is a single explicit node in a graph --
+                            LLMs operate as typed, constrained compute nodes inside a deterministic
+                            execution graph -- at the same level as the calc engine, not above it.
+                            Each LLM call is a single explicit node in a graph,
                             not an autonomous agent. Inputs and outputs are schema-validated.
                             No hidden loops, no implicit state.
                         </p>

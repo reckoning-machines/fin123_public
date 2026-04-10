@@ -562,6 +562,63 @@ pre.code code {
     margin-top: 10px;
 }
 
+/* ── Persona cues ── */
+.pcue {
+    display: inline-block;
+    vertical-align: -2px;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--fg-dim);
+}
+
+.persona-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.persona-block {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.persona-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--fg-bright);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 120px;
+    padding-top: 1px;
+}
+
+.persona-items {
+    font-size: 12px;
+    color: var(--fg-dim);
+    line-height: 1.7;
+}
+
+.section-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--fg-dim);
+    letter-spacing: 0.3px;
+    margin-bottom: 6px;
+}
+
+.section-cue .pcue {
+    width: 12px;
+    height: 12px;
+    vertical-align: -1px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 640px) {
     :root { --space: 16px; }
