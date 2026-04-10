@@ -66,6 +66,9 @@
                     <p class="value">
                         fin123: the operating system for spreadsheet models.
                     </p>
+                    <p class="value">
+                        Explore freely. The system remembers every path you took.
+                    </p>
 
                     <div class="code-panel" role="region" aria-label="Terminal workflow">
                         <div class="code-header">
@@ -148,9 +151,32 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                             Cursor movement and knob adjustment are instant previews against a
                             pre-cached model. The spreadsheet and the surface show the same model --
                             click Spreadsheet to go back to editing. Click Surface to explore again.
+                            See an interesting point? Capture it. The system keeps it so you can
+                            return to it later.
                         </p>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================== WORKING MEMORY ===================== -->
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">The system remembers what you explored</h2>
+                <div class="stack">
+                    <div class="panel">
+                        <p>
+                            Change an assumption. Try a different one. Go back.
+                            fin123 keeps every state you visited -- not just the ones you committed.
+                            Bookmark the ones that matter. Return to prior work without rebuilding it.
+                        </p>
+                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
+                            Working memory for model exploration. Not version control -- something lighter.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -194,6 +220,7 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                         </p>
                         <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
                             This replaces Excel Data Tables with deterministic, auditable execution.
+                            Every point is a state you can compare, bookmark, and return to.
                         </p>
                     </div>
 
@@ -351,7 +378,8 @@ Applications / dashboards / batch jobs</code></pre>
                             Analysts define the model in a workbook: parameters, formulas, table
                             plans, assertions. The model can be a DCF valuation, a revenue forecast,
                             a credit model, a scenario analysis -- anything that would
-                            otherwise live in a spreadsheet.
+                            otherwise live in a spreadsheet. As they explore, fin123 keeps a
+                            working memory of every state -- so the path to a result is never lost.
                         </p>
                     </div>
 
@@ -491,11 +519,11 @@ fin123 release -> ship the compiled worksheet</code></pre>
                         <p>
                             Standalone binaries (no Python required):
                             <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.5.1/fin123-core-0.5.1-macos-arm64.zip">macOS
+                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.6.0/fin123-core-0.6.0-macos-arm64.zip">macOS
                                 arm64</a>
                             --
                             <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.5.1/fin123-core-0.5.1-windows-x86_64.zip">Windows
+                                href="https://github.com/reckoning-machines/fin123-core/releases/download/core-v0.6.0/fin123-core-0.6.0-windows-x86_64.zip">Windows
                                 x86_64</a>
                         </p>
                     </div>
