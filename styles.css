@@ -581,26 +581,33 @@ pre.code code {
 
 .persona-block {
     display: flex;
-    gap: 10px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .persona-label {
     font-size: 12px;
     font-weight: 600;
     color: var(--fg-bright);
-    white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 5px;
-    min-width: 120px;
-    padding-top: 1px;
 }
 
-.persona-items {
+.persona-list {
+    list-style: none;
+    padding-left: 19px;
     font-size: 12px;
     color: var(--fg-dim);
     line-height: 1.7;
+}
+
+.persona-list li::before {
+    content: "-";
+    display: inline-block;
+    width: 12px;
+    margin-left: -12px;
+    color: var(--fg-dim);
 }
 
 .section-cue {
