@@ -39,6 +39,7 @@
             <nav class="nav">
                 <a href="#products">Products</a>
                 <a href="#screenshots">Modes</a>
+                <a href="#ai-workbench">AI Workbench</a>
                 <a href="#sweep">Sweeps</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#benchmark">Benchmark</a>
@@ -291,6 +292,77 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                             Working memory for model exploration. Not version control -- something lighter.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================== AI WORKBENCH ===================== -->
+
+        <section id="ai-workbench" class="section">
+            <div class="container">
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
+                <h2 class="section-title">Extend the model with plain language</h2>
+                <p class="section-lede">
+                    Describe a calculation. The system drafts it as a governed code artifact,
+                    validates it against policy, and applies it to your model.
+                    No coding required. Every add-in participates in the same
+                    deterministic, hashed builds as the rest of the model.
+                </p>
+
+                <div class="stack">
+
+                    <div class="code-panel" role="region" aria-label="AI Workbench example">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">ai workbench</span>
+                        </div>
+                        <pre class="code"><code>fin123> ai draft addin "calculate compound annual growth rate from start and end values over n periods"
+  Draft draft_0001 created (47 lines)
+
+fin123> validate draft draft_0001
+  Syntax       pass
+  Imports      pass  (no forbidden modules)
+  Eval/exec    pass  (no dynamic execution)
+  Network      pass  (no outbound calls)
+  Metadata     pass  (deterministic: true, version: 1)
+  Entrypoint   pass  (register() found)
+
+fin123> apply draft draft_0001
+  Applied -> plugins/cagr.py
+
+fin123> commit
+  Build ID: 20260322_091455_run_1
+  Outputs: 14 scalars, 3 tables   (was 12 scalars)</code></pre>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Draft, validate, apply</h3>
+                        <p>
+                            An LLM generates the code. An AST-based policy scanner decides
+                            whether it is safe: no forbidden imports, no eval/exec, no network
+                            access, no side effects. Validated drafts are applied to <code>plugins/</code>
+                            and loaded into the runtime on the next build.
+                            Drafts are immutable -- revisions create new drafts, linked by lineage.
+                        </p>
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Why this matters</h3>
+                        <p>
+                            Analysts extend their own models without waiting on engineering.
+                            The generated code is pure and deterministic -- it computes a value,
+                            nothing else. It participates in the same hashed, verified builds
+                            as every other formula.
+                            The model stays auditable. The analyst stays in control.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            Ships with fin123-core. Open source. Bring your own API key (Anthropic or OpenAI).
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </section>
