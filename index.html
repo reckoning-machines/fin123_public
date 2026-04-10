@@ -38,13 +38,12 @@
 
             <nav class="nav">
                 <a href="#products">Products</a>
-                <a href="#surface">Surface</a>
+                <a href="#screenshots">Modes</a>
                 <a href="#sweep">Sweeps</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#benchmark">Benchmark</a>
                 <a href="#get-started">Get Started</a>
                 <a href="#pod">Pod</a>
-                <a href="#screenshots">Screenshots</a>
             </nav>
         </div>
     </header>
@@ -218,51 +217,50 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
         </section>
 
 
-        <!-- ===================== SURFACE MODE ===================== -->
+        <!-- ===================== FOUR MODES ===================== -->
 
-        <section id="surface" class="section" style="padding-top: 0;">
+        <section id="screenshots" class="section" style="padding-top: 0;">
             <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
-                <h2 class="section-title">See the full model, not just one path through it</h2>
+                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> <svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> analyst + coder</div>
+                <h2 class="section-title">Four modes, one runtime</h2>
                 <p class="section-lede">
-                    Two assumptions become axes. One output becomes a landscape. Move the cursor -- the model responds.
+                    Analyst mode for spreadsheeting.
+                    System mode for interactive model execution.
+                    Terminal mode for headless operation.
+                    Surface mode for exploring the model as a landscape.
                 </p>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <img src="surface.png"
-                            alt="fin123 Surface Mode -- 2D heatmap of Price Target across Revenue Growth and EBIT Margin"
-                            style="width:100%;border:1px solid var(--border);border-radius:4px;">
+                        <h3 class="panel-title">Analyst</h3>
+                        <p>Excel-like spreadsheet surface for reviewing and editing models. Light theme, dense grid,
+                            formula bar, semantic cell formatting.</p>
+                        <img src="analyst.png" alt="fin123 Analyst mode -- spreadsheet view"
+                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">How it works</h3>
-                        <p>
-                            Pick two input assumptions as axes (e.g. Revenue Growth and EBIT Margin).
-                            The surface evaluates the model at every combination and renders a
-                            continuous heatmap. Move your cursor -- the primary metric updates live.
-                            Drag a secondary knob (WACC, Terminal Growth) and the entire landscape
-                            deforms in real time.
-                        </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            Every point on the surface is a real model evaluation. Not a chart. Not an approximation.
-                        </p>
+                        <h3 class="panel-title">System</h3>
+                        <p>Spreadsheet and side panel together. Scalars, builds, research history -- with the model always visible.</p>
+                        <img src="system.png" alt="fin123 System mode -- sheet and panel"
+                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Exploration, not execution</h3>
-                        <p>
-                            Surface Mode is ephemeral. No commits, no builds, no runs created.
-                            Cursor movement and knob adjustment are instant previews against a
-                            pre-cached model. The spreadsheet and the surface show the same model --
-                            click Spreadsheet to go back to editing. Click Surface to explore again.
-                            See an interesting point? Capture it. The system keeps it so you can
-                            return to it later.
+                        <h3 class="panel-title">Terminal</h3>
+                        <p>Full command surface for headless execution. Sweeps, grids, scenarios, and batch operations.
                         </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            This is what I wanted as an analyst: to see the full model, not just one cell at a time.
-                        </p>
+                        <img src="terminal.png" alt="fin123 Terminal mode -- full CLI"
+                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
+                    </div>
+
+                    <div class="panel">
+                        <h3 class="panel-title">Surface</h3>
+                        <p>Explore the model as a 2D heatmap. Cursor moves, the Price Target updates live. Drag WACC --
+                            the landscape deforms.</p>
+                        <img src="surface.png" alt="fin123 Surface mode -- 2D heatmap exploration"
+                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
                     </div>
 
                 </div>
@@ -692,57 +690,6 @@ fin123 ui my_dcf</code></pre>
                             enterprise capabilities. The core engine works fully standalone without Pod.
                             <a class="link" href="mailto:reckoningmachines@gmail.com">Contact us</a> for licensing.
                         </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== SCREENSHOTS ===================== -->
-
-        <section id="screenshots" class="section">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> <svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> analyst + coder</div>
-                <h2 class="section-title">Four modes, one runtime</h2>
-                <p class="section-lede">
-                    Analyst mode for spreadsheeting.
-                    System mode for interactive model execution.
-                    Terminal mode for headless operation.
-                    Surface mode for exploring the model as a landscape.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">Analyst</h3>
-                        <p>Excel-like spreadsheet surface for reviewing and editing models. Light theme, dense grid,
-                            formula bar, semantic cell formatting.</p>
-                        <img src="analyst.png" alt="fin123 Analyst mode -- spreadsheet view"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">System</h3>
-                        <p>Spreadsheet and side panel together. Scalars, builds, research history -- with the model always visible.</p>
-                        <img src="system.png" alt="fin123 System mode -- sheet and panel"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Terminal</h3>
-                        <p>Full command surface for headless execution. Sweeps, grids, scenarios, and batch operations.
-                        </p>
-                        <img src="terminal.png" alt="fin123 Terminal mode -- full CLI"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Surface</h3>
-                        <p>Explore the model as a 2D heatmap. Cursor moves, the Price Target updates live. Drag WACC --
-                            the landscape deforms.</p>
-                        <img src="surface.png" alt="fin123 Surface mode -- 2D heatmap exploration"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
                     </div>
 
                 </div>
