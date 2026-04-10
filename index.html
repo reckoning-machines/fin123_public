@@ -37,11 +37,11 @@
             </div>
 
             <nav class="nav">
+                <a href="#products">Products</a>
                 <a href="#surface">Surface</a>
                 <a href="#sweep">Sweeps</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#benchmark">Benchmark</a>
-                <a href="#products">Products</a>
                 <a href="#get-started">Get Started</a>
                 <a href="#pod">Pod</a>
                 <a href="#screenshots">Screenshots</a>
@@ -155,6 +155,55 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                             one system, two perspectives.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================== TWO PRODUCTS ===================== -->
+
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title">Bottom line: Two products, one system</h2>
+                <p class="section-lede">
+                    fin123-core is the system I wanted as an analyst.
+                    fin123-pod is the system I wanted as a coder.
+                    They are two ways of interacting with the same model and the same system.
+                </p>
+
+                <div class="stack">
+
+                    <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
+                    <div class="panel">
+                        <h3 class="panel-title">fin123-core -- the analyst system</h3>
+                        <p>
+                            Flexibility, speed, and audit. Explore assumptions across surfaces,
+                            sweeps, and grids. Keep the states that matter. Compare outcomes.
+                            Return to prior work. Every build is deterministic, every result
+                            has a hash, and the full exploration path is preserved. No server
+                            required.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            Open source -- Apache-2.0
+                        </p>
+                    </div>
+
+                    <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder</div>
+                    <div class="panel">
+                        <h3 class="panel-title">fin123-pod -- the coder system</h3>
+                        <p>
+                            Reproducibility, headless execution, GitHub-like artifacts, embeddable
+                            spreadsheet objects, and LLMs kept under control. Compile a model once,
+                            run it anywhere -- no reimplementation in JS or Python. Scale workflows,
+                            publish to a versioned registry. Integrate LLMs as constrained compute
+                            nodes inside deterministic graphs -- not as autonomous agents. Ship to
+                            production with governance and release discipline.
+                        </p>
+                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
+                            Requires license
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -508,55 +557,6 @@ fin123 release -> ship the compiled worksheet</code></pre>
                         </table>
                         <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
                             Sub-linear scaling. 100x rows, 67x runtime. No degradation through 10M rows.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== TWO PRODUCTS ===================== -->
-
-        <section id="products" class="section">
-            <div class="container">
-                <h2 class="section-title">Bottom line: Two products, one system</h2>
-                <p class="section-lede">
-                    fin123-core is the system I wanted as an analyst.
-                    fin123-pod is the system I wanted as a coder.
-                    They are two ways of interacting with the same model and the same system.
-                </p>
-
-                <div class="stack">
-
-                    <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
-                    <div class="panel">
-                        <h3 class="panel-title">fin123-core -- the analyst system</h3>
-                        <p>
-                            Flexibility, speed, and audit. Explore assumptions across surfaces,
-                            sweeps, and grids. Keep the states that matter. Compare outcomes.
-                            Return to prior work. Every build is deterministic, every result
-                            has a hash, and the full exploration path is preserved. No server
-                            required.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Open source -- Apache-2.0
-                        </p>
-                    </div>
-
-                    <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder</div>
-                    <div class="panel">
-                        <h3 class="panel-title">fin123-pod -- the coder system</h3>
-                        <p>
-                            Reproducibility, headless execution, GitHub-like artifacts, embeddable
-                            spreadsheet objects, and LLMs kept under control. Compile a model once,
-                            run it anywhere -- no reimplementation in JS or Python. Scale workflows,
-                            publish to a versioned registry. Integrate LLMs as constrained compute
-                            nodes inside deterministic graphs -- not as autonomous agents. Ship to
-                            production with governance and release discipline.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Requires license
                         </p>
                     </div>
 
