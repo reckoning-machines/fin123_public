@@ -71,7 +71,7 @@
                                 <li>update models rapidly in a keyboard-driven, low overhead way</li>
                                 <li>change model drivers and run scenarios - easily and quickly</li>
                                 <li>handle huge recalculating spreadsheets without hanging</li>
-                                <li>integrate llm workflows, but safely and visibly</li>
+                                <li>use LLMs inside the model - every step is visible, versioned, and reproducible</li>
                                 <li>see what the model looked like when decisions were made</li>
                             </ul>
                         </div>
@@ -82,7 +82,7 @@
                                 <li>scale workflows without bolting on python packages, or using vba</li>
                                 <li>embed models into html without duplicating logic across data, model, and UI</li>
                                 <li>know every run was deterministic and auditable</li>
-                                <li>integrate LLMs as a controlled substrate, not a bolted-on copilot</li>
+                                <li>run LLMs as explicit steps in versioned execution graphs - with full audit and policy control</li>
                             </ul>
                         </div>
                     </div>
@@ -154,7 +154,9 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                         </p>
                         <p style="margin-top: 10px;">
                             fin123 closes that gap. Research velocity meets research discipline:
-                            explore freely, keep what matters, compile to production. One model,
+                            explore freely, keep what matters, compile to production.
+                            Every run follows a defined execution plan - a versioned sequence of steps that can include both calculations and LLM calls.
+                            One model,
                             one system, two perspectives.
                         </p>
                     </div>
@@ -201,8 +203,7 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                             spreadsheet objects, and LLMs kept under control. Compile a model once,
                             run it anywhere -- no reimplementation in JS or Python. Scale workflows,
                             publish to a versioned registry. Integrate LLMs as constrained compute
-                            nodes inside deterministic graphs -- not as autonomous agents. Ship to
-                            production with governance and release discipline.
+                            nodes inside deterministic graphs -- not as autonomous agents. Define workflows as versioned execution manifests, run them deterministically, and promote them with release discipline.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             Requires license
@@ -741,6 +742,7 @@ fin123 ui my_dcf</code></pre>
                             Each LLM call is a single explicit node in a graph,
                             not an autonomous agent. Inputs and outputs are schema-validated.
                             No hidden loops, no implicit state.
+                            The graph itself is versioned - an execution manifest that defines exactly how a run proceeds.
                         </p>
                         <pre class="code-block"><code>build_base -> propose_sweep -> run_sweep -> interpret_results
  (formula)       (llm)          (formula)       (llm)</code></pre>
