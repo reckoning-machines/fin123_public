@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
         content="fin123 turns spreadsheet models into deterministic, executable systems. Explore assumptions, keep the states that matter, compile to production." />
-    <meta property="og:title" content="fin123 -- Run your spreadsheet like a program" />
+    <meta property="og:title" content="fin123 -- A new calculation engine for spreadsheet models" />
     <meta property="og:description"
-        content="Explore assumptions. Compare outcomes. Compile to production. Every result has a run_id." />
+        content="Replaces Excel's calc engine with a deterministic runtime. Compile to production. Every result has a run_id." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="fin123 -- Run your spreadsheet like a program" />
+    <meta name="twitter:title" content="fin123 -- A new calculation engine for spreadsheet models" />
     <meta name="twitter:description"
-        content="Explore assumptions. Compare outcomes. Compile to production. Every result has a run_id." />
-    <title>fin123 -- Run your spreadsheet like a program</title>
+        content="Replaces Excel's calc engine with a deterministic runtime. Compile to production. Every result has a run_id." />
+    <title>fin123 -- A new calculation engine for spreadsheet models</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,8 +58,15 @@
             <div class="container">
                 <div class="hero-card">
                     <div class="kicker">fin123.dev</div>
-                    <h3 class="title">Run your spreadsheet like a program.</h3>
+                    <h3 class="title">I rewrote Excel's calculation engine.</h3>
 
+                    <p class="value" style="font-weight: 500; color: var(--fg);">
+                        fin123 runs spreadsheet models as executable programs --
+                        deterministic, auditable, and compiled to production.
+                    </p>
+                    <p class="value" style="color: var(--fg-dim);">
+                        This is not Excel in a browser. It is not an add-on. It is a new runtime.
+                    </p>
                     <p class="value" style="font-weight: 500; color: var(--fg);">
                         I spent 15 years building models in Excel, and another 15 years building systems in code.
                     </p>
@@ -70,7 +77,7 @@
                             <ul class="persona-list">
                                 <li>update models rapidly in a keyboard-driven, low overhead way</li>
                                 <li>change model drivers and run scenarios - easily and quickly</li>
-                                <li>handle huge recalculating spreadsheets without hanging</li>
+                                <li>run models with tens of thousands of rows without the engine choking</li>
                                 <li>use LLMs inside the model - every step is visible, versioned, and reproducible</li>
                                 <li>see what the model looked like when decisions were made</li>
                             </ul>
@@ -147,18 +154,18 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                 <div class="stack">
                     <div class="panel">
                         <p>
-                            Most financial tools break in the space between an Excel model and a
-                            real system. The model works, but it cannot be versioned, reproduced,
-                            compared, or run at scale. The analyst builds it. The engineer
+                            Excel bundles the UI, the data, and the calculation engine into one file.
+                            That makes it easy to start and impossible to scale.
+                            The model works, but it cannot be versioned, reproduced,
+                            compared, or run headlessly. The analyst builds it. The engineer
                             reimplements it. Nobody trusts the handoff.
                         </p>
                         <p style="margin-top: 10px;">
-                            fin123 closes that gap. Research velocity meets research discipline:
-                            explore freely, keep what matters, compile to production.
-                            Every run follows a defined execution plan - a versioned sequence of steps that can include both calculations and LLM calls.
-                            One model,
-                            one system, two perspectives.
-                            The same execution model powers the browser demo and the full production engine.
+                            fin123 replaces the calculation engine. The model is still built with formulas, tables, and assumptions --
+                            but instead of recalculating cells inside a file, fin123 compiles the model and runs it as an executable program.
+                            Every run follows a defined execution plan. One model,
+                            one runtime, two perspectives.
+                            The same engine powers the browser demo and the full production system.
                         </p>
                     </div>
                 </div>
@@ -175,7 +182,7 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
 
                     <div class="panel">
                         <p>
-                            fin123-core is the spreadsheet I wanted as an analyst.
+                            fin123-core is the calculation engine I wanted as an analyst.
                             fin123-pod is the application control I wanted as a coder.
                             They are two ways of interacting with the same model and the same system.
                         </p>
@@ -242,22 +249,22 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
 
                     <div class="panel">
                         <h3 class="panel-title">Analyst</h3>
-                        <p>Excel-like spreadsheet surface for reviewing and editing models. Light theme, dense grid,
-                            formula bar, semantic cell formatting.</p>
+                        <p>Spreadsheet surface for reviewing and editing models. Light theme, dense grid,
+                            formula bar, semantic cell formatting. The interface is familiar; the engine underneath is not.</p>
                         <img src="analyst.png" alt="fin123 Analyst mode -- spreadsheet view"
                             style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">System</h3>
-                        <p>Spreadsheet and side panel together. Scalars, builds, research history -- with the model always visible.</p>
+                        <p>Spreadsheet and execution panel together. Scalars, builds, research history -- with the model and its runtime state always visible.</p>
                         <img src="system.png" alt="fin123 System mode -- sheet and panel"
                             style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
                     </div>
 
                     <div class="panel">
                         <h3 class="panel-title">Terminal</h3>
-                        <p>Full command surface for headless execution. Sweeps, grids, scenarios, and batch operations.
+                        <p>Full command surface for headless execution. Run the model, sweep parameters, build grids, and batch operations -- no UI required.
                         </p>
                         <img src="terminal.png" alt="fin123 Terminal mode -- full CLI"
                             style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
@@ -306,7 +313,7 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                 <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
                 <h2 class="section-title">AI integrated natively, and safely</h2>
                 <p class="section-lede">
-                    Describe a calculation. The system drafts it as a governed code artifact,
+                    Describe a calculation. The system drafts it as a governed code module,
                     validates it against policy, and applies it to your model.
                     No coding required. Every add-in participates in the same
                     deterministic, hashed builds as the rest of the model.
