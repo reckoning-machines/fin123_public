@@ -211,11 +211,10 @@ fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value
                     <div class="panel">
                         <h3 class="panel-title">fin123-pod -- the coder system</h3>
                         <p>
-                            Reproducibility, headless execution, GitHub-like artifacts, embeddable
-                            spreadsheet objects, and LLMs kept under control. Compile a model once,
-                            run it anywhere -- no reimplementation in JS or Python. Scale workflows,
-                            publish to a versioned registry. Integrate LLMs as constrained compute
-                            nodes inside deterministic graphs -- not as autonomous agents. Define workflows as versioned execution manifests, run them deterministically, and promote them with release discipline.
+                            Run fin123 models as a team. Compile once, run anywhere -- no
+                            reimplementation in JS or Python. Share, version, review, and release
+                            models with discipline. Use LLMs as governed steps in workflows,
+                            not as autonomous agents.
                         </p>
                         <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
                             Requires license
@@ -717,60 +716,45 @@ fin123 ui my_dcf</code></pre>
         <section id="pod" class="section">
             <div class="container">
                 <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder</div>
-                <h2 class="section-title">Inside fin123-pod</h2>
+                <h2 class="section-title">fin123-pod for teams</h2>
                 <p class="section-lede">
-                    Models are shared, versioned, governed, and runnable across systems.
-                    Extends fin123-core with Postgres-backed infrastructure.
+                    Models become shared, versioned, and governed across the firm.
+                    Extends fin123-core with the infrastructure a team needs to run
+                    models in production.
                 </p>
 
                 <div class="stack">
 
                     <div class="panel">
-                        <h3 class="panel-title">Worksheet registry and governance</h3>
+                        <h3 class="panel-title">Shared models, governed releases</h3>
                         <p>
-                            Teams publish compiled worksheets to a shared Postgres registry.
+                            Teams publish compiled models to a shared registry.
                             Versions are reviewed and promoted through approval stages.
-                            Applications pull released versions from the registry. The application
-                            never reimplements the model logic.
+                            Applications consume released versions -- the application never
+                            reimplements the model logic.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title">Shared registry and runner</h3>
+                        <h3 class="panel-title">Headless execution at scale</h3>
                         <p>
-                            SQL sync pulls Postgres tables into local parquet caches with full audit trail.
-                            Bloomberg and plugin connectors bring vendor data into the same governed
-                            sync path. A Postgres-backed registry stores model versions, builds, and
-                            releases. The headless runner executes models by
-                            <code>(model_id, model_version_id)</code> with parameter overrides.
+                            Run released models headlessly with parameter overrides --
+                            across batch jobs, dashboards, and APIs. Every run is reproducible
+                            and auditable, with a full provenance trail back to the model
+                            version that produced it.
                         </p>
                     </div>
 
                     <div class="panel">
-                        <h3 class="panel-title"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> LLM workflow integration</h3>
+                        <h3 class="panel-title"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> LLMs as governed steps</h3>
                         <p>
-                            LLMs operate as typed, constrained compute nodes inside a deterministic
-                            execution graph -- at the same level as the calc engine, not above it.
-                            Each LLM call is a single explicit node in a graph,
-                            not an autonomous agent. Inputs and outputs are schema-validated.
-                            No hidden loops, no implicit state.
-                            The graph itself is versioned - an execution manifest that defines exactly how a run proceeds.
-                        </p>
-                        <pre class="code-block"><code>build_base -> propose_sweep -> run_sweep -> interpret_results
- (formula)       (llm)          (formula)       (llm)</code></pre>
-                        <p>
-                            The DCF sensitivity workflow builds a base model, uses an LLM to propose
-                            sweep values, executes the sweep deterministically in fin123, then uses
-                            an LLM to interpret results and produce a structural recommendation.
-                            Every step produces inspectable artifacts. The full run is persisted as
-                            a single JSON artifact with a transition record -- not narrative text.
+                            LLMs participate in workflows as governed steps, not as
+                            autonomous agents. Inputs and outputs are validated. Runs are
+                            deterministic, inspectable, and persisted as artifacts --
+                            not narrative text.
                         </p>
                         <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
                             This is what I wanted as a coder: to use LLMs without giving up control of the system.
-                        </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            fin123-pod runs versioned workflow graphs over deterministic models, with schema validation,
-                            policy enforcement, full provenance, and release discipline.
                         </p>
                     </div>
 
