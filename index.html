@@ -5,25 +5,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 turns spreadsheet models into deterministic, executable systems. Explore assumptions, keep the states that matter, compile to production." />
-    <meta property="og:title" content="fin123 -- A new calculation engine for spreadsheet models" />
+        content="fin123 turns spreadsheet models into executable, versioned model states with Scenarios, Results, Audit, scheduled runs, and LLM formulas." />
+    <meta property="og:title" content="fin123 -- Spreadsheet models that run as programs" />
     <meta property="og:description"
-        content="Replaces Excel's calc engine with a deterministic runtime. Compile to production. Every result has a run_id." />
+        content="Works like Excel, but runs as a program. Run model states, compare Scenarios, inspect Results, and audit every execution." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="fin123 -- A new calculation engine for spreadsheet models" />
+    <meta name="twitter:title" content="fin123 -- Spreadsheet models that run as programs" />
     <meta name="twitter:description"
-        content="Replaces Excel's calc engine with a deterministic runtime. Compile to production. Every result has a run_id." />
-    <title>fin123 -- A new calculation engine for spreadsheet models</title>
+        content="The unit of work is a model state, not a cell. Run it, version it, schedule it, and audit it." />
+    <title>fin123 -- Spreadsheet models that run as programs</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <style>
+        .nav a { white-space: nowrap; }
+        .hero-card { overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); gap: 24px; align-items: center; }
+        .hero-card .title { font-size: 28px; line-height: 1.22; margin-bottom: 16px; }
+        .hero-proof { display: grid; gap: 9px; margin: 18px 0 24px; }
+        .proof-line { color: var(--fg); font-size: 13px; line-height: 1.55; }
+        .proof-line strong { color: var(--fg-bright); }
+        .hero-shot { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--bg); box-shadow: 0 18px 60px rgba(0,0,0,0.24); }
+        .hero-shot img { width: 100%; }
+        .hero-caption { padding: 10px 12px; color: var(--fg-dim); font-size: 11px; border-top: 1px solid var(--border); }
+        .feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .feature-list { list-style: none; display: grid; gap: 8px; margin-top: 12px; }
+        .feature-list li { color: var(--fg-dim); font-size: 13px; line-height: 1.6; position: relative; padding-left: 16px; }
+        .feature-list li::before { content: ''; position: absolute; left: 0; top: 0.78em; width: 6px; height: 1px; background: var(--accent); }
+        .screenshot-stack { display: grid; gap: 28px; }
+        .shot-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        .shot-panel img { width: 100%; background: var(--bg); }
+        .shot-body { padding: 18px 20px 20px; border-top: 1px solid var(--border); }
+        .shot-kicker { color: var(--accent); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 6px; }
+        .shot-title { color: var(--fg-bright); font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+        .shot-copy { color: var(--fg); font-size: 13px; line-height: 1.7; }
+        .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .pill { border: 1px solid var(--border); border-radius: 999px; padding: 4px 9px; color: var(--fg-dim); font-size: 11px; background: rgba(255,255,255,0.02); }
+        .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+        .flow-step { border: 1px solid var(--border); background: var(--bg-card); border-radius: var(--radius); padding: 14px; min-height: 100px; }
+        .flow-num { color: var(--accent); font-size: 11px; margin-bottom: 8px; }
+        .flow-title { color: var(--fg-bright); font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+        .flow-copy { color: var(--fg-dim); font-size: 11px; line-height: 1.55; }
+        .code code .dim, .dim { color: var(--fg-dim); }
+        @media (max-width: 820px) { .hero-grid, .feature-grid, .flow { grid-template-columns: 1fr; } .hero-card .title { font-size: 22px; } }
+    </style>
 </head>
 
 <body>
@@ -35,789 +66,250 @@
                 <span class="prompt" aria-hidden="true">$</span>
                 <a class="brand-link" href="./index.html" aria-label="fin123 home">fin123</a>
             </div>
-
-            <nav class="nav">
-                <a href="#products">Products</a>
-                <a href="#screenshots">Modes</a>
-                <a href="#ai-workbench">AI Workbench</a>
-                <a href="#sweep">Sweeps</a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#surface">Surface</a>
+                <a href="#features">Features</a>
+                <a href="#llm-formulas">LLM Formulas</a>
+                <a href="#overnight">Run Later</a>
                 <a href="#how-it-works">How It Works</a>
-                <a href="#benchmark">Benchmark</a>
                 <a href="#get-started">Get Started</a>
-                <a href="#pod">Pod</a>
             </nav>
         </div>
     </header>
 
     <main id="content" class="site-main">
-
-
-        <!-- ===================== HERO ===================== -->
-
         <section class="hero">
             <div class="container">
                 <div class="hero-card">
-                    <div class="kicker">fin123.dev</div>
-                    <h3 class="title">Works like Excel, but runs as a program.</h3>
-
-                    <p class="value" style="font-weight: 500; color: var(--fg);">
-                        A spreadsheet-driven research operating system.
-                    </p>
-
-                    <p class="value" style="font-weight: 600; color: var(--fg);">
-                        The unit of work is not a cell - it’s a state of the model.
-                    </p>
-
-                    <p class="value" style="font-weight: 700; color: var(--fg);">
-                        I spent 15 years building models in Excel and 15 years building systems in code.
-                    </p>
-
-                    <div class="persona-blocks">
-                        <div class="persona-block">
-                            <div class="persona-label"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> As an analyst, I wanted to:</div>
-                            <ul class="persona-list">
-                                <li>update the model rapidly in a keyboard-driven, low overhead way</li>
-                                <li>change drivers and run scenarios as real executions, not spreadsheet recalculations</li>
-                                <li>run models with tens of thousands of rows without the engine choking</li>
-                                <li>use LLMs inside the model - every step is visible, versioned, and reproducible</li>
-                                <li>see what the model looked like when decisions were made</li>
-                            </ul>
+                    <div class="hero-grid">
+                        <div>
+                            <div class="kicker">fin123.dev</div>
+                            <h1 class="title">Works like Excel, but runs as a program.</h1>
+                            <p class="value" style="font-weight: 600; color: var(--fg-bright);">
+                                The unit of work is not a cell - it is a state of the model.
+                            </p>
+                            <div class="hero-proof">
+                                <p class="proof-line"><strong>Build in a spreadsheet.</strong> Mark Assumptions and Outputs directly in the grid.</p>
+                                <p class="proof-line"><strong>Run model states.</strong> Base, Bull, Bear, Sensitivity, and scheduled runs all use the same execution path.</p>
+                                <p class="proof-line"><strong>Use LLMs as formulas.</strong> <code>=LLM("same_store_sales_guidance")</code> is a model compute node, not chat.</p>
+                                <p class="proof-line"><strong>Audit the result.</strong> Every Run stores model version, scenario, inputs, outputs, prompt snapshot, and replay evidence.</p>
+                            </div>
+                            <div class="hero-actions">
+                                <a class="btn" href="https://app.fin123.dev">Try the Runtime Demo</a>
+                                <a class="btn" href="https://pypi.org/project/fin123-core/">pip install fin123-core</a>
+                                <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core</a>
+                                <a class="btn btn-ghost" href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request a Walkthrough</a>
+                            </div>
                         </div>
-                        <div class="persona-block">
-                            <div class="persona-label"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> As a coder, I wanted to:</div>
-                            <ul class="persona-list">
-                                <li>run spreadsheets headlessly instead of rebuilding the model in code</li>
-                                <li>compose spreadsheet logic into workflows without bolting on python packages or using vba</li>
-                                <li>embed models into html without duplicating logic across data, model, and UI</li>
-                                <li>know every run was deterministic and auditable</li>
-                                <li>run LLMs as explicit steps in versioned execution graphs - with full audit and policy control</li>
-                            </ul>
-                        </div>
+                        <figure class="hero-shot">
+                            <img src="./main.png" alt="fin123 root spreadsheet surface with model grid and results panel" />
+                            <figcaption class="hero-caption">One product surface: grid first, Results beside it, Run in the model shell.</figcaption>
+                        </figure>
                     </div>
-
-                    <br>
-
-                    <p class="value" style="font-weight: 400; color: var(--fg);">
-                        Excel locks data, the calc engine, and the spreadsheet into one box.
-                    </p>
-
-                    <p class="value" style="font-weight: 500; color: var(--fg);">
-                        fin123 breaks them apart.
-                    </p>
-
-                    <p class="persona-label hero-result" style="font-weight: 600;">
-                        The spreadsheet is no longer just a file. It is a program.
-                    </p>
-                    <p class="persona-label hero-result" style="font-weight: 700;">
-                        You can run it, version it, and ship it.
-                    </p>
-
-                    <div class="code-panel" role="region" aria-label="Terminal workflow">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">terminal -- AAPL DCF</span>
-                        </div>
-                        <pre class="code"><code>fin123> set revenue_growth = 0.08
-fin123> commit
-  Build ID: 20260320_184211_run_1
-  Outputs: 12 scalars, 3 tables
-
-fin123> scenario save base
-fin123> set revenue_growth = 0.12
-fin123> commit
-fin123> scenario save bull
-
-fin123> compare base bull
-  revenue_growth    0.08 -> 0.12
-  value_per_share   1,402.63 -> 2,163.51
-
-fin123> sweep revenue_growth 0.04 0.06 0.08 0.10 0.12
-
-fin123> grid revenue_growth 0.04 0.08 0.12 vs wacc 0.08 0.10 0.12 --output value_per_share</code></pre>
-                    </div>
-
-                    <div class="hero-actions">
-                        <a class="btn" href="https://app.fin123.dev">Try the Runtime Demo</a>
-                        <a class="btn" href="https://pypi.org/project/fin123-core/">pip install fin123-core</a>
-                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-examples">View
-                            Examples</a>
-                        <a class="btn btn-ghost" href="https://github.com/reckoning-machines/fin123-core">View Core on
-                            GitHub</a>
-                        <a class="btn btn-ghost"
-                            href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request
-                            a Walkthrough</a>
-                    </div>
-
                 </div>
             </div>
         </section>
-
-
-        <!-- ===================== BRIDGE ===================== -->
 
         <section class="section">
             <div class="container">
-                <h2 class="section-title">The gap between a spreadsheet and a system</h2>
-                <div class="stack">
-                    <div class="panel">
-                        <p>
-                            Excel bundles the UI, the data, and the calculation engine into one file.
-                            That makes it easy to start and impossible to scale.
-                            The model works, but it cannot be versioned, reproduced,
-                            compared, or run headlessly. The analyst builds it. The engineer
-                            reimplements it. Nobody trusts the handoff.
-                        </p>
-                        <p style="margin-top: 10px;">
-                            fin123 replaces the calculation engine. The model is still built with formulas, tables, and assumptions --
-                            but instead of recalculating cells inside a file, fin123 compiles the model and runs it as an executable program.
-                            Every run follows a defined execution plan. One model,
-                            one runtime, two perspectives.
-                            The same engine powers the browser demo and the full production system.
-                        </p>
-                    </div>
+                <h2 class="section-title">A spreadsheet model becomes an executable model state</h2>
+                <div class="panel">
+                    <p>
+                        Traditional spreadsheets recalculate cells. fin123 runs saved model states. A model version plus a Scenario becomes a Run. A group of Scenarios or Sensitivity Cases becomes a Run Set. Results are stored output surfaces, and Audit proves exactly what executed.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        That means the analyst can still work in a grid, but the system can run, compare, schedule, and replay the model without rewriting it in Python or JavaScript.
+                    </p>
                 </div>
             </div>
         </section>
 
-
-        <!-- ===================== TWO PRODUCTS ===================== -->
-
-        <section id="products" class="section">
+        <section id="surface" class="section">
             <div class="container">
-                <h2 class="section-title">Bottom line: Two products, one system</h2>
-                <div class="stack">
-
-                    <div class="panel">
-                        <p>
-                            fin123-core is the calculation engine I wanted as an analyst.
-                            fin123-pod is the application control I wanted as a coder.
-                            They are two ways of interacting with the same model and the same system.
-                        </p>
-                    </div>
-
-                    <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
-                    <div class="panel">
-                        <h3 class="panel-title">fin123-core -- the analyst system</h3>
-                        <p>
-                            Flexibility, speed, and audit. Explore assumptions across surfaces,
-                            sweeps, and grids. Keep the states that matter. Compare outcomes.
-                            Return to prior work. Every build is deterministic, every result
-                            has a hash, and the full exploration path is preserved. No server
-                            required.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Open source -- Apache-2.0
-                        </p>
-                    </div>
-
-                    <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder</div>
-                    <div class="panel">
-                        <h3 class="panel-title">fin123-pod -- the coder system</h3>
-                        <p>
-                            Run fin123 models as a team. Compile once, run anywhere -- no
-                            reimplementation in JS or Python. Share, version, review, and release
-                            models with discipline. Use LLMs as governed steps in workflows,
-                            not as autonomous agents.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Requires license
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== FEATURES HEADER ===================== -->
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title" style="font-size: 16px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--fg-dim);">Features</h2>
-            </div>
-        </section>
-
-
-        <!-- ===================== FOUR MODES ===================== -->
-
-        <section id="screenshots" class="section" style="padding-top: 0;">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> <svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> analyst + coder</div>
-                <h2 class="section-title">Four modes, one runtime</h2>
-                <p class="section-lede">
-                    Analyst mode for spreadsheeting.
-                    System mode for interactive model execution.
-                    Terminal mode for headless operation.
-                    Surface mode for exploring the model as a landscape.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">Analyst</h3>
-                        <p>Spreadsheet surface for reviewing and editing models. Light theme, dense grid,
-                            formula bar, semantic cell formatting. The interface is familiar; the engine underneath is not.</p>
-                        <img src="analyst.png" alt="fin123 Analyst mode -- spreadsheet view"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">System</h3>
-                        <p>Spreadsheet and execution panel together. Scalars, builds, research history -- with the model and its runtime state always visible.</p>
-                        <img src="system.png" alt="fin123 System mode -- sheet and panel"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Terminal</h3>
-                        <p>Full command surface for headless execution. Run the model, sweep parameters, build grids, and batch operations -- no UI required.
-                        </p>
-                        <img src="terminal.png" alt="fin123 Terminal mode -- full CLI"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Surface</h3>
-                        <p>Explore the model as a 2D heatmap. Cursor moves, the Price Target updates live. Drag WACC --
-                            the landscape deforms.</p>
-                        <img src="surface.png" alt="fin123 Surface mode -- 2D heatmap exploration"
-                            style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:4px;">
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== WORKING MEMORY ===================== -->
-
-        <section class="section">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
-                <h2 class="section-title">The system remembers what you explored</h2>
-                <div class="stack">
-                    <div class="panel">
-                        <p>
-                            Change an assumption. Try a different one. Go back.
-                            fin123 keeps every state you visited -- not just the ones you committed.
-                            Bookmark the ones that matter. Return to prior work without rebuilding it.
-                            Branch to explore alternatives without losing the original path.
-                        </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            Working memory for model exploration. Not version control -- something lighter.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== AI WORKBENCH ===================== -->
-
-        <section id="ai-workbench" class="section">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> analyst</div>
-                <h2 class="section-title">AI integrated natively, and safely</h2>
-                <p class="section-lede">
-                    Describe a calculation. The system drafts it as a governed code module,
-                    validates it against policy, and applies it to your model.
-                    No coding required. Every add-in participates in the same
-                    deterministic, hashed builds as the rest of the model.
-                </p>
-
-                <div class="stack">
-
-                    <div class="code-panel" role="region" aria-label="AI Workbench example">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">ai workbench</span>
+                <h2 class="section-title">The product surface</h2>
+                <p class="section-lede">The root surface is the product. No separate console is required for normal modeling.</p>
+                <div class="screenshot-stack">
+                    <article class="shot-panel">
+                        <img src="./main.png" alt="fin123 spreadsheet model surface" />
+                        <div class="shot-body">
+                            <div class="shot-kicker">1 / Model Surface</div>
+                            <h3 class="shot-title">The grid is the primary object.</h3>
+                            <p class="shot-copy">Mark cells as Assumptions or Outputs, save model versions, select Scenarios, Run, and inspect Results without leaving the spreadsheet surface.</p>
+                            <div class="pill-row"><span class="pill">Assumptions</span><span class="pill">Outputs</span><span class="pill">Scenario: Base</span><span class="pill">Save Version</span><span class="pill">Run</span></div>
                         </div>
-                        <pre class="code"><code>fin123> ai draft addin "calculate compound annual growth rate from start and end values over n periods"
-  Draft draft_0001 created (47 lines)
-
-fin123> validate draft draft_0001
-  Syntax       pass
-  Imports      pass  (no forbidden modules)
-  Eval/exec    pass  (no dynamic execution)
-  Network      pass  (no outbound calls)
-  Metadata     pass  (deterministic: true, version: 1)
-  Entrypoint   pass  (register() found)
-
-fin123> apply draft draft_0001
-  Applied -> plugins/cagr.py
-
-fin123> commit
-  Build ID: 20260322_091455_run_1
-  Outputs: 14 scalars, 3 tables   (was 12 scalars)</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Draft, validate, apply</h3>
-                        <p>
-                            An LLM generates the code. An AST-based policy scanner decides
-                            whether it is safe: no forbidden imports, no eval/exec, no network
-                            access, no side effects. Validated drafts are applied to <code>plugins/</code>
-                            and loaded into the runtime on the next build.
-                            Drafts are immutable -- revisions create new drafts, linked by lineage.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Why this matters</h3>
-                        <p>
-                            Analysts extend their own models without waiting on engineering.
-                            The generated code is pure and deterministic -- it computes a value,
-                            nothing else. It participates in the same hashed, verified builds
-                            as every other formula.
-                            The model stays auditable. The analyst stays in control.
-                        </p>
-                        <p style="margin-top: 10px; font-size: 12px; color: var(--fg-dim);">
-                            Ships with fin123-core. Open source. Bring your own API key (Anthropic or OpenAI).
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== WHAT IS A SWEEP ===================== -->
-
-        <section id="sweep" class="section">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder</div>
-                <h2 class="section-title">Structured exploration</h2>
-                <p class="section-lede">
-                    A sweep runs the same model multiple times while varying one parameter.
-                    Each row is a real execution, not a recalculated cell.
-                    This is where analyst exploration becomes something the system can execute repeatedly and deterministically.
-                </p>
-
-                <div class="stack">
-
-                    <div class="code-panel" role="region" aria-label="Sweep example">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">sweep</span>
+                    </article>
+                    <article class="shot-panel">
+                        <img src="./2.png" alt="fin123 scenario and results surface" />
+                        <div class="shot-body">
+                            <div class="shot-kicker">2 / Results</div>
+                            <h3 class="shot-title">Run produces a stable Results surface.</h3>
+                            <p class="shot-copy">Results are based on marked Outputs and persisted Run artifacts. Run All compares Scenarios. Run Sensitivity creates temporary Cases without saving them as Scenarios.</p>
+                            <div class="pill-row"><span class="pill">Run Results</span><span class="pill">Run All</span><span class="pill">Sensitivity Cases</span><span class="pill">View details</span></div>
                         </div>
-                        <pre class="code"><code>fin123> sweep revenue_growth 0.04 0.06 0.08 0.10 0.12
-
-  revenue_growth  value_per_share  enterprise_value  Build ID
-  0.04            901.22           1,944,882         20260320_run_1
-  0.06            1,118.47         2,280,144         20260320_run_2
-  0.08            1,402.63         2,805,251         20260320_run_3
-  0.10            1,744.19         3,311,144         20260320_run_4
-  0.12            2,163.51         4,010,021         20260320_run_5</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <p>
-                            In Excel, a Data Table recalculates cells. In fin123, a sweep runs
-                            the full model for each value. Every row has its own build, its own
-                            outputs, its own hash. A grid extends this to two parameters with
-                            matrix output. Every point is a state you can compare, keep, and return to.
-                        </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            This replaces Excel Data Tables with deterministic, auditable execution.
-                        </p>
-                    </div>
-
+                    </article>
+                    <article class="shot-panel">
+                        <img src="./3.png" alt="fin123 LLM Formula definition modal" />
+                        <div class="shot-body">
+                            <div class="shot-kicker">3 / LLM Formula</div>
+                            <h3 class="shot-title">LLMs are formula compute nodes.</h3>
+                            <p class="shot-copy">Type <code>=LLM("same_store_sales_guidance")</code> into a cell. The definition lives behind the cell: Logic, Inputs, output type, Preview, and Approval. It runs when the model runs.</p>
+                            <div class="pill-row"><span class="pill">Open Definition</span><span class="pill">Preview</span><span class="pill">Approve</span><span class="pill">Typed output</span><span class="pill">Prompt snapshot</span></div>
+                        </div>
+                    </article>
+                    <article class="shot-panel">
+                        <img src="./4.png" alt="fin123 Audit modal with run and LLM formula evidence" />
+                        <div class="shot-body">
+                            <div class="shot-kicker">4 / Audit</div>
+                            <h3 class="shot-title">Audit proves the Run.</h3>
+                            <p class="shot-copy">Audit opens from Results. It shows the immutable Run or Run Set record, model version, Scenario, Outputs, LLM input snapshot, compiled prompt snapshot, typed output, and replay evidence.</p>
+                            <div class="pill-row"><span class="pill">run_id</span><span class="pill">model_version_id</span><span class="pill">scenario_id</span><span class="pill">reasoning_run_id</span><span class="pill">replay from artifact</span></div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">What changed in the model</h2>
+                <div class="feature-grid">
+                    <div class="panel">
+                        <h3 class="panel-title">Assumptions and Outputs</h3>
+                        <p>Assumptions are cells that may vary by Scenario. Outputs are cells measured after Run.</p>
+                        <ul class="feature-list">
+                            <li>Cell-first marking in the formula bar and context menu.</li>
+                            <li>Formula cells are blocked as Assumptions.</li>
+                            <li>Results use marked Outputs only.</li>
+                        </ul>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Scenarios and Results</h3>
+                        <p>Base is the default state. Other Scenarios are named variations of Base.</p>
+                        <ul class="feature-list">
+                            <li>Create Base Scenario from current Assumption values.</li>
+                            <li>Save Bull, Bear, and other Scenario states manually.</li>
+                            <li>Run and Run All persist Results from immutable artifacts.</li>
+                        </ul>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Sensitivity</h3>
+                        <p>Run Sensitivity explores Assumption ranges and measures Outputs.</p>
+                        <ul class="feature-list">
+                            <li>Ranges are defined at the Assumption cell.</li>
+                            <li>Cases are temporary, not saved Scenarios by default.</li>
+                            <li>LLM Formula execution is blocked during Sensitivity for now.</li>
+                        </ul>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Runs, Run Sets, and Audit</h3>
+                        <p>Every execution writes immutable evidence.</p>
+                        <ul class="feature-list">
+                            <li>Every Run has a run_id and model_version_id.</li>
+                            <li>Run Sets link child Runs in order.</li>
+                            <li>Replay reads stored artifacts. It does not recompute.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- ===================== HOW IT WORKS ===================== -->
+        <section id="llm-formulas" class="section">
+            <div class="container">
+                <h2 class="section-title">LLM Formula is not chat</h2>
+                <p class="section-lede">An LLM Formula is analyst-authored model logic, referenced from the grid and executed during Run.</p>
+                <div class="panel">
+                    <p><code>=LLM("same_store_sales_guidance")</code> can represent a Wall Street analyst forecasting heuristic: read prior quarter SSS, management guidance, peer commentary, macro notes, and seasonality, then return a numeric forecast.</p>
+                    <div class="code-panel" style="margin-top: 16px;">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">same_store_sales_guidance</span>
+                        </div>
+                        <pre class="code"><code>Cell B12: =LLM("same_store_sales_guidance")
+
+Logic:
+Estimate next-quarter same-store-sales growth using declared inputs.
+Return only a numeric decimal, such as 0.035 for 3.5%.
+
+Inputs:
+- prior quarter SSS
+- management guidance text
+- recent comp commentary
+- macro / consumer read-through
+- historical seasonality
+
+Run output:
+Forecast SSS:      0.035
+Forecast revenue:  1035</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overnight" class="section">
+            <div class="container">
+                <h2 class="section-title">Run later</h2>
+                <p class="section-lede">Scheduled execution is the same Run model, just delayed. It references a saved model version and selected Scenarios. It never runs the mutable grid.</p>
+                <article class="shot-panel" style="margin-bottom: 16px;">
+                    <img src="./1.png" alt="fin123 Run later modal showing saved version, selected Scenario, and time" />
+                    <div class="shot-body">
+                        <div class="shot-kicker">Run later</div>
+                        <h3 class="shot-title">Run this saved version at a time.</h3>
+                        <p class="shot-copy">The modal is a delayed Run confirmation: saved version, selected Scenario, and execution time. Unsaved changes are not included.</p>
+                    </div>
+                </article>
+                <div class="panel">
+                    <p><strong>Run later</strong> means: run this saved version with these Scenarios at this time. When it triggers, fin123 creates child Runs, a Run Set, Results, and Audit artifacts using the same execution path as interactive Run.</p>
+                    <ul class="feature-list">
+                        <li>References immutable model_version_id.</li>
+                        <li>Uses selected scenario_ids.</li>
+                        <li>Executes approved LLM Formula Definitions only.</li>
+                        <li>Records scheduled_run_id on Run Set and child Runs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
         <section id="how-it-works" class="section">
             <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> <svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> analyst + coder</div>
-                <h2 class="section-title">From exploration to production</h2>
-                <p class="section-lede">
-                    This is where the analyst workflow becomes a system. Three steps. No code rewrite between them.
-                    For the analyst, exploration becomes something you can trust and revisit.
-                    For the coder, a model becomes something you can run, embed, and ship.
-                </p>
-
-                <div class="stack">
-
-                    <div class="code-panel" role="region" aria-label="Execution model">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">execution model</span>
-                        </div>
-                        <pre class="code"><code>Spreadsheet (workbook.yaml)
-        |
-        |  fin123 build
-        v
-Build Outputs (scalars + tables)
-        |
-        |  fin123 worksheet compile
-        v
-Compiled Worksheet (immutable JSON, runs headlessly)
-        |
-        v
-Applications / dashboards / batch jobs</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Author</h3>
-                        <p>
-                            Analysts define the model in a workbook: parameters, formulas, table
-                            plans, assertions. The model can be a DCF valuation, a revenue forecast,
-                            a credit model, a scenario analysis -- anything that would
-                            otherwise live in a spreadsheet. As they explore, fin123 keeps a
-                            working memory of every state -- so the path to a result is never lost.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Compile</h3>
-                        <p>
-                            <code>fin123 build</code> compiles the model into an immutable
-                            worksheet with a deterministic content hash. The compiled worksheet
-                            contains the calculation graph, evaluated outputs, display formatting,
-                            flags, and a full audit trail.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Run</h3>
-                        <p>
-                            Applications run the compiled worksheet directly. The same compiled
-                            model runs in a dashboard, a batch job, a risk system, or an API.
-                            It runs headlessly, at scale, without anyone opening a spreadsheet.
-                            The model the analyst explored is the same model the engineer runs.
-                        </p>
-                    </div>
-
+                <h2 class="section-title">How it works</h2>
+                <div class="flow">
+                    <div class="flow-step"><div class="flow-num">01</div><div class="flow-title">Mark</div><div class="flow-copy">Declare Assumptions and Outputs in the grid.</div></div>
+                    <div class="flow-step"><div class="flow-num">02</div><div class="flow-title">Save</div><div class="flow-copy">Save a model version and create Base.</div></div>
+                    <div class="flow-step"><div class="flow-num">03</div><div class="flow-title">Vary</div><div class="flow-copy">Save Scenarios or define Assumption ranges.</div></div>
+                    <div class="flow-step"><div class="flow-num">04</div><div class="flow-title">Run</div><div class="flow-copy">Run one Scenario, all Scenarios, Sensitivity, or Run later.</div></div>
+                    <div class="flow-step"><div class="flow-num">05</div><div class="flow-title">Audit</div><div class="flow-copy">Replay from stored artifacts and inspect lineage.</div></div>
                 </div>
             </div>
         </section>
-
-
-        <!-- ===================== VERSION CONTROL ===================== -->
-
-        <section id="version-control" class="section">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder</div>
-                <h2 class="section-title">Every number traces back to a model</h2>
-                <p class="section-lede">
-                    Commits, diffs, releases, and reproducible runs. Built in, not bolted on.
-                    Analysts need every number to be explainable. Engineers need every run to be reproducible.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <p>
-                            Every model in fin123 has commits, diffs, releases, and reproducible
-                            runs. When a number is produced, it traces back to a specific model
-                            version, a specific set of inputs, and a specific content hash.
-                        </p>
-                    </div>
-
-                    <div class="code-panel" role="region" aria-label="Model lifecycle">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">model lifecycle</span>
-                        </div>
-                        <pre class="code"><code>fin123 commit  -> snapshot the model
-fin123 build   -> compile + hash the outputs
-fin123 verify  -> detect drift
-fin123 release -> ship the compiled worksheet</code></pre>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Why this matters in finance</h3>
-                        <p>
-                            Regulators ask which model produced a number. Auditors ask whether the
-                            model changed between runs. Portfolio managers ask whether the forecast
-                            they approved is the same one running in production. fin123 answers all
-                            of these with a hash.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== BENCHMARK ===================== -->
-
-        <section id="benchmark" class="section">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="0.5" stroke="currentColor" stroke-width="1.2"/></svg> <svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> analyst + coder</div>
-                <h2 class="section-title">Benchmark</h2>
-                <p class="section-lede">
-                    fin123 is built on Polars, which is written in Rust.
-                    Measured on real workloads. Not synthetic micro-benchmarks.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel" id="benchmark-numbers">
-                        <h3 class="panel-title">DCF operating model -- 66,000 rows, 10 tickers</h3>
-                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
-                            <thead>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <th
-                                        style="text-align: left; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Operation</th>
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        fin123</th>
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Excel</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px;">Single build</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        35 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">2-5 s</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px;">20-scenario sweep</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        1.4 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">40-100 s
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 6px 12px;">5x5 sensitivity grid</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        1.8 s</td>
-                                    <td style="padding: 6px 12px; text-align: right; color: var(--fg-dim);">30-120 s
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Row-scaling test -- 100K to 10M rows</h3>
-                        <table style="width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px;">
-                            <thead>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Rows</th>
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Runtime</th>
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Table eval</th>
-                                    <th
-                                        style="text-align: right; padding: 6px 12px; color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px;">
-                                        Memory</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px; text-align: right;">100K</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        16 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">3 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">113 MB</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 6px 12px; text-align: right;">1M</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        94 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">15 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">382 MB</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 6px 12px; text-align: right;">10M</td>
-                                    <td
-                                        style="padding: 6px 12px; text-align: right; color: var(--green); font-weight: 600;">
-                                        1.05 s</td>
-                                    <td style="padding: 6px 12px; text-align: right;">147 ms</td>
-                                    <td style="padding: 6px 12px; text-align: right;">1,854 MB</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p style="margin-top: 12px; font-size: 11px; color: var(--fg-dim);">
-                            Sub-linear scaling. 100x rows, 67x runtime. No degradation through 10M rows.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===================== GET STARTED ===================== -->
 
         <section id="get-started" class="section">
             <div class="container">
                 <h2 class="section-title">Get started</h2>
-
                 <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">Install from PyPI</h3>
-                        <p>
-                            <strong>fin123-core is now on PyPI.</strong>
-                            One command, no clone:
-                        </p>
-                    </div>
-
-                    <div class="code-panel" role="region" aria-label="pip install fin123-core">
+                    <div class="code-panel">
                         <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">pip install + first build</span>
+                            <span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">local install</span>
                         </div>
                         <pre class="code"><code>pip install fin123-core
-
-fin123 init my_dcf --template benchmark_dcf
-fin123 ui my_dcf</code></pre>
+fin123 ui my_model</code></pre>
                     </div>
-
                     <div class="panel">
-                        <p>
-                            Project page:
-                            <a class="link" href="https://pypi.org/project/fin123-core/">pypi.org/project/fin123-core</a>
+                        <p class="contact-line">
+                            Want the walkthrough? <a class="link" href="mailto:jed@reckoningmachines.com?subject=fin123%20walkthrough%20request">Email jed@reckoningmachines.com</a>
                         </p>
                     </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Other install options</h3>
-                        <p>
-                            Standalone binaries (no Python required):
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases/download/v0.7.4/fin123-core-0.7.4-macos-arm64.zip">macOS
-                                arm64</a>
-                            --
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases/download/v0.7.4/fin123-core-0.7.4-windows-x86_64.zip">Windows
-                                x86_64</a>
-                            (v0.7.4). Verify against
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases/download/v0.7.4/SHA256SUMS.txt">SHA256SUMS.txt</a>.
-                        </p>
-                        <p>
-                            All releases:
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core/releases">github.com/reckoning-machines/fin123-core/releases</a>.
-                        </p>
-                        <p>
-                            From source:
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-core">github.com/reckoning-machines/fin123-core</a>
-                            (<code>git clone</code> then
-                            <code>pip install -e ".[dev]"</code>).
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Examples</h3>
-                        <p>
-                            <a class="link"
-                                href="https://github.com/reckoning-machines/fin123-examples">fin123-examples</a>
-                            -- DCF valuation, earnings review worksheets, batch sensitivity sweeps.
-                        </p>
-                    </div>
-
                 </div>
             </div>
         </section>
-
-
-        <!-- ===================== POD ===================== -->
-
-        <section id="pod" class="section">
-            <div class="container">
-                <div class="section-cue"><svg class="pcue" width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> coder</div>
-                <h2 class="section-title">fin123-pod for teams</h2>
-                <p class="section-lede">
-                    Models become shared, versioned, and governed across the firm.
-                    Extends fin123-core with the infrastructure a team needs to run
-                    models in production.
-                </p>
-
-                <div class="stack">
-
-                    <div class="panel">
-                        <h3 class="panel-title">Shared models, governed releases</h3>
-                        <p>
-                            Teams publish compiled models to a shared registry.
-                            Versions are reviewed and promoted through approval stages.
-                            Applications consume released versions -- the application never
-                            reimplements the model logic.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title">Headless execution at scale</h3>
-                        <p>
-                            Run released models headlessly with parameter overrides --
-                            across batch jobs, dashboards, and APIs. Every run is reproducible
-                            and auditable, with a full provenance trail back to the model
-                            version that produced it.
-                        </p>
-                    </div>
-
-                    <div class="panel">
-                        <h3 class="panel-title"><svg class="pcue" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="11" x2="12" y2="11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> LLMs as governed steps</h3>
-                        <p>
-                            LLMs participate in workflows as governed steps, not as
-                            autonomous agents. Inputs and outputs are validated. Runs are
-                            deterministic, inspectable, and persisted as artifacts --
-                            not narrative text.
-                        </p>
-                        <p style="margin-top: 10px; color: var(--fg-bright); font-weight: 600;">
-                            This is what I wanted as a coder: to use LLMs without giving up control of the system.
-                        </p>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Contact for access</div>
-                        <div class="callout-body">
-                            Pod is closed source. It depends on fin123-core (open source) and adds
-                            enterprise capabilities. The core engine works fully standalone without Pod.
-                            <a class="link" href="mailto:reckoningmachines@gmail.com">Contact us</a> for licensing.
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
     </main>
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <div>2026 Reckoning Machines -- Core is <a class="link"
-                    href="https://github.com/reckoning-machines/fin123-core">open source</a> (Apache-2.0)</div>
-            <div class="footer-right">No tracking. Static site.</div>
+            <div>fin123.dev</div>
+            <div class="footer-right">spreadsheet models that run</div>
         </div>
     </footer>
-
-    <script src="worksheet_viewer.js"></script>
-    <script src="script.js"></script>
 </body>
 
 </html>
