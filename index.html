@@ -91,6 +91,7 @@
                             <div class="hero-proof">
                                 <p class="proof-line"><strong>Build in a spreadsheet.</strong> Mark Assumptions and Outputs directly in the grid.</p>
                                 <p class="proof-line"><strong>Run model states.</strong> Base, Bull, Bear, Sensitivity, and scheduled runs all use the same execution path.</p>
+                                <p class="proof-line"><strong>No File menu. No Print menu.</strong> fin123 is not a document editor. Select a model state, Run it, restore it, and audit it.</p>
                                 <p class="proof-line"><strong>Use LLMs as formulas.</strong> <code>=LLM("same_store_sales_guidance")</code> is a model compute node, not chat.</p>
                                 <p class="proof-line"><strong>Audit the result.</strong> Every Run stores model version, scenario, inputs, outputs, prompt snapshot, and replay evidence.</p>
                             </div>
@@ -120,6 +121,12 @@
                     <p style="margin-top: 10px;">
                         That means the analyst can still work in a grid, but the system can run, compare, schedule, and replay the model without rewriting it in Python or JavaScript.
                     </p>
+                    <p style="margin-top: 10px;">
+                        There is no File menu because a fin123 model is not a file abstraction. The product flow is model, version, run, audit, restore. When you want to go back, you pick a version. When you want proof, you open Audit. Visualizations are secondary to the modeling motion.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        This is the mindset shift: the object of work is not the cell, but the model.
+                    </p>
                 </div>
             </div>
         </section>
@@ -128,6 +135,7 @@
             <div class="container">
                 <h2 class="section-title">The product surface</h2>
                 <p class="section-lede">The root surface is the product. No separate console is required for normal modeling.</p>
+                <p class="section-lede">There is no File menu and no Print menu because fin123 is not a document editor. It is a system for selecting, running, restoring, and auditing model states.</p>
                 <div class="screenshot-stack">
                     <article class="shot-panel">
                         <img src="./main.png" alt="fin123 spreadsheet model surface" />
@@ -135,6 +143,7 @@
                             <div class="shot-kicker">1 / Model Surface</div>
                             <h3 class="shot-title">The grid is the primary object.</h3>
                             <p class="shot-copy">Mark cells as Assumptions or Outputs, save model versions, select Scenarios, Run, and inspect Results without leaving the spreadsheet surface.</p>
+                            <p class="shot-copy" style="margin-top: 8px;">The abstraction is not open, print, and close. It is select state, execute, compare, audit, restore.</p>
                             <div class="pill-row"><span class="pill">Assumptions</span><span class="pill">Outputs</span><span class="pill">Scenario: Base</span><span class="pill">Save Version</span><span class="pill">Run</span></div>
                         </div>
                     </article>
@@ -144,6 +153,7 @@
                             <div class="shot-kicker">2 / Results</div>
                             <h3 class="shot-title">Run produces a stable Results surface.</h3>
                             <p class="shot-copy">Results are based on marked Outputs and persisted Run artifacts. Run All compares Scenarios. Run Sensitivity creates temporary Cases without saving them as Scenarios.</p>
+                            <p class="shot-copy" style="margin-top: 8px;">Charts and visualizations can help, but they are secondary to the modeling motion.</p>
                             <div class="pill-row"><span class="pill">Run Results</span><span class="pill">Run All</span><span class="pill">Sensitivity Cases</span><span class="pill">View details</span></div>
                         </div>
                     </article>
