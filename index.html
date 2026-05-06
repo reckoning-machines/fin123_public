@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 turns spreadsheet models into executable, versioned model states with Scenarios, Results, Audit, scheduled runs, and LLM formulas." />
+        content="fin123 turns spreadsheet models into executable, versioned model states with Scenarios, Results, Audit, scheduled runs, and AI-assisted formulas." />
     <meta property="og:title" content="fin123 -- Spreadsheet models that run as programs" />
     <meta property="og:description"
         content="Works like Excel, but runs as a program. Run model states, compare Scenarios, inspect Results, and audit every execution." />
@@ -69,7 +69,7 @@
             <nav class="nav" aria-label="Primary">
                 <a href="#surface">Surface</a>
                 <a href="#features">Features</a>
-                <a href="#llm-formulas">LLM Formulas</a>
+                <a href="#llm-formulas">AI-assisted formulas</a>
                 <a href="#overnight">Run Later</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#get-started">Get Started</a>
@@ -92,8 +92,8 @@
                                 <p class="proof-line"><strong>Build in a spreadsheet.</strong> Mark Assumptions and Outputs directly in the grid.</p>
                                 <p class="proof-line"><strong>Run model states.</strong> Base, Bull, Bear, Sensitivity, and scheduled runs all use the same execution path.</p>
                                 <p class="proof-line"><strong>No File menu. No Print menu.</strong> fin123 is not a document editor. Select a model state, Run it, restore it, and audit it.</p>
-                                <p class="proof-line"><strong>Use LLMs as formulas.</strong> <code>=LLM("same_store_sales_guidance")</code> is a model compute node, not chat.</p>
-                                <p class="proof-line"><strong>Audit the result.</strong> Every Run stores model version, scenario, inputs, outputs, prompt snapshot, and replay evidence.</p>
+                                <p class="proof-line"><strong>Use AI-assisted formulas.</strong> <code>=AI("same_store_sales_guidance")</code> is an approved model compute step, not chat.</p>
+                                <p class="proof-line"><strong>Audit the result.</strong> Every Run stores model version, scenario, inputs, outputs, resolved instruction snapshot, and replay evidence.</p>
                             </div>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
@@ -156,20 +156,20 @@
                         </div>
                     </article>
                     <article class="shot-panel">
-                        <img src="./3.png" alt="fin123 LLM Formula definition modal" />
+                        <img src="./3.png" alt="fin123 AI-assisted Formula definition modal" />
                         <div class="shot-body">
-                            <div class="shot-kicker">3 / LLM Formula</div>
-                            <h3 class="shot-title">LLMs are formula compute nodes.</h3>
-                            <p class="shot-copy">Type <code>=LLM("same_store_sales_guidance")</code> into a cell. The definition lives behind the cell: Logic, Inputs, output type, Preview, and Approval. It runs when the model runs.</p>
-                            <div class="pill-row"><span class="pill">Open Definition</span><span class="pill">Preview</span><span class="pill">Approve</span><span class="pill">Typed output</span><span class="pill">Prompt snapshot</span></div>
+                            <div class="shot-kicker">3 / AI-assisted Formula</div>
+                            <h3 class="shot-title">AI-assisted formulas are approved compute steps.</h3>
+                            <p class="shot-copy">Type <code>=AI("same_store_sales_guidance")</code> into a cell. The approved definition lives behind the cell: review instructions, inputs, expected output, preview, and approval. It runs only during an explicit Run.</p>
+                            <div class="pill-row"><span class="pill">Open Definition</span><span class="pill">Preview</span><span class="pill">Approve</span><span class="pill">Validated output</span><span class="pill">Instruction evidence</span></div>
                         </div>
                     </article>
                     <article class="shot-panel">
-                        <img src="./4.png" alt="fin123 Audit modal with run and LLM formula evidence" />
+                        <img src="./4.png" alt="fin123 Audit modal with run and AI-assisted Formula evidence" />
                         <div class="shot-body">
                             <div class="shot-kicker">4 / Audit</div>
                             <h3 class="shot-title">Audit proves the Run.</h3>
-                            <p class="shot-copy">Audit opens from Results. It shows the immutable Run or Run Set record, model version, Scenario, Outputs, LLM input snapshot, compiled prompt snapshot, typed output, and replay evidence.</p>
+                            <p class="shot-copy">Audit opens from Results. It shows the immutable Run or Run Set record, model version, Scenario, Outputs, AI-assisted input snapshot, resolved instruction snapshot, validated output, and replay evidence.</p>
                             <div class="pill-row"><span class="pill">run_id</span><span class="pill">model_version_id</span><span class="pill">scenario_id</span><span class="pill">reasoning_run_id</span><span class="pill">replay from artifact</span></div>
                         </div>
                     </article>
@@ -205,7 +205,7 @@
                         <ul class="feature-list">
                             <li>Ranges are defined at the Assumption cell.</li>
                             <li>Cases are temporary, not saved Scenarios by default.</li>
-                            <li>LLM Formula execution is blocked during Sensitivity for now.</li>
+                            <li>AI-assisted Formula execution is blocked during Sensitivity for now.</li>
                         </ul>
                     </div>
                     <div class="panel">
@@ -223,16 +223,16 @@
 
         <section id="llm-formulas" class="section">
             <div class="container">
-                <h2 class="section-title">LLM Formula is not chat</h2>
-                <p class="section-lede">An LLM Formula is analyst-authored model logic, referenced from the grid and executed during Run.</p>
+                <h2 class="section-title">AI-assisted Formula is not chat</h2>
+                <p class="section-lede">An AI-assisted Formula is analyst-authored model logic, referenced from the grid and executed during Run.</p>
                 <div class="panel">
-                    <p><code>=LLM("same_store_sales_guidance")</code> can represent a Wall Street analyst forecasting heuristic: read prior quarter SSS, management guidance, peer commentary, macro notes, and seasonality, then return a numeric forecast.</p>
+                    <p><code>=AI("same_store_sales_guidance")</code> can represent a Wall Street analyst forecasting heuristic: read prior quarter SSS, management guidance, peer commentary, macro notes, and seasonality, then return a numeric forecast.</p>
                     <div class="code-panel" style="margin-top: 16px;">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
                             <span class="code-title">same_store_sales_guidance</span>
                         </div>
-                        <pre class="code"><code>Cell B12: =LLM("same_store_sales_guidance")
+                        <pre class="code"><code>Cell B12: =AI("same_store_sales_guidance")
 
 Logic:
 Estimate next-quarter same-store-sales growth using declared inputs.
@@ -270,7 +270,7 @@ Forecast revenue:  1035</code></pre>
                     <ul class="feature-list">
                         <li>References immutable model_version_id.</li>
                         <li>Uses selected scenario_ids.</li>
-                        <li>Executes approved LLM Formula Definitions only.</li>
+                        <li>Executes approved AI-assisted Formula definitions only.</li>
                         <li>Records scheduled_run_id on Run Set and child Runs.</li>
                     </ul>
                 </div>
