@@ -95,11 +95,22 @@ em { font-style: italic; color: var(--fg-dim); }
 
 .brand {
     display: flex;
-    align-items: center;
-    gap: 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
     font-weight: 600;
-    font-size: 15px;
     white-space: nowrap;
+    line-height: 1;
+    min-width: 146px;
+}
+
+.brand-main {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+    font-size: 15px;
+    letter-spacing: 0;
 }
 
 .brand-link {
@@ -111,6 +122,13 @@ em { font-style: italic; color: var(--fg-dim); }
 .prompt {
     color: var(--green);
     font-weight: 400;
+}
+
+.runtime-identity {
+    color: rgba(214, 92, 103, 0.78);
+    font-size: 7.8px;
+    font-weight: 600;
+    letter-spacing: 0;
 }
 
 .nav {
