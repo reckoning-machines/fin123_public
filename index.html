@@ -98,6 +98,7 @@
                                 <p class="proof-line"><strong>Save immutable Versions.</strong> Run them under explicit Scenarios. Review historical Runs without mutating current state.</p>
                                 <p class="proof-line"><strong>Results are typed, persisted, and auditable.</strong> Audit proves exactly what ran, against which Version and Scenario, with what inputs, outputs, and AI-assisted formula behavior.</p>
                                 <p class="proof-line"><strong>AI-assisted formulas are governed compute primitives, not chat.</strong> <code>=AI("same_store_sales_guidance")</code> executes as an approved model step during Run.</p>
+                                <p class="proof-line"><strong>Approved Methods sit behind formulas.</strong> A firm's way of doing guidance, traffic, margin bridge, or valuation work becomes versioned, executable, and auditable.</p>
                                 <p class="proof-line"><strong>Every Run is reproducible.</strong> Every Result has provenance. Every Audit is evidence.</p>
                                 <p class="proof-line"><strong>The spreadsheet is the authoring surface.</strong> Run, Results, and Audit are the operating semantics layered on top.</p>
                             </div>
@@ -120,7 +121,7 @@
                 <h2 class="section-title">A control plane for spreadsheet models</h2>
                 <div class="panel">
                     <p>
-                        Traditional spreadsheets recalculate cells. fin123 runs saved model states. A model version plus a Scenario becomes a Run. A group of Scenarios or Sensitivity Cases becomes a Run Set. Results are stored output surfaces, and Audit proves exactly what executed.
+                        Traditional spreadsheets recalculate cells. fin123 runs saved model states. A model version plus a Scenario becomes a Run. A group of Scenarios or Sensitivity Cases becomes a Run Set. Results are stored output artifacts, and Audit proves exactly what executed.
                     </p>
                     <p style="margin-top: 10px;">
                         That means the analyst can still work in a grid, but the system can run, compare, schedule, and replay the model without rewriting it in Python or JavaScript.
@@ -156,9 +157,9 @@
                         <div class="shot-body">
                             <div class="shot-kicker">2 / Results</div>
                             <h3 class="shot-title">Run produces a stable Results surface.</h3>
-                            <p class="shot-copy">Results are based on marked Outputs and persisted Run artifacts. Run All compares Scenarios. Run Sensitivity creates temporary Cases without saving them as Scenarios.</p>
+                            <p class="shot-copy">Results are based on marked Outputs and persisted Run artifacts. Run All creates a Run Set. Run Sensitivity creates temporary Cases inside a Run Set without saving them as Scenarios.</p>
                             <p class="shot-copy" style="margin-top: 8px;">Charts and visualizations can help, but they are secondary to the modeling motion.</p>
-                            <div class="pill-row"><span class="pill">Run Results</span><span class="pill">Run All</span><span class="pill">Sensitivity Cases</span><span class="pill">View details</span></div>
+                            <div class="pill-row"><span class="pill">Run Results</span><span class="pill">Run Set</span><span class="pill">Sensitivity Cases</span><span class="pill">Open Audit</span></div>
                         </div>
                     </article>
                     <article class="shot-panel">
@@ -166,8 +167,8 @@
                         <div class="shot-body">
                             <div class="shot-kicker">3 / AI-assisted Formula</div>
                             <h3 class="shot-title">AI-assisted formulas are approved compute steps.</h3>
-                            <p class="shot-copy">Type <code>=AI("same_store_sales_guidance")</code> into a cell. The approved definition lives behind the cell: review instructions, inputs, expected output, preview, and approval. It runs only during an explicit Run.</p>
-                            <div class="pill-row"><span class="pill">Open Definition</span><span class="pill">Preview</span><span class="pill">Approve</span><span class="pill">Validated output</span><span class="pill">Instruction evidence</span></div>
+                            <p class="shot-copy">Type <code>=AI("same_store_sales_guidance")</code> into a cell. The approved definition lives behind the cell, and it may reference an approved Method: versioned institutional methodology for how the formula should reason, validate output, and preserve evidence during a Run.</p>
+                            <div class="pill-row"><span class="pill">Review Formula</span><span class="pill">Preview Output</span><span class="pill">Approve</span><span class="pill">Validated output</span><span class="pill">Method evidence</span></div>
                         </div>
                     </article>
                     <article class="shot-panel">
@@ -175,8 +176,8 @@
                         <div class="shot-body">
                             <div class="shot-kicker">4 / Audit</div>
                             <h3 class="shot-title">Audit proves the Run.</h3>
-                            <p class="shot-copy">Audit opens from Results. It shows the immutable Run or Run Set record, model version, Scenario, Outputs, AI-assisted input snapshot, resolved instruction snapshot, validated output, and replay evidence.</p>
-                            <div class="pill-row"><span class="pill">run_id</span><span class="pill">model_version_id</span><span class="pill">scenario_id</span><span class="pill">reasoning_run_id</span><span class="pill">replay from artifact</span></div>
+                            <p class="shot-copy">Audit opens from Results. It shows the immutable Run or Run Set record, model version, Scenario, Outputs, AI-assisted Formula definition version, Method version and hash where present, input snapshot, prompt snapshot, validated output, validation status, and replay evidence.</p>
+                            <div class="pill-row"><span class="pill">model_version_id</span><span class="pill">scenario_id</span><span class="pill">Method hash</span><span class="pill">typed output</span><span class="pill">replay from artifact</span></div>
                         </div>
                     </article>
                 </div>
@@ -202,15 +203,16 @@
                         <ul class="feature-list">
                             <li>Create Base Scenario from current Assumption values.</li>
                             <li>Save Bull, Bear, and other Scenario states manually.</li>
-                            <li>Run and Run All persist Results from immutable artifacts.</li>
+                            <li>Run and Run All persist Results from immutable Run and Run Set artifacts.</li>
                         </ul>
                     </div>
                     <div class="panel">
                         <h3 class="panel-title">Sensitivity</h3>
-                        <p>Run Sensitivity explores Assumption ranges and measures Outputs.</p>
+                        <p>Run Sensitivity explores Assumption ranges and measures marked Outputs through controlled execution, not spreadsheet recalculation.</p>
                         <ul class="feature-list">
                             <li>Ranges are defined at the Assumption cell.</li>
-                            <li>Cases are temporary, not saved Scenarios by default.</li>
+                            <li>Cases are temporary execution rows, not saved Scenarios by default.</li>
+                            <li>Run Set rows are authoritative Results snapshots.</li>
                             <li>AI-assisted Formula execution is blocked during Sensitivity for now.</li>
                         </ul>
                     </div>
@@ -219,7 +221,8 @@
                         <p>Every execution writes immutable evidence.</p>
                         <ul class="feature-list">
                             <li>Every Run has a run_id and model_version_id.</li>
-                            <li>Run Sets link child Runs in order.</li>
+                            <li>A Run Set is an ordered group of Runs or Sensitivity Cases.</li>
+                            <li>Child Runs support Audit evidence.</li>
                             <li>Replay reads stored artifacts. It does not recompute.</li>
                         </ul>
                     </div>
@@ -232,7 +235,8 @@
                 <h2 class="section-title">AI lives in the spreadsheet as a formula</h2>
                 <p class="section-lede">An AI-assisted formula is part of the model: authored by the analyst, approved like model logic, and executed only during a Run.</p>
                 <div class="panel">
-                    <p><code>=AI("same_store_sales_guidance")</code> sits in a normal worksheet cell. It can encode a same-store-sales forecasting judgment: use declared inputs, management guidance, peer commentary, macro notes, and seasonality, then return a validated numeric forecast into Results.</p>
+                    <p><code>=AI("same_store_sales_guidance")</code> sits in a normal worksheet cell. The formula definition lives behind it, and the definition can reference an approved Method: versioned institutional methodology that defines how the formula should reason, validate output, and preserve evidence during a Run.</p>
+                    <p style="margin-top: 10px;">Methods stay behind the formula. Analysts still work in the grid. Results receive only validated typed output. Audit shows the Method version, hash, prompt snapshot, inputs, raw output where applicable, and validation evidence.</p>
                     <div class="code-panel" style="margin-top: 16px;">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
@@ -240,9 +244,12 @@
                         </div>
                         <pre class="code"><code>Cell B12: =AI("same_store_sales_guidance")
 
-Logic:
-Estimate next-quarter same-store-sales growth using declared inputs.
-Return only a numeric decimal, such as 0.035 for 3.5%.
+Behind the cell:
+- approved Formula definition
+- approved Method version
+- compiled prompt snapshot
+- validated typed output
+- Audit evidence
 
 Inputs:
 - prior quarter SSS
@@ -290,8 +297,8 @@ Forecast revenue:  1035</code></pre>
                     <div class="flow-step"><div class="flow-num">01</div><div class="flow-title">Mark</div><div class="flow-copy">Declare Assumptions and Outputs in the grid.</div></div>
                     <div class="flow-step"><div class="flow-num">02</div><div class="flow-title">Save</div><div class="flow-copy">Save a model version and create Base.</div></div>
                     <div class="flow-step"><div class="flow-num">03</div><div class="flow-title">Vary</div><div class="flow-copy">Save Scenarios or define Assumption ranges.</div></div>
-                    <div class="flow-step"><div class="flow-num">04</div><div class="flow-title">Run</div><div class="flow-copy">Run one Scenario, all Scenarios, Sensitivity, or Run later.</div></div>
-                    <div class="flow-step"><div class="flow-num">05</div><div class="flow-title">Audit</div><div class="flow-copy">Replay from stored artifacts and inspect lineage.</div></div>
+                    <div class="flow-step"><div class="flow-num">04</div><div class="flow-title">Run</div><div class="flow-copy">Run one Scenario, all Scenarios as a Run Set, Sensitivity Cases, or Run later.</div></div>
+                    <div class="flow-step"><div class="flow-num">05</div><div class="flow-title">Audit</div><div class="flow-copy">Inspect Version, Scenario, Results, AI-assisted Formula, Method evidence, and replay from stored artifacts.</div></div>
                 </div>
             </div>
         </section>
