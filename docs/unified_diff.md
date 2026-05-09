@@ -69,3 +69,62 @@ Landing page Model Memory copy pass.
 ## Risks / Follow-Up
 
 - The copy now names a newer capability. Keep future changes disciplined so Model Memory reads as approved institutional context, not hidden AI learning.
+
+---
+
+## Stage
+
+Landing page Medium read-more link pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Added a quiet `Read more` row under the hero CTA buttons.
+- Linked the two Reckoning Machines Medium articles:
+  - `Spreadsheets were never meant to be production systems`
+  - `Stripe removed payment logic from application code. fin123 removes spreadsheet logic.`
+- Added small inline hero link styling that matches the existing dark mono visual system.
+- Kept the page static: no new section, no new assets, no JavaScript, and no layout architecture change.
+
+## Validation
+
+- Parsed `index.html` with Python `HTMLParser`; no unclosed or mismatched tags found.
+- Confirmed `hero-read-more`, both Medium URLs, and `Read more` copy are present.
+- `node --check script.js`
+- `git diff --check`
+
+## Risks / Follow-Up
+
+- Medium links are external dependencies. If the canonical articles move, update the hrefs here.
+
+---
+
+## Stage
+
+Landing page Medium read-more placement adjustment.
+
+## Files Changed
+
+- `index.html`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Moved the `Read more` Medium article row from under the hero CTA buttons to the bottom of the desk-notes card.
+- Added a small top divider for the desk-notes read-more row.
+- Kept the same two Medium links and did not add JavaScript, assets, or a new section.
+
+## Validation
+
+- Parsed `index.html` with Python `HTMLParser`; no unclosed or mismatched tags found.
+- Confirmed the `Read more` row is inside `.analyst-hook-card` and no longer under `.hero-actions`.
+- `node --check script.js`
+- `git diff --check`
+
+## Risks / Follow-Up
+
+- The links now live inside the scrollable desk-notes card, so they appear after the full problem list rather than next to the primary CTA.
