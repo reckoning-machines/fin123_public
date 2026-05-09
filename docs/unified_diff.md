@@ -38,3 +38,34 @@ Landing page scrollable analyst-problem hero pass.
 ## Risks / Follow-Up
 
 - The hero card is intentionally scrollable. Verify the right rail height feels right on the deployed desktop and mobile viewports.
+
+---
+
+## Stage
+
+Landing page Model Memory copy pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Added a hero proof line for Model Memory after the approved Methods proof line.
+- Replaced the old spreadsheet memory desk-note item with Model Memory copy focused on institutional judgment and auditable execution context.
+- Added a short Model Memory paragraph to the AI formulas section.
+- Updated How It Works step 05 so Audit includes Model Memory context.
+- Kept the page static: no new section, no new assets, no CSS changes, and no JavaScript changes.
+
+## Validation
+
+- Parsed `index.html` with Python `HTMLParser`; no unclosed or mismatched tags found.
+- Confirmed the requested Model Memory copy appears in the hero proof list, desk-notes sidebar, AI formulas section, and Audit step.
+- Confirmed forbidden visible copy is absent: AI learned, AI remembers you, chatbot memory, agent memory, brain, autonomous learning, self-improving, RAG, vector, prompt memory, personalization, hidden context.
+- `node --check script.js`
+- `git diff --check`
+
+## Risks / Follow-Up
+
+- The copy now names a newer capability. Keep future changes disciplined so Model Memory reads as approved institutional context, not hidden AI learning.
