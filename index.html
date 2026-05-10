@@ -66,6 +66,14 @@
             color: var(--fg-bright);
         }
 
+        .contract-line {
+            color: var(--fg-bright);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            margin: 14px 0 16px;
+        }
+
         .hero-read-more {
             color: var(--fg-dim);
             font-size: 11px;
@@ -285,7 +293,7 @@
 
         .flow {
             display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
+            grid-template-columns: repeat(6, minmax(0, 1fr));
             gap: 10px;
             margin-top: 16px;
         }
@@ -294,7 +302,7 @@
             border: 1px solid var(--border);
             background: var(--bg-card);
             border-radius: var(--radius);
-            padding: 14px;
+            padding: 12px;
             min-height: 100px;
         }
 
@@ -406,6 +414,8 @@
                                 <p class="proof-line"><strong>Prove every result.</strong> Results stay clean. Audit
                                     shows the Version, Scenario, inputs, Methods, outputs, validation, and replay
                                     evidence.</p>
+                                <p class="proof-line"><strong>Replay for Non-quants.</strong> Reconstruct discretionary
+                                    decision-making without forcing analysts out of the grid.</p>
                             </div>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
@@ -482,6 +492,12 @@
                                             third synthesizes and makes the call.</div>
                                     </div>
                                     <div class="hook-item">
+                                        <div class="hook-question">Use a lot of external data sources in your models?
+                                        </div>
+                                        <div class="hook-answer"><code>=DATA()</code> gives Bloomberg-style add-ins,
+                                            SQL, files, and internal datasets one governed formula shape.</div>
+                                    </div>
+                                    <div class="hook-item">
                                         <div class="hook-question">Ever want to rerun an old model exactly as it was at
                                             the time?</div>
                                         <div class="hook-answer">Same assumptions. Same formulas. Same outputs.</div>
@@ -511,6 +527,11 @@
                                         <div class="hook-question">Ever want to see exactly what changed between two
                                             runs instead of playing detective?</div>
                                         <div class="hook-answer">This was built for that.</div>
+                                    </div>
+                                    <div class="hook-item">
+                                        <div class="hook-question">Ever want to reconstruct the decision process, not
+                                            just recover the final spreadsheet?</div>
+                                        <div class="hook-answer">Replay for Non-quants.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever have a workbook that basically runs the business
@@ -582,14 +603,22 @@
             <div class="container">
                 <h2 class="section-title">A control plane for spreadsheet models</h2>
                 <div class="panel">
+                    <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Audit</p>
                     <p>
-                        Traditional spreadsheets recalculate cells. fin123 runs saved model states. A model version plus
-                        a Scenario becomes a Run. A group of Scenarios or Sensitivity Cases becomes a Run Set. Results
-                        are stored output artifacts, and Audit proves exactly what executed.
+                        Traditional spreadsheets recalculate cells. fin123 runs saved model states. The key contract is:
+                        Model -> Version -> Scenario -> Run -> Results -> Audit. A group of Scenarios or Sensitivity
+                        Cases becomes a Run Set. Results are stored output artifacts, and Audit proves exactly what
+                        executed.
                     </p>
                     <p style="margin-top: 10px;">
                         That means the analyst can still work in a grid, but the system can run, compare, schedule, and
                         replay the model without rewriting it in Python or JavaScript.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        External data should feel just as familiar. <code>=DATA("bloomberg.px_last","AAPL")</code> is
+                        the future formula shape for governed model inputs: Bloomberg-style ergonomics, SQL-backed
+                        datasets, approved files, APIs, and internal sources all resolved through bindings, snapshots,
+                        and Audit evidence.
                     </p>
                     <p style="margin-top: 10px;">
                         There is no File menu because a fin123 model is not a file abstraction. The product flow is
@@ -597,7 +626,9 @@
                         proof, you open Audit. Visualizations are secondary to the modeling motion.
                     </p>
                     <p style="margin-top: 10px;">
-                        This is the mindset shift: the object of work is not the cell, but the model.
+                        This is the mindset shift: the object of work is not the cell, but the model. The deeper goal is
+                        reconstructable discretionary decision-making: the assumptions, methods, scenarios, runs, and
+                        evidence that explain how an investment view came to exist.
                     </p>
                 </div>
             </div>
@@ -797,21 +828,23 @@ Forecast revenue:  1035</code></pre>
         <section id="how-it-works" class="section">
             <div class="container">
                 <h2 class="section-title">How it works</h2>
+                <p class="section-lede">The product contract is Model -> Version -> Scenario -> Run -> Results -> Audit.
+                </p>
                 <div class="flow">
                     <div class="flow-step">
                         <div class="flow-num">01</div>
-                        <div class="flow-title">Mark</div>
-                        <div class="flow-copy">Declare Assumptions and Outputs in the grid.</div>
+                        <div class="flow-title">Model</div>
+                        <div class="flow-copy">Declare Assumptions, Outputs, formulas, and Methods in the grid.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">02</div>
-                        <div class="flow-title">Save</div>
-                        <div class="flow-copy">Save a model version and create Base.</div>
+                        <div class="flow-title">Version</div>
+                        <div class="flow-copy">Save an immutable model state before execution.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">03</div>
-                        <div class="flow-title">Vary</div>
-                        <div class="flow-copy">Save Scenarios or define Assumption ranges.</div>
+                        <div class="flow-title">Scenario</div>
+                        <div class="flow-copy">Choose Base, Bull, Bear, or controlled Assumption ranges.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">04</div>
@@ -821,9 +854,14 @@ Forecast revenue:  1035</code></pre>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">05</div>
+                        <div class="flow-title">Results</div>
+                        <div class="flow-copy">Inspect persisted outputs from the immutable Run artifact.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-num">06</div>
                         <div class="flow-title">Audit</div>
-                        <div class="flow-copy">Inspect Version, Scenario, Results, AI-assisted Formula, Method evidence,
-                            Model Memory context, and replay from stored artifacts.</div>
+                        <div class="flow-copy">Prove Version, Scenario, Methods, Model Memory, lineage, and replay
+                            evidence.</div>
                     </div>
                 </div>
             </div>
@@ -845,6 +883,14 @@ Forecast revenue:  1035</code></pre>
                                 reckoningmachines@gmail.com</a>
                         </p>
                     </div>
+                    <div class="panel">
+                        <p>
+                            Quants already have replay culture: pipelines, snapshots, backtests, immutable datasets, and
+                            simulation frameworks. Spreadsheet-native investors usually have copied tabs, exports,
+                            emailed files, overwritten assumptions, and disappearing provenance. fin123 makes that work
+                            replayable and auditable without forcing analysts out of the grid.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -853,7 +899,7 @@ Forecast revenue:  1035</code></pre>
     <footer class="site-footer">
         <div class="container footer-inner">
             <div>fin123.dev</div>
-            <div class="footer-right">spreadsheet models that run</div>
+            <div class="footer-right">Model -> Version -> Scenario -> Run -> Results -> Audit</div>
         </div>
     </footer>
 </body>
