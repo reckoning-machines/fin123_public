@@ -389,8 +389,7 @@
                                 AI built in. Audit built in. No black box.
                             </p>
                             <p class="proof-line">
-                                Spreadsheet-native execution for institutional models, backed by a Rust execution engine
-                                and immutable Run artifacts.
+                                The spreadsheet became the operating system of business. fin123 makes it governable.
                             </p>
                             <div class="hero-proof">
                                 <p class="proof-line"><strong>Build in the grid.</strong> Mark Assumptions and Outputs
@@ -414,8 +413,8 @@
                                 <p class="proof-line"><strong>Prove every result.</strong> Results stay clean. Audit
                                     shows the Version, Scenario, inputs, Methods, outputs, validation, and replay
                                     evidence.</p>
-                                <p class="proof-line"><strong>Replay for Non-quants.</strong> Reconstruct discretionary
-                                    decision-making without forcing analysts out of the grid.</p>
+                                <p class="proof-line"><strong>Replay made simple.</strong> Re-run historical model
+                                    decisions with full audit evidence.</p>
                             </div>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
@@ -442,7 +441,7 @@
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever want to know what your model looked like before
-                                            someone “cleaned it up”?</div>
+                                            someone "cleaned it up"?</div>
                                         <div class="hook-answer">Time travel for spreadsheets.</div>
                                     </div>
                                     <div class="hook-item">
@@ -451,7 +450,7 @@
                                         <div class="hook-answer">Run Diff.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever have a PM ask “why did the target move?”</div>
+                                        <div class="hook-question">Ever have a PM ask "why did the target move?"</div>
                                         <div class="hook-answer">This can trace the exact assumption and formula
                                             changes.</div>
                                     </div>
@@ -505,12 +504,12 @@
                                     <div class="hook-item">
                                         <div class="hook-question">Ever have compliance ask where a number came from?
                                         </div>
-                                        <div class="hook-answer">Here’s the lineage.</div>
+                                        <div class="hook-answer">Here's the lineage.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever have a spreadsheet become so important nobody
                                             wants to touch it anymore?</div>
-                                        <div class="hook-answer">That’s a system now.</div>
+                                        <div class="hook-answer">That's a system now.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever wish your spreadsheet remembered how your team
@@ -531,7 +530,7 @@
                                     <div class="hook-item">
                                         <div class="hook-question">Ever want to reconstruct the decision process, not
                                             just recover the final spreadsheet?</div>
-                                        <div class="hook-answer">Replay for Non-quants.</div>
+                                        <div class="hook-answer">Replay made simple.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever have a workbook that basically runs the business
@@ -540,15 +539,15 @@
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever think spreadsheets are already production
-                                            systems and everyone’s just pretending otherwise?</div>
+                                            systems and everyone's just pretending otherwise?</div>
                                         <div class="hook-answer">Same.</div>
                                     </div>
                                 </div>
                                 <div class="hook-group">
                                     <div class="hook-group-label">for developers</div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever think “why are we rebuilding this spreadsheet in
-                                            Python and React?”</div>
+                                        <div class="hook-question">Ever think "why are we rebuilding this spreadsheet in
+                                            Python and React?"</div>
                                         <div class="hook-answer">Good question.</div>
                                     </div>
                                     <div class="hook-item">
@@ -567,7 +566,7 @@
                                         <div class="hook-answer">iframe it.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever want to drop a live spreadsheet into your desk’s
+                                        <div class="hook-question">Ever want to drop a live spreadsheet into your desk's
                                             HTML page without writing frontend code?</div>
                                         <div class="hook-answer">Done.</div>
                                     </div>
@@ -582,7 +581,7 @@
                                 <a
                                     href="https://medium.com/@reckoningmachines/spreadsheets-were-never-meant-to-be-production-systems-157a3c8c7fbb">Spreadsheets
                                     were never meant to be production systems</a>
-                                ·
+                                -
                                 <a
                                     href="https://medium.com/@reckoningmachines/stripe-removed-payment-logic-from-application-code-fin123-removes-spreadsheet-logic-b010dfe39228">Stripe
                                     removed payment logic from application code. fin123 removes spreadsheet logic.</a>
@@ -605,30 +604,21 @@
                 <div class="panel">
                     <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Audit</p>
                     <p>
-                        Traditional spreadsheets recalculate cells. fin123 runs saved model states. The key contract is:
-                        Model -> Version -> Scenario -> Run -> Results -> Audit. A group of Scenarios or Sensitivity
-                        Cases becomes a Run Set. Results are stored output artifacts, and Audit proves exactly what
-                        executed.
+                        Traditional spreadsheets recalculate cells. fin123 runs saved model states.
                     </p>
                     <p style="margin-top: 10px;">
-                        That means the analyst can still work in a grid, but the system can run, compare, schedule, and
-                        replay the model without rewriting it in Python or JavaScript.
+                        Save a Version. Pick a Scenario. Run the model. Review Results. Open Audit.
                     </p>
                     <p style="margin-top: 10px;">
-                        External data should feel just as familiar. <code>=DATA("bloomberg.px_last","AAPL")</code> is
-                        the future formula shape for governed model inputs: Bloomberg-style ergonomics, SQL-backed
-                        datasets, approved files, APIs, and internal sources all resolved through bindings, snapshots,
-                        and Audit evidence.
+                        Analysts still work in the grid, but the system can now run, compare, schedule, replay, and
+                        audit the model without rewriting it in Python or JavaScript.
                     </p>
                     <p style="margin-top: 10px;">
-                        There is no File menu because a fin123 model is not a file abstraction. The product flow is
-                        model, version, run, audit, restore. When you want to go back, you pick a version. When you want
-                        proof, you open Audit. Visualizations are secondary to the modeling motion.
+                        <code>=DATA()</code> brings governed external data into the spreadsheet using one familiar
+                        formula interface for databases, files, APIs, and approved data sources.
                     </p>
                     <p style="margin-top: 10px;">
-                        This is the mindset shift: the object of work is not the cell, but the model. The deeper goal is
-                        reconstructable discretionary decision-making: the assumptions, methods, scenarios, runs, and
-                        evidence that explain how an investment view came to exist.
+                        There is no File menu because a fin123 model is not a document. It is an executable system.
                     </p>
                 </div>
             </div>

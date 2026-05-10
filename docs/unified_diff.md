@@ -2,6 +2,62 @@
 
 ## Stage
 
+Landing page control-plane panel copy pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Rewrote only the `.panel` contents under `A control plane for spreadsheet models`.
+- Kept `Model -> Version -> Scenario -> Run -> Results -> Audit` as the first line in the panel.
+- Removed the OS/governance thesis line from this section so it remains only in the hero.
+- Removed the `reconstructable discretionary decision-making` phrase from homepage copy.
+- Shortened the panel copy around Versions, Scenarios, Runs, Results, Audit, and `=DATA()`.
+
+## Validation
+
+- `git diff --check`
+- Confirmed only the target panel copy changed in `index.html`.
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
+Landing page OS/governance thesis placement pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Moved the OS/governance thesis line in the hero so it appears after the value paragraph and before the technical proof line.
+- Kept the hero H1, value paragraph, and technical Rust/Run artifacts proof line unchanged.
+- Added the same thesis line as the first paragraph in the control-plane panel.
+- Added a lightweight `.thesis-line` class for the control-plane thesis paragraph while preserving the existing `contract-line` styling for `Model -> Version -> Scenario -> Run -> Results -> Audit`.
+
+## Validation
+
+- Parsed `index.html` with Python `HTMLParser`; no unclosed or mismatched tags found.
+- `git diff --check`
+- Confirmed the thesis line appears in both intended places.
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
 Landing page scrollable analyst-problem hero pass.
 
 ## Files Changed
