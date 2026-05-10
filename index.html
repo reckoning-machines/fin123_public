@@ -855,6 +855,23 @@ Forecast revenue:  1035</code></pre>
                             evidence.</div>
                     </div>
                 </div>
+                <div class="code-panel" style="margin-top: 16px;">
+                    <div class="code-header">
+                        <span class="dot" aria-hidden="true"></span><span class="dot"
+                            aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                        <span class="code-title">governed_data_evidence</span>
+                    </div>
+                    <pre class="code"><code>Fund
+  -> Pod
+      -> Data Entitlement
+          -> Data Binding
+              -> Frozen Binding Ref
+                  -> Snapshot Metadata
+                      -> Immutable Snapshot Blob
+                          -> Run Snapshot Ref
+                              -> Safe Data Evidence
+                                  -> Audit / Replay / Run Diff</code></pre>
+                </div>
             </div>
         </section>
 
