@@ -618,12 +618,15 @@
                         <h3 class="panel-title">The hidden execution loop</h3>
                         <p>Every institutional decision already moves through a loop, whether the firm names it or not.
                         </p>
-                        <p class="contract-line">models -> assumptions -> data -> execution -> approvals -> outputs ->
-                            audit -> replay</p>
+                        <ul class="feature-list">
+                            <li>Models, assumptions, and data.</li>
+                            <li>Execution, approvals, and outputs.</li>
+                            <li>Audit, replay, and institutional memory.</li>
+                        </ul>
                     </div>
                     <div class="panel">
                         <h3 class="panel-title">How firms manage it today</h3>
-                        <p>Most teams still coordinate that loop with fragile, informal tools.</p>
+                        <p>Most teams coordinate that loop with informal tools.</p>
                         <ul class="feature-list">
                             <li>Spreadsheets, chat, scripts, and shared drives.</li>
                             <li>Institutional memory held by people instead of systems.</li>
@@ -641,7 +644,7 @@
                         </ul>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Why operating system</h3>
+                        <h3 class="panel-title">Why "operating system"</h3>
                         <p>fin123 governs the decision lifecycle: execution, identity, lineage, evidence, replay,
                             publication, orchestration, temporal authority, and institutional memory.</p>
                         <ul class="feature-list">
@@ -671,7 +674,7 @@
         <section id="surface" class="section">
             <div class="container">
                 <h2 class="section-title">The product surface</h2>
-                <p class="section-lede">The root surface is the product. No separate console is required for normal
+                <p class="section-lede">The root surface is the spreadsheet. No separate console is required for normal
                     modeling.</p>
                 <p class="section-lede">There is no File menu and no Print menu because fin123 is not a document editor.
                     It is a system for selecting, running, restoring, and auditing model states.</p>
@@ -787,8 +790,8 @@
         <section id="llm-formulas" class="section">
             <div class="container">
                 <h2 class="section-title">AI lives in the spreadsheet as a formula</h2>
-                <p class="section-lede">An AI-assisted formula is part of the model: authored by the analyst, approved
-                    like model logic, and executed only during a Run.</p>
+                <p class="section-lede">An AI-assisted formula is just another formula: authored by the analyst,
+                    approved like model logic, and executed only during a Run.</p>
                 <div class="panel">
                     <p><code>=AI()</code> sits in a normal worksheet cell. The formula
                         definition lives behind it, and the definition can reference an approved Method: versioned
@@ -863,12 +866,13 @@ Forecast revenue:  1035</code></pre>
             <div class="container">
                 <h2 class="section-title">How it works</h2>
                 <p class="section-lede">The product contract is Model -> Version -> Scenario -> Run -> Results -> Audit.
+                    Every institutional decision becomes an immutable, replayable execution artifact.
                 </p>
                 <div class="flow">
                     <div class="flow-step">
                         <div class="flow-num">01</div>
                         <div class="flow-title">Model</div>
-                        <div class="flow-copy">Declare Assumptions, Outputs, formulas, and Methods in the grid.</div>
+                        <div class="flow-copy">Declare assumptions, outputs, formulas, and governed methods.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">02</div>
@@ -878,42 +882,44 @@ Forecast revenue:  1035</code></pre>
                     <div class="flow-step">
                         <div class="flow-num">03</div>
                         <div class="flow-title">Scenario</div>
-                        <div class="flow-copy">Choose Base, Bull, Bear, or controlled Assumption ranges.</div>
+                        <div class="flow-copy">Choose Base, Bull, Bear, or controlled assumption ranges.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">04</div>
                         <div class="flow-title">Run</div>
-                        <div class="flow-copy">Run one Scenario, all Scenarios as a Run Set, Sensitivity Cases, or Run
-                            later.</div>
+                        <div class="flow-copy">Execute one Scenario or many as a governed Run Set.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">05</div>
                         <div class="flow-title">Results</div>
-                        <div class="flow-copy">Inspect persisted outputs from the immutable Run artifact.</div>
+                        <div class="flow-copy">Inspect typed outputs from the immutable Run artifact.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">06</div>
                         <div class="flow-title">Audit</div>
-                        <div class="flow-copy">Prove Version, Scenario, Methods, Model Memory, lineage, and replay
-                            evidence.</div>
+                        <div class="flow-copy">Prove lineage, evidence, methods, memory, replay, and Run Diff.</div>
                     </div>
                 </div>
                 <div class="code-panel" style="margin-top: 16px;">
                     <div class="code-header">
                         <span class="dot" aria-hidden="true"></span><span class="dot"
                             aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                        <span class="code-title">governed_data_evidence</span>
+                        <span class="code-title">INSTITUTIONAL_DECISION_GRAPH</span>
                     </div>
                     <pre class="code"><code>Fund
   -> Pod
-      -> Data Entitlement
-          -> Data Binding
-              -> Frozen Binding Ref
-                  -> Snapshot Metadata
-                      -> Immutable Snapshot Blob
-                          -> Run Snapshot Ref
-                              -> Safe Data Evidence
-                                  -> Audit / Replay / Run Diff</code></pre>
+      -> Model
+          -> Version
+              -> Scenario
+                  -> Run
+                      -> Results
+                      -> Audit
+                          -> Replay
+                          -> Run Diff
+                      -> Data Evidence
+                          -> Frozen Binding Ref
+                          -> Immutable Snapshot
+                      -> AI / DATA Formula Evidence</code></pre>
                 </div>
             </div>
         </section>
@@ -953,16 +959,47 @@ Forecast revenue:  1035</code></pre>
                 </div>
                 <figure class="hero-shot-wide" style="margin-top: 18px;">
                     <p class="contact-line" style="padding: 18px 20px 0; margin: 0;">
-                        <strong>YAP remembers how the team thinks. fin123 executes what the team approved.</strong>
+                        <strong>YAP remembers how the pod thinks. fin123 governs what the firm executes.</strong>
                     </p>
                     <img src="./yap.png"
                         alt="YAP institutional conversation surface" />
                     <figcaption class="hero-caption yap-caption">
-                        YAP is a separate Reckoning Machines prototype for pod-native institutional conversation.
-                        Over time, selected thesis state or qualitative context can be promoted into fin123 Model Memory
-                        as approved execution context. YAP does not mutate Runs.
+                        YAP is the pod's research notebook with an audit trail. It captures the debate behind a thesis:
+                        what changed, who pushed back, and why conviction moved. When that context should inform a
+                        model, selected YAP State can be submitted as a draft fin123 Model Memory update for approval.
+                        YAP can also pull read-only governed facts from fin123, including approved EPS estimates,
+                        scenarios, price targets, and Run outputs, with provenance. It can inform the discussion, but it
+                        does not change Runs, Results, or active Model Memory.
                     </figcaption>
                 </figure>
+            </div>
+        </section>
+
+        <section id="temporal-truth" class="section">
+            <div class="container">
+                <h2 class="section-title">Every bug in finance software is secretly an "as of" bug.</h2>
+                <div class="panel">
+                    <p>
+                        asof123 keeps the desk honest about time. It records whether the market was pre-open, open,
+                        closed, or on a trading holiday, and whether a number was published, stale, admissible, or
+                        replay-valid when the decision was made.
+                    </p>
+                    <ul class="feature-list">
+                        <li>YAP preserves the investment discussion and Evidence.</li>
+                        <li>fin123 governs approved models, scenarios, estimates, and outputs.</li>
+                        <li>asof123 governs the time context: market state, holidays, publication windows, and as-of
+                            rules.</li>
+                    </ul>
+                    <p style="margin-top: 10px;">
+                        asof123 integration into fin123 means a PM, analyst, risk team, or compliance reviewer can
+                        reconstruct what the desk could actually know at the time, instead of judging the decision
+                        against facts that arrived later.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        YAP preserves the thesis record. fin123 governs the model record. asof123 preserves the market
+                        clock. Together they make institutional decisions replayable.
+                    </p>
+                </div>
             </div>
         </section>
     </main>

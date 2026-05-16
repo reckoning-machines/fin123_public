@@ -2,6 +2,100 @@
 
 ## Stage
 
+asof123 homepage positioning pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/asof123_homepage_positioning_report.md`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Added a lower homepage section titled `Every bug in finance software is secretly an "as of" bug.`
+- Introduced asof123 as the temporal semantics layer for the Reckoning Machines stack.
+- Positioned YAP as institutional memory, fin123 as governed execution, and asof123 as temporal truth.
+- Clarified that asof123 governs temporal interpretation, not scheduling or workflow.
+- Used only existing static HTML and existing visual styles.
+
+## Validation
+
+- No package manifest, frontend static test runner, pytest config, or test files were present.
+- `pytest -q` found no tests to run.
+- `git diff --check`
+- ASCII markdown check on touched docs.
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
+YAP fin123 positioning copy pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/yap_fin123_positioning_copy_report.md`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Updated the YAP frame headline to: `YAP remembers how the pod thinks. fin123 governs what the firm executes.`
+- Reframed YAP as the conversational evidence layer for a pod.
+- Clarified that selected YAP State can become a candidate fin123 Model Memory draft subject to approval.
+- Clarified that YAP can retrieve read-only fin123 model state with provenance.
+- Preserved the boundary that YAP does not mutate Runs, Results, or active Model Memory.
+- Kept the existing demo image/frame structure and made no UI machinery or integration-behavior changes.
+
+## Validation
+
+- No package manifest, static frontend test runner, pytest config, or test files were present.
+- `git diff --check`
+- ASCII markdown check on touched docs.
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
+Homepage institutional decision graph pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/homepage_institutional_decision_graph_update_report.md`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Updated the `How it works` flow copy to support the governed institutional decision operating-system framing.
+- Preserved the `Model -> Version -> Scenario -> Run -> Results -> Audit` product contract.
+- Added the supporting line that every institutional decision becomes an immutable, replayable execution artifact.
+- Replaced the lower data-evidence terminal label with `INSTITUTIONAL_DECISION_GRAPH`.
+- Replaced the lower terminal body with a broader institutional decision graph covering Fund, Pod, Model, Version, Scenario, Run, Results, Audit, Replay, Run Diff, Data Evidence, and AI / DATA Formula Evidence.
+- Kept the page static: no React, no new JavaScript, and no new dependencies.
+
+## Validation
+
+- Confirmed the previous data-only terminal label is not used in `index.html`.
+- Confirmed `INSTITUTIONAL_DECISION_GRAPH` appears in `index.html`.
+- `git diff --check`
+- ASCII scan on touched files.
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
 Landing page control-plane panel copy pass.
 
 ## Files Changed
