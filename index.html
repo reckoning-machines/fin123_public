@@ -246,6 +246,19 @@
             background: var(--accent);
         }
 
+        .feature-punchline {
+            color: var(--fg-bright);
+            font-size: 14px;
+            font-weight: 700;
+            grid-column: 1 / -1;
+            line-height: 1.7;
+            margin-top: 2px;
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
         .screenshot-stack {
             display: grid;
             gap: 28px;
@@ -793,6 +806,8 @@
                             <li>Replay reads stored artifacts. It does not recompute.</li>
                         </ul>
                     </div>
+                    <p class="feature-punchline">The hard part is not: &ldquo;run 10 models.&rdquo; The hard part is:
+                        &ldquo;prove exactly what happened 18 months later.&rdquo;</p>
                 </div>
             </div>
         </section>
