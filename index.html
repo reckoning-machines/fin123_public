@@ -982,9 +982,37 @@ Forecast revenue:  1035</code></pre>
                         what changed, who pushed back, and why conviction moved. When that context should inform a
                         model, selected YAP State can be submitted as a draft fin123 Model Memory update for approval.
                         YAP can also pull read-only governed facts from fin123, including approved EPS estimates,
-                        scenarios, price targets, and Run outputs, with provenance. It can inform the discussion, but it
-                        does not change Runs, Results, or active Model Memory.
+                        scenarios, price targets, and Run outputs, with provenance. YAP also allows model querying. It
+                        can inform the discussion, but it does not change Runs, Results, or active Model Memory.
                     </figcaption>
+                    <div class="code-panel" style="margin: 0 20px 20px;">
+                        <div class="code-header">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="code-title">Example</span>
+                        </div>
+                        <pre class="code"><code>@yap why did we lower AAPL gross margin in Q3?
+
+Response:
+
+Gross margin was reduced from 46.2% to 44.8% in Scenario Base on 2026-05-12.
+
+Primary drivers:
+- Management commentary suggesting elevated NAND costs
+- China mix deterioration concerns
+- Temporary services mix normalization
+
+Supporting promoted memory:
+- Memory #mem_1821
+- Promoted by: JG
+- Source: earnings reaction thread
+- Confidence: medium
+
+Affected formulas:
+- gross_margin_q3
+- product_margin_assumption</code></pre>
+                    </div>
                 </figure>
             </div>
         </section>
