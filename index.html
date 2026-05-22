@@ -41,7 +41,7 @@
             display: grid;
             grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
             gap: 24px;
-            align-items: center;
+            align-items: start;
         }
 
         .hero-card .title {
@@ -72,6 +72,29 @@
             font-weight: 700;
             letter-spacing: 0.2px;
             margin: 14px 0 16px;
+        }
+
+        .doctrine-stack {
+            display: grid;
+            gap: 10px;
+            margin: 16px 0 18px;
+        }
+
+        .doctrine-block {
+            border-left: 3px solid var(--accent);
+            background: rgba(88, 166, 255, 0.08);
+            padding: 11px 13px;
+        }
+
+        .doctrine-block.primary {
+            color: var(--fg-bright);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .doctrine-block .proof-line {
+            margin: 0;
         }
 
         .hero-read-more {
@@ -138,9 +161,10 @@
             border-radius: var(--radius);
             padding: 18px;
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-            max-height: 520px;
+            max-height: 1015px;
             overflow: auto;
             scrollbar-color: var(--border) transparent;
+            margin-top: 16px;
         }
 
         .hook-kicker {
@@ -367,6 +391,7 @@
             .analyst-hook-card {
                 padding: 15px;
                 max-height: 360px;
+                margin-top: 0;
             }
 
             .hero-shot-wide {
@@ -403,15 +428,29 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-card">
+                    <div class="kicker">fin123.dev</div>
+                    <h1 class="title">Run spreadsheet models you can trust.</h1>
                     <div class="hero-grid">
                         <div>
-                            <div class="kicker">fin123.dev</div>
-                            <h1 class="title">Run spreadsheet models you can trust.</h1>
+                            <div class="doctrine-stack" aria-label="fin123 operating doctrine">
+                                <div class="doctrine-block primary">
+                                    fin123 is a governed modeling system.<br>
+                                    The model is the unit of work.<br>
+                                    Time is the spine.
+                                </div>
+                                <div class="doctrine-block">
+                                    <p class="proof-line"><strong>Models evolve through time.</strong> Every forecast,
+                                        run, scenario, replay, and AI output is attached to model state and temporal
+                                        context.</p>
+                                </div>
+                                <div class="doctrine-block">
+                                    <p class="proof-line"><strong>You can replay what the model knew.</strong> At any point in time,
+                                        inspect why expectations changed, compare scenarios, and audit every assumption
+                                        and AI output.</p>
+                                </div>
+                            </div>
                             <p class="value" style="font-weight: 600; color: var(--fg-bright);">
                                 AI built in. Audit built in. No black box.
-                            </p>
-                            <p class="proof-line">
-                                fin123: The operating system for governed institutional decisions.
                             </p>
                             <div class="hero-proof">
                                 <p class="proof-line"><strong>Build in the grid.</strong> Mark Assumptions and Outputs
