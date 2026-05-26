@@ -2,6 +2,94 @@
 
 ## Stage
 
+Homepage PM copy completed-roadmap implementation.
+
+## Files Changed
+
+- `index.html`
+- `docs/reports/homepage_pm_copy_completed_roadmap_implementation_report.md`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Re-centered the homepage around the PM-facing story that the spreadsheet became a governed decision system.
+- Rewrote the hero around build, branch, run, explain, and replay.
+- Added the compact narrative bridge between the hero and institutional-decision section.
+- Rewrote the institutional-decision section around Build, Branch, Run, Explain, and Replay.
+- Pruned the hero hook rail while preserving the strongest PM pain points.
+- Rewrote the product-surface Audit card to remove id/hash-heavy visible labels.
+- Revised the Features section around lineage, one model across many companies, approved DATA, replay, and Audit.
+- Tightened AI, Run Later, How It Works, YAP/Model Memory, asof123, and footer copy.
+- Preserved screenshots, image assets, app links, walkthrough mailto, nav shape, and static HTML implementation.
+
+## Validation
+
+- Forbidden homepage jargon check.
+- Anchor extraction and nav anchor resolution check.
+- Link preservation checks for `app.fin123.dev`, `app.yap123.dev`, and walkthrough mailto.
+- `git diff --check`
+
+## Risks / Follow-Up
+
+- Review the compact narrative bridge and pruned hook rail visually on desktop and mobile.
+- Some completed-roadmap capabilities are described in copy but may not be visible in current screenshots.
+
+---
+
+## Stage
+
+Homepage completed-roadmap PM copy plan final tightening.
+
+## Files Changed
+
+- `docs/plans/homepage_pm_copy_completed_roadmap_plan.md`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Added visual-treatment guidance for the narrative bridge: compact paragraph, optionally slightly larger or in a restrained standalone panel, not a manifesto section.
+- Added implementation priority order: hero, narrative bridge, Audit card rewrite, Features section, YAP/asof123 tightening, hook rail pruning, footer.
+- Marked the hero line `Build in the grid. Branch the work. Run the model. Explain what changed. Replay the decision.` as tagline-quality compression that should not be diluted.
+- Recommended placing the bridge between the hero and institutional-decision section as a transition.
+
+## Validation
+
+- `git diff --check`
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
+Homepage completed-roadmap PM copy plan narrative bridge.
+
+## Files Changed
+
+- `docs/plans/homepage_pm_copy_completed_roadmap_plan.md`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Added a recommended one-paragraph narrative bridge explaining that spreadsheets moved from publishing artifacts to live institutional decision systems.
+- Recommended placing the bridge between the hero and the governed institutional decisions section, or as the opening paragraph inside that section.
+- Kept the guidance PM-facing and finance-native.
+- Added explicit constraints not to expand the bridge into a manifesto and not to add Global Research Analyst Settlement or Spitzer history to homepage copy.
+
+## Validation
+
+- `git diff --check`
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
 asof123 homepage positioning pass.
 
 ## Files Changed

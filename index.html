@@ -5,16 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 turns spreadsheet models into executable, versioned model states with Scenarios, Results, Audit, scheduled runs, and AI-assisted formulas." />
+        content="fin123 turns spreadsheet models into governed decision systems with lineage, Scenarios, Runs, replay, Audit, DATA, and AI." />
     <meta property="og:title" content="fin123 -- Spreadsheet models that run as programs" />
     <meta property="og:description"
-        content="Works like Excel, but runs as a program. Run model states, compare Scenarios, inspect Results, and audit every execution." />
+        content="Build in the grid. Branch the work. Run the model. Explain what changed. Replay the decision." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="fin123 -- Spreadsheet models that run as programs" />
     <meta name="twitter:description"
-        content="The unit of work is a model state, not a cell. Run it, version it, schedule it, and audit it." />
+        content="Lineage, replay, Audit, DATA, and AI for spreadsheet models that run as decision systems." />
     <title>fin123 -- Spreadsheet models that run as programs</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -254,6 +254,13 @@
             margin-top: 2px;
         }
 
+        .narrative-bridge {
+            color: var(--fg);
+            font-size: 15px;
+            line-height: 1.75;
+            margin: 18px 0 0;
+        }
+
         .screenshot-stack {
             display: grid;
             gap: 28px;
@@ -408,44 +415,41 @@
                             <div class="kicker">fin123.dev</div>
                             <h1 class="title">A spreadsheet time machine for finance.</h1>
                             <p class="value">
-                                Replay models, assumptions, AI outputs, conversations, and decisions exactly as they
-                                existed at the time.
+                                Build in the grid. Branch the work. Run the model. Explain what changed. Replay the
+                                decision.
                             </p>
                             <p class="value" style="font-weight: 600; color: var(--fg-bright);">
                                 AI built in. Audit built in. No black box.
                             </p>
                             <p class="proof-line">
-                                One model, many companies, multiple scenarios, immutable versions, governed runs, run
-                                diff, replay, <code>=DATA()</code>, <code>=AI()</code>, model memory, and @yap
-                                chronology.
+                                One approved model can be versioned (&ldquo;Desk&rdquo; vs. &ldquo;House&rdquo;), run across many
+                                companies and/or with many scenarios, tracking versioned lineage, approved data,
+                                approved AI, replay, and Audit behind every result. AI is native, diffing is native,
+                                versioning is native.
                             </p>
                             <div class="hero-proof">
                                 <p class="proof-line"><strong>Build in the grid.</strong> Mark Assumptions and Outputs
                                     directly in the spreadsheet your team already knows.</p>
-                                <p class="proof-line"><strong>Save model states.</strong> Create immutable Versions,
-                                    run Scenarios, and review historical Runs without overwriting current work.</p>
+                                <p class="proof-line"><strong>Keep work organized by lineage.</strong> Branch analysis,
+                                    promote reviewed work, and return working models to a known-good state without
+                                    filename sprawl.</p>
+                                <p class="proof-line"><strong>Run one model across the coverage universe.</strong> Each
+                                    company keeps its own assumptions, data, Runs, Results, Audit, and replay context.</p>
                                 <p class="proof-line"><strong>Diff runs, not just spreadsheets.</strong> Compare
                                     Scenarios, Sensitivity Cases, and Results side by side.</p>
-                                <p class="proof-line"><strong>Connect data directly in the grid.</strong>
-                                    <code>=DATA("bank.net_interest_income")</code> pulls approved APIs, databases,
-                                    files, and internal datasets into the model through one formula interface.</p>
+                                <p class="proof-line"><strong>Connect approved data directly in the grid.</strong>
+                                    <code>=DATA("bank.net_interest_income")</code> maps business concepts to approved
+                                    internal and external data through one formula interface.</p>
                                 <p class="proof-line"><strong>AI works inside the model.</strong>
-                                    <code>=AI()</code> runs as an approved formula step during model execution.
+                                    <code>=AI()</code> runs as an approved formula step with Methods, validation, Model
+                                    Memory, YAP chronology, and Audit.
                                 </p>
-                                <p class="proof-line"><strong>Capture how your firm works.</strong> Approved Methods
-                                    turn institutional playbooks into governed AI workflows.</p>
-                                <p class="proof-line"><strong>Your spreadsheet can remember how your team
-                                        thinks.</strong> Model Memory turns institutional judgment into reusable
-                                    execution context for AI formulas.</p>
-                                <p class="proof-line"><strong>Prove every result.</strong> Every Run preserves the
-                                    Version, Scenario, inputs, outputs, and execution evidence behind the result.</p>
                                 <p class="proof-line"><strong>Replay historical decisions.</strong> Reconstruct models
-                                    using the assumptions, data, AI outputs, and execution context that existed at the
-                                    time.</p>
-                                <p class="proof-line"><strong>What is a spreadsheet time machine?</strong> You can
-                                    reconstruct what a model believed at any point in time, including the data,
-                                    assumptions, formulas, AI outputs, conversations, and decisions that existed
-                                    <strong>then</strong>.</p>
+                                    with the model state, data, provider evidence, AI method, memory, chronology, and
+                                    time rules that applied then.</p>
+                                <p class="proof-line"><strong>Audit every result.</strong> See what ran, what changed,
+                                    which evidence was used, who approved it, and why the result was valid at that point
+                                    in time.</p>
                             </div>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
@@ -462,38 +466,19 @@
                                 <div class="hook-group">
                                     <div class="hook-group-label">for analysts</div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever save over a spreadsheet and later realize the
-                                            old one was right?</div>
-                                        <div class="hook-answer">This is GitHub for spreadsheets.</div>
-                                    </div>
-                                    <div class="hook-item">
                                         <div class="hook-question">Ever have 6 copies of the same model called
                                             FINAL_v12_USE_THIS_ONE.xlsx?</div>
-                                        <div class="hook-answer">Same.</div>
+                                        <div class="hook-answer">Lineage instead of filename archaeology.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever end up with 14 &ldquo;final&rdquo; tabs just to
-                                            preserve old assumptions?</div>
-                                        <div class="hook-answer">Immutable Versions.</div>
+                                        <div class="hook-question">Ever have three analysts copy the same model in
+                                            different directions?</div>
+                                        <div class="hook-answer">Branch the work.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever wish spreadsheets had Git-level history instead
-                                            of filename archaeology?</div>
-                                        <div class="hook-answer">Versions, Runs, Replay, and Diff.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want to know what your model looked like before
-                                            someone &ldquo;cleaned it up&rdquo;?</div>
-                                        <div class="hook-answer">Time travel for spreadsheets.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever spend half your morning figuring out what
-                                            actually changed in a model?</div>
-                                        <div class="hook-answer">Run Diff.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have a PM ask &ldquo;why did the target move?&rdquo;</div>
-                                        <div class="hook-answer">Trace the exact assumption and formula changes.</div>
+                                        <div class="hook-question">Ever need to run the same model across every name in
+                                            coverage?</div>
+                                        <div class="hook-answer">One approved model, many companies.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever duplicate an entire workbook just to make a Bull
@@ -501,14 +486,13 @@
                                         <div class="hook-answer">Scenarios instead of workbook sprawl.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever wish you could freeze a model before earnings
-                                            and prove nobody touched it?</div>
-                                        <div class="hook-answer">Immutable Versions.</div>
+                                        <div class="hook-question">Ever have a PM ask &ldquo;why did the target move?&rdquo;</div>
+                                        <div class="hook-answer">Trace the exact assumption and formula changes.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever lose trust in a spreadsheet because too many
-                                            people edited it?</div>
-                                        <div class="hook-answer">Audit trail.</div>
+                                        <div class="hook-question">Ever have compliance ask where a number came from?
+                                        </div>
+                                        <div class="hook-answer">Audit, lineage, and replay in one review path.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever copy/paste ChatGPT into Excel and immediately
@@ -516,20 +500,10 @@
                                         <div class="hook-answer"><code>=AI()</code>.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever want AI to behave like a spreadsheet formula
-                                            instead of a side chat?</div>
-                                        <div class="hook-answer"><code>=AI()</code>, native versioning.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want AI outputs treated like actual model
-                                            outputs instead of random chat text?</div>
+                                        <div class="hook-question">Ever want AI outputs treated like model outputs
+                                            instead of random chat text?</div>
                                         <div class="hook-answer"><code>=AI()</code> participates in Run, Audit, Replay,
-                                            and Diff like everything else.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want one AI model to challenge another inside
-                                            the spreadsheet itself?</div>
-                                        <div class="hook-answer">Chain <code>=AI()</code> formulas together.</div>
+                                            and Diff.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever use Bloomberg, SQL, CSVs, and internal datasets
@@ -542,29 +516,19 @@
                                         <div class="hook-answer">Same assumptions. Same formulas. Same outputs.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever want to know what your portfolio looked like
-                                            using only the information available at the time?</div>
-                                        <div class="hook-answer">Replay the model through historical data context.</div>
+                                        <div class="hook-question">Ever wonder whether an old replay used today&rsquo;s
+                                            data by accident?</div>
+                                        <div class="hook-answer">Provider-backed replay with time rules.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever have compliance ask where a number came from?
-                                        </div>
-                                        <div class="hook-answer">Full lineage.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have a spreadsheet become so important nobody
-                                            wants to touch it anymore?</div>
-                                        <div class="hook-answer">That&rsquo;s a production system.</div>
+                                        <div class="hook-question">Ever need to show why the number was valid then, not
+                                            now?</div>
+                                        <div class="hook-answer">asof123 plus Audit.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever wish your spreadsheet remembered how your team
                                             thinks?</div>
                                         <div class="hook-answer">Model Memory.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want your spreadsheet to run overnight
-                                            automatically?</div>
-                                        <div class="hook-answer">Scheduled Runs.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever want to reconstruct the decision process, not
@@ -577,34 +541,14 @@
                                         <div class="hook-answer">Exactly.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever think spreadsheets are already production
-                                            systems and everyone&rsquo;s just pretending otherwise?</div>
-                                        <div class="hook-answer">Same.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever wait 30 minutes for a Bloomberg-linked workbook
-                                            to open?</div>
-                                        <div class="hook-answer">Spreadsheet UX. Real compute underneath.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever spend more time waiting for recalcs than doing
-                                            analysis?</div>
-                                        <div class="hook-answer">Backed by Polars.</div>
-                                    </div>
-                                    <div class="hook-item">
                                         <div class="hook-question">Ever keep one Excel window open for three weeks
                                             because reopening it is operational risk?</div>
-                                        <div class="hook-answer">Same.</div>
+                                        <div class="hook-answer">The spreadsheet became a decision system.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever have a workbook so fragile nobody wants to press
                                             recalc?</div>
-                                        <div class="hook-answer">Governed execution.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever hardcode a number &ldquo;just for now&rdquo; and meet it
-                                            again 8 months later?</div>
-                                        <div class="hook-answer">Audit trail.</div>
+                                        <div class="hook-answer">Run the model. Explain the result.</div>
                                     </div>
                                 </div>
                                 <div class="hook-group">
@@ -620,34 +564,9 @@
                                         <div class="hook-answer">Same.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever have engineering turn your clean wireframe into an
-                                            ugly AG Grid dashboard?</div>
-                                        <div class="hook-answer">No more AG Grid.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever realize Excel already had the best UX in the
-                                            company?</div>
-                                        <div class="hook-answer">Keep the spreadsheet.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want the spreadsheet itself to BE the dashboard?
-                                        </div>
-                                        <div class="hook-answer">iframe it.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want to drop a live spreadsheet into your
-                                            desk&rsquo;s HTML page without writing frontend code?</div>
-                                        <div class="hook-answer">Done.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want analysts to control workflows instead of
-                                            waiting on frontend tickets?</div>
-                                        <div class="hook-answer">Spreadsheet-native products.</div>
-                                    </div>
-                                    <div class="hook-item">
                                         <div class="hook-question">Ever rebuild spreadsheet logic in a backend service
                                             just to spend the next year chasing parity bugs?</div>
-                                        <div class="hook-answer">Keep the model. Add governance.</div>
+                                        <div class="hook-answer">Keep the model. Add review.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever realize the spreadsheet is the product and the
@@ -660,11 +579,6 @@
                                         <div class="hook-answer">Let the spreadsheet execute directly.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever wish spreadsheet formulas behaved more like real
-                                            software artifacts?</div>
-                                        <div class="hook-answer">Versions, Replay, Audit, Diff.</div>
-                                    </div>
-                                    <div class="hook-item">
                                         <div class="hook-question">Ever want spreadsheet state treated like application
                                             state?</div>
                                         <div class="hook-answer">Immutable Runs and Versions.</div>
@@ -672,32 +586,12 @@
                                     <div class="hook-item">
                                         <div class="hook-question">Ever want reproducible spreadsheet execution instead
                                             of &ldquo;works on my laptop&rdquo;?</div>
-                                        <div class="hook-answer">Governed Runs.</div>
+                                        <div class="hook-answer">Saved Runs.</div>
                                     </div>
                                     <div class="hook-item">
                                         <div class="hook-question">Ever want spreadsheet formulas backed by a real
                                             execution engine?</div>
                                         <div class="hook-answer">Polars underneath. Spreadsheet on top.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever watch a React rewrite lose functionality the
-                                            spreadsheet already had?</div>
-                                        <div class="hook-answer">Institutional tradition.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever spend six months building filters, grids, and
-                                            exports analysts already had in Excel?</div>
-                                        <div class="hook-answer">Keep the spreadsheet.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever realize most internal dashboards are just
-                                            delayed spreadsheets with worse UX?</div>
-                                        <div class="hook-answer">Same.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever wish analysts could ship products without a
-                                            frontend roadmap?</div>
-                                        <div class="hook-answer">fin123.</div>
                                     </div>
                                 </div>
                             </div>
@@ -716,57 +610,69 @@
                 <figure class="hero-shot-wide">
                     <img src="./main.png"
                         alt="fin123 root spreadsheet surface with model grid and results panel" />
-                    <figcaption class="hero-caption">One surface: spreadsheet first, Results beside it, Audit behind
-                        every Run.</figcaption>
+                    <figcaption class="hero-caption">One surface: spreadsheet first, lineage and Results beside it,
+                        Audit and replay behind every Run.</figcaption>
                 </figure>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Why fin123 exists">
+            <div class="container">
+                <p class="narrative-bridge"><strong>Why fin123?</strong> Spreadsheets used to be publishing artifacts:
+                    investment banking models, sell-side models, printed reports, static assumptions. Then the buyside
+                    started building live internal models for capital allocation, scenario analysis, and execution.
+                    Models forked. Assumptions drifted. AI entered the workflow. The spreadsheet became a living
+                    institutional decision system, but most software still treats it like a file. fin123 was built for
+                    what spreadsheets actually became.
+                </p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <h2 class="section-title">The operating system for governed institutional decisions</h2>
-                <p class="section-lede">fin123 is not another ai spreadsheet. It turns the hidden execution loop
-                    behind institutional decisions into a governed execution system.</p>
+                <p class="section-lede">fin123 is not another AI spreadsheet. It turns spreadsheet work into a
+                    replayable, explainable decision system.</p>
                 <div class="feature-grid">
                     <div class="panel">
-                        <h3 class="panel-title">The hidden execution loop</h3>
-                        <p>Every institutional decision already moves through a loop, whether the firm names it or not.
-                        </p>
+                        <h3 class="panel-title">Build</h3>
+                        <p>Analysts keep working in the grid: assumptions, outputs, formulas, approved data, and
+                            approved AI stay where the model work already happens.</p>
                         <ul class="feature-list">
-                            <li>Models, assumptions, and data.</li>
-                            <li>Execution, approvals, and outputs.</li>
-                            <li>Audit and replay.</li>
+                            <li>Mark assumptions and outputs in the spreadsheet.</li>
+                            <li>Use <code>=DATA()</code> and <code>=AI()</code> as model steps.</li>
+                            <li>Keep institutional judgment attached to the model.</li>
                         </ul>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">How firms manage it today</h3>
-                        <p>Most teams coordinate that loop with informal tools.</p>
+                        <h3 class="panel-title">Branch</h3>
+                        <p>Model work moves by lineage, not filenames. Teams can branch analysis, promote reviewed work,
+                            and return working models to a known-good state.</p>
                         <ul class="feature-list">
-                            <li>Spreadsheets, chat, scripts, and shared drives.</li>
-                            <li>Institutional memory.</li>
-                            <li>Current files standing in for historical truth.</li>
+                            <li>No FINAL_v12 workbook sprawl.</li>
+                            <li>Reviewed reconciliation into protected paths.</li>
+                            <li>Working analysis can be cleaned up without rewriting history.</li>
                         </ul>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">What fin123 makes explicit</h3>
-                        <p>Instead of treating models as files, fin123 treats them as executable institutional
-                            artifacts.</p>
-                        <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Audit</p>
+                        <h3 class="panel-title">Run</h3>
+                        <p>One approved model can run across a whole coverage universe. Each company keeps its own
+                            assumptions, data, Runs, Results, Audit, and replay context.</p>
+                        <p class="contract-line">Build -> Branch -> Run -> Explain -> Replay</p>
                         <ul class="feature-list">
-                            <li>Every decision becomes reproducible, replayable, auditable, and attributable.</li>
-                            <li>Run Diff shows what changed between executions, not just between files.</li>
-                            <li>Users keep working in the grid while the execution system becomes authoritative.</li>
+                            <li>Run Base, Bull, Bear, and sensitivity cases.</li>
+                            <li>Compare companies without losing execution context.</li>
+                            <li>Schedule the same saved model state for later.</li>
                         </ul>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Why "operating system"</h3>
-                        <p>fin123 governs the decision lifecycle: execution, identity, lineage, evidence, replay,
-                            publication, orchestration, temporal authority, and institutional memory.</p>
+                        <h3 class="panel-title">Explain and replay</h3>
+                        <p>When a number moves, fin123 shows what changed, which evidence was used, who approved it,
+                            and why the result was valid at that point in time.</p>
                         <ul class="feature-list">
-                            <li>Separates Results from Audit.</li>
-                            <li>Separates execution from discovery.</li>
-                            <li>Separates artifacts from reconstruction.</li>
-                            <li>Separates current state from historical truth.</li>
+                            <li>Run Diff explains movement between executions.</li>
+                            <li>Replay uses the model state, data, AI, memory, chronology, and time rules from then.</li>
+                            <li>Audit gives PMs, risk, and compliance one review path.</li>
                         </ul>
                     </div>
                 </div>
@@ -775,12 +681,11 @@
                         Most systems answer: <strong>What is the latest number?</strong>
                     </p>
                     <p style="margin-top: 10px;">
-                        fin123 answers: <strong>What was authoritative at the time, why, and under which execution
-                            context?</strong>
+                        fin123 answers: <strong>What did we know, what did we run, who approved it, and why was the
+                            result valid then?</strong>
                     </p>
                     <p style="margin-top: 10px;">
-                        fin123 is: Git + spreadsheet + temporal database + audit system + institutional memory, with
-                        the Model as the durable unit of work.
+                        The spreadsheet became a governed decision system.
                     </p>
                 </div>
             </div>
@@ -789,10 +694,10 @@
         <section id="surface" class="section">
             <div class="container">
                 <h2 class="section-title">The product surface</h2>
-                <p class="section-lede">The root surface is the spreadsheet. No separate console is required for
-                    modeling.</p>
+                <p class="section-lede">The root surface is still the spreadsheet. The model state around it is
+                    versioned, replayable, and explainable.</p>
                 <p class="section-lede">There is no File menu and no Print menu because fin123 is not a document editor.
-                    It is a system for selecting, running, restoring, and auditing model states.</p>
+                    It is a system for building, branching, running, explaining, and replaying model decisions.</p>
                 <div class="screenshot-stack">
                     <article class="shot-panel">
                         <img src="./main.png" alt="fin123 spreadsheet model surface" />
@@ -800,12 +705,14 @@
                             <div class="shot-kicker">1 / Model Surface</div>
                             <h3 class="shot-title">The grid is the primary object.</h3>
                             <p class="shot-copy">Mark cells as Assumptions or Outputs, save model versions, select
-                                Scenarios, Run, and inspect Results without leaving the spreadsheet surface.</p>
+                                Scenarios, choose company context, Run, and inspect Results without leaving the
+                                spreadsheet surface.</p>
                             <p class="shot-copy" style="margin-top: 8px;">The abstraction is not open, print, and close.
-                                It is select state, execute, compare, audit, restore.</p>
+                                It is build, branch, run, explain, replay.</p>
                             <div class="pill-row"><span class="pill">Assumptions</span><span
                                     class="pill">Outputs</span><span class="pill">Scenario: Base</span><span
-                                    class="pill">Save Version</span><span class="pill">Run</span></div>
+                                    class="pill">Save Version</span><span class="pill">Branch</span><span
+                                    class="pill">Run</span></div>
                         </div>
                     </article>
                     <article class="shot-panel">
@@ -816,10 +723,11 @@
                             <p class="shot-copy">Type <code>=AI()</code> into a cell. The
                                 approved definition lives behind the cell, and it may reference an approved Method:
                                 versioned institutional methodology for how the formula should reason, validate output,
-                                and preserve evidence during a Run.</p>
+                                and preserve evidence during a Run. Approved Model Memory and YAP chronology can supply
+                                decision context when they are part of the reviewed model record.</p>
                             <div class="pill-row"><span class="pill">Review Formula</span><span class="pill">Preview
                                     Output</span><span class="pill">Approve</span><span class="pill">Validated
-                                    output</span><span class="pill">Method evidence</span></div>
+                                    output</span><span class="pill">Approved memory</span></div>
                         </div>
                     </article>
                     <article class="shot-panel">
@@ -827,14 +735,14 @@
                         <div class="shot-body">
                             <div class="shot-kicker">3 / Results</div>
                             <h3 class="shot-title">Run produces a stable Results surface.</h3>
-                            <p class="shot-copy">Results are based on marked Outputs and persisted Run artifacts. Run
-                                All creates a Run Set. Run Sensitivity creates temporary Cases inside a Run Set without
-                                saving them as Scenarios.</p>
+                            <p class="shot-copy">Results are based on marked Outputs from the saved model state. Run
+                                All can execute one model across selected companies and Scenarios while preserving the
+                                context behind each number.</p>
                             <p class="shot-copy" style="margin-top: 8px;">Charts and visualizations can help, but they
-                                are secondary to the modeling motion.</p>
-                            <div class="pill-row"><span class="pill">Run Results</span><span class="pill">Run
-                                    Set</span><span class="pill">Sensitivity Cases</span><span class="pill">Open
-                                    Audit</span></div>
+                                are secondary to the explainable Run record.</p>
+                            <div class="pill-row"><span class="pill">Run Results</span><span
+                                    class="pill">Coverage Universe</span><span class="pill">Sensitivity Cases</span><span
+                                    class="pill">Open Audit</span></div>
                         </div>
                     </article>
                     <article class="shot-panel">
@@ -842,13 +750,13 @@
                         <div class="shot-body">
                             <div class="shot-kicker">4 / Audit</div>
                             <h3 class="shot-title">Audit proves the Run.</h3>
-                            <p class="shot-copy">Audit opens from Results. It shows the immutable Run or Run Set record,
-                                model version, Scenario, Outputs, AI-assisted Formula definition version, Method version
-                                and hash where present, input snapshot, prompt snapshot, validated output, validation
-                                status, and replay evidence.</p>
-                            <div class="pill-row"><span class="pill">model_version_id</span><span
-                                    class="pill">scenario_id</span><span class="pill">Method hash</span><span
-                                    class="pill">typed output</span><span class="pill">replay from artifact</span></div>
+                            <p class="shot-copy">Audit opens from Results. It shows what ran, what changed, which model
+                                state, Scenario, data evidence, provider evidence, AI method, approved memory,
+                                chronology, approval, and time rules supported the result.</p>
+                            <div class="pill-row"><span class="pill">model state</span><span
+                                    class="pill">scenario</span><span class="pill">data evidence</span><span
+                                    class="pill">AI method</span><span class="pill">time rules</span><span
+                                    class="pill">replay package</span></div>
                         </div>
                     </article>
                 </div>
@@ -857,50 +765,54 @@
 
         <section id="features" class="section">
             <div class="container">
-                <h2 class="section-title">What changed in the model</h2>
+                <h2 class="section-title">The workflow behind the number</h2>
                 <div class="feature-grid">
                     <div class="panel">
-                        <h3 class="panel-title">Assumptions and Outputs</h3>
-                        <p>Assumptions are cells that may vary by Scenario. Outputs are cells measured after Run.</p>
+                        <h3 class="panel-title">Lineage and Branches</h3>
+                        <p>Keep model work organized by lineage, not filenames. Branch analysis, promote reviewed work,
+                            and return working models to a known-good state.</p>
                         <ul class="feature-list">
-                            <li>Cell-first marking in the formula bar and context menu.</li>
-                            <li>Formula cells are blocked as Assumptions.</li>
-                            <li>Results use marked Outputs only.</li>
+                            <li>Versions preserve model states before execution.</li>
+                            <li>Branches keep working analysis separate from protected paths.</li>
+                            <li>Promote is reviewed reconciliation, not a silent overwrite.</li>
+                            <li>Reset cleans up working analysis without rewriting prior decisions.</li>
                         </ul>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Scenarios and Results</h3>
-                        <p>Base is the default state. Other Scenarios are named variations of Base.</p>
+                        <h3 class="panel-title">One Model, Many Companies</h3>
+                        <p>Run the same approved model across a coverage universe while preserving each company&rsquo;s
+                            context.</p>
                         <ul class="feature-list">
-                            <li>Create Base Scenario from current Assumption values.</li>
-                            <li>Save Bull, Bear, and other Scenario states manually.</li>
-                            <li>Run and Run All persist Results from immutable Run and Run Set artifacts.</li>
+                            <li>Each company keeps its own assumptions and data.</li>
+                            <li>Scenarios compare Base, Bull, Bear, and sensitivity cases.</li>
+                            <li>Results stay tied to the company and Scenario that produced them.</li>
+                            <li>Replay reconstructs the decision context behind each name.</li>
                         </ul>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Sensitivity</h3>
-                        <p>Run Sensitivity explores Assumption ranges and measures marked Outputs through controlled
-                            execution, not spreadsheet recalculation.</p>
+                        <h3 class="panel-title">Approved DATA</h3>
+                        <p><code>=DATA()</code> gives analysts one formula shape for approved internal and external
+                            data.</p>
                         <ul class="feature-list">
-                            <li>Ranges are defined at the Assumption cell.</li>
-                            <li>Cases are temporary execution rows, not saved Scenarios by default.</li>
-                            <li>Run Set rows are authoritative Results snapshots.</li>
-                            <li>AI-assisted Formula execution is blocked during Sensitivity for now.</li>
+                            <li>Business concepts map to provider fields, calendars, and company identifiers.</li>
+                            <li>Each Run records the data and mapping context it used.</li>
+                            <li>Provider-backed replay uses the evidence and time rules from then.</li>
+                            <li>No copy-paste data trail hiding inside the workbook.</li>
                         </ul>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Runs, Run Sets, and Audit</h3>
-                        <p>Every execution writes immutable evidence.</p>
+                        <h3 class="panel-title">Replay and Audit</h3>
+                        <p>Every execution is reviewable. Replay explains the decision; Audit shows the evidence behind
+                            it.</p>
                         <ul class="feature-list">
-                            <li>Every Run has a run_id and model_version_id.</li>
-                            <li>A Run Set is an ordered group of Runs or Sensitivity Cases.</li>
-                            <li>Run Diff compares Scenarios, Run Sets, inputs, outputs, and evidence.</li>
-                            <li>Child Runs support Audit evidence.</li>
-                            <li>Replay reads stored artifacts. It does not recompute.</li>
+                            <li>Run Diff shows why the target moved.</li>
+                            <li>Replay uses the model state, data, AI method, memory, chronology, and time rules.</li>
+                            <li>Audit shows what ran, what changed, which evidence was used, and who approved it.</li>
+                            <li>Reviewers can ask why the result was valid at that point in time.</li>
                         </ul>
                     </div>
                     <p class="feature-punchline">The hard part is not: &ldquo;run 10 models.&rdquo; The hard part is:
-                        &ldquo;prove exactly what happened 18 months later.&rdquo;</p>
+                        &ldquo;prove what the model knew, what it ran, and why the decision was valid then.&rdquo;</p>
                 </div>
             </div>
         </section>
@@ -909,18 +821,18 @@
             <div class="container">
                 <h2 class="section-title">AI lives in the spreadsheet as a formula</h2>
                 <p class="section-lede">An AI-assisted formula is just another formula: authored by the analyst,
-                    approved like model logic, and executed only during a Run.</p>
+                    approved like model logic, and executed during a Run.</p>
                 <div class="panel">
                     <p><code>=AI()</code> sits in a normal worksheet cell. The formula
                         definition lives behind it, and the definition can reference an approved Method: versioned
                         institutional methodology that defines how the formula should reason, validate output, and
                         preserve evidence during a Run.</p>
                     <p style="margin-top: 10px;">Methods stay behind the formula. Analysts still work in the grid.
-                        Results receive only validated typed output. Audit shows the Method version, hash, prompt
-                        snapshot, inputs, raw output where applicable, and validation evidence.</p>
+                        Results receive only validated typed output. Audit shows the approved Method, prompt, inputs,
+                        output, validation, memory, and chronology used.</p>
                     <p style="margin-top: 10px;">Model Memory adds the missing layer: approved institutional context
-                        attached to the model. It can inform AI-assisted formulas during execution, while Audit records
-                        exactly what context was supplied and Run Diff shows when that context changed.</p>
+                        attached to the model. YAP preserves the decision chronology around the work. Together they let
+                        AI use approved context without becoming a side-chat that mutates the model.</p>
                     <div class="code-panel" style="margin-top: 16px;">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span><span class="dot"
@@ -932,7 +844,8 @@
 Behind the cell:
 - approved Formula definition
 - approved Method version
-- compiled prompt snapshot
+- approved Model Memory
+- YAP decision chronology
 - validated typed output
 - Audit evidence
 
@@ -955,7 +868,7 @@ Forecast revenue:  1035</code></pre>
             <div class="container">
                 <h2 class="section-title">Run later</h2>
                 <p class="section-lede">Scheduled execution is the same Run model, just delayed. It references a saved
-                    model version and selected Scenarios. It never runs the mutable grid.</p>
+                    model state, selected Scenarios, and selected company contexts. It never runs the mutable grid.</p>
                 <article class="shot-panel" style="margin-bottom: 16px;">
                     <img src="./1.png"
                         alt="fin123 Run later modal showing saved version, selected Scenario, and time" />
@@ -967,14 +880,14 @@ Forecast revenue:  1035</code></pre>
                     </div>
                 </article>
                 <div class="panel">
-                    <p><strong>Run later</strong> means: run this saved version with these Scenarios at this time. When
-                        it triggers, fin123 creates child Runs, a Run Set, Results, and Audit artifacts using the same
-                        execution path as interactive Run.</p>
+                    <p><strong>Run later</strong> means: run this saved model state with these Scenarios at this time.
+                        Use it for one name, a scenario pack, or a whole coverage universe. When it triggers, fin123
+                        leaves the same Results and Audit trail as an interactive Run.</p>
                     <ul class="feature-list">
-                        <li>References immutable model_version_id.</li>
-                        <li>Uses selected scenario_ids.</li>
+                        <li>References the saved model state.</li>
+                        <li>Uses selected Scenarios and company contexts.</li>
                         <li>Executes approved AI-assisted Formula definitions only.</li>
-                        <li>Records scheduled_run_id on Run Set and child Runs.</li>
+                        <li>Produces reviewable Results, replay, and Audit.</li>
                     </ul>
                 </div>
             </div>
@@ -983,61 +896,58 @@ Forecast revenue:  1035</code></pre>
         <section id="how-it-works" class="section">
             <div class="container">
                 <h2 class="section-title">How it works</h2>
-                <p class="section-lede">The product contract is Model -> Version -> Scenario -> Run -> Results -> Audit.
-                    Every institutional decision becomes an immutable, replayable execution artifact.
+                <p class="section-lede">The product contract is Model -> Version -> Scenario -> Run -> Results ->
+                    Replay -> Audit. Every institutional decision becomes a replayable, explainable model record.
                 </p>
                 <div class="flow">
                     <div class="flow-step">
                         <div class="flow-num">01</div>
                         <div class="flow-title">Model</div>
-                        <div class="flow-copy">Declare assumptions, outputs, formulas, and governed methods.</div>
+                        <div class="flow-copy">Build assumptions, outputs, formulas, approved data, and approved AI in
+                            the grid.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">02</div>
                         <div class="flow-title">Version</div>
-                        <div class="flow-copy">Save an immutable model state before execution.</div>
+                        <div class="flow-copy">Save the model state and keep work organized by lineage.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">03</div>
                         <div class="flow-title">Scenario</div>
-                        <div class="flow-copy">Choose Base, Bull, Bear, or controlled assumption ranges.</div>
+                        <div class="flow-copy">Choose Base, Bull, Bear, sensitivity cases, and company context.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">04</div>
                         <div class="flow-title">Run</div>
-                        <div class="flow-copy">Execute one Scenario or many as a governed Run Set.</div>
+                        <div class="flow-copy">Execute one Scenario, many Scenarios, or a whole coverage universe.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">05</div>
                         <div class="flow-title">Results</div>
-                        <div class="flow-copy">Inspect typed outputs from the immutable Run artifact.</div>
+                        <div class="flow-copy">Inspect outputs, compare Runs, and see why the number moved.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">06</div>
                         <div class="flow-title">Audit</div>
-                        <div class="flow-copy">Prove lineage, evidence, methods, memory, replay, and Run Diff.</div>
+                        <div class="flow-copy">Replay the decision and review data, AI, memory, chronology, and time
+                            rules.</div>
                     </div>
                 </div>
                 <div class="code-panel" style="margin-top: 16px;">
                     <div class="code-header">
                         <span class="dot" aria-hidden="true"></span><span class="dot"
                             aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                        <span class="code-title">INSTITUTIONAL_DECISION_GRAPH</span>
+                        <span class="code-title">DECISION_RECORD</span>
                     </div>
-                    <pre class="code"><code>Fund
-  -> Pod
-      -> Model
-          -> Version
-              -> Scenario
-                  -> Run
-                      -> Results
-                      -> Audit
-                          -> Replay
-                          -> Run Diff
-                      -> Data Evidence
-                          -> Frozen Binding Ref
-                          -> Immutable Snapshot
-                      -> AI / DATA Formula Evidence</code></pre>
+                    <pre class="code"><code>Model
+  -> Branch / Version
+      -> Company + Scenario
+          -> Run
+              -> Results + Diff
+              -> Replay + Audit
+                  -> Data + Provider Evidence
+                  -> AI Method + Approved Memory
+                  -> YAP Chronology + Time Rules</code></pre>
                 </div>
             </div>
         </section>
@@ -1063,7 +973,8 @@ Forecast revenue:  1035</code></pre>
                             <strong>fin123</strong>
                         </p>
                         <p style="margin-top: 10px;">
-                            The spreadsheet became the operating system of business. fin123 makes it governable.
+                            The spreadsheet became the operating system of business. fin123 makes it a replayable,
+                            explainable decision system.
                         </p>
                     </div>
                 </div>
@@ -1076,25 +987,25 @@ Forecast revenue:  1035</code></pre>
                         alt="YAP institutional conversation surface" />
                     <figcaption class="hero-caption yap-caption">
                         YAP (Yet Another Protocol) is the pod's institutional research conversation layer embedded
-                        directly into governed model workflows. Think on-premises Bloomberg chat tied to the live
-                        research process instead of a detached messaging app. Discussions stay connected to the
-                        spreadsheet, assumptions, scenarios, and Runs driving the book.
+                        directly into model workflows. Think on-premises Bloomberg chat tied to the live research
+                        process instead of a detached messaging app. Discussions stay connected to the spreadsheet,
+                        assumptions, scenarios, Runs, and decisions driving the book.
                         <br><br>
                         YAP operates both at the model level and across the pod. Analysts can debate a single name,
                         compare themes across sectors and models, challenge assumptions, track changing conviction, and
-                        preserve the chronology behind decisions - all inside the governed research environment itself.
+                        preserve the chronology behind decisions inside the research environment itself.
                         <br><br>
-                        YAP is not "AI chat." The conversation remains linked to governed context, including model
-                        versions, scenarios, approved estimates, Run outputs, reviewed memory, and replayable provenance.
-                        Analysts can query governed model state directly inside the workflow without leaving the
-                        spreadsheet surface. Use $TICKER to tag a message to a ticker, use @YAP to ask a question about
-                        a $TICKER.
+                        YAP is not "AI chat." The conversation remains linked to approved context, including model
+                        versions, scenarios, estimates, Run outputs, approved memory, and replayable provenance.
+                        Analysts can query model state directly inside the workflow without leaving the spreadsheet
+                        surface. Use $TICKER to tag a message to a ticker, use @YAP to ask a question about a $TICKER.
                         <br><br>
-                        When discussion should inform a model, selected YAP State can be proposed as a draft fin123
-                        Model Memory update for approval. But YAP itself does not mutate Runs, Results, approved
-                        assumptions, or active Model Memory.
+                        When discussion should inform a model, approved YAP evidence and Model Memory can become part
+                        of the decision context used by execution and replay. Audit shows which memory and chronology
+                        were used. YAP itself does not silently mutate Runs, Results, assumptions, or active Model
+                        Memory.
                         <br><br>
-                        fin123 remains the governed execution authority.
+                        fin123 remains the execution record.
                     </figcaption>
                     <div class="code-panel" style="margin: 0 20px 20px;">
                         <div class="code-header">
@@ -1114,10 +1025,9 @@ Primary drivers:
 - China mix deterioration concerns
 - Temporary services mix normalization
 
-Supporting promoted memory:
-- Memory #mem_1821
-- Promoted by: JG
+Approved memory:
 - Source: earnings reaction thread
+- Approved by: JG
 - Confidence: medium
 
 Affected formulas:
@@ -1133,24 +1043,22 @@ Affected formulas:
                 <h2 class="section-title">asof123: Every bug in finance software is secretly an "as of" bug.</h2>
                 <div class="panel">
                     <p>
-                        asof123 keeps the desk honest about time. It records whether the market was pre-open, open,
-                        closed, or on a trading holiday, and whether a number was published, stale, admissible, or
-                        replay-valid when the decision was made.
+                        asof123 governs what time meant for the decision. It records market state, holidays,
+                        publication windows, effective dates, stale status, and replay-valid time context.
                     </p>
                     <ul class="feature-list">
-                        <li>YAP preserves the investment discussion and Evidence.</li>
-                        <li>fin123 governs approved models, scenarios, estimates, and outputs.</li>
-                        <li>asof123 governs the time context: market state, holidays, publication windows, and as-of
-                            rules.</li>
+                        <li>YAP preserves the investment discussion and decision chronology.</li>
+                        <li>fin123 runs approved models, scenarios, estimates, and outputs.</li>
+                        <li>asof123 supplies the market clock, publication windows, and as-of rules.</li>
                     </ul>
                     <p style="margin-top: 10px;">
-                        asof123 integration into fin123 means a PM, analyst, risk team, or compliance reviewer can
-                        reconstruct what the desk could actually know at the time, instead of judging the decision
-                        against facts that arrived later.
+                        Replay uses those same time rules instead of judging the past with today&rsquo;s information. A
+                        PM, analyst, risk team, or compliance reviewer can reconstruct what the desk could actually know
+                        at the time.
                     </p>
                     <p style="margin-top: 10px;">
-                        YAP preserves the thesis record. fin123 governs the model record. asof123 preserves the market
-                        clock. Together they make institutional decisions replayable.
+                        YAP preserves the thesis record. fin123 runs the model record. asof123 preserves the market
+                        clock. Together they make institutional decisions replayable and explainable.
                     </p>
                 </div>
             </div>
@@ -1166,12 +1074,11 @@ Affected formulas:
                     </p>
                     <p style="margin-top: 10px;">
                         Most systems start with UI and execution workflows, then discover the hard problems later:
-                        replay, provenance, temporal reconstruction, and governance.
+                        replay, provenance, time-aware reconstruction, and review.
                     </p>
                     <p style="margin-top: 10px;">
-                        We build from authority and substrate forward, because institutional systems only become
-                        trustworthy when replay, audit, and model-time reconstruction are native to the architecture
-                        instead of retrofitted afterward.
+                        We build from replay, Audit, and time-aware execution forward, because institutional systems
+                        only become trustworthy when the decision record is native to the product.
                     </p>
                 </div>
             </div>
@@ -1181,7 +1088,7 @@ Affected formulas:
     <footer class="site-footer">
         <div class="container footer-inner">
             <div>fin123.dev</div>
-            <div class="footer-right">Model -> Version -> Scenario -> Run -> Results -> Audit</div>
+            <div class="footer-right">Model -> Version -> Scenario -> Run -> Results -> Replay -> Audit</div>
         </div>
     </footer>
 </body>
