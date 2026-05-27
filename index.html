@@ -1081,6 +1081,56 @@ Affected formulas:
             </div>
         </section>
 
+        <section id="prompt123" class="section">
+            <div class="container">
+                <h2 class="section-title">prompt123: Governed prompt proofing for institutional LLM execution.</h2>
+                <p class="section-lede">prompt123 is a product in development and is not yet deployed to fin123.</p>
+                <div class="panel">
+                    <p>
+                        prompt123 turns raw analyst prompt intent into reviewable PromptDraft artifacts before anything
+                        is approved or executed. It is built for teams that need LLM workflows to be explainable,
+                        replay-safe, and governed without losing the analyst&rsquo;s original intent.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        It flags ambiguity, missing schema, hidden assumptions, nondeterministic wording, and unsafe
+                        external dependencies. If the prompt is unclear, prompt123 records findings instead of silently
+                        deciding what the user meant.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        fin123 may become one consumer, but prompt123 is not tied to fin123. It is not an LLM execution
+                        engine, agent framework, or silent prompt optimizer. It makes no runtime LLM calls and contacts
+                        no external APIs.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Raw prompts are intent.</li>
+                        <li>Proofed prompts are drafts.</li>
+                        <li>Approved prompts are execution artifacts.</li>
+                        <li>Execution systems own approval and execution.</li>
+                        <li>prompt123 must never silently rewrite and execute prompts.</li>
+                    </ul>
+                    <p style="margin-top: 10px;">
+                        Future LLM-assisted proofing may propose clarifications or normalized draft language, but every
+                        suggestion remains advisory. Approval and execution stay with the downstream system.
+                    </p>
+                    <div class="code-panel" style="margin-top: 16px;">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span><span class="dot"
+                                aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">PROMPT123_ONTOLOGY</span>
+                        </div>
+                        <pre class="code"><code>PromptIntent
+  -> PromptDraft
+      -> ApprovedPrompt
+          -> ExecutionArtifact
+              -> Audit</code></pre>
+                    </div>
+                    <p style="margin-top: 10px;">
+                        See <code>docs/contracts/PRODUCT_CONTRACT.md</code> for the full product contract.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section id="reckoning-machines" class="section">
             <div class="container">
                 <h2 class="section-title">Reckoning Machines</h2>
