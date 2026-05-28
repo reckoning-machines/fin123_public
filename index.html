@@ -421,6 +421,7 @@
                             <p class="value" style="font-weight: 600; color: var(--fg-bright);">
                                 AI built in. Audit built in. No black box.
                             </p>
+                            <p class="value">Not a side chat. A governed AI workflow inside the model.</p>
                             <p class="proof-line">
                                 One approved model can be versioned (&ldquo;Desk&rdquo; vs. &ldquo;House&rdquo;), run across many
                                 companies and/or with many scenarios, tracking versioned lineage, approved data,
@@ -440,9 +441,9 @@
                                 <p class="proof-line"><strong>Connect approved data directly in the grid.</strong>
                                     <code>=DATA("bank.net_interest_income")</code> maps business concepts to approved
                                     internal and external data through one formula interface.</p>
-                                <p class="proof-line"><strong>AI works inside the model.</strong>
-                                    <code>=AI()</code> runs as an approved formula step with Methods, validation, Model
-                                    Memory, YAP chronology, and Audit.
+                                <p class="proof-line"><strong>AI workflows run inside the model.</strong>
+                                    <code>=AI()</code> can execute reviewed Methods: chained analysis, approved context,
+                                    validation, typed output, Model Memory, YAP chronology, and Audit.
                                 </p>
                                 <p class="proof-line"><strong>Replay historical decisions.</strong> Reconstruct models
                                     with the model state, data, provider evidence, AI method, memory, chronology, and
@@ -819,14 +820,17 @@
 
         <section id="llm-formulas" class="section">
             <div class="container">
-                <h2 class="section-title">AI lives in the spreadsheet as a formula</h2>
-                <p class="section-lede">An AI-assisted formula is just another formula: authored by the analyst,
-                    approved like model logic, and executed during a Run.</p>
+                <h2 class="section-title">AI workflows live in the spreadsheet as formulas</h2>
+                <p class="section-lede">An AI-assisted formula is a model step that can execute a reviewed AI workflow:
+                    authored by the analyst, approved like model logic, and executed during a Run.</p>
                 <div class="panel">
                     <p><code>=AI()</code> sits in a normal worksheet cell. The formula
                         definition lives behind it, and the definition can reference an approved Method: versioned
                         institutional methodology that defines how the formula should reason, validate output, and
                         preserve evidence during a Run.</p>
+                    <p style="margin-top: 10px;">A Method can be more than a prompt. It can define a chained analytical
+                        workflow: retrieve evidence, apply approved context, compare history, validate assumptions,
+                        reconcile intermediate outputs, and return a typed result to the model.</p>
                     <p style="margin-top: 10px;">Methods stay behind the formula. Analysts still work in the grid.
                         Results receive only validated typed output. Audit shows the approved Method, prompt, inputs,
                         output, validation, memory, and chronology used.</p>
@@ -850,13 +854,13 @@
                         </div>
                         <pre class="code"><code>Cell B12: =AI()
 
-Behind the cell:
-- approved Formula definition
-- approved Method version
-- approved Model Memory
-- YAP decision chronology
-- validated typed output
-- Audit evidence
+Reviewed Method:
+- retrieve management guidance and prior quarter commentary
+- compare historical SSS seasonality and recent comp trends
+- apply approved Model Memory
+- validate assumptions against source evidence
+- reconcile intermediate outputs
+- return typed model output
 
 Inputs:
 - prior quarter SSS
@@ -865,9 +869,17 @@ Inputs:
 - macro / consumer read-through
 - historical seasonality
 
-Run output:
+Typed output:
 Forecast SSS:      0.035
-Forecast revenue:  1035</code></pre>
+Forecast revenue:  1035
+
+Audit:
+- Method version
+- inputs and evidence
+- validation checks
+- approved memory
+- YAP chronology
+- Run identity</code></pre>
                     </div>
                 </div>
             </div>
@@ -936,7 +948,8 @@ Forecast revenue:  1035</code></pre>
                     <div class="flow-step">
                         <div class="flow-num">04</div>
                         <div class="flow-title">Run</div>
-                        <div class="flow-copy">Execute one Scenario, many Scenarios, or a whole coverage universe.</div>
+                        <div class="flow-copy">Execute one Scenario, many Scenarios, AI workflows, or a whole coverage
+                            universe.</div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-num">05</div>
@@ -960,6 +973,7 @@ Forecast revenue:  1035</code></pre>
   -> Branch / Version
       -> Company + Scenario
           -> Run
+              -> Approved DATA + AI Workflow Execution
               -> Results + Diff
               -> Replay + Audit
                   -> Data + Provider Evidence
@@ -1058,6 +1072,31 @@ Affected formulas:
             </div>
         </section>
 
+        <section id="reckoning-machines" class="section">
+            <div class="container">
+                <h2 class="section-title">reckoning-machine: Runtime layer for governed AI execution.</h2>
+                <div class="panel">
+                    <p>
+                        Reckoning Machines is the runtime layer behind chained AI execution: methods, evidence,
+                        validation, typed outputs, replay, and audit.
+                    </p>
+                    <div class="code-panel" style="margin-top: 16px;">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span><span class="dot"
+                                aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">RECKONING_MACHINES_RUNTIME</span>
+                        </div>
+                        <pre class="code"><code>ReviewedMethod
+  -> Evidence
+      -> Validation
+          -> TypedOutput
+              -> Replay
+                  -> Audit</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="prompt123" class="section">
             <div class="container">
                 <h2 class="section-title">prompt123: Governed prompt proofing for institutional LLM execution.</h2>
@@ -1128,7 +1167,7 @@ Affected formulas:
             </div>
         </section>
 
-        <section id="reckoning-machines" class="section">
+        <section id="reckoning-machines-company" class="section">
             <div class="container">
                 <h2 class="section-title">Reckoning Machines</h2>
                 <div class="panel">

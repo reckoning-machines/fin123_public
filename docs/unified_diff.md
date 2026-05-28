@@ -2,6 +2,34 @@
 
 ## Stage
 
+Homepage governed AI workflow copy pass.
+
+## Files Changed
+
+- `index.html`
+- `docs/unified_diff.md`
+
+## What Changed
+
+- Layered in that `=AI()` can execute reviewed, chained Methods through the governed runtime.
+- Updated hero, AI formulas, How It Works, DECISION_RECORD, and Reckoning Machines runtime copy.
+- Added a compact `reckoning-machines` runtime section above `prompt123` and kept the company background section separate.
+- Kept the existing page structure, screenshots, anchors, and static HTML implementation.
+
+## Validation
+
+- `python3 -m html.parser index.html`
+- `git diff --check -- index.html docs/unified_diff.md`
+- `tidy -qe index.html` was available but not usable as a pass/fail check because the installed parser rejects HTML5 sectioning tags already present on the page.
+
+## Risks / Follow-Up
+
+- None.
+
+---
+
+## Stage
+
 Homepage PM copy completed-roadmap implementation.
 
 ## Files Changed
