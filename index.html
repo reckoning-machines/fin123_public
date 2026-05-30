@@ -416,8 +416,14 @@
                             <div class="kicker">fin123.dev</div>
                             <h1 class="title">The spreadsheet for AI workflows in the model.</h1>
                             <p class="value">
-                                Build reusable AI workflows directly inside the models that drive investment decisions.
-                                Versioned, replayable, auditable, and built for institutional use.
+                                ChatGPT and Claude gave analysts AI assistants.
+                            </p>
+                            <p class="value">
+                                fin123 lets them build reusable AI workflows directly inside the models that drive
+                                investment decisions.
+                            </p>
+                            <p class="value" style="font-weight: 600; color: var(--fg-bright);">
+                                Build once. Reuse everywhere.
                             </p>
                             <p class="value" style="font-weight: 600; color: var(--fg-bright);">
                                 AI built in. Audit built in. No black box.
@@ -635,6 +641,83 @@
             </div>
         </section>
 
+        <section id="ai-workflow-inside-the-model" class="section">
+            <div class="container">
+                <h2 class="section-title">AI Workflow Inside The Model</h2>
+                <p class="section-lede">A workflow is more than a prompt. It can retrieve evidence, compare history,
+                    apply approved context, validate assumptions, and return a typed result directly to the model.</p>
+                <div class="code-panel">
+                    <div class="code-header">
+                        <span class="dot" aria-hidden="true"></span><span class="dot"
+                            aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                        <span class="code-title">SAME_STORE_SALES_WORKFLOW</span>
+                    </div>
+                    <pre class="code"><code>Management Commentary
+        ↓
+Credit Card Data
+        ↓
+Historical Seasonality
+        ↓
+Consensus Estimates
+        ↓
+AI Validation
+        ↓
+Forecast
+        ↓
+Spreadsheet Output</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="one-workflow-four-stakeholders" class="section">
+            <div class="container">
+                <h2 class="section-title">One Workflow. Four Stakeholders.</h2>
+                <div class="feature-grid">
+                    <div class="panel">
+                        <h3 class="panel-title">Analyst</h3>
+                        <p>Build AI workflows directly inside the model.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">PM</h3>
+                        <p>Run the same workflow across every company in coverage.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Head of Research</h3>
+                        <p>Institutionalize methodology.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Compliance / FINRA</h3>
+                        <p>Prove what happened.</p>
+                    </div>
+                    <p class="feature-punchline">The same workflow that helps an analyst move faster helps a PM scale
+                        analysis, a Head of Research standardize methodology, and Compliance explain how a decision was
+                        made.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="build-once-run-everywhere" class="section">
+            <div class="container">
+                <h2 class="section-title">Build Once. Run Everywhere.</h2>
+                <p class="section-lede">Build a workflow once. Run it across a coverage universe while preserving
+                    assumptions, scenarios, audit history, replay context, and results for every company.</p>
+                <div class="code-panel">
+                    <div class="code-header">
+                        <span class="dot" aria-hidden="true"></span><span class="dot"
+                            aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                        <span class="code-title">COVERAGE_WORKFLOW</span>
+                    </div>
+                    <pre class="code"><code>Retail Guidance Workflow
+        ↓
+TGT   WMT   COST   HD
+        ↓
+Result   Result   Result   Result
+        ↓
+Coverage Results</code></pre>
+                </div>
+            </div>
+        </section>
+
         <section class="section" aria-label="Why fin123 exists">
             <div class="container">
                 <p class="narrative-bridge"><strong>Why fin123?</strong> Spreadsheets used to be publishing artifacts:
@@ -672,93 +755,6 @@
                         <li>Add versioning, Sheet Warnings, YAP context, Audit, replay, and <code>=AI()</code> without
                             breaking analyst workflow.</li>
                     </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">The operating system for governed institutional decisions</h2>
-                <p class="section-lede">fin123 is not another AI spreadsheet. It turns spreadsheet work into a
-                    replayable, explainable decision system.</p>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Build</h3>
-                        <p>Analysts keep working in the grid: assumptions, outputs, formulas, approved data, and
-                            approved AI stay where the model work already happens.</p>
-                        <ul class="feature-list">
-                            <li>Mark assumptions and outputs in the spreadsheet.</li>
-                            <li>Use <code>=DATA()</code> and <code>=AI()</code> as model steps.</li>
-                            <li>Keep institutional judgment attached to the model.</li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Branch</h3>
-                        <p>Model work moves by lineage, not filenames. Teams can branch analysis, promote reviewed work,
-                            and return working models to a known-good state.</p>
-                        <ul class="feature-list">
-                            <li>No FINAL_v12 workbook sprawl.</li>
-                            <li>Reviewed reconciliation into protected paths.</li>
-                            <li>Working analysis can be cleaned up without rewriting history.</li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Run</h3>
-                        <p>One approved model can run across a whole coverage universe. Each company keeps its own
-                            assumptions, data, Runs, Results, Audit, and replay context.</p>
-                        <p class="contract-line">Build -> Branch -> Run -> Explain -> Replay</p>
-                        <ul class="feature-list">
-                            <li>Run Base, Bull, Bear, and sensitivity cases.</li>
-                            <li>Compare companies without losing execution context.</li>
-                            <li>Schedule the same saved model state for later.</li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Explain and replay</h3>
-                        <p>When a number moves, fin123 shows what changed, which evidence was used, who approved it,
-                            and why the result was valid at that point in time.</p>
-                        <ul class="feature-list">
-                            <li>Run Diff explains movement between executions.</li>
-                            <li>Replay uses the model state, data, AI, memory, chronology, and time rules from then.</li>
-                            <li>Audit gives PMs, risk, and compliance one review path.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="panel" style="margin-top: 16px;">
-                    <p>
-                        Most systems answer: <strong>What is the latest number?</strong>
-                    </p>
-                    <p style="margin-top: 10px;">
-                        fin123 answers: <strong>What did we know, what did we run, who approved it, and why was the
-                            result valid then?</strong>
-                    </p>
-                    <p style="margin-top: 10px;">
-                        The spreadsheet became a governed decision system.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="one-workflow-four-stakeholders" class="section">
-            <div class="container">
-                <h2 class="section-title">One workflow. Four stakeholders.</h2>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Analyst</h3>
-                        <p>Build AI workflows directly inside the model.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">PM</h3>
-                        <p>Run the same workflow across every company in coverage, and query decisions with chat.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Head of Research</h3>
-                        <p>Institutionalize methodology.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Compliance / FINRA</h3>
-                        <p>Prove what happened.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1086,6 +1082,74 @@ Audit:
                         <br><br>
                         fin123 remains the execution record.
                     </figcaption>
+                    <div class="shot-body">
+                        <div class="shot-kicker">How Desk Knowledge Enters The Model</div>
+                        <h3 class="shot-title">Desk knowledge becomes approved model context.</h3>
+                        <p class="shot-copy">Desk knowledge should not disappear into chat logs, email threads, or
+                            analyst notebooks.</p>
+                        <p class="shot-copy" style="margin-top: 8px;">YAP captures discussion. Model Memory captures
+                            approved knowledge. AI workflows operationalize that knowledge inside the model. Over time,
+                            workflows improve as the institution learns.</p>
+                        <div class="code-panel" style="margin-top: 16px;">
+                            <div class="code-header">
+                                <span class="dot" aria-hidden="true"></span><span class="dot"
+                                    aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                                <span class="code-title">DESK_KNOWLEDGE_PATH</span>
+                            </div>
+                            <pre class="code"><code>Trader Observation
+
+"Traffic looks weaker than expected."
+        ↓
+
+YAP Discussion
+
+Analyst + PM + Trader debate it.
+        ↓
+
+Promote
+
+Analyst approves observation.
+        ↓
+
+Model Memory
+
+Weak traffic signal gets stored.
+        ↓
+
+Workflow
+
+Future retail workflows can use it.
+        ↓
+
+Forecast
+
+Estimate changes.</code></pre>
+                        </div>
+                        <p class="shot-copy" style="margin-top: 16px;">Most systems stop at discussion.</p>
+                        <p class="shot-copy" style="margin-top: 8px;">fin123 provides a path from:</p>
+                        <div class="code-panel" style="margin-top: 12px;">
+                            <div class="code-header">
+                                <span class="dot" aria-hidden="true"></span><span class="dot"
+                                    aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                                <span class="code-title">INSTITUTIONAL_KNOWLEDGE_PATH</span>
+                            </div>
+                            <pre class="code"><code>Observation
+→ Discussion
+→ Approval
+→ Memory
+→ Workflow
+→ Forecast</code></pre>
+                        </div>
+                        <p class="shot-copy" style="margin-top: 12px;">This graphic explains how institutional
+                            knowledge becomes part of the investment process.</p>
+                        <ul class="feature-list">
+                            <li>YAP is not generic chat.</li>
+                            <li>YAP discussion can become approved Model Memory.</li>
+                            <li>Model Memory can inform future AI workflows.</li>
+                            <li>YAP is non-mutating.</li>
+                            <li>YAP does not silently change Runs, Results, assumptions, or active Model Memory.</li>
+                        </ul>
+                    </div>
                     <div class="code-panel" style="margin: 0 20px 20px;">
                         <div class="code-header">
                             <span class="dot"></span>
