@@ -400,8 +400,6 @@
                 <a href="#surface">Surface</a>
                 <a href="#features">Features</a>
                 <a href="#llm-formulas">AI formulas</a>
-                <a href="#overnight">Run Later</a>
-                <a href="#how-it-works">How It Works</a>
                 <a href="#get-started">Get Started</a>
             </nav>
         </div>
@@ -429,10 +427,8 @@
                                 AI built in. Audit built in. No black box.
                             </p>
                             <p class="proof-line">
-                                One approved model can be versioned (&ldquo;Desk&rdquo; vs. &ldquo;House&rdquo;), run across many
-                                companies and/or with many scenarios, tracking versioned lineage, approved data,
-                                approved AI, replay, and Audit behind every result. AI is native, diffing is native,
-                                versioning is native.
+                                fin123 is not a generic workflow engine. The model remains the unit of work. AI
+                                workflows participate inside the model.
                             </p>
                             <div class="hero-proof">
                                 <p class="proof-line"><strong>Build in the grid.</strong> Mark Assumptions and Outputs
@@ -446,22 +442,13 @@
                                     filename sprawl.</p>
                                 <p class="proof-line"><strong>Run one model across the coverage universe.</strong> Each
                                     company keeps its own assumptions, data, Runs, Results, Audit, and replay context.</p>
-                                <p class="proof-line"><strong>Diff runs, not just spreadsheets.</strong> Compare
-                                    Scenarios, Sensitivity Cases, and Results side by side.</p>
-                                <p class="proof-line"><strong>Connect approved data directly in the grid.</strong>
-                                    <code>=DATA("bank.net_interest_income")</code> maps business concepts to approved
-                                    internal and external data through one formula interface.</p>
                                 <p class="proof-line"><strong>AI workflows run inside the model.</strong>
                                     <code>=AI()</code> formula can execute reviewed Methods: chained analysis, approved
                                     context, validation, typed output, Model Memory, YAP chronology, and Audit. Inside
                                     the model.
                                 </p>
-                                <p class="proof-line"><strong>Replay historical decisions.</strong> Reconstruct models
-                                    with the model state, data, provider evidence, AI method, memory, chronology, and
-                                    time rules that applied then.</p>
-                                <p class="proof-line"><strong>Audit every result.</strong> See what ran, what changed,
-                                    which evidence was used, who approved it, and why the result was valid at that point
-                                    in time.</p>
+                                <p class="proof-line"><strong>Replay and Audit.</strong> See what ran, what changed,
+                                    which evidence was used, and why the result was valid at that point in time.</p>
                                 <p class="proof-line"><strong>Sheet Warnings.</strong> Every Run checks for errors
                                     before they become problems. See what formulas may have drifted, hardcodes replaced
                                     formulas, and other changes that need review. Spreadsheet linting for finance.</p>
@@ -506,15 +493,6 @@
                                         <div class="hook-answer">One approved model, many companies.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever duplicate an entire workbook just to make a Bull
-                                            case?</div>
-                                        <div class="hook-answer">Scenarios instead of workbook sprawl.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have a PM ask &ldquo;why did the target move?&rdquo;</div>
-                                        <div class="hook-answer">Trace the exact assumption and formula changes.</div>
-                                    </div>
-                                    <div class="hook-item">
                                         <div class="hook-question">Ever have compliance ask where a number came from?
                                         </div>
                                         <div class="hook-answer">Audit, lineage, and replay in one review path.</div>
@@ -531,113 +509,15 @@
                                             and Diff.</div>
                                     </div>
                                     <div class="hook-item">
-                                        <div class="hook-question">Ever use Bloomberg, SQL, CSVs, and internal datasets
-                                            all in the same model?</div>
-                                        <div class="hook-answer">One <code>=DATA()</code> formula shape.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want to rerun an old model exactly as it was at
-                                            the time?</div>
-                                        <div class="hook-answer">Same assumptions. Same formulas. Same outputs.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever wonder whether an old replay used today&rsquo;s
-                                            data by accident?</div>
-                                        <div class="hook-answer">Provider-backed replay with time rules.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever need to show why the number was valid then, not
-                                            now?</div>
-                                        <div class="hook-answer">asof123 plus Audit.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever wish your spreadsheet remembered how your team
-                                            thinks?</div>
-                                        <div class="hook-answer">Model Memory.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want to reconstruct the decision process, not
-                                            just recover the final spreadsheet?</div>
-                                        <div class="hook-answer">Replay.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have a workbook that basically runs the business
-                                            but still lives as a random email attachment?</div>
-                                        <div class="hook-answer">Exactly.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever keep one Excel window open for three weeks
-                                            because reopening it is operational risk?</div>
-                                        <div class="hook-answer">The spreadsheet became a decision system.</div>
-                                    </div>
-                                    <div class="hook-item">
                                         <div class="hook-question">Ever have a workbook so fragile nobody wants to press
                                             recalc?</div>
                                         <div class="hook-answer">Run the model. Explain the result.</div>
                                     </div>
                                 </div>
-                                <div class="hook-group">
-                                    <div class="hook-group-label">for developers</div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever think &ldquo;why are we rebuilding this spreadsheet
-                                            in Python and React?&rdquo;</div>
-                                        <div class="hook-answer">Good question.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever spend months recreating Excel logic in a web app
-                                            just to end up with a worse spreadsheet?</div>
-                                        <div class="hook-answer">Same.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever rebuild spreadsheet logic in a backend service
-                                            just to spend the next year chasing parity bugs?</div>
-                                        <div class="hook-answer">Keep the model. Add review.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever realize the spreadsheet is the product and the
-                                            web app is just a worse copy?</div>
-                                        <div class="hook-answer">Same.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever spend months translating analyst logic into ORM
-                                            models and REST endpoints?</div>
-                                        <div class="hook-answer">Let the spreadsheet execute directly.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want spreadsheet state treated like application
-                                            state?</div>
-                                        <div class="hook-answer">Immutable Runs and Versions.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want reproducible spreadsheet execution instead
-                                            of &ldquo;works on my laptop&rdquo;?</div>
-                                        <div class="hook-answer">Saved Runs.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want spreadsheet formulas backed by a real
-                                            execution engine?</div>
-                                        <div class="hook-answer">Polars underneath. Spreadsheet on top.</div>
-                                    </div>
-                                </div>
                             </div>
-                            <p class="hero-read-more">Read more:
-                                <a
-                                    href="https://medium.com/@reckoningmachines/spreadsheets-were-never-meant-to-be-production-systems-157a3c8c7fbb">Spreadsheets
-                                    were never meant to be production systems</a>
-                                -
-                                <a
-                                    href="https://medium.com/@reckoningmachines/stripe-removed-payment-logic-from-application-code-fin123-removes-spreadsheet-logic-b010dfe39228">Stripe
-                                    removed payment logic from application code. fin123 removes spreadsheet logic.</a>
-                            </p>
                         </aside>
                     </div>
                 </div>
-                <figure class="hero-shot-wide">
-                    <img src="./main.png"
-                        alt="fin123 root spreadsheet surface with model grid and results panel" />
-                    <figcaption class="hero-caption">One surface: spreadsheet first, lineage and Results beside it,
-                        Audit and replay behind every Run.</figcaption>
-                </figure>
             </div>
         </section>
 
@@ -718,18 +598,6 @@ Coverage Results</code></pre>
             </div>
         </section>
 
-        <section class="section" aria-label="Why fin123 exists">
-            <div class="container">
-                <p class="narrative-bridge"><strong>Why fin123?</strong> Spreadsheets used to be publishing artifacts:
-                    investment banking models, sell-side models, printed reports, static assumptions. Then the buyside
-                    started building live internal models for capital allocation, scenario analysis, and execution.
-                    Models forked. Assumptions drifted. AI entered the workflow. The spreadsheet became a living
-                    institutional decision system, but most software still treats it like a file. fin123 was built for
-                    what spreadsheets actually became.
-                </p>
-            </div>
-        </section>
-
         <section id="bring-your-model" class="section">
             <div class="container">
                 <h2 class="section-title">Bring Your Model</h2>
@@ -762,125 +630,41 @@ Coverage Results</code></pre>
         <section id="surface" class="section">
             <div class="container">
                 <h2 class="section-title">The product surface</h2>
-                <p class="section-lede">The root surface is still the spreadsheet. The model state around it is
-                    versioned, replayable, and explainable.</p>
-                <p class="section-lede">There is no File menu and no Print menu because fin123 is not a document editor.
-                    It is a system for building, branching, running, explaining, and replaying model decisions.</p>
-                <div class="screenshot-stack">
-                    <article class="shot-panel">
-                        <img src="./main.png" alt="fin123 spreadsheet model surface" />
-                        <div class="shot-body">
-                            <div class="shot-kicker">1 / Model Surface</div>
-                            <h3 class="shot-title">The grid is the primary object.</h3>
-                            <p class="shot-copy">Mark cells as Assumptions or Outputs, save model versions, select
-                                Scenarios, choose company context, Run, and inspect Results without leaving the
-                                spreadsheet surface.</p>
-                            <p class="shot-copy" style="margin-top: 8px;">The abstraction is not open, print, and close.
-                                It is build, branch, run, explain, replay.</p>
-                            <div class="pill-row"><span class="pill">Assumptions</span><span
-                                    class="pill">Outputs</span><span class="pill">Scenario: Base</span><span
-                                    class="pill">Save Version</span><span class="pill">Branch</span><span
-                                    class="pill">Run</span></div>
-                        </div>
-                    </article>
-                    <article class="shot-panel">
-                        <img src="./2.png" alt="fin123 AI-assisted Formula definition modal" />
-                        <div class="shot-body">
-                            <div class="shot-kicker">2 / AI-assisted Formula</div>
-                            <h3 class="shot-title">AI-assisted formulas are approved compute steps.</h3>
-                            <p class="shot-copy">Type <code>=AI()</code> into a cell. The
-                                approved definition lives behind the cell, and it may reference an approved Method:
-                                versioned institutional methodology for how the formula should reason, validate output,
-                                and preserve evidence during a Run. Approved Model Memory and YAP chronology can supply
-                                decision context when they are part of the reviewed model record.</p>
-                            <div class="pill-row"><span class="pill">Review Formula</span><span class="pill">Preview
-                                    Output</span><span class="pill">Approve</span><span class="pill">Validated
-                                    output</span><span class="pill">Approved memory</span></div>
-                        </div>
-                    </article>
-                    <article class="shot-panel">
-                        <img src="./3.png" alt="fin123 scenario and results surface" />
-                        <div class="shot-body">
-                            <div class="shot-kicker">3 / Results</div>
-                            <h3 class="shot-title">Run produces a stable Results surface.</h3>
-                            <p class="shot-copy">Results are based on marked Outputs from the saved model state. Run
-                                All can execute one model across selected companies and Scenarios while preserving the
-                                context behind each number.</p>
-                            <p class="shot-copy" style="margin-top: 8px;">Charts and visualizations can help, but they
-                                are secondary to the explainable Run record.</p>
-                            <div class="pill-row"><span class="pill">Run Results</span><span
-                                    class="pill">Coverage Universe</span><span class="pill">Sensitivity Cases</span><span
-                                    class="pill">Open Audit</span></div>
-                        </div>
-                    </article>
-                    <article class="shot-panel">
-                        <img src="./4.png" alt="fin123 Audit modal with run and AI-assisted Formula evidence" />
-                        <div class="shot-body">
-                            <div class="shot-kicker">4 / Audit</div>
-                            <h3 class="shot-title">Audit proves the Run.</h3>
-                            <p class="shot-copy">Audit opens from Results. It shows what ran, what changed, which model
-                                state, Scenario, data evidence, provider evidence, AI method, approved memory,
-                                chronology, approval, and time rules supported the result.</p>
-                            <div class="pill-row"><span class="pill">model state</span><span
-                                    class="pill">scenario</span><span class="pill">data evidence</span><span
-                                    class="pill">AI method</span><span class="pill">time rules</span><span
-                                    class="pill">replay package</span></div>
-                        </div>
-                    </article>
-                </div>
+                <p class="section-lede">The grid stays primary. Analysts mark assumptions and outputs, add
+                    <code>=DATA()</code> and <code>=AI()</code> steps, save versions, run scenarios, and inspect Results
+                    without leaving the model surface.</p>
+                <article class="shot-panel">
+                    <img src="./main.png" alt="fin123 spreadsheet model surface" />
+                    <div class="shot-body">
+                        <div class="shot-kicker">Model Surface</div>
+                        <h3 class="shot-title">The model is the unit of work.</h3>
+                        <p class="shot-copy">The spreadsheet remains the primary surface. Versioning, Scenarios, Runs,
+                            Results, replay, and Audit live around the model instead of replacing it.</p>
+                        <div class="pill-row"><span class="pill">Assumptions</span><span class="pill">Outputs</span><span
+                                class="pill">=DATA()</span><span class="pill">=AI()</span><span
+                                class="pill">Versions</span><span class="pill">Scenarios</span><span
+                                class="pill">Results</span><span class="pill">Replay</span><span
+                                class="pill">Audit</span></div>
+                    </div>
+                </article>
             </div>
         </section>
 
         <section id="features" class="section">
             <div class="container">
-                <h2 class="section-title">The workflow behind the number</h2>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Lineage and Branches</h3>
-                        <p>Keep model work organized by lineage, not filenames. Branch analysis, promote reviewed work,
-                            and return working models to a known-good state.</p>
-                        <ul class="feature-list">
-                            <li>Versions preserve model states before execution.</li>
-                            <li>Branches keep working analysis separate from protected paths.</li>
-                            <li>Promote is reviewed reconciliation, not a silent overwrite.</li>
-                            <li>Reset cleans up working analysis without rewriting prior decisions.</li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">One Model, Many Companies</h3>
-                        <p>Run the same approved model across a coverage universe while preserving each company&rsquo;s
-                            context.</p>
-                        <ul class="feature-list">
-                            <li>Each company keeps its own assumptions and data.</li>
-                            <li>Scenarios compare Base, Bull, Bear, and sensitivity cases.</li>
-                            <li>Results stay tied to the company and Scenario that produced them.</li>
-                            <li>Replay reconstructs the decision context behind each name.</li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Approved DATA</h3>
-                        <p><code>=DATA()</code> gives analysts one formula shape for approved internal and external
-                            data.</p>
-                        <ul class="feature-list">
-                            <li>Business concepts map to provider fields, calendars, and company identifiers.</li>
-                            <li>Each Run records the data and mapping context it used.</li>
-                            <li>Provider-backed replay uses the evidence and time rules from then.</li>
-                            <li>No copy-paste data trail hiding inside the workbook.</li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Replay and Audit</h3>
-                        <p>Every execution is reviewable. Replay explains the decision; Audit shows the evidence behind
-                            it.</p>
-                        <ul class="feature-list">
-                            <li>Run Diff shows why the target moved.</li>
-                            <li>Replay uses the model state, data, AI method, memory, chronology, and time rules.</li>
-                            <li>Audit shows what ran, what changed, which evidence was used, and who approved it.</li>
-                            <li>Reviewers can ask why the result was valid at that point in time.</li>
-                        </ul>
-                    </div>
-                    <p class="feature-punchline">The hard part is not: &ldquo;run 10 models.&rdquo; The hard part is:
-                        &ldquo;prove what the model knew, what it ran, and why the decision was valid then.&rdquo;</p>
+                <h2 class="section-title">Replay and Audit prove the workflow.</h2>
+                <div class="panel">
+                    <p>Every workflow run leaves a reviewable record: model state, company, scenario, data evidence, AI
+                        method, approved memory, results, replay context, and Audit.</p>
+                    <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Replay -> Audit</p>
+                    <ul class="feature-list">
+                        <li>Versions preserve model states before execution.</li>
+                        <li>Runs preserve company and scenario context.</li>
+                        <li>Replay uses the model state, data, provider evidence, AI method, memory, chronology, and time
+                            rules that applied then.</li>
+                        <li>Audit shows what ran, what changed, which evidence was used, and who approved it.</li>
+                        <li>Saved model states can be scheduled for later execution without opening Excel on a server.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -891,28 +675,11 @@ Coverage Results</code></pre>
                 <p class="section-lede">Not a side chat. Not copy/paste. <code>=AI()</code> lets reviewed AI workflows
                     execute as model steps.</p>
                 <div class="panel">
-                    <p><code>=AI()</code> sits in a normal worksheet cell. The formula
-                        definition lives behind it, and the definition can reference an approved Method: versioned
-                        institutional methodology that defines how the formula should reason, validate output, and
-                        preserve evidence during a Run.</p>
-                    <p style="margin-top: 10px;">A Method can be more than a prompt. It can define a chained analytical
-                        workflow: retrieve evidence, apply approved context, compare history, validate assumptions,
-                        reconcile intermediate outputs, and return a typed result to the model.</p>
-                    <p style="margin-top: 10px;">Methods stay behind the formula. Analysts still work in the grid.
-                        Results receive only validated typed output. Audit shows the approved Method, prompt, inputs,
-                        output, validation, memory, and chronology used.</p>
-                    <p style="margin-top: 10px;">Model Memory adds the missing layer: approved institutional context
-                        attached to the model. YAP preserves the decision chronology around the work. Together they let
-                        AI use approved context without becoming a side-chat that mutates the model.</p>
-                    <p style="margin-top: 10px;">FINRA has made the direction clear: as firms adopt GenAI, supervision
-                        and compliance expectations follow the technology. Its October 2025 AI update describes internal
-                        AI governance, human-in-the-loop controls, training, security review, and ongoing engagement
-                        with member firms on GenAI use cases and supervisory implications. fin123 gives firms the
-                        operating layer for that reality: approved AI methods inside the model, typed outputs, evidence,
-                        replay, and Audit for every AI-assisted result.</p>
-                    <p style="margin-top: 10px;"><a
-                            href="https://www.finra.org/media-center/blog/advancing-finras-mission-with-ai-1028205">Read
-                            FINRA's AI update</a></p>
+                    <p><code>=AI()</code> sits in a normal worksheet cell. The approved definition lives behind the cell,
+                        where a Method can retrieve evidence, compare history, validate assumptions, and return typed
+                        output to the model.</p>
+                    <p style="margin-top: 10px;">Audit records the method, inputs, validation, approved memory,
+                        chronology, and Run identity behind the result.</p>
                     <div class="code-panel" style="margin-top: 16px;">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span><span class="dot"
@@ -921,20 +688,11 @@ Coverage Results</code></pre>
                         </div>
                         <pre class="code"><code>Cell B12: =AI()
 
-Reviewed Method:
-- retrieve management guidance and prior quarter commentary
-- compare historical SSS seasonality and recent comp trends
-- apply approved Model Memory
-- validate assumptions against source evidence
-- reconcile intermediate outputs
+Method:
+- retrieve evidence
+- compare history
+- validate assumptions
 - return typed model output
-
-Inputs:
-- prior quarter SSS
-- management guidance text
-- recent comp commentary
-- macro / consumer read-through
-- historical seasonality
 
 Typed output:
 Forecast SSS:      0.035
@@ -952,151 +710,22 @@ Audit:
             </div>
         </section>
 
-        <section id="overnight" class="section">
-            <div class="container">
-                <h2 class="section-title">Run later</h2>
-                <p class="section-lede">Scheduled execution is the same Run model, just delayed. It references a saved
-                    model state, selected Scenarios, and selected company contexts. It never runs the mutable grid.</p>
-                <article class="shot-panel" style="margin-bottom: 16px;">
-                    <img src="./1.png"
-                        alt="fin123 Run later modal showing saved version, selected Scenario, and time" />
-                    <div class="shot-body">
-                        <div class="shot-kicker">Run later</div>
-                        <h3 class="shot-title">Run this saved version at a time.</h3>
-                        <p class="shot-copy">The modal is a delayed Run confirmation: saved version, selected Scenario,
-                            and execution time. Unsaved changes are not included.</p>
-                    </div>
-                </article>
-                <div class="panel">
-                    <p><strong>Run later</strong> means: run this saved model state with these Scenarios at this time.
-                        Use it for one name, a scenario pack, or a whole coverage universe. When it triggers, fin123
-                        leaves the same Results and Audit trail as an interactive Run.</p>
-                    <p style="margin-top: 10px;"><strong>Headless running is not unattended Office automation.</strong>
-                        Microsoft&rsquo;s official guidance says it does not recommend or support automating Microsoft
-                        Office applications from unattended, non-interactive client applications or components because
-                        Office can become unstable or deadlock in that environment. By contrast, fin123 model Runs are
-                        executed from the saved model record and approved formula/data/AI definitions, not by opening
-                        Excel on a server. <a class="link"
-                            href="https://learn.microsoft.com/en-us/office/client-developer/integration/considerations-unattended-automation-office-microsoft-365-for-unattended-rpa">Read
-                            Microsoft&rsquo;s unattended Office automation guidance</a>.</p>
-                    <ul class="feature-list">
-                        <li>References the saved model state.</li>
-                        <li>Uses selected Scenarios and company contexts.</li>
-                        <li>Executes approved AI-assisted Formula definitions only.</li>
-                        <li>Produces reviewable Results, replay, and Audit.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="how-it-works" class="section">
-            <div class="container">
-                <h2 class="section-title">How it works</h2>
-                <p class="section-lede">The product contract is Model -> Version -> Scenario -> Run -> Results ->
-                    Replay -> Audit. Every institutional decision becomes a replayable, explainable model record.
-                </p>
-                <div class="flow">
-                    <div class="flow-step">
-                        <div class="flow-num">01</div>
-                        <div class="flow-title">Model</div>
-                        <div class="flow-copy">Build assumptions, outputs, formulas, approved data, and approved AI in
-                            the grid.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-num">02</div>
-                        <div class="flow-title">Version</div>
-                        <div class="flow-copy">Save the model state and keep work organized by lineage.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-num">03</div>
-                        <div class="flow-title">Scenario</div>
-                        <div class="flow-copy">Choose Base, Bull, Bear, sensitivity cases, and company context.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-num">04</div>
-                        <div class="flow-title">Run</div>
-                        <div class="flow-copy">Execute one Scenario, many Scenarios, AI workflows, or a whole coverage
-                            universe.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-num">05</div>
-                        <div class="flow-title">Results</div>
-                        <div class="flow-copy">Inspect outputs, compare Runs, and see why the number moved.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-num">06</div>
-                        <div class="flow-title">Audit</div>
-                        <div class="flow-copy">Replay the decision and review data, AI, memory, chronology, and time
-                            rules.</div>
-                    </div>
-                </div>
-                <div class="code-panel" style="margin-top: 16px;">
-                    <div class="code-header">
-                        <span class="dot" aria-hidden="true"></span><span class="dot"
-                            aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                        <span class="code-title">DECISION_RECORD</span>
-                    </div>
-                    <pre class="code"><code>Model
-  -> Branch / Version
-      -> Company + Scenario
-          -> Run
-              -> Approved DATA + AI Workflow Execution
-              -> Results + Diff
-              -> Replay + Audit
-                  -> Data + Provider Evidence
-                  -> AI Method + Approved Memory
-                  -> YAP Chronology + Time Rules</code></pre>
-                </div>
-            </div>
-        </section>
-
         <section id="yap" class="section">
             <div class="container">
-                <figure class="hero-shot-wide" style="margin-top: 18px;">
-                    <img class="yap-logo" src="./yap-logo.png" alt="YAP" />
-                    <p class="contact-line" style="padding: 18px 20px 0; margin: 0;">
-                        <strong>YAP remembers how the pod thinks. fin123 governs what the firm executes.</strong>
-                    </p>
-                    <img src="./yap.png"
-                        alt="YAP institutional conversation surface" />
-                    <figcaption class="hero-caption yap-caption">
-                        YAP (Yet Another Protocol) is the pod's institutional research conversation layer embedded
-                        directly into model workflows. Think on-premises Bloomberg chat tied to the live research
-                        process instead of a detached messaging app. Discussions stay connected to the spreadsheet,
-                        assumptions, scenarios, Runs, and decisions driving the book.
-                        <br><br>
-                        YAP operates both at the model level and across the pod. Analysts can debate a single name,
-                        compare themes across sectors and models, challenge assumptions, track changing conviction, and
-                        preserve the chronology behind decisions inside the research environment itself.
-                        <br><br>
-                        YAP is not "AI chat." The conversation remains linked to approved context, including model
-                        versions, scenarios, estimates, Run outputs, approved memory, and replayable provenance.
-                        Analysts can query model state directly inside the workflow without leaving the spreadsheet
-                        surface. <strong>Use $TICKER to tag a message to a ticker, use @YAP to ask a question about a
-                            $TICKER.</strong>
-                        <br><br>
-                        When discussion should inform a model, approved YAP evidence and Model Memory can become part
-                        of the decision context used by execution and replay. Audit shows which memory and chronology
-                        were used. YAP itself does not silently mutate Runs, Results, assumptions, or active Model
-                        Memory.
-                        <br><br>
-                        fin123 remains the execution record.
-                    </figcaption>
-                    <div class="shot-body">
-                        <div class="shot-kicker">How Desk Knowledge Enters The Model</div>
-                        <h3 class="shot-title">Desk knowledge becomes approved model context.</h3>
-                        <p class="shot-copy">Desk knowledge should not disappear into chat logs, email threads, or
-                            analyst notebooks.</p>
-                        <p class="shot-copy" style="margin-top: 8px;">YAP captures discussion. Model Memory captures
-                            approved knowledge. AI workflows operationalize that knowledge inside the model. Over time,
-                            workflows improve as the institution learns.</p>
-                        <div class="code-panel" style="margin-top: 16px;">
-                            <div class="code-header">
-                                <span class="dot" aria-hidden="true"></span><span class="dot"
-                                    aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                                <span class="code-title">DESK_KNOWLEDGE_PATH</span>
-                            </div>
-                            <pre class="code"><code>Trader Observation
+                <h2 class="section-title">YAP and Model Memory</h2>
+                <p class="section-lede">Desk knowledge should not disappear into chat logs, email threads, or analyst
+                    notebooks. YAP, the in-workbook team-wide chat, captures discussion. Model Memory captures approved
+                    knowledge. AI workflows can use that approved knowledge inside the model.</p>
+                <div class="panel">
+                    <div class="shot-kicker">How Desk Knowledge Enters The Model</div>
+                    <h3 class="shot-title">Desk knowledge becomes approved workflow context.</h3>
+                    <div class="code-panel" style="margin-top: 16px;">
+                        <div class="code-header">
+                            <span class="dot" aria-hidden="true"></span><span class="dot"
+                                aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
+                            <span class="code-title">DESK_KNOWLEDGE_PATH</span>
+                        </div>
+                        <pre class="code"><code>Trader Observation
 
 "Traffic looks weaker than expected."
         ↓
@@ -1124,151 +753,10 @@ Future retail workflows can use it.
 Forecast
 
 Estimate changes.</code></pre>
-                        </div>
-                        <p class="shot-copy" style="margin-top: 16px;">Most systems stop at discussion.</p>
-                        <p class="shot-copy" style="margin-top: 8px;">fin123 provides a path from:</p>
-                        <div class="code-panel" style="margin-top: 12px;">
-                            <div class="code-header">
-                                <span class="dot" aria-hidden="true"></span><span class="dot"
-                                    aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                                <span class="code-title">INSTITUTIONAL_KNOWLEDGE_PATH</span>
-                            </div>
-                            <pre class="code"><code>Observation
-→ Discussion
-→ Approval
-→ Memory
-→ Workflow
-→ Forecast</code></pre>
-                        </div>
-                        <p class="shot-copy" style="margin-top: 12px;">This graphic explains how institutional
-                            knowledge becomes part of the investment process.</p>
-                        <ul class="feature-list">
-                            <li>YAP is not generic chat.</li>
-                            <li>YAP discussion can become approved Model Memory.</li>
-                            <li>Model Memory can inform future AI workflows.</li>
-                            <li>YAP is non-mutating.</li>
-                            <li>YAP does not silently change Runs, Results, assumptions, or active Model Memory.</li>
-                        </ul>
                     </div>
-                    <div class="code-panel" style="margin: 0 20px 20px;">
-                        <div class="code-header">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="code-title">Example</span>
-                        </div>
-                        <pre class="code"><code>@yap why did we lower $AAPL gross margin in Q3?
-
-Response:
-
-Gross margin was reduced from 46.2% to 44.8% in Scenario Base on 2026-05-12.
-
-Primary drivers:
-- Management commentary suggesting elevated NAND costs
-- China mix deterioration concerns
-- Temporary services mix normalization
-
-Approved memory:
-- Source: earnings reaction thread
-- Approved by: JG
-- Confidence: medium
-
-Affected formulas:
-- gross_margin_q3
-- product_margin_assumption</code></pre>
-                    </div>
-                </figure>
-            </div>
-        </section>
-
-        <section id="temporal-truth" class="section">
-            <div class="container">
-                <h2 class="section-title">asof123: Every bug in finance software is secretly an "as of" bug.</h2>
-                <div class="panel">
-                    <p>
-                        asof123 governs what time meant for the decision. It records market state, holidays,
-                        publication windows, effective dates, stale status, and replay-valid time context.
-                    </p>
-                    <ul class="feature-list">
-                        <li>YAP preserves the investment discussion and decision chronology.</li>
-                        <li>fin123 runs approved models, scenarios, estimates, and outputs.</li>
-                        <li>asof123 supplies the market clock, publication windows, and as-of rules.</li>
-                    </ul>
-                    <p style="margin-top: 10px;">
-                        Replay uses those same time rules instead of judging the past with today&rsquo;s information. A
-                        PM, analyst, risk team, or compliance reviewer can reconstruct what the desk could actually know
-                        at the time.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        YAP preserves the thesis record. fin123 runs the model record. asof123 preserves the market
-                        clock. Together they make institutional decisions replayable and explainable.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="reckoning-machines" class="section">
-            <div class="container">
-                <h2 class="section-title">reckoning-machine: Runtime layer for governed AI execution.</h2>
-                <div class="panel">
-                    <p>
-                        Reckoning Machines is the runtime layer behind chained AI execution: methods, evidence,
-                        validation, typed outputs, replay, and audit.
-                    </p>
-                    <div class="code-panel" style="margin-top: 16px;">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span><span class="dot"
-                                aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">RECKONING_MACHINES_RUNTIME</span>
-                        </div>
-                        <pre class="code"><code>ReviewedMethod
-  -> Evidence
-      -> Validation
-          -> TypedOutput
-              -> Replay
-                  -> Audit</code></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="prompt123" class="section">
-            <div class="container">
-                <h2 class="section-title">prompt123: Governed prompt proofing for institutional LLM execution.</h2>
-                <p class="section-lede">prompt123 is a product in development and is not yet deployed to fin123.</p>
-                <div class="panel">
-                    <p>
-                        prompt123 is optional prompt improvement before running. Reviewable, approved, audited, and
-                        nothing done silently.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        It flags ambiguity, missing schema, hidden assumptions, nondeterministic wording, and unsafe
-                        external dependencies. If the prompt is unclear, prompt123 records findings instead of silently
-                        deciding what the user meant.
-                    </p>
-                    <ul class="feature-list">
-                        <li>Prompts are intent.</li>
-                        <li>Proofed prompts are drafts.</li>
-                        <li>Approved prompts are execution artifacts.</li>
-                        <li>Execution systems own approval and execution.</li>
-                        <li>prompt123 must never silently rewrite and execute prompts.</li>
-                    </ul>
-                    <p style="margin-top: 10px;">
-                        LLM-assisted proofing may propose clarifications or normalized draft language, but every
-                        suggestion remains advisory. Approval and execution stay with the analyst.
-                    </p>
-                    <div class="code-panel" style="margin-top: 16px;">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span><span class="dot"
-                                aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">PROMPT123_ONTOLOGY</span>
-                        </div>
-                        <pre class="code"><code>PromptIntent
-  -> PromptDraft
-      -> ApprovedPrompt
-          -> ExecutionArtifact
-              -> Audit</code></pre>
-                    </div>
+                    <p style="margin-top: 14px;">YAP is not generic chat. Discussion can become approved Model Memory,
+                        and Model Memory can inform future AI workflows. YAP is non-mutating: it does not silently
+                        change Runs, Results, assumptions, or active Model Memory.</p>
                 </div>
             </div>
         </section>
@@ -1298,26 +786,13 @@ Affected formulas:
                             explainable decision system.
                         </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="reckoning-machines-company" class="section">
-            <div class="container">
-                <h2 class="section-title">Reckoning Machines</h2>
-                <div class="panel">
-                    <p>
-                        Reckoning Machines is a financial-services-focused software company founded by a senior
-                        developer and former portfolio manager.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        Most systems start with UI and execution workflows, then discover the hard problems later:
-                        replay, provenance, time-aware reconstruction, and review.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        We build from replay, Audit, and time-aware execution forward, because institutional systems
-                        only become trustworthy when the decision record is native to the product.
-                    </p>
+                    <div class="panel">
+                        <p>
+                            Deeper architecture notes for asof123, Reckoning Machines, prompt123, Run Later, and YAP
+                            examples are preserved in <a class="link"
+                                href="./docs/homepage_removed_architecture_sections.md">docs</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
