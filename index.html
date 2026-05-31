@@ -48,25 +48,34 @@
             color: var(--fg-bright);
             font-size: 36px;
             line-height: 1.12;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             max-width: 780px;
         }
 
+        .hero-text {
+            max-width: 840px;
+        }
+
         .hero-copy {
-            color: var(--fg);
+            color: var(--fg-dim);
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 8px;
-            max-width: 760px;
+            max-width: 800px;
+        }
+
+        .hero-reality {
+            color: var(--fg);
+            font-weight: 600;
         }
 
         .hero-punchline {
             color: var(--fg-bright);
-            font-size: 22px;
+            font-size: 17px;
             font-weight: 700;
-            line-height: 1.45;
-            margin: 0 0 18px;
-            max-width: 760px;
+            line-height: 1.6;
+            margin: 14px 0 22px;
+            max-width: 800px;
         }
 
         .hero + .section {
@@ -409,7 +418,7 @@
             }
 
             .hero-punchline {
-                font-size: 17px;
+                font-size: 15px;
             }
 
             .analyst-hook-card {
@@ -453,17 +462,17 @@
             <div class="container">
                 <div class="hero-card">
                     <div class="hero-grid">
-                        <div>
+                        <div class="hero-text">
                             <h1 class="title">Spreadsheets became production systems.</h1>
-                            <p class="hero-punchline">
-                                fin123 puts them inside the model.
-                            </p>
-                            <p class="hero-copy">
+                            <p class="hero-copy hero-reality">
                                 Analysts still make real investment decisions in Excel.
                             </p>
                             <p class="hero-copy">
                                 AI, data, versioning, replay, audit, and team chat<br />
                                 all evolved outside the model.
+                            </p>
+                            <p class="hero-punchline">
+                                fin123 puts them inside the model.
                             </p>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
