@@ -5,17 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 turns spreadsheet models into governed decision systems with lineage, Scenarios, Runs, replay, Audit, DATA, and AI." />
-    <meta property="og:title" content="fin123 -- Spreadsheet models that run as programs" />
+        content="Spreadsheets became production systems. fin123 puts AI, data, versioning, replay, audit, and team chat inside the model." />
+    <meta property="og:title" content="fin123 -- Spreadsheets became production systems" />
     <meta property="og:description"
-        content="Build in the grid. Branch the work. Run the model. Explain what changed. Replay the decision." />
+        content="Analysts still make real investment decisions in Excel. fin123 rebuilds the analyst model environment for the modern era." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="fin123 -- Spreadsheet models that run as programs" />
+    <meta name="twitter:title" content="fin123 -- Spreadsheets became production systems" />
     <meta name="twitter:description"
-        content="Lineage, replay, Audit, DATA, and AI for spreadsheet models that run as decision systems." />
-    <title>fin123 -- Spreadsheet models that run as programs</title>
+        content="AI, data, versioning, replay, audit, and team chat inside the model." />
+    <title>fin123 -- Spreadsheets became production systems</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,15 +39,34 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+            grid-template-columns: 1fr;
             gap: 24px;
             align-items: center;
         }
 
         .hero-card .title {
-            font-size: 28px;
-            line-height: 1.22;
-            margin-bottom: 16px;
+            color: var(--fg-bright);
+            font-size: 34px;
+            line-height: 1.14;
+            margin-bottom: 18px;
+            max-width: 780px;
+        }
+
+        .hero-copy {
+            color: var(--fg);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 8px;
+            max-width: 760px;
+        }
+
+        .hero-punchline {
+            color: var(--fg-bright);
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin: 12px 0 24px;
+            max-width: 760px;
         }
 
         .hero-proof {
@@ -246,6 +265,16 @@
             background: var(--accent);
         }
 
+        .primary-list {
+            margin-top: 0;
+        }
+
+        .primary-list li {
+            color: var(--fg);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
         .feature-punchline {
             color: var(--fg);
             font-size: 13px;
@@ -368,7 +397,15 @@
             }
 
             .hero-card .title {
-                font-size: 22px;
+                font-size: 27px;
+            }
+
+            .hero-copy {
+                font-size: 14px;
+            }
+
+            .hero-punchline {
+                font-size: 16px;
             }
 
             .analyst-hook-card {
@@ -396,10 +433,12 @@
                 <span class="runtime-identity">powered by Reckoning Machines</span>
             </div>
             <nav class="nav" aria-label="Primary">
+                <a href="#stakeholders">Stakeholders</a>
+                <a href="#surface">Grid</a>
+                <a href="#inside-model">Inside model</a>
                 <a href="#bring-your-model">BYM</a>
-                <a href="#surface">Surface</a>
-                <a href="#features">Features</a>
-                <a href="#llm-formulas">AI formulas</a>
+                <a href="#yap">YAP</a>
+                <a href="#proof">Audit</a>
                 <a href="#get-started">Get Started</a>
             </nav>
         </div>
@@ -411,48 +450,17 @@
                 <div class="hero-card">
                     <div class="hero-grid">
                         <div>
-                            <div class="kicker">fin123.dev</div>
-                            <h1 class="title">The spreadsheet for AI workflows.</h1>
-                            <p class="value">
-                                ChatGPT and Claude gave analysts AI assistants.
+                            <h1 class="title">Spreadsheets became production systems.</h1>
+                            <p class="hero-copy">
+                                Analysts still make real investment decisions in Excel.
                             </p>
-                            <p class="value">
-                                fin123 lets analysts build AI workflows directly inside the models that drive
-                                investment decisions.
+                            <p class="hero-copy">
+                                AI, data, versioning, replay, audit, and team chat<br />
+                                all evolved outside the model.
                             </p>
-                            <p class="value" style="font-weight: 600; color: var(--fg-bright);">
-                                Build once. Reuse everywhere.
+                            <p class="hero-punchline">
+                                fin123 puts them inside the model.
                             </p>
-                            <p class="value" style="font-weight: 600; color: var(--fg-bright);">
-                                AI built in. Audit built in. No black box.
-                            </p>
-                            <p class="proof-line">
-                                fin123 is not a generic workflow engine. The model remains the unit of work. AI
-                                workflows participate inside the model.
-                            </p>
-                            <div class="hero-proof">
-                                <p class="proof-line"><strong>Build in the grid.</strong> Mark Assumptions and Outputs
-                                    directly in the spreadsheet your team already knows.</p>
-                                <p class="proof-line"><strong>Bring your model.</strong> Import existing Excel workbooks
-                                    with formulas, Bloomberg links, Visible Alpha links, and model structure intact.
-                                    Once uploaded, the model gains fin123 versioning, Sheet Warnings, Audit, replay,
-                                    chat context, and governed <code>=AI()</code>.</p>
-                                <p class="proof-line"><strong>Keep work organized by lineage.</strong> Branch analysis,
-                                    promote reviewed work, and return working models to a known-good state without
-                                    filename sprawl.</p>
-                                <p class="proof-line"><strong>Run one model across the coverage universe.</strong> Each
-                                    company keeps its own assumptions, data, Runs, Results, Audit, and replay context.</p>
-                                <p class="proof-line"><strong>AI workflows run inside the model.</strong>
-                                    <code>=AI()</code> formula can execute reviewed Methods: chained analysis, approved
-                                    context, validation, typed output, Model Memory, YAP chronology, and Audit. Inside
-                                    the model.
-                                </p>
-                                <p class="proof-line"><strong>Replay and Audit.</strong> See what ran, what changed,
-                                    which evidence was used, and why the result was valid at that point in time.</p>
-                                <p class="proof-line"><strong>Sheet Warnings.</strong> Every Run checks for errors
-                                    before they become problems. See what formulas may have drifted, hardcodes replaced
-                                    formulas, and other changes that need review. Spreadsheet linting for finance.</p>
-                            </div>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
                                 <a class="btn" href="https://app.yap123.dev">Open yap123</a>
@@ -461,111 +469,160 @@
                                     a Walkthrough</a>
                             </div>
                         </div>
-                        <aside class="analyst-hook-card" aria-label="Common spreadsheet problems fin123 solves">
-                            <div class="hook-kicker">desk notes</div>
-                            <h2 class="hook-title">Ever had this problem?</h2>
-                            <div class="hook-list">
-                                <div class="hook-group">
-                                    <div class="hook-group-label">for analysts</div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have 6 copies of the same model called
-                                            FINAL_v12_USE_THIS_ONE.xlsx?</div>
-                                        <div class="hook-answer">Lineage instead of filename archaeology.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever avoid a new platform because your Excel model
-                                            already works?</div>
-                                        <div class="hook-answer">Bring Your Model.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have three analysts copy the same model in
-                                            different directions?</div>
-                                        <div class="hook-answer">Branch the work.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever copy a column over and mess up the formulas?
-                                        </div>
-                                        <div class="hook-answer">Sheet Warnings.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever need to run the same model across every name in
-                                            coverage?</div>
-                                        <div class="hook-answer">One approved model, many companies.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have compliance ask where a number came from?
-                                        </div>
-                                        <div class="hook-answer">Audit, lineage, and replay in one review path.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever copy/paste ChatGPT into Excel and immediately
-                                            feel dirty?</div>
-                                        <div class="hook-answer"><code>=AI()</code>.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever want AI outputs treated like model outputs
-                                            instead of random chat text?</div>
-                                        <div class="hook-answer"><code>=AI()</code> participates in Run, Audit, Replay,
-                                            and Diff.</div>
-                                    </div>
-                                    <div class="hook-item">
-                                        <div class="hook-question">Ever have a workbook so fragile nobody wants to press
-                                            recalc?</div>
-                                        <div class="hook-answer">Run the model. Explain the result.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="one-workflow-four-stakeholders" class="section">
+        <section id="stakeholders" class="section">
             <div class="container">
                 <h2 class="section-title">One Workflow. Four Stakeholders.</h2>
                 <div class="feature-grid">
                     <div class="panel">
                         <h3 class="panel-title">Analyst</h3>
-                        <p>Build AI workflows directly inside the model with <code>=AI()</code>.</p>
+                        <p>Build AI and data workflows directly inside the model.</p>
                     </div>
                     <div class="panel">
                         <h3 class="panel-title">PM</h3>
-                        <p>Run the same model across every company in coverage. Use YAP chat to query models.</p>
+                        <p>Run the same model across every company in coverage.</p>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Trading Desk</h3>
-                        <p>Fork a version of the analyst model, drive it with chat. Or add suggestions to the analyst
-                            model for the analyst to promote to Model Memory.</p>
+                        <h3 class="panel-title">Head of Research</h3>
+                        <p>Institutionalize methodology.</p>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">CTO</h3>
-                        <p>Run models headlessly, run backtests cleanly, and have vendor-agnostic analyst models.</p>
+                        <h3 class="panel-title">Compliance / FINRA</h3>
+                        <p>Prove what happened.</p>
                     </div>
-                    <p class="feature-punchline">The same workflow that helps an analyst move faster helps a PM scale
-                        analysis, a trading desk test ideas, and a CTO run models cleanly.</p>
                 </div>
             </div>
         </section>
 
-        <section id="build-once-run-everywhere" class="section">
+        <section id="surface" class="section">
             <div class="container">
-                <h2 class="section-title">Build Once. Run Everywhere.</h2>
-                <p class="section-lede">Build a workflow once. Run it across a coverage universe while preserving
-                    assumptions, scenarios, audit history, replay context, and results for every company.</p>
-                <div class="code-panel">
-                    <div class="code-header">
-                        <span class="dot" aria-hidden="true"></span><span class="dot"
-                            aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                        <span class="code-title">COVERAGE_WORKFLOW</span>
+                <h2 class="section-title">Build in the grid.</h2>
+                <p class="section-lede">The grid stays primary. Analysts mark assumptions and outputs, add
+                    <code>=DATA()</code> and <code>=AI()</code>, save versions, run scenarios, and inspect Results
+                    without leaving the model.</p>
+                <article class="shot-panel">
+                    <img src="./main.png" alt="fin123 spreadsheet model surface" />
+                    <div class="shot-body">
+                        <div class="shot-kicker">Model Surface</div>
+                        <h3 class="shot-title">The model is the unit of work.</h3>
+                        <p class="shot-copy">The spreadsheet remains the primary surface. AI, Results, Model Memory,
+                            Replay, and Audit live around the grid instead of replacing it.</p>
+                        <div class="pill-row"><span class="pill">Assumptions</span><span class="pill">Outputs</span><span
+                                class="pill">=DATA()</span><span class="pill">=AI()</span><span
+                                class="pill">Results</span><span class="pill">Model Memory</span><span
+                                class="pill">Replay</span><span class="pill">Audit</span></div>
                     </div>
-                    <pre class="code"><code>Retail Guidance Workflow
-        ↓
-TGT   WMT   COST   HD
-        ↓
-Result   Result   Result   Result
-        ↓
-Coverage Results</code></pre>
+                </article>
+            </div>
+        </section>
+
+        <section id="analyst-pain" class="section">
+            <div class="container">
+                <h2 class="section-title">The missing pieces around the model.</h2>
+                <p class="section-lede">The spreadsheet became production infrastructure, but the work around it stayed
+                    manual, fragile, and hard to explain.</p>
+                <div class="feature-grid">
+                    <div class="panel">
+                        <h3 class="panel-title">Claude / ChatGPT copy-paste</h3>
+                        <p>AI enters the process through side chat instead of the model.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Slow recalc and fragile workbooks</h3>
+                        <p>The file works until nobody wants to press recalc.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Formula copy errors and hardcodes</h3>
+                        <p>A copied column or pasted value can silently change the model.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">FINAL_v12 filename sprawl</h3>
+                        <p>Versions live in filenames instead of in the model history.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">One model copied across many tickers</h3>
+                        <p>The same methodology branches into many fragile workbook copies.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Manual data plumbing</h3>
+                        <p>Bloomberg, SQL, CSVs, and internal data get glued together by hand.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Overnight updates require opening workbooks</h3>
+                        <p>Scheduled model work still depends on files, desktops, and fragile state.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">PM asks: "why did the estimate change?"</h3>
+                        <p>The answer is usually scattered across files, chats, data pulls, and memory.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="inside-model" class="section">
+            <div class="container">
+                <h2 class="section-title">What fin123 puts inside the model</h2>
+                <div class="feature-grid">
+                    <div class="panel">
+                        <h3 class="panel-title">AI</h3>
+                        <p><code>=AI()</code> inside the model, not Claude copy/paste.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Data</h3>
+                        <p><code>=DATA()</code> inside the model, vendor-agnostic and Bloomberg-compatible.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Dataset Engine</h3>
+                        <p>Fast, reliable data execution underneath the model. Built on a real Rust-backed dataset
+                            engine.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Versioning</h3>
+                        <p>Native model versions, no filename archaeology.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Execution</h3>
+                        <p>Scheduled and repeatable model runs.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Replay / Audit</h3>
+                        <p>Prove what ran, what changed, and why.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Chat / Memory</h3>
+                        <p>Team discussion can become approved model context.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Sheet Warnings</h3>
+                        <p>Catch formula drift, hardcodes, and copy errors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modern-execution" class="section">
+            <div class="container">
+                <h2 class="section-title">The spreadsheet experience remains familiar.</h2>
+                <div class="panel">
+                    <p>The model is the unit of work.</p>
+                    <p style="margin-top: 10px;">The infrastructure underneath is modern: faster, more reliable,
+                        reproducible, scalable, and easier to explain.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="infrastructure" class="section">
+            <div class="container">
+                <h2 class="section-title">Your methodology stays yours.</h2>
+                <div class="panel">
+                    <p>Your firm owns the methodology.</p>
+                    <p style="margin-top: 10px;">fin123 provides the infrastructure around the model: versions,
+                        scenarios, runs, replay, audit, approved memory, and institutional history.</p>
+                    <p style="margin-top: 10px;">That is why fin123 is financial-model infrastructure, not a generic
+                        workflow engine.</p>
                 </div>
             </div>
         </section>
@@ -576,18 +633,7 @@ Coverage Results</code></pre>
                 <p class="section-lede">Analysts should not have to rebuild working Excel models to enter the fin123
                     ecosystem.</p>
                 <div class="panel">
-                    <p>
-                        Bring Your Model is the first-class import layer for fin123. Analysts can bring the workbook
-                        they already trust: formulas, Bloomberg links, Visible Alpha links, internal data references,
-                        and model structure are preserved and mapped into the fin123 workflow.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        The model keeps working, but once uploaded it gains fin123 versioning, Sheet Warnings, chat
-                        context, Audit, replay, and governed <code>=AI()</code> upgrades. Analysts can keep the workbook
-                        logic that already works while the firm gets less migration friction, fewer parity bugs,
-                        and a faster path from spreadsheet artifact to governed decision system.
-                    </p>
-                    <ul class="feature-list">
+                    <ul class="feature-list primary-list">
                         <li>Import existing Excel models instead of rebuilding them.</li>
                         <li>Preserve formulas, Bloomberg links, Visible Alpha links, and workbook structure.</li>
                         <li>Map live model inputs into approved <code>=DATA()</code> and governed execution paths.</li>
@@ -599,98 +645,14 @@ Coverage Results</code></pre>
             </div>
         </section>
 
-        <section id="surface" class="section">
-            <div class="container">
-                <h2 class="section-title">The product surface</h2>
-                <p class="section-lede">The grid stays primary. Analysts mark assumptions and outputs, add
-                    <code>=DATA()</code> and <code>=AI()</code> steps, save versions, run scenarios, and inspect Results
-                    without leaving the model surface.</p>
-                <article class="shot-panel">
-                    <img src="./main.png" alt="fin123 spreadsheet model surface" />
-                    <div class="shot-body">
-                        <div class="shot-kicker">Model Surface</div>
-                        <h3 class="shot-title">The model is the unit of work.</h3>
-                        <p class="shot-copy">The spreadsheet remains the primary surface. Versioning, Scenarios, Runs,
-                            Results, replay, and Audit live around the model instead of replacing it.</p>
-                        <div class="pill-row"><span class="pill">Assumptions</span><span class="pill">Outputs</span><span
-                                class="pill">=DATA()</span><span class="pill">=AI()</span><span
-                                class="pill">Versions</span><span class="pill">Scenarios</span><span
-                                class="pill">Results</span><span class="pill">Replay</span><span
-                                class="pill">Audit</span></div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="features" class="section">
-            <div class="container">
-                <h2 class="section-title">Replay and Audit prove the workflow.</h2>
-                <div class="panel">
-                    <p>Every workflow run leaves a reviewable record: model state, company, scenario, data evidence, AI
-                        method, approved memory, results, replay context, and Audit.</p>
-                    <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Replay -> Audit</p>
-                    <ul class="feature-list">
-                        <li>Versions preserve model states before execution.</li>
-                        <li>Runs preserve company and scenario context.</li>
-                        <li>Replay uses the model state, data, provider evidence, AI method, memory, chronology, and time
-                            rules that applied then.</li>
-                        <li>Audit shows what ran, what changed, which evidence was used, and who approved it.</li>
-                        <li>Saved model states can be scheduled for later execution without opening Excel on a server.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="llm-formulas" class="section">
-            <div class="container">
-                <h2 class="section-title">AI that participates in the model.</h2>
-                <p class="section-lede">Not a side chat. Not copy/paste. <code>=AI()</code> lets reviewed AI workflows
-                    execute as model steps.</p>
-                <div class="panel">
-                    <p><code>=AI()</code> sits in a normal worksheet cell. The approved definition lives behind the cell,
-                        where a Method can retrieve evidence, compare history, validate assumptions, and return typed
-                        output to the model.</p>
-                    <p style="margin-top: 10px;">Audit records the method, inputs, validation, approved memory,
-                        chronology, and Run identity behind the result.</p>
-                    <div class="code-panel" style="margin-top: 16px;">
-                        <div class="code-header">
-                            <span class="dot" aria-hidden="true"></span><span class="dot"
-                                aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-                            <span class="code-title">same_store_sales_guidance</span>
-                        </div>
-                        <pre class="code"><code>Cell B12: =AI()
-
-Method:
-- retrieve evidence
-- compare history
-- validate assumptions
-- return typed model output
-
-Typed output:
-Forecast SSS:      0.035
-Forecast revenue:  1035
-
-Audit:
-- Method version
-- inputs and evidence
-- validation checks
-- approved memory
-- YAP chronology
-- Run identity</code></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="yap" class="section">
             <div class="container">
                 <h2 class="section-title">YAP and Model Memory</h2>
-                <p class="section-lede">Desk knowledge should not disappear into chat logs, email threads, or analyst
-                    notebooks. YAP, the in-workbook team-wide chat, captures discussion. Model Memory captures approved
-                    knowledge. AI workflows can use that approved knowledge inside the model.</p>
+                <p class="section-lede">YAP is in-workbook team chat. Approved discussion can become Model Memory, and
+                    Model Memory can inform future model runs.</p>
                 <div class="panel">
                     <div class="shot-kicker">How Desk Knowledge Enters The Model</div>
-                    <h3 class="shot-title">Desk knowledge becomes approved workflow context.</h3>
+                    <h3 class="shot-title">Example: Desk knowledge becomes approved model context.</h3>
                     <div class="code-panel" style="margin-top: 16px;">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span><span class="dot"
@@ -726,9 +688,25 @@ Forecast
 
 Estimate changes.</code></pre>
                     </div>
-                    <p style="margin-top: 14px;">YAP is not generic chat. Discussion can become approved Model Memory,
-                        and Model Memory can inform future AI workflows. YAP is non-mutating: it does not silently
-                        change Runs, Results, assumptions, or active Model Memory.</p>
+                    <p style="margin-top: 14px;">YAP does not silently mutate Runs, Results, assumptions, or active
+                        Model Memory.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="proof" class="section">
+            <div class="container">
+                <h2 class="section-title">Replay and Audit</h2>
+                <div class="panel">
+                    <p>Every run leaves a reviewable record: model state, company, scenario, data evidence, AI method,
+                        approved memory, results, replay context, and Audit.</p>
+                    <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Replay -> Audit</p>
+                    <p style="margin-top: 10px;">FINRA has publicly discussed its use of GenAI and the importance of
+                        strong governance frameworks for AI-enabled tools. As AI enters supervised financial workflows,
+                        firms need evidence, approval, replay, and human review around model outputs.</p>
+                    <p style="margin-top: 10px;"><a class="link"
+                            href="https://www.finra.org/media-center/blog/advancing-finras-mission-with-ai-1028205">FINRA:
+                            Advancing FINRA's Mission With AI</a></p>
                 </div>
             </div>
         </section>
@@ -738,13 +716,19 @@ Estimate changes.</code></pre>
                 <h2 class="section-title">Get started</h2>
                 <div class="stack">
                     <div class="panel">
+                        <p>
+                            Built by someone who spent 15 years building buyside spreadsheets and 15 years writing
+                            production software for Wall Street.
+                        </p>
+                    </div>
+                    <div class="panel">
                         <p class="contact-line">
                             Open the hosted app: <a class="link" href="https://app.fin123.dev">app.fin123.dev</a>
                         </p>
                     </div>
                     <div class="panel">
                         <p class="contact-line">
-                            Want the walkthrough? <a class="link"
+                            Request a walkthrough: <a class="link"
                                 href="mailto:reckoningmachines@gmail.com?subject=fin123%20walkthrough%20request">Email
                                 reckoningmachines@gmail.com</a>
                         </p>
@@ -754,15 +738,8 @@ Estimate changes.</code></pre>
                             <strong>fin123</strong>
                         </p>
                         <p style="margin-top: 10px;">
-                            The spreadsheet became the operating system of business. fin123 makes it a replayable,
-                            explainable decision system.
-                        </p>
-                    </div>
-                    <div class="panel">
-                        <p>
-                            Deeper architecture notes for asof123, Reckoning Machines, prompt123, Run Later, and YAP
-                            examples are preserved in <a class="link"
-                                href="./docs/homepage_removed_architecture_sections.md">docs</a>.
+                            Spreadsheets became production systems. fin123 puts the missing infrastructure inside the
+                            model.
                         </p>
                     </div>
                 </div>
