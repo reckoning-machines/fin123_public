@@ -852,34 +852,79 @@ Estimate changes.</code></pre>
                     <div class="panel">
                         <div class="shot-kicker">Workbook Formulas</div>
                         <h3 class="shot-title">The formula language is shared across all workbook renderers.</h3>
-                        <pre class="code inflight-inline-code"><code>Workbook formulas can appear in either
-a Spreadsheet or a Document.
+                        <pre class="code inflight-inline-code"><code># Apple Inc. (AAPL)
+## Rating: Buy
 
-Examples:
+## Investment Thesis
 
-=DATA()
-=MODEL()
-=DIFF()
-=AI()
+Apple continues to benefit from ecosystem strength,
+services expansion, and capital return.
 
-The formula language is shared across
-all workbook renderers.
-
-Investment Thesis
-
-Apple remains attractive due to:
-
-Revenue growth:
+Current Revenue CAGR:
 =MODEL("revenue_cagr")
 
-Margin profile:
+Current Gross Margin:
 =MODEL("gross_margin")
 
-Recent changes:
-=DIFF("investment_case")
+Consensus EPS Next Fiscal Year:
+=DATA("consensus_eps_fy1")
 
-Open debates:
-=AI("Summarize current debate")</code></pre>
+---
+
+## What Changed Since Last Review
+
+Revenue estimate revisions:
+=DIFF("revenue_forecast")
+
+Margin estimate revisions:
+=DIFF("gross_margin_assumption")
+
+Model changes:
+=DIFF("approved_formula_changes")
+
+Memory changes:
+=DIFF("approved_model_memory")
+
+---
+
+## Evidence
+
+Recent filings:
+=DATA("latest_filings")
+
+Recent earnings transcript excerpts:
+=DATA("management_commentary")
+
+Key supporting evidence:
+=DATA("thesis_evidence")
+
+---
+
+## Risk Assessment
+
+What are the primary bear arguments?
+
+=AI("
+Summarize the strongest bear arguments
+using approved model evidence only.
+")
+
+Probability-weighted downside:
+
+=MODEL("bear_case_downside")
+
+---
+
+## Conclusion
+
+Target Price:
+=MODEL("target_price")
+
+Expected Return:
+=MODEL("expected_return")
+
+Recommendation:
+=MODEL("rating")</code></pre>
                     </div>
                     <div class="panel">
                         <h3 class="panel-title">When rendered</h3>
