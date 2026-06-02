@@ -904,10 +904,10 @@ Key supporting evidence:
 
 What are the primary bear arguments?
 
-=AI("
-Summarize the strongest bear arguments
-using approved model evidence only.
-")
+=AI(
+  "Summarize the strongest bear arguments.",
+  context=DATA("approved_model_evidence")
+)
 
 Probability-weighted downside:
 
@@ -964,6 +964,9 @@ Recommendation:
                     <p style="margin-top: 14px;">The goal is not AI writing.</p>
                     <p style="margin-top: 8px;">The goal is bringing executable formulas to documents in the same way
                         spreadsheets brought executable formulas to grids.</p>
+                    <p style="margin-top: 8px;">=AI() does not query the Model directly. It executes under a governed
+                        context that may include approved Model outputs, approved Model Memory, approved Evidence,
+                        approved Data, Diffs, and temporal state.</p>
                 </div>
             </div>
         </section>
