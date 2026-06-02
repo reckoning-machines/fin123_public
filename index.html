@@ -861,10 +861,10 @@ Apple continues to benefit from ecosystem strength,
 services expansion, and capital return.
 
 Current Revenue CAGR:
-=MODEL("revenue_cagr")
+=MODEL("AAPL_BASE", "Revenue!CAGR_2026_2029")
 
 Current Gross Margin:
-=MODEL("gross_margin")
+=MODEL("AAPL_BASE", "Summary!gross_margin")
 
 Consensus EPS Next Fiscal Year:
 =DATA("consensus_eps_fy1")
@@ -905,8 +905,7 @@ Key supporting evidence:
 What are the primary bear arguments?
 
 =AI(
-  "Summarize the strongest bear arguments.",
-  context=DATA("approved_model_evidence")
+  "Summarize the strongest bear arguments using approved model evidence only."
 )
 
 Probability-weighted downside:
@@ -918,7 +917,7 @@ Probability-weighted downside:
 ## Conclusion
 
 Target Price:
-=MODEL("target_price")
+=MODEL("AAPL_BASE", "Valuation!target_price")
 
 Expected Return:
 =MODEL("expected_return")
