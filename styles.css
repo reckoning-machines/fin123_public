@@ -455,6 +455,12 @@ pre.code code {
     color: var(--border);
 }
 
+.footer-note {
+    flex-basis: 100%;
+    line-height: 1.6;
+    color: var(--fg-dim);
+}
+
 /* ── Hero demo (worksheet in banner) ── */
 .hero-bridge {
     font-size: 12px;
