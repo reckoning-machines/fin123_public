@@ -171,6 +171,79 @@
             place-items: center;
         }
 
+        .aapl-memory-loop {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr) 36px minmax(0, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .memory-path {
+            display: grid;
+            column-gap: 12px;
+            grid-column: 3 / 6;
+            grid-template-columns: minmax(0, 1fr) minmax(120px, 170px);
+            justify-items: stretch;
+            row-gap: 8px;
+        }
+
+        .memory-arrow {
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .memory-down {
+            grid-column: 2;
+            justify-self: center;
+        }
+
+        .memory-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            grid-column: 2;
+            padding: 11px 13px;
+            text-align: center;
+        }
+
+        .memory-title {
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .memory-copy {
+            color: var(--fg);
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .memory-feedback {
+            align-items: center;
+            color: var(--fg-dim);
+            display: flex;
+            font-size: 12px;
+            gap: 10px;
+            grid-column: 1;
+            justify-content: flex-end;
+            line-height: 1.5;
+            grid-row: 2;
+        }
+
+        .memory-feedback .memory-arrow {
+            font-size: 18px;
+        }
+
+        .memory-feedback span {
+            color: var(--fg);
+        }
+
         .contract-line {
             color: var(--fg-bright);
             font-size: 12px;
@@ -490,6 +563,30 @@
                 transform: rotate(90deg);
             }
 
+            .aapl-memory-loop {
+                grid-template-columns: 1fr;
+            }
+
+            .memory-path,
+            .memory-feedback {
+                grid-column: 1;
+            }
+
+            .memory-path {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+
+            .memory-down,
+            .memory-card {
+                grid-column: 1;
+            }
+
+            .memory-feedback {
+                grid-row: auto;
+                justify-content: center;
+            }
+
             .hero-card .title {
                 font-size: 27px;
             }
@@ -632,8 +729,20 @@
                     <div class="aapl-card">
                         <div class="aapl-label">YAP</div>
                         <h3 class="aapl-title">Discusses Q3 EPS</h3>
-                        <p class="aapl-copy">YAP discusses <code>results.output.q3_eps</code> in context. Approved
-                            discussion can feed back into the model through Model Memory promotion.</p>
+                        <p class="aapl-copy">YAP discusses <code>results.output.q3_eps</code> in context.</p>
+                    </div>
+                </div>
+                <div class="aapl-memory-loop" aria-label="Model Memory feedback loop">
+                    <div class="memory-path">
+                        <div class="memory-arrow memory-down" aria-hidden="true">&darr;</div>
+                        <div class="memory-feedback">
+                            <div class="memory-arrow" aria-hidden="true">&larr;</div>
+                            <span>Informs future governed work</span>
+                        </div>
+                        <div class="memory-card">
+                            <div class="memory-title">Model Memory</div>
+                            <div class="memory-copy">Approved<br>discussion</div>
+                        </div>
                     </div>
                 </div>
                 <p class="narrative-bridge">Results remain the typed output authority. Audit remains the evidence
