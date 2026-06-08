@@ -5,17 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="Spreadsheets became production systems. fin123 puts AI, data, versioning, replay, audit, and team chat inside the model." />
-    <meta property="og:title" content="fin123 -- Spreadsheets became production systems" />
+        content="The Workbook for Modern Investment Research. Spreadsheet analyzes. Document explains. YAP discusses." />
+    <meta property="og:title" content="fin123 -- The Workbook for Modern Investment Research" />
     <meta property="og:description"
-        content="Analysts still make real investment decisions in Excel. fin123 rebuilds the analyst model environment for the modern era." />
+        content="One DATA. One AI. One governance model. Three views for investment research." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="fin123 -- Spreadsheets became production systems" />
+    <meta name="twitter:title" content="fin123 -- The Workbook for Modern Investment Research" />
     <meta name="twitter:description"
-        content="AI, data, versioning, replay, audit, and team chat inside the model." />
-    <title>fin123 -- Spreadsheets became production systems</title>
+        content="Spreadsheet analyzes. Document explains. YAP discusses." />
+    <title>fin123 -- The Workbook for Modern Investment Research</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -87,23 +87,88 @@
         }
 
         .hero + .section {
-            padding-top: 56px;
+            padding-top: 18px;
         }
 
-        .hero-proof {
+        .workbook-grid {
             display: grid;
-            gap: 9px;
-            margin: 18px 0 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
         }
 
-        .proof-line {
+        .workbook-view {
+            min-height: 180px;
+        }
+
+        .view-doctrine {
+            color: var(--fg-bright);
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .workbook-doctrine {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--fg-bright);
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.7;
+            margin-top: 18px;
+            padding: 18px 20px;
+        }
+
+        .workbook-doctrine .doctrine-break {
+            display: block;
+            height: 8px;
+        }
+
+        .aapl-flow {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr) 36px minmax(0, 1fr);
+            gap: 12px;
+            align-items: stretch;
+            margin-top: 18px;
+        }
+
+        .aapl-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            min-height: 190px;
+        }
+
+        .aapl-label {
+            color: var(--accent);
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .aapl-title {
+            color: var(--fg-bright);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .aapl-copy {
             color: var(--fg);
             font-size: 13px;
-            line-height: 1.55;
+            line-height: 1.7;
         }
 
-        .proof-line strong {
-            color: var(--fg-bright);
+        .aapl-arrow {
+            color: var(--accent);
+            display: grid;
+            font-size: 22px;
+            font-weight: 700;
+            place-items: center;
         }
 
         .contract-line {
@@ -409,75 +474,20 @@
             color: var(--fg-dim);
         }
 
-        .inflight-card-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            align-items: stretch;
-            grid-auto-rows: minmax(0, 1fr);
-        }
-
-        .inflight-card-grid .panel {
-            min-height: 300px;
-            height: 100%;
-            padding: 18px 20px;
-        }
-
-        .inflight-inline-code {
-            background: var(--bg-code);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            font-size: 11.5px;
-            line-height: 1.58;
-            margin-top: 14px;
-            max-height: 250px;
-            overflow: auto;
-            padding: 12px 14px;
-        }
-
-        .inflight-note {
-            color: var(--fg);
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .inflight-note + .inflight-note {
-            margin-top: 10px;
-        }
-
-        .inflight-list {
-            list-style: none;
-            display: grid;
-            gap: 7px;
-            margin-top: 14px;
-        }
-
-        .inflight-list li {
-            color: var(--fg-dim);
-            font-size: 12px;
-            line-height: 1.55;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .inflight-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.78em;
-            width: 6px;
-            height: 1px;
-            background: var(--accent);
-        }
-
         @media (max-width: 820px) {
 
             .hero-grid,
             .feature-grid,
             .flow,
-            .inflight-card-grid {
+            .workbook-grid,
+            .aapl-flow {
                 grid-template-columns: 1fr;
                 grid-auto-rows: auto;
+            }
+
+            .aapl-arrow {
+                min-height: 20px;
+                transform: rotate(90deg);
             }
 
             .hero-card .title {
@@ -517,12 +527,12 @@
                 <span class="runtime-identity">powered by Reckoning Machines</span>
             </div>
             <nav class="nav" aria-label="Primary">
-                <a href="#stakeholders">Stakeholders</a>
-                <a href="#surface">Grid</a>
-                <a href="#inside-model">Inside model</a>
+                <a href="#workbook">Workbook</a>
+                <a href="#aapl-proof">Proof</a>
+                <a href="#governance">Governance</a>
                 <a href="#bring-your-model">BYM</a>
                 <a href="#yap">YAP</a>
-                <a href="#proof">Audit</a>
+                <a href="#stakeholders">Stakeholders</a>
                 <a href="#get-started">Get Started</a>
             </nav>
         </div>
@@ -534,22 +544,16 @@
                 <div class="hero-card">
                     <div class="hero-grid">
                         <div class="hero-text">
-                            <h1 class="title">The Spreadsheet for Modern Investment Research</h1>
+                            <h1 class="title">The Workbook for Modern Investment Research</h1>
                             <p class="hero-copy hero-reality">
-                                Spreadsheets became production systems.
+                                Spreadsheet analyzes. Document explains. YAP discusses.
                             </p>
                             <p class="hero-copy">
-                                Analysts still make real investment decisions in Excel.
+                                Build models. Explain conclusions. Capture institutional knowledge.
                             </p>
                             <p class="hero-copy">
-                                AI, data, versioning, replay, audit, and institutional knowledge evolved around the
-                                model*.
-                            </p>
-                            <p class="hero-punchline">
-                                fin123 brings the missing infrastructure into the model.
-                            </p>
-                            <p class="hero-copy hero-tagline">
-                                <em>The decision infrastructure for investment decisions.</em>
+                                fin123 gives investment teams one governed Workbook for model analysis, research
+                                explanation, and team discussion.
                             </p>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
@@ -564,159 +568,146 @@
             </div>
         </section>
 
-        <section id="stakeholders" class="section">
+        <section id="workbook" class="section">
             <div class="container">
-                <h2 class="section-title">One Workflow. Four Stakeholders.</h2>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Analyst</h3>
-                        <p>Build AI and data workflows directly inside the model.</p>
+                <h2 class="section-title">One Workbook. Three views.</h2>
+                <p class="section-lede">Investment research is not only a grid. It is analysis, explanation, and
+                    discussion around the same governed work.</p>
+                <div class="workbook-grid">
+                    <div class="panel workbook-view">
+                        <h3 class="panel-title">Spreadsheet</h3>
+                        <p class="view-doctrine">Analyzes.</p>
+                        <p>Analyze forecasts, assumptions, and scenarios using formulas, <code>=DATA(...)</code>,
+                            <code>=AI(...)</code>, versions, and governed outputs.</p>
                     </div>
-                    <div class="panel">
-                        <h3 class="panel-title">PM</h3>
-                        <p>Run the same model across every company in coverage.</p>
+                    <div class="panel workbook-view">
+                        <h3 class="panel-title">Document</h3>
+                        <p class="view-doctrine">Explains.</p>
+                        <p>Authored text can explain governed outputs using render-time <code>=DATA(...)</code> and
+                            <code>=AI(...)</code> communication formulas.</p>
                     </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Head of Research</h3>
-                        <p>Institutionalize methodology.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Compliance / FINRA</h3>
-                        <p>Prove what happened.</p>
+                    <div class="panel workbook-view">
+                        <h3 class="panel-title">YAP</h3>
+                        <p class="view-doctrine">Discusses.</p>
+                        <p>Workbook discussion can be reviewed and, when approved, support Model Memory.</p>
                     </div>
                 </div>
+                <div class="workbook-doctrine" aria-label="Workbook doctrine">
+                    Three views.<br>
+                    One substrate.
+                    <span class="doctrine-break" aria-hidden="true"></span>
+                    One DATA.<br>
+                    One AI.<br>
+                    One governance model.
+                </div>
+                <div class="hero-shot-wide workbook-shot">
+                    <img src="./product.png" alt="fin123 Workbook spreadsheet view" />
+                    <div class="yap-caption">
+                        Spreadsheet view of the Workbook, with Results, Run Activity, Audit, and review context
+                        attached to the same governed work.
+                    </div>
+                </div>
+                <p class="narrative-bridge">Run Activity, Results, Replay, and Audit support the Workbook.</p>
             </div>
         </section>
 
-        <section id="surface" class="section">
+        <section id="aapl-proof" class="section">
             <div class="container">
-                <h2 class="section-title">Build in the grid.</h2>
-                <p class="section-lede">The grid stays primary. Analysts mark assumptions and outputs, add
-                    <code>=DATA()</code> and <code>=AI()</code>, save versions, run scenarios, and inspect Results
-                    without leaving the model.</p>
-                <article class="shot-panel">
-                    <img src="./main.png" alt="fin123 spreadsheet model surface" />
-                    <div class="shot-body">
-                        <div class="shot-kicker">Model Surface</div>
-                        <h3 class="shot-title">The model is the unit of work.</h3>
-                        <p class="shot-copy">The spreadsheet remains the primary surface. AI, Results, Model Memory,
-                            Replay, and Audit live around the grid instead of replacing it.</p>
-                        <div class="pill-row"><span class="pill">Assumptions</span><span class="pill">Outputs</span><span
-                                class="pill">=DATA()</span><span class="pill">=AI()</span><span
-                                class="pill">Results</span><span class="pill">Model Memory</span><span
-                                class="pill">Replay</span><span class="pill">Audit</span></div>
+                <h2 class="section-title">Same output. Three views.</h2>
+                <p class="section-lede">In the certified AAPL demo, Q3 EPS moves through the Workbook without becoming
+                    three different facts.</p>
+                <div class="aapl-flow">
+                    <div class="aapl-card">
+                        <div class="aapl-label">Spreadsheet</div>
+                        <h3 class="aapl-title">Produces Q3 EPS</h3>
+                        <p class="aapl-copy">Spreadsheet analysis produces <code>results.output.q3_eps</code>.</p>
                     </div>
-                </article>
+                    <div class="aapl-arrow" aria-hidden="true">-&gt;</div>
+                    <div class="aapl-card">
+                        <div class="aapl-label">Document</div>
+                        <h3 class="aapl-title">Consumes Q3 EPS</h3>
+                        <p class="aapl-copy">Document consumes <code>results.output.q3_eps</code> and explains it.</p>
+                    </div>
+                    <div class="aapl-arrow" aria-hidden="true">-&gt;</div>
+                    <div class="aapl-card">
+                        <div class="aapl-label">YAP</div>
+                        <h3 class="aapl-title">Discusses Q3 EPS</h3>
+                        <p class="aapl-copy">YAP discusses <code>results.output.q3_eps</code> in context.</p>
+                    </div>
+                </div>
+                <p class="narrative-bridge">Results remain the typed output authority. Audit remains the evidence
+                    authority.</p>
             </div>
         </section>
 
         <section id="analyst-pain" class="section">
             <div class="container">
-                <h2 class="section-title">Spreadsheets became production systems.</h2>
-                <p class="section-lede">The spreadsheet became production infrastructure, but the work around it stayed
-                    manual, fragile, and hard to explain.</p>
+                <h2 class="section-title">Historically, research drifts when the workflow splits.</h2>
+                <p class="section-lede">Investment research lives in spreadsheets, documents, and conversations. Today
+                    those drift apart.</p>
                 <div class="feature-grid">
                     <div class="panel">
-                        <h3 class="panel-title">Claude / ChatGPT copy-paste</h3>
-                        <p>AI enters the process through side chat instead of the model.</p>
+                        <h3 class="panel-title">The model changes, the memo lags</h3>
+                        <p>The conclusion can fall out of sync with the analysis that produced it.</p>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Slow recalc and fragile workbooks</h3>
-                        <p>The file works until nobody wants to press recalc.</p>
+                        <h3 class="panel-title">The conversation explains the decision</h3>
+                        <p>But the reasoning often lives outside the record.</p>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Formula copy errors and hardcodes</h3>
-                        <p>A copied column or pasted value can silently change the model.</p>
+                        <h3 class="panel-title">AI answers live outside the workflow</h3>
+                        <p>Side chat is hard to reconnect to governed outputs and evidence.</p>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">FINAL_v12 filename sprawl</h3>
-                        <p>Versions live in filenames instead of in the model history.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">One model copied across many tickers</h3>
-                        <p>The same methodology branches into many fragile workbook copies.</p>
+                        <h3 class="panel-title">Versions live in filenames</h3>
+                        <p>FINAL_v12 is not a model history.</p>
                     </div>
                     <div class="panel">
                         <h3 class="panel-title">Manual data plumbing</h3>
                         <p>Bloomberg, SQL, CSVs, and internal data get glued together by hand.</p>
                     </div>
                     <div class="panel">
-                        <h3 class="panel-title">Overnight updates require opening workbooks</h3>
-                        <p>Scheduled model work still depends on files, desktops, and fragile state.</p>
+                        <h3 class="panel-title">One model copied across many tickers</h3>
+                        <p>The same methodology branches into fragile workbook copies.</p>
                     </div>
                     <div class="panel">
                         <h3 class="panel-title">PM asks: "why did the estimate change?"</h3>
-                        <p>The answer is usually scattered across files, chats, data pulls, and memory.</p>
+                        <p>The answer is scattered across files, chats, data pulls, and memory.</p>
                     </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Data evidence and outputs split</h3>
+                        <p>The model, explanation, and audit trail become hard to reconnect.</p>
+                    </div>
+                </div>
+                <div class="panel" style="margin-top: 16px;">
+                    <h3 class="panel-title">In fin123, the Workbook keeps the work together.</h3>
+                    <p>The model, memo, and discussion stay connected to the same governed outputs, evidence, replay,
+                        and audit trail.</p>
+                    <p style="margin-top: 10px;">When the estimate changes, the explanation and discussion can move
+                        with it.</p>
                 </div>
             </div>
         </section>
 
-        <section id="inside-model" class="section">
+        <section id="governance" class="section">
             <div class="container">
-                <h2 class="section-title">The fin123 ecosystem:</h2>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">AI</h3>
-                        <p><code>=AI()</code> inside the model, not Claude copy/paste.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Data</h3>
-                        <p><code>=DATA()</code> inside the model, vendor-agnostic and Bloomberg-compatible.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Dataset Engine</h3>
-                        <p>Fast, reliable data execution underneath the model. Built on a real Rust-backed dataset
-                            engine.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Versioning</h3>
-                        <p>Native model versions, no filename archaeology.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Execution</h3>
-                        <p>Scheduled and repeatable model runs.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Replay / Audit</h3>
-                        <p>Prove what ran, what changed, and why.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Chat / Memory</h3>
-                        <p>Team discussion can become approved model context.</p>
-                        <p style="margin-top: 8px;">Institutional knowledge evolves.</p>
-                        <p style="margin-top: 8px;"><code>=AI()</code> formulas remain stable.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Sheet Warnings</h3>
-                        <p>Catch formula drift, hardcodes, and copy errors.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="modern-execution" class="section">
-            <div class="container">
-                <h2 class="section-title">The spreadsheet experience remains familiar.</h2>
+                <h2 class="section-title">Governance follows the work.</h2>
                 <div class="panel">
-                    <p>The model is the unit of work.</p>
-                    <p style="margin-top: 10px;">The infrastructure underneath is modern: faster, more reliable,
-                        reproducible, scalable, and easier to explain.</p>
-                    <p style="margin-top: 10px;">No fragile workbook plumbing. No overnight spreadsheet babysitting. No
-                        mystery versions.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="infrastructure" class="section">
-            <div class="container">
-                <h2 class="section-title">Your methodology stays yours.</h2>
-                <div class="panel">
-                    <p>Your firm owns the methodology.</p>
-                    <p style="margin-top: 10px;">fin123 provides the infrastructure around the model: versions,
-                        scenarios, runs, replay, audit, approved memory, and institutional history.</p>
-                    <p style="margin-top: 10px;">That is why fin123 is financial-model infrastructure, not a generic
-                        workflow engine.</p>
+                    <p>A Workbook view can analyze, explain, or discuss. It does not replace the governance chain
+                        underneath.</p>
+                    <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Replay -> Audit</p>
+                    <ul class="feature-list primary-list">
+                        <li>Results are the typed output authority.</li>
+                        <li>Audit is the evidence authority.</li>
+                        <li>Replay reconstructs what happened.</li>
+                        <li>Run Activity shows execution status.</li>
+                    </ul>
+                    <p style="margin-top: 10px;">FINRA has publicly discussed its use of GenAI and the importance of
+                        strong governance frameworks for AI-enabled tools. As AI enters supervised financial workflows,
+                        firms need evidence, approval, replay, and human review around model outputs.</p>
+                    <p style="margin-top: 10px;"><a class="link"
+                            href="https://www.finra.org/media-center/blog/advancing-finras-mission-with-ai-1028205">FINRA:
+                            Advancing FINRA's Mission With AI</a></p>
                 </div>
             </div>
         </section>
@@ -724,16 +715,16 @@
         <section id="bring-your-model" class="section">
             <div class="container">
                 <h2 class="section-title">Bring Your Model</h2>
-                <p class="section-lede">Analysts should not have to rebuild working Excel models to enter the fin123
-                    ecosystem.</p>
+                <p class="section-lede">Analysts should not have to rebuild working Excel models to move into the
+                    fin123 Workbook.</p>
                 <div class="panel">
                     <ul class="feature-list primary-list">
                         <li>Import existing Excel models instead of rebuilding them.</li>
                         <li>Preserve formulas, Bloomberg links, Visible Alpha links, and workbook structure.</li>
                         <li>Map live model inputs into approved <code>=DATA()</code> and governed execution paths.</li>
-                        <li>Import comments into YAP chat for later promotion to Model Memory if approved.</li>
-                        <li>Add versioning, Sheet Warnings, YAP context, Audit, replay, and <code>=AI()</code> without
-                            breaking analyst workflow.</li>
+                        <li>Bring comments and discussion into YAP for review and possible approved Model Memory.</li>
+                        <li>Add versioning, Sheet Warnings, Results, Replay, Audit, YAP context, and
+                            <code>=AI()</code> without breaking analyst workflow.</li>
                     </ul>
                 </div>
             </div>
@@ -741,12 +732,12 @@
 
         <section id="yap" class="section">
             <div class="container">
-                <h2 class="section-title">YAP and Model Memory</h2>
-                <p class="section-lede">YAP is <strong>in-workbook</strong> team chat. Approved discussion can become Model Memory, and
-                    Model Memory can inform future model runs.</p>
+                <h2 class="section-title">YAP discusses. Model Memory preserves what is approved.</h2>
+                <p class="section-lede">YAP is a primary Workbook workspace for discussion around the model, the
+                    document, and the decision.</p>
                 <div class="panel">
-                    <div class="shot-kicker">How Desk Knowledge Enters The Model</div>
-                    <h3 class="shot-title">Example: Desk knowledge becomes approved model context.</h3>
+                    <div class="shot-kicker">Workbook Discussion</div>
+                    <h3 class="shot-title">Discussion can become approved model context.</h3>
                     <div class="code-panel" style="margin-top: 16px;">
                         <div class="code-header">
                             <span class="dot" aria-hidden="true"></span><span class="dot"
@@ -756,52 +747,106 @@
                         <pre class="code"><code>Trader Observation
 
 "Traffic looks weaker than expected."
-        ↓
+        |
 
 YAP Discussion
 
 Analyst + PM + Trader debate it.
-        ↓
+        |
 
 Promote
 
 Analyst approves observation.
-        ↓
+        |
 
 Model Memory
 
 Weak traffic signal gets stored.
-        ↓
+        |
 
 Workflow
 
-Future retail workflows can use it.
-        ↓
+Later governed retail workflows can use it.
+        |
 
 Forecast
 
 Estimate changes.</code></pre>
                     </div>
-                    <p style="margin-top: 14px;">YAP does not silently mutate Runs, Results, assumptions, or active
-                        Model Memory.</p>
+                    <p style="margin-top: 14px;">YAP does not silently mutate Runs, Results, assumptions, Audit, active
+                        Model Memory, DATA, or AI.</p>
                 </div>
             </div>
         </section>
 
-        <section id="proof" class="section">
+        <section id="stakeholders" class="section">
             <div class="container">
-                <h2 class="section-title">Replay and Audit</h2>
-                <div class="panel">
-                    <p>Every run leaves a reviewable record: model state, company, scenario, data evidence, AI method,
-                        approved memory, results, replay context, and Audit.</p>
-                    <p class="contract-line">Model -> Version -> Scenario -> Run -> Results -> Replay -> Audit</p>
-                    <p style="margin-top: 10px;">FINRA has publicly discussed its use of GenAI and the importance of
-                        strong governance frameworks for AI-enabled tools. As AI enters supervised financial workflows,
-                        firms need evidence, approval, replay, and human review around model outputs.</p>
-                    <p style="margin-top: 10px;"><a class="link"
-                            href="https://www.finra.org/media-center/blog/advancing-finras-mission-with-ai-1028205">FINRA:
-                            Advancing FINRA's Mission With AI</a></p>
-                    <p class="contract-line"><strong>fin123 is the governance layer for AI-enabled financial models.</strong></p>
+                <h2 class="section-title">One Workbook. Four stakeholders.</h2>
+                <div class="feature-grid">
+                    <div class="panel">
+                        <h3 class="panel-title">Analyst</h3>
+                        <p>Analyze in Spreadsheet, explain in Document, and discuss in YAP.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">PM</h3>
+                        <p>Review the same governed output across coverage.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Head of Research</h3>
+                        <p>Institutionalize methodology and approved memory.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Compliance / FINRA</h3>
+                        <p>Review evidence, replay, and audit trail.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="inside-model" class="section">
+            <div class="container">
+                <h2 class="section-title">What sits underneath the Workbook</h2>
+                <div class="feature-grid">
+                    <div class="panel">
+                        <h3 class="panel-title">DATA</h3>
+                        <p><code>=DATA(...)</code> brings governed data into the Workbook.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">AI</h3>
+                        <p><code>=AI(...)</code> communicates under governed context.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Dataset Engine</h3>
+                        <p>Fast, reliable data execution underneath Workbook formulas.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Versioning</h3>
+                        <p>Workbook state changes are versioned.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Execution</h3>
+                        <p>Runs are scheduled and repeatable.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Results</h3>
+                        <p>Typed outputs are captured as Results.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Replay / Audit</h3>
+                        <p>Evidence and replay make outputs reviewable.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Sheet Warnings</h3>
+                        <p>Formula drift, hardcodes, and copy errors are surfaced.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">Model Memory</h3>
+                        <p>Approved context can inform later governed work.</p>
+                    </div>
+                    <div class="panel">
+                        <h3 class="panel-title">YAP</h3>
+                        <p>Workbook discussion can support approved Model Memory.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -833,150 +878,10 @@ Estimate changes.</code></pre>
                             <strong>fin123</strong>
                         </p>
                         <p style="margin-top: 10px;">
-                            Spreadsheets became production systems. fin123 puts the missing infrastructure inside the
-                            model.
+                            fin123 is the governed Workbook for modern investment research: Spreadsheet analyzes,
+                            Document explains, YAP discusses.
                         </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="whats-inflight" class="section">
-            <div class="container">
-                <h2 class="section-title">What's Inflight</h2>
-                <p class="section-lede"><strong>"Workbooks", governed, executable artifacts. Our first workbook was a
-                    Spreadsheet. fin123 will introduce a second workbook renderer: the Document.</strong></p>
-                <div class="inflight-card-grid">
-                    <div class="panel">
-                        <div class="shot-kicker">Workbook Renderers</div>
-                        <h3 class="shot-title">A Document is a first-class workbook surface.</h3>
-                        <p class="inflight-note">Historically, the primary workbook renderer was the Spreadsheet.</p>
-                        <p class="inflight-note">A Document is not an attachment to a model.</p>
-                        <p class="inflight-note"><strong>Document = Spreadsheet</strong></p>
-                        <p class="inflight-note">The difference is only the layout primitive.</p>
-                        <ul class="inflight-list">
-                            <li>Spreadsheet: Cell -> Formula -> Result</li>
-                            <li>Document: Block -> Formula -> Artifact</li>
-                            <li>Both execute the same formula language.</li>
-                        </ul>
-                    </div>
-                    <div class="panel">
-                        <div class="shot-kicker">Workbook Formulas</div>
-                        <h3 class="shot-title">The formula language is shared across all workbook renderers.</h3>
-                        <pre class="code inflight-inline-code"><code># Apple Inc. (AAPL)
-## Rating: Buy
-
-## Investment Thesis
-
-Apple continues to benefit from ecosystem strength,
-services expansion, and capital return.
-
-Current Revenue CAGR:
-=MODEL("AAPL_BASE", "Revenue!CAGR_2026_2029")
-
-Current Gross Margin:
-=MODEL("AAPL_BASE", "Summary!gross_margin")
-
-Consensus EPS Next Fiscal Year:
-=DATA("consensus_eps_fy1")
-
----
-
-## What Changed Since Last Review
-
-Revenue estimate revisions:
-=DIFF("revenue_forecast")
-
-Margin estimate revisions:
-=DIFF("gross_margin_assumption")
-
-Model changes:
-=DIFF("approved_formula_changes")
-
-Memory changes:
-=DIFF("approved_model_memory")
-
----
-
-## Evidence
-
-Recent filings:
-=DATA("latest_filings")
-
-Recent earnings transcript excerpts:
-=DATA("management_commentary")
-
-Key supporting evidence:
-=DATA("thesis_evidence")
-
----
-
-## Risk Assessment
-
-What are the primary bear arguments?
-
-=AI(
-  "Summarize the strongest bear arguments using approved model evidence only."
-)
-
-Probability-weighted downside:
-
-=MODEL("bear_case_downside")
-
----
-
-## Conclusion
-
-Target Price:
-=MODEL("AAPL_BASE", "Valuation!target_price")
-
-Expected Return:
-=MODEL("expected_return")
-
-Recommendation:
-=MODEL("rating")</code></pre>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">When rendered</h3>
-                        <p>Revenue CAGR: <strong>8.2%</strong></p>
-                        <p style="margin-top: 8px;">Gross Margin: <strong>46.1%</strong></p>
-                        <p style="margin-top: 8px;">Recent changes: approved model diffs render inline.</p>
-                        <p style="margin-top: 8px;">Open debates: governed AI output renders inline.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Why it matters</h3>
-                        <p>Today analysts maintain separate artifacts, and those artifacts drift over time.</p>
-                        <p class="contract-line">Model -> Spreadsheet</p>
-                        <p class="contract-line">Research Note -> Word</p>
-                        <p class="contract-line">Research Report -> PDF</p>
-                        <p class="contract-line">Chat -> Separate System</p>
-                        <p class="contract-line">Institutional Knowledge -> Separate System</p>
-                    </div>
-                </div>
-
-                <div class="panel" style="margin-top: 16px;">
-                    <h3 class="panel-title">Same governed substrate</h3>
-                    <p>The spreadsheet becomes disconnected from the document. The document becomes disconnected from
-                        the evidence. The published report becomes disconnected from the model.</p>
-                    <p class="contract-line">Workbook -> Spreadsheet / Document / Report</p>
-                    <p style="margin-top: 10px;">In fin123, all workbook renderers execute against the same governed
-                        substrate.</p>
-                    <ul class="inflight-list">
-                        <li>A document is not a static file.</li>
-                        <li>A document can be run.</li>
-                        <li>A document can be versioned.</li>
-                        <li>A document can be diffed.</li>
-                        <li>A document can be replayed.</li>
-                        <li>A document can be audited.</li>
-                        <li>A document can contain governed AI outputs alongside governed data, model state, memory,
-                            evidence, and diffs.</li>
-                    </ul>
-                    <p style="margin-top: 14px;">The goal is not AI writing.</p>
-                    <p style="margin-top: 8px;">The goal is bringing executable formulas to documents in the same way
-                        spreadsheets brought executable formulas to grids.</p>
-                    <p style="margin-top: 8px;">=AI() does not query the Model directly. It executes under a governed
-                        context that may include approved Model outputs, approved Model Memory, approved Evidence,
-                        approved Data, Diffs, and temporal state.</p>
                 </div>
             </div>
         </section>
@@ -986,9 +891,8 @@ Recommendation:
         <div class="container footer-inner">
             <div>fin123.dev</div>
             <div class="footer-right">Model -> Version -> Scenario -> Run -> Results -> Replay -> Audit</div>
-            <div class="footer-note">* In fin123, a "Model" is not one physical file. It is stored by model_id, with
-                versioned workbook/model state plus attached scenario, binding, run, audit, memory, and artifact
-                records.</div>
+            <div class="footer-note">Workbook views share governed DATA, AI, Results, Replay, and Audit. Results are
+                typed output authority. Audit is evidence authority.</div>
         </div>
     </footer>
 </body>
