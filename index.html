@@ -5,17 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="fin123 by Reckoning Machines. Operate like an institutional investment firm. A governed investment operating system for emerging managers and investment teams." />
-    <meta property="og:title" content="fin123 -- Operate like an institutional investment firm" />
+        content="fin123 by Reckoning Machines. The operating system for emerging investment firms. Built for emerging managers and investment teams." />
+    <meta property="og:title" content="fin123 -- The operating system for emerging investment firms" />
     <meta property="og:description"
         content="Track decisions. Preserve context. Move faster. Scale your process." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="fin123 -- Operate like an institutional investment firm" />
+    <meta name="twitter:title" content="fin123 -- The operating system for emerging investment firms" />
     <meta name="twitter:description"
-        content="A governed investment operating system for emerging managers and investment teams." />
-    <title>fin123 -- Operate like an institutional investment firm</title>
+        content="Built for emerging managers and investment teams." />
+    <title>fin123 -- The operating system for emerging investment firms</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,6 +63,60 @@
 
         .hero-text {
             max-width: 840px;
+        }
+
+        .hero-promise {
+            color: var(--fg-bright);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 24px 0 0;
+            max-width: 780px;
+        }
+
+        .hero-insight {
+            margin: 26px 0 0;
+            max-width: 720px;
+        }
+
+        .hero-insight .hero-copy {
+            margin-bottom: 10px;
+        }
+
+        .hero-insight-core {
+            color: var(--fg-bright);
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-outcomes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 24px 0 0;
+            max-width: 760px;
+        }
+
+        .hero-chip {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--fg);
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.2;
+            padding: 7px 10px;
+        }
+
+        .hero-category {
+            color: var(--fg);
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.65;
+            margin: 24px 0 0;
+            max-width: 640px;
         }
 
         .hero-copy {
@@ -600,8 +654,16 @@
                 font-size: 27px;
             }
 
+            .hero-promise {
+                font-size: 26px;
+            }
+
             .hero-copy {
                 font-size: 14px;
+            }
+
+            .hero-insight-core {
+                font-size: 15px;
             }
 
             .hero-punchline {
@@ -654,34 +716,28 @@
                             <p class="hero-copy hero-byline">
                                 by Reckoning Machines
                             </p>
-                            <p class="hero-copy hero-reality">
-                                Operate like an institutional investment firm.
+                            <p class="hero-promise">
+                                The operating system for emerging investment firms.
                             </p>
-                            <p class="hero-copy">
-                                Investment decisions evolve.
-                            </p>
-                            <p class="hero-copy">
-                                Research changes. Estimates change. Markets change.
-                            </p>
-                            <p class="hero-copy">
-                                The hard part isn't building the model. It's preserving the decisions behind it.
-                            </p>
-                            <p class="hero-copy">
-                                Track decisions.<br>
-                                Preserve context.<br>
-                                Move faster.<br>
-                                Scale your process.
-                            </p>
-                            <p class="hero-copy">
-                                More context.<br>
-                                Less chaos.<br>
-                                Faster review.<br>
-                                Better process.<br>
-                                Better memory.
-                            </p>
-                            <p class="hero-copy hero-reality">
-                                A governed investment operating system<br>
-                                for emerging managers and investment teams.
+                            <div class="hero-insight">
+                                <p class="hero-copy">
+                                    Investment decisions evolve.
+                                </p>
+                                <p class="hero-copy">
+                                    Research changes. Estimates change. Markets change.
+                                </p>
+                                <p class="hero-insight-core">
+                                    The hard part isn't building the model. It's preserving the decisions behind it.
+                                </p>
+                            </div>
+                            <div class="hero-outcomes" aria-label="fin123 outcomes">
+                                <span class="hero-chip">Track decisions</span>
+                                <span class="hero-chip">Preserve context</span>
+                                <span class="hero-chip">Move faster</span>
+                                <span class="hero-chip">Scale your process</span>
+                            </div>
+                            <p class="hero-category">
+                                Built for emerging managers and investment teams.
                             </p>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123</a>
