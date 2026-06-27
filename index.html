@@ -8,18 +8,18 @@
         content="fin123 by Reckoning Machines. Work the way you think. The investment research operating system." />
     <meta property="og:title" content="fin123 -- The investment research operating system" />
     <meta property="og:description"
-        content="The future of investment research is not better spreadsheets. It is better thinking." />
+        content="The future of investment research isn't managing files. It's better thinking." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="fin123 -- The investment research operating system" />
     <meta name="twitter:description"
-        content="The future of investment research is not better spreadsheets. It is better thinking." />
+        content="The future of investment research isn't managing files. It's better thinking." />
     <title>fin123 -- The investment research operating system</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -29,27 +29,23 @@
         }
 
         .nav {
-            gap: 14px;
-            font-size: 11px;
+            gap: 28px;
+            font-size: 12px;
         }
 
         .hero-card {
-            overflow: hidden;
+            overflow: visible;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 0;
             align-items: center;
         }
 
         .hero-card .title {
-            color: var(--fg-bright);
-            font-size: 33px;
-            line-height: 1.12;
-            margin-bottom: 12px;
-            max-width: 780px;
+            display: none;
         }
 
         .hero-brand-title {
@@ -57,30 +53,36 @@
         }
 
         .hero-copy.hero-byline {
-            color: rgba(214, 92, 103, 0.78);
+            color: var(--accent);
             font-weight: 600;
         }
 
         .hero-text {
-            max-width: 840px;
+            margin: 0 auto;
+            max-width: min(1280px, calc(100vw - 48px));
+            text-align: center;
         }
 
         .hero-promise {
             color: var(--fg-bright);
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 24px 0 0;
-            max-width: 780px;
+            font-size: clamp(72px, 6.9vw, 92px);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 0.94;
+            margin: 0 auto;
+            max-width: none;
+            padding: 0 0.08em;
+            white-space: nowrap;
         }
 
         .hero-insight {
-            margin: 26px 0 0;
-            max-width: 720px;
+            margin: 42px auto 0;
+            max-width: 760px;
+            text-align: center;
         }
 
         .hero-insight .hero-copy {
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .hero-insight-core {
@@ -90,46 +92,48 @@
             line-height: 1.55;
         }
 
-        .hero-outcomes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 24px 0 0;
-            max-width: 760px;
-        }
-
-        .hero-chip {
-            background: transparent;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            color: var(--fg);
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 1.2;
-            padding: 7px 10px;
-        }
-
         .hero-category {
             color: var(--fg);
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.65;
-            margin: 24px 0 0;
-            max-width: 640px;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.45;
+            margin: 28px auto 0;
+            max-width: 760px;
         }
 
         .hero-ai-substrate {
             color: var(--fg);
-            margin: 18px 0 0;
+            margin: 30px auto 0;
+            max-width: 760px;
+            text-align: center;
+        }
+
+        .hero-identity {
+            color: var(--fg-dim);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.45;
+            margin: 30px auto 0;
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .hero-outcome {
+            color: var(--fg-bright);
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.45;
+            margin: 30px auto 0;
+            max-width: 760px;
+            text-align: center;
         }
 
         .hero-copy {
             color: var(--fg-dim);
-            font-size: 15px;
-            line-height: 1.7;
+            font-size: 24px;
+            line-height: 1.28;
             margin-bottom: 8px;
-            max-width: 800px;
+            max-width: 760px;
         }
 
         .hero-reality {
@@ -139,11 +143,13 @@
 
         .hero-punchline {
             color: var(--fg-bright);
-            font-size: 17px;
+            font-size: clamp(32px, 3.6vw, 46px);
             font-weight: 700;
-            line-height: 1.6;
-            margin: 10px 0 6px;
-            max-width: 800px;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            margin: 46px auto 0;
+            max-width: 760px;
+            text-align: center;
         }
 
         .hero-tagline {
@@ -151,11 +157,69 @@
         }
 
         .hero-actions {
-            margin-top: 12px;
+            justify-content: center;
+            margin-top: 46px;
+        }
+
+        .hero-focus {
+            align-items: center;
+            background:
+                radial-gradient(circle at 86% 18%, rgba(200, 244, 242, 0.2), transparent 78%),
+                rgba(255, 255, 255, 0.48);
+            border: 1px solid rgba(18, 40, 55, 0.07);
+            border-radius: 999px;
+            box-shadow: 0 8px 30px rgba(18, 40, 55, 0.045);
+            color: var(--fg-muted);
+            display: flex;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            gap: 12px;
+            justify-content: space-between;
+            line-height: 1.2;
+            margin: 48px auto 0;
+            max-width: 620px;
+            padding: 14px 18px 14px 22px;
+        }
+
+        .hero-focus-query {
+            color: var(--fg-dim);
+            overflow: hidden;
+            text-align: left;
+            text-overflow: ellipsis;
+            transition: opacity 180ms ease;
+            white-space: nowrap;
+        }
+
+        .hero-focus-query.is-fading {
+            opacity: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-focus-query {
+                transition: none;
+            }
+        }
+
+        .hero-focus-key {
+            color: var(--accent);
+            flex: 0 0 auto;
+            font-size: 12px;
+        }
+
+        .hero-demo-link {
+            color: var(--fg-muted);
+            font-size: 15px;
+            margin-left: 8px;
+            text-decoration: none;
+        }
+
+        .hero-demo-link:hover {
+            color: var(--accent-dim);
+            text-decoration: none;
         }
 
         .hero + .section {
-            padding-top: 18px;
+            padding-top: 96px;
         }
 
         .workbook-grid {
@@ -177,7 +241,9 @@
         }
 
         .workbook-doctrine {
-            background: var(--bg);
+            background:
+                radial-gradient(circle at 85% 25%, rgba(200, 244, 242, 0.28), transparent 45%),
+                var(--elevated);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             color: var(--fg-bright);
@@ -349,8 +415,8 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             overflow: hidden;
-            background: var(--bg);
-            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+            background: var(--elevated);
+            box-shadow: var(--shadow-soft);
         }
 
         .hero-shot img {
@@ -379,11 +445,11 @@
         }
 
         .analyst-hook-card {
-            background: var(--bg);
+            background: var(--elevated);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 18px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            box-shadow: var(--shadow-soft);
             max-height: 520px;
             overflow: auto;
             scrollbar-color: var(--border) transparent;
@@ -430,7 +496,7 @@
         }
 
         .hook-item {
-            border-left: 2px solid rgba(88, 166, 255, 0.55);
+            border-left: 2px solid rgba(24, 181, 178, 0.42);
             padding-left: 10px;
         }
 
@@ -453,8 +519,19 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             overflow: hidden;
-            background: var(--bg);
-            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+            background: var(--elevated);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .search-shot {
+            background:
+                radial-gradient(circle at 80% 20%, rgba(200, 244, 242, 0.34), transparent 48%),
+                radial-gradient(circle at 20% 80%, rgba(221, 247, 255, 0.34), transparent 42%),
+                rgba(255, 255, 255, 0.66);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-color: rgba(24, 181, 178, 0.18);
+            box-shadow: 0 8px 30px rgba(18, 40, 55, 0.06);
         }
 
         .hero-shot-wide img {
@@ -527,6 +604,7 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: var(--shadow-soft);
         }
 
         .shot-panel img {
@@ -573,7 +651,7 @@
             padding: 4px 9px;
             color: var(--fg-dim);
             font-size: 11px;
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--surface);
         }
 
         .flow {
@@ -613,6 +691,384 @@
         .code code .dim,
         .dim {
             color: var(--fg-dim);
+        }
+
+        .essay-section {
+            padding: 118px 0;
+        }
+
+        .essay-narrow {
+            max-width: 820px;
+        }
+
+        .essay-kicker {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .essay-title {
+            color: var(--fg-bright);
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 800;
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+            margin-bottom: 28px;
+            max-width: 980px;
+        }
+
+        .essay-copy {
+            color: var(--fg-dim);
+            font-size: 22px;
+            line-height: 1.48;
+            max-width: 820px;
+        }
+
+        .essay-copy + .essay-copy {
+            margin-top: 18px;
+        }
+
+        .essay-emphasis {
+            color: var(--fg-bright);
+        }
+
+        .essay-grid {
+            display: grid;
+            gap: 26px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            margin-top: 42px;
+        }
+
+        .essay-panel {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(18, 40, 55, 0.045);
+            padding: 30px;
+        }
+
+        .essay-panel-title {
+            color: var(--fg-bright);
+            font-size: 24px;
+            font-weight: 750;
+            letter-spacing: -0.03em;
+            line-height: 1.12;
+            margin-bottom: 12px;
+        }
+
+        .essay-panel-copy {
+            color: var(--fg-dim);
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .language-list {
+            display: grid;
+            gap: 14px;
+            list-style: none;
+            margin-top: 34px;
+            max-width: 760px;
+        }
+
+        .language-list li {
+            color: var(--fg-bright);
+            font-family: var(--font-mono);
+            font-size: 18px;
+            line-height: 1.45;
+        }
+
+        .proof-line {
+            color: var(--fg-muted);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-top: 34px;
+        }
+
+        .manifesto {
+            background:
+                radial-gradient(circle at 82% 16%, rgba(88, 224, 214, 0.09), transparent 78%),
+                var(--surface);
+        }
+
+        .final-cta {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 38px;
+        }
+
+        .product-section {
+            padding: 118px 0;
+        }
+
+        .product-story {
+            margin: 0 auto;
+            max-width: 860px;
+            text-align: center;
+        }
+
+        .product-kicker {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            color: var(--fg-bright);
+            font-size: clamp(44px, 5vw, 72px);
+            font-weight: 800;
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+            margin: 0 auto 24px;
+            max-width: 980px;
+        }
+
+        .product-copy {
+            color: var(--fg-dim);
+            font-size: 22px;
+            line-height: 1.45;
+            margin: 0 auto;
+            max-width: 780px;
+        }
+
+        .product-copy + .product-copy {
+            margin-top: 16px;
+        }
+
+        .product-visual {
+            margin-top: 50px;
+        }
+
+        .product-visual .hero-shot-wide,
+        .product-visual .shot-panel {
+            margin-top: 0;
+        }
+
+        .thinking-sequence {
+            background:
+                radial-gradient(circle at 82% 18%, rgba(200, 244, 242, 0.2), transparent 76%),
+                rgba(255, 255, 255, 0.58);
+            border: 1px solid rgba(18, 40, 55, 0.07);
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(18, 40, 55, 0.045);
+            display: grid;
+            gap: 14px;
+            margin: 50px auto 0;
+            max-width: 720px;
+            padding: 28px;
+        }
+
+        .thinking-step {
+            align-items: center;
+            color: var(--fg);
+            display: flex;
+            font-family: var(--font-mono);
+            font-size: 17px;
+            gap: 12px;
+            line-height: 1.4;
+        }
+
+        .thinking-step span {
+            color: var(--accent);
+            flex: 0 0 auto;
+            font-size: 13px;
+        }
+
+        .headless-visual {
+            background:
+                radial-gradient(circle at 80% 18%, rgba(200, 244, 242, 0.22), transparent 76%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(248, 251, 251, 0.72));
+            border: 1px solid rgba(18, 40, 55, 0.07);
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(18, 40, 55, 0.045);
+            margin: 50px auto 0;
+            max-width: 760px;
+            padding: 34px;
+        }
+
+        .headless-line {
+            align-items: baseline;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .headless-line:last-child {
+            border-bottom: 0;
+        }
+
+        .headless-label {
+            color: var(--fg-muted);
+            font-family: var(--font-mono);
+            font-size: 13px;
+        }
+
+        .headless-value {
+            color: var(--fg-bright);
+            font-size: 19px;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            text-align: right;
+        }
+
+        .exhaust-line {
+            color: var(--fg-bright);
+            font-size: clamp(30px, 4vw, 48px);
+            font-weight: 750;
+            letter-spacing: -0.045em;
+            line-height: 1.08;
+            margin: 42px auto 0;
+            max-width: 960px;
+            text-align: center;
+        }
+
+        .exhaust-muted {
+            color: var(--fg-muted);
+        }
+
+        .day-section {
+            padding: 118px 0;
+        }
+
+        .day-section:nth-of-type(odd) {
+            background:
+                radial-gradient(circle at 84% 20%, rgba(200, 244, 242, 0.12), transparent 72%),
+                rgba(248, 251, 251, 0.52);
+        }
+
+        .day-layout {
+            align-items: center;
+            display: grid;
+            gap: 54px;
+            grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.34fr);
+        }
+
+        .day-layout.reverse {
+            grid-template-columns: minmax(0, 1.34fr) minmax(0, 0.88fr);
+        }
+
+        .day-layout.reverse .day-copy-block {
+            order: 2;
+        }
+
+        .day-copy-block {
+            max-width: 440px;
+        }
+
+        .day-kicker {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .day-title {
+            color: var(--fg-bright);
+            font-size: clamp(38px, 4.6vw, 62px);
+            font-weight: 800;
+            letter-spacing: -0.052em;
+            line-height: 0.98;
+            margin-bottom: 22px;
+        }
+
+        .day-lede {
+            color: var(--fg-dim);
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .day-lede + .day-lede {
+            margin-top: 14px;
+        }
+
+        .day-proof {
+            color: var(--fg-muted);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.7;
+            margin-top: 22px;
+        }
+
+        .day-visual {
+            min-width: 0;
+        }
+
+        .day-shot {
+            background:
+                radial-gradient(circle at 80% 18%, rgba(200, 244, 242, 0.22), transparent 76%),
+                rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(18, 40, 55, 0.07);
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(18, 40, 55, 0.05);
+            overflow: hidden;
+        }
+
+        .day-shot img {
+            width: 100%;
+        }
+
+        .day-caption {
+            border-top: 1px solid var(--border);
+            color: var(--fg-dim);
+            font-size: 14px;
+            line-height: 1.55;
+            padding: 16px 18px 18px;
+        }
+
+        .day-command-list {
+            display: grid;
+            gap: 12px;
+            list-style: none;
+            margin-top: 26px;
+        }
+
+        .day-command-list li {
+            color: var(--fg-bright);
+            font-family: var(--font-mono);
+            font-size: 15px;
+            line-height: 1.45;
+        }
+
+        .serious-lines {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: 44px;
+        }
+
+        .serious-line {
+            border-top: 1px solid var(--border);
+            padding-top: 18px;
+        }
+
+        .serious-line strong {
+            display: block;
+            font-size: 20px;
+            letter-spacing: -0.025em;
+            line-height: 1.16;
+        }
+
+        .serious-line span {
+            color: var(--fg-muted);
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            margin-top: 8px;
         }
 
         @media (max-width: 820px) {
@@ -656,15 +1112,16 @@
             }
 
             .hero-card .title {
-                font-size: 27px;
+                font-size: 15px;
             }
 
             .hero-promise {
-                font-size: 26px;
+                font-size: 54px;
+                white-space: normal;
             }
 
             .hero-copy {
-                font-size: 14px;
+                font-size: 22px;
             }
 
             .hero-insight-core {
@@ -672,7 +1129,83 @@
             }
 
             .hero-punchline {
-                font-size: 15px;
+                font-size: 24px;
+            }
+
+            .essay-section {
+                padding: 76px 0;
+            }
+
+            .essay-title {
+                font-size: 40px;
+            }
+
+            .essay-copy {
+                font-size: 19px;
+            }
+
+            .essay-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-focus {
+                border-radius: 22px;
+            }
+
+            .product-section {
+                padding: 76px 0;
+            }
+
+            .product-title {
+                font-size: 40px;
+            }
+
+            .product-copy {
+                font-size: 19px;
+            }
+
+            .thinking-step {
+                font-size: 14px;
+            }
+
+            .headless-line {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .headless-value {
+                text-align: left;
+            }
+
+            .day-section {
+                padding: 76px 0;
+            }
+
+            .day-layout,
+            .day-layout.reverse {
+                gap: 30px;
+                grid-template-columns: 1fr;
+            }
+
+            .day-layout.reverse .day-copy-block {
+                order: 0;
+            }
+
+            .day-copy-block {
+                max-width: none;
+            }
+
+            .day-title {
+                font-size: 40px;
+            }
+
+            .day-lede {
+                font-size: 18px;
+            }
+
+            .serious-lines {
+                grid-template-columns: 1fr;
             }
 
             .analyst-hook-card {
@@ -700,13 +1233,14 @@
                 <span class="runtime-identity">The Investment Research Operating System</span>
             </div>
             <nav class="nav" aria-label="Primary">
+                <a href="#language">Start</a>
                 <a href="#model">Model</a>
                 <a href="#explore">Explore</a>
+                <a href="#changed">Changed</a>
                 <a href="#methods">Methods</a>
-                <a href="#language">Language</a>
-                <a href="#why-maintenance">Why</a>
-                <a href="#bring-your-model">Bring Your Model</a>
-                <a href="#get-started">Open fin123</a>
+                <a href="#overnight">Headless</a>
+                <a href="#everything-follows">Record</a>
+                <a href="https://app.fin123.dev">Open fin123</a>
             </nav>
         </div>
     </header>
@@ -717,44 +1251,28 @@
                 <div class="hero-card">
                     <div class="hero-grid">
                         <div class="hero-text">
-                            <h1 class="title hero-brand-title"><span class="prompt" aria-hidden="true">$</span>fin123</h1>
                             <p class="hero-promise">
                                 Work the way you think.
                             </p>
+                            <p class="hero-punchline">The investment research operating system.</p>
                             <div class="hero-insight">
                                 <p class="hero-copy">
-                                    The future of investment research is not better spreadsheets.
+                                    The future of investment research isn't managing files.
                                 </p>
                                 <p class="hero-copy">
-                                    It is better thinking.
+                                    It's better thinking.
                                 </p>
-                                <p class="hero-copy">
-                                    Modern investment teams do not manage spreadsheets. They maintain living Models.
-                                </p>
-                                <p class="hero-punchline">fin123 is the first operating system for institutional investment research.</p>
                             </div>
-                            <div class="hero-outcomes" aria-label="fin123 outcomes">
-                                <span class="hero-chip">Test ideas</span>
-                                <span class="hero-chip">Understand what changed</span>
-                                <span class="hero-chip">Keep what matters</span>
-                                <span class="hero-chip">Throw the rest away</span>
-                                <span class="hero-chip">Everything else follows</span>
-                            </div>
-                            <p class="hero-copy hero-ai-substrate">
-                                Test ideas. Understand what changed.<br />
-                                Keep what matters. Walk away from the rest.
-                            </p>
-                            <p class="hero-category">
-                                Work the way you think, not the way spreadsheets, folders, slides, chat, and memory force you to work.
-                            </p>
-                            <p class="hero-category">
-                                Built for portfolio managers and investment teams.
-                            </p>
+                            <p class="hero-outcome">Test ideas. Understand what changed. Keep what matters. Everything else follows.</p>
+                            <p class="hero-identity">Built for research velocity. Designed for institutional memory.</p>
                             <div class="hero-actions">
-                                <a class="btn" href="https://app.fin123.dev">Open fin123</a>
-                                <a class="btn btn-ghost"
-                                    href="mailto:jedgore@reckoningmachines.com?subject=fin123%20walkthrough%20request">Request
-                                    a Walkthrough</a>
+                                <a class="btn" href="https://app.fin123.dev">Open fin123 &rarr;</a>
+                                <a class="hero-demo-link"
+                                    href="mailto:jedgore@reckoningmachines.com?subject=fin123%20demo%20request">Request Demo</a>
+                            </div>
+                            <div class="hero-focus" aria-label="fin123 search focus">
+                                <span class="hero-focus-query" id="hero-search-placeholder">What changed?</span>
+                                <span class="hero-focus-key">/</span>
                             </div>
                         </div>
                     </div>
@@ -762,400 +1280,193 @@
             </div>
         </section>
 
-        <section id="model" class="section">
+        <section id="language" class="day-section">
             <div class="container">
-                <h2 class="section-title">The Model is the thesis.</h2>
-                <p class="section-lede">A serious investment thesis is not a file. It is a living Model: assumptions,
-                    evidence, Methods, outputs, and judgment moving together.</p>
-                <p class="section-lede">The analyst improves the Model. Everything else follows.</p>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Stay inside the work</h3>
-                        <p>Use the familiar Analyze grid, imported Excel models, formulas, scenarios, Results, and
-                            explicit Model runs without turning the browser into the source of truth.</p>
+                <div class="day-layout reverse">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Start</div>
+                        <h2 class="day-title">Start with the thought.</h2>
+                        <p class="day-lede">Open a Model, company, question, or Method from the same surface. Think in investment language. fin123 starts where analysts start: with intent.</p>
+                        <ul class="day-command-list">
+                            <li>What changed?</li>
+                            <li>Why did EPS move?</li>
+                            <li>Lower Services growth 2%</li>
+                        </ul>
                     </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Keep the thinking intact</h3>
-                        <p>The evidence, assumptions, Methods, outputs, Timeline, Report, Replay, and Audit stay
-                            attached to the Model instead of scattering across files, email, slides, and chat.</p>
-                    </div>
-                </div>
-                <div class="hero-shot-wide workbook-shot">
-                    <img src="./search.png" alt="fin123 search homepage" />
-                    <div class="yap-caption">
-                        Start with the work in front of you. Search by company, Model, symbol, portfolio, or work item.
-                    </div>
-                </div>
-                <div class="hero-shot-wide workbook-shot">
-                    <img src="./product.png" alt="fin123 model view" />
-                    <div class="yap-caption">
-                        Navigate with Search. Analyze in a familiar grid, with <code>=DATA()</code> and <code>=AI()</code>
-                        functions built in. AI Formula produces typed outputs; the Model keeps the reasoning attached.
-                    </div>
-                </div>
-                <p class="narrative-bridge">Inside a Repository, fin123 keeps the Model, evidence, assumptions, Methods,
-                    Results, Timeline, Report, Replay, and Audit connected to the same analytical thread.</p>
-            </div>
-        </section>
-
-        <section id="explore" class="section">
-            <div class="container">
-                <h2 class="section-title">Explore is where ideas become convictions.</h2>
-                <p class="section-lede">Try an idea. See what changed. Compare alternatives. Keep what matters.
-                    Walk away from the rest.</p>
-                <div class="aapl-flow">
-                    <div class="aapl-card">
-                        <div class="aapl-label">Idea</div>
-                        <h3 class="aapl-title">Start with the thought</h3>
-                        <p class="aapl-copy">"Lower Services growth by 2%."</p>
-                        <p class="aapl-copy">"Compare this to last quarter."</p>
-                        <p class="aapl-copy">"Show me what changed."</p>
-                    </div>
-                    <div class="aapl-arrow" aria-hidden="true">-&gt;</div>
-                    <div class="aapl-card">
-                        <div class="aapl-label">Compare</div>
-                        <h3 class="aapl-title">See the impact immediately</h3>
-                        <p class="aapl-copy">fin123 turns analyst intent into governed Model operations, then shows the change and the proof.</p>
-                    </div>
-                    <div class="aapl-arrow" aria-hidden="true">-&gt;</div>
-                    <div class="aapl-card">
-                        <div class="aapl-label">Judgment</div>
-                        <h3 class="aapl-title">Keep only what earns it</h3>
-                        <p class="aapl-copy">Commit what matters. Keep exploring. Or leave the idea behind.</p>
-                    </div>
-                </div>
-                <p class="narrative-bridge">Explore is the analyst's canvas: fast enough for real thinking, structured enough that
-                    evidence, comparison, Results, Timeline, Replay, and Audit remain available as proof-on-demand.</p>
-            </div>
-        </section>
-
-        <section id="methods" class="section">
-            <div class="container">
-                <h2 class="section-title">Methods capture how your firm thinks.</h2>
-                <p class="section-lede">Every investment firm has a process. Few can preserve it.</p>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Your Models are assets.</h3>
-                        <p>Your Methods are your firm's intellectual property.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Method is reusable judgment.</h3>
-                        <p>How your team evaluates guidance, normalizes margins, interprets tone, and underwrites downside.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">AI Method supports AI Formula.</h3>
-                        <p>But Method is bigger than AI and bigger than prompt storage.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">The analyst still owns judgment.</h3>
-                        <p>Methods preserve intent so judgment can be reviewed, reused, and improved.</p>
-                    </div>
-                </div>
-                <div class="screenshot-stack" style="margin-top: 18px;">
-                    <div class="shot-panel">
-                        <img src="./aiassistedformula.png" alt="AI Formula surface in fin123" />
-                        <div class="shot-body">
-                            <div class="shot-kicker">AI Formula</div>
-                            <h3 class="shot-title">Typed research logic inside the Model.</h3>
-                            <p class="shot-copy"><code>=AI()</code> formulas live in the Analyze grid and produce Results from Method-backed reasoning.</p>
-                        </div>
-                    </div>
-                    <div class="shot-panel">
-                        <img src="./aimethod.png" alt="AI Method document in fin123" />
-                        <div class="shot-body">
-                            <div class="shot-kicker">Method</div>
-                            <h3 class="shot-title">How your firm thinks, preserved.</h3>
-                            <p class="shot-copy">Methods preserve the way your team thinks so judgment can be applied again without becoming tribal knowledge.</p>
+                    <div class="day-visual">
+                        <div class="day-shot">
+                            <img src="./search.png" alt="fin123 search surface for models, questions, and Methods" />
+                            <div class="day-caption">
+                                Search Models, companies, questions, and Methods without turning research into file management.
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="language" class="section">
+        <section id="model" class="day-section">
             <div class="container">
-                <h2 class="section-title">Think in investment language.</h2>
-                <p class="section-lede">Analysts should be able to say what they mean. fin123 turns analyst intent into
-                    governed Model changes and shows the proof.</p>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Lower Services growth by 2%.</h3>
-                        <p>Change the Model in the language of the thesis.</p>
+                <div class="day-layout">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Model</div>
+                        <h2 class="day-title">Open a Model.</h2>
+                        <p class="day-lede">A serious investment thesis is not a file. It is a living Model: assumptions, evidence, Methods, outputs, and judgment moving together.</p>
+                        <p class="day-lede">Research velocity starts when the analyst can reduce the time between idea and validated belief. Institutional memory survives because the reasoning stays attached.</p>
+                        <p class="day-proof">The Model is the thesis.</p>
                     </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Compare this to last quarter.</h3>
-                        <p>Compare against Model state, evidence, assumptions, and Results.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Show me what changed.</h3>
-                        <p>See movement in assumptions, outputs, evidence, and belief.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Explain why EPS moved.</h3>
-                        <p>Connect the answer back to the Model, Method, evidence, and proof.</p>
-                    </div>
-                </div>
-                <p class="narrative-bridge">Cells, ranges, formulas, lineage, and internal IDs still exist.
-                    They are proof, diagnostics, and debugging tools. They are not the language of the thesis.</p>
-            </div>
-        </section>
-
-        <section id="overnight" class="section">
-            <div class="container">
-                <h2 class="section-title">Your research should not sleep because you did.</h2>
-                <p class="section-lede">Wake up to refreshed Models, new evidence, changed assumptions, and everything
-                    that deserves your attention.</p>
-                <div class="panel">
-                    <p>Headless runs can refresh evidence and prepare Model updates overnight or on schedule, without
-                        making the PM spend the first hour rebuilding yesterday's work.</p>
-                    <p style="margin-top: 10px;">The analyst still decides what to keep. Overnight preparation is not hidden
-                        canonical mutation and not auto-promotion.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="everything-follows" class="section">
-            <div class="container">
-                <h2 class="section-title">Everything else follows.</h2>
-                <p class="section-lede">Because the reasoning happened in fin123, the institutional record follows automatically.</p>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Timeline</h3>
-                        <p>Belief evolution emitted from Model work: what changed, when, and why.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Memory</h3>
-                        <p>Reasoning remembered because it is attached to assumptions, Methods, evidence, and Models.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Report</h3>
-                        <p>Communication of the current view, backed by Results and evidence.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Audit / Replay / Provenance</h3>
-                        <p>Proof-on-demand for trust, review, diagnostics, and oversight.</p>
-                    </div>
-                </div>
-                <p class="narrative-bridge">Governance is exhaust, not the product. The desired user experience is:
-                    I am improving the Model.</p>
-            </div>
-        </section>
-
-        <section id="serious-teams" class="section">
-            <div class="container">
-                <h2 class="section-title">Why serious teams move faster.</h2>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">They preserve reasoning.</h3>
-                        <p>Not files.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">They test ideas.</h3>
-                        <p>Not spreadsheets.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">They improve Models.</h3>
-                        <p>Not reports.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">They communicate conviction.</h3>
-                        <p>Not documentation.</p>
+                    <div class="day-visual">
+                        <div class="day-shot">
+                            <img src="./product.png" alt="fin123 model view" />
+                            <div class="day-caption">
+                                Bring Your Model. Keep the familiar grid, then add <code>=DATA()</code>, <code>=AI()</code>, Results, Timeline, Report, Replay, and Audit as emitted surfaces of Model work.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="why-maintenance" class="section">
+        <section id="explore" class="day-section">
             <div class="container">
-                <p class="section-lede"><strong>Built by a former PM who spent 15 years building buyside spreadsheets
-                        and 15 years writing production software for Wall Street.</strong></p>
-                <h2 class="section-title">Why this has to exist.</h2>
-                <p class="section-lede">Investment research has always been programming. Nobody built the operating
-                    system around it.</p>
-                <p class="section-lede">That is why analysts still maintain billion-dollar investment theses with
-                    spreadsheets, PowerPoint, chat, folders, and memory. <strong>We think there is a better way.</strong></p>
-                <div class="workbook-grid">
-                    <div class="panel workbook-view">
-                        <h3 class="panel-title">What changed?</h3>
-                        <p class="view-doctrine">The morning question</p>
-                        <p>See the assumptions, evidence, and outputs that moved.</p>
+                <div class="day-layout reverse">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Explore</div>
+                        <h2 class="day-title">Explore an idea.</h2>
+                        <p class="day-lede">Try an idea. See what changed. Compare alternatives. Keep what matters. Walk away from the rest.</p>
+                        <p class="day-lede">Explore gives the analyst a canvas for thinking without corrupting the house view.</p>
+                        <p class="day-proof">Explore is where ideas become convictions.</p>
                     </div>
-                    <div class="panel workbook-view">
-                        <h3 class="panel-title">Why did it change?</h3>
-                        <p class="view-doctrine">Reasoning attached</p>
-                        <p>The evidence and analytical thread stay with the Model.</p>
-                    </div>
-                    <div class="panel workbook-view">
-                        <h3 class="panel-title">Can I trust it?</h3>
-                        <p class="view-doctrine">Proof-on-demand</p>
-                        <p>Replay, Audit, provenance, and evidence are available when needed.</p>
-                    </div>
-                    <div class="panel workbook-view">
-                        <h3 class="panel-title">What does the analyst believe now?</h3>
-                        <p class="view-doctrine">Current thesis</p>
-                        <p>The Model carries the current view, not a stale file copy.</p>
-                    </div>
-                    <div class="panel workbook-view">
-                        <h3 class="panel-title">What do we do next?</h3>
-                        <p class="view-doctrine">Attention</p>
-                        <p>PMs see what needs review before the morning meeting.</p>
-                    </div>
-                    <div class="panel workbook-view">
-                        <h3 class="panel-title">What should we keep?</h3>
-                        <p class="view-doctrine">Judgment boundary</p>
-                        <p>The analyst decides what becomes the accepted Model state.</p>
-                    </div>
-                </div>
-                <div class="workbook-doctrine" aria-label="Investment operating discipline">
-                    You do not update cells.<br>
-                    You update beliefs.
-                    <span class="doctrine-break" aria-hidden="true"></span>
-                    You do not write reports.<br>
-                    You communicate what changed.
-                </div>
-            </div>
-        </section>
-
-        <section id="bring-your-model" class="section">
-            <div class="container">
-                <h2 class="section-title">Bring Your Model.</h2>
-                <p class="section-lede">Analysts should not have to rebuild working Excel models to get the operating
-                    system around them.</p>
-                <div class="panel">
-                    <ul class="feature-list primary-list">
-                        <li>Import existing Excel models into a Repository instead of rebuilding them.</li>
-                        <li>Preserve formulas, Bloomberg links, Visible Alpha links, and existing file structure.</li>
-                        <li>Analyze in a familiar grid with <code>=DATA()</code> and <code>=AI()</code> built in.</li>
-                        <li>Use Results, Timeline, Report, Replay, and Audit as emitted surfaces of Model work.</li>
-                        <li>Add Sheet Warnings, evidence, versioning, and proof-on-demand without breaking analyst flow.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="why-different" class="section">
-            <div class="container">
-                <h2 class="section-title">Why fin123 is different</h2>
-                <p class="section-lede">Serious teams do not need more places to put research. They need a better way
-                    to think, test, maintain, and communicate it.</p>
-                <div class="feature-grid" style="margin-top: 18px;">
-                    <div class="panel">
-                        <h3 class="panel-title">Most tools manage files.</h3>
-                        <p>fin123 maintains the investment thesis.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Most tools make artifacts.</h3>
-                        <p>fin123 emits Timeline, Memory, Report, Audit, Replay, Provenance, and Governance from the work.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Most AI generates answers.</h3>
-                        <p>fin123 keeps judgment attached to the Model.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Most platforms force process.</h3>
-                        <p>fin123 lets analysts work the way they think.</p>
-                    </div>
-                </div>
-                <p class="narrative-bridge">This is what software engineering got decades ago. Programs evolve.
-                    Existing work has to be understood, tested, maintained, and improved. Institutional investment
-                    research deserves the same class of system.</p>
-            </div>
-        </section>
-
-        <section id="stakeholders" class="section">
-            <div class="container">
-                <h2 class="section-title">One reasoning substrate. Four desks.</h2>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Analyst</h3>
-                        <p>Test ideas, preserve reasoning, understand inherited Models, and move faster.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">PM</h3>
-                        <p>See what changed, why it changed, whether to trust it, and what needs attention.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Head of Research</h3>
-                        <p>Institutionalize Methods, reusable judgment, analytical continuity, and firm IP.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Oversight</h3>
-                        <p>Use Replay, Audit, provenance, and governance as proof-on-demand.</p>
+                    <div class="day-visual">
+                        <div class="day-shot">
+                            <img src="./surface.png" alt="fin123 Explore surface for scenario sensitivity" />
+                            <div class="day-caption">
+                                AAPL -> What changed? -> Why did EPS move? -> Lower Services growth 2% -> Compare to last quarter -> Retail guidance method -> Promote to Model.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="inside-model" class="section">
+        <section id="changed" class="day-section">
             <div class="container">
-                <h2 class="section-title">What sits inside the operating system</h2>
-                <div class="feature-grid">
-                    <div class="panel">
-                        <h3 class="panel-title">Analyze Grid</h3>
-                        <p>A familiar grid for Model work, not the whole product boundary.</p>
+                <div class="day-layout">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Changed</div>
+                        <h2 class="day-title">Understand what changed.</h2>
+                        <p class="day-lede">PMs ask the same questions every morning: what changed, why did it change, can I trust it, and what needs attention?</p>
+                        <p class="day-lede">fin123 keeps Results, evidence, run diffs, and proof attached to the Model work that produced them.</p>
                     </div>
-                    <div class="panel">
-                        <h3 class="panel-title"><code>=DATA()</code></h3>
-                        <p><code>=DATA(...)</code> is a native function inside the Analyze surface.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title"><code>=AI()</code> / AI Formula</h3>
-                        <p><code>=AI(...)</code> produces typed Model outputs from Method-backed reasoning.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Method</h3>
-                        <p>Reusable firm reasoning, versioned and reviewable so judgment survives time and scale.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Results</h3>
-                        <p>Typed outputs from Model execution.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Timeline</h3>
-                        <p>Belief evolution emitted from meaningful Model changes.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Report</h3>
-                        <p>Communication generated from Results, evidence, and current reasoning.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Replay / Audit</h3>
-                        <p>Proof-on-demand for outputs, evidence, and Model operations.</p>
-                    </div>
-                    <div class="panel">
-                        <h3 class="panel-title">Sheet Warnings</h3>
-                        <p>Formula drift, hardcodes, and copy errors are surfaced.</p>
+                    <div class="day-visual">
+                        <div class="day-shot">
+                            <img src="./4.png" alt="fin123 audit surface showing run inputs and outputs" />
+                            <div class="day-caption">
+                                Audit and Replay are proof-on-demand for what changed, why it changed, and which Model inputs and outputs were involved.
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p class="narrative-bridge">fin123 is software above prime brokers. It is not a prime broker, custodian,
-                    clearing system, settlement system, financing system, or live trading venue.</p>
             </div>
         </section>
 
-        <section id="get-started" class="section">
+        <section id="methods" class="day-section">
             <div class="container">
-                <h2 class="section-title">Get started</h2>
-                <div class="stack">
-                    <div class="panel">
-                        <p class="contact-line">
-                            Open the hosted app: <a class="link" href="https://app.fin123.dev">app.fin123.dev</a>
-                        </p>
+                <div class="day-layout">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Preserve reasoning</div>
+                        <h2 class="day-title">Preserve how your team thinks.</h2>
+                        <p class="day-lede">Your Models are assets. Your Methods are firm IP. Method is reusable judgment, not prompt storage.</p>
+                        <p class="day-lede">AI Method can support AI Formula, but Method is bigger than AI.</p>
+                        <p class="day-proof">Methods capture how your firm thinks.</p>
                     </div>
-                    <div class="panel">
-                        <p class="contact-line">
-                            Request a walkthrough: <a class="link"
-                                href="mailto:jedgore@reckoningmachines.com?subject=fin123%20walkthrough%20request">Email
-                                jedgore@reckoningmachines.com</a>
-                        </p>
+                    <div class="day-visual">
+                        <div class="day-shot">
+                            <img src="./aimethod.png" alt="AI Method document in fin123" />
+                            <div class="day-caption">
+                                Every investment firm has a process. Few can preserve it across turnover, time, and scale.
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel">
-                        <p>
-                            <strong>fin123</strong>
-                        </p>
-                        <p style="margin-top: 10px;">
-                            fin123 is the investment research operating system.
-                        </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="overnight" class="day-section">
+            <div class="container">
+                <div class="day-layout reverse">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Headless</div>
+                        <h2 class="day-title">Wake up to what's changed.</h2>
+                        <p class="day-lede">Headless runs can refresh evidence and prepare Model updates overnight or on schedule.</p>
+                        <p class="day-lede">The PM wakes up to changed assumptions, new evidence, and what needs attention. Overnight preparation is not hidden canonical mutation. The analyst still decides what to keep.</p>
+                        <p class="day-proof">Your research should not sleep because you did.</p>
                     </div>
+                    <div class="day-visual">
+                        <div class="headless-visual" aria-label="Overnight research preparation">
+                            <div class="headless-line">
+                                <span class="headless-label">02:10</span>
+                                <span class="headless-value">Evidence refreshed</span>
+                            </div>
+                            <div class="headless-line">
+                                <span class="headless-label">03:40</span>
+                                <span class="headless-value">Assumptions changed</span>
+                            </div>
+                            <div class="headless-line">
+                                <span class="headless-label">06:15</span>
+                                <span class="headless-value">What needs attention is ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="everything-follows" class="day-section">
+            <div class="container">
+                <div class="day-layout">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Record</div>
+                        <h2 class="day-title">Everything else follows.</h2>
+                        <p class="day-lede">Because the reasoning happened in fin123, the institutional record follows automatically.</p>
+                        <p class="day-proof">Governance is exhaust, not the product. Timeline, Memory, Report, Audit, Replay, and Provenance remain proof-on-demand.</p>
+                    </div>
+                    <div class="day-visual">
+                        <p class="exhaust-line">Timeline. Memory. Report. Audit. Replay. Provenance. <span class="exhaust-muted">Governance.</span></p>
+                    </div>
+                </div>
+                <div class="product-kicker" id="serious-teams">Why serious teams move faster</div>
+                <div class="serious-lines">
+                    <div class="serious-line">
+                        <strong>Preserve reasoning.</strong>
+                        <span>Not files.</span>
+                    </div>
+                    <div class="serious-line">
+                        <strong>Test ideas.</strong>
+                        <span>Not spreadsheets.</span>
+                    </div>
+                    <div class="serious-line">
+                        <strong>Improve Models.</strong>
+                        <span>Not reports.</span>
+                    </div>
+                    <div class="serious-line">
+                        <strong>Communicate conviction.</strong>
+                        <span>Not documentation.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-maintenance" class="essay-section manifesto">
+            <div class="container essay-narrow">
+                <div class="essay-kicker">Why this has to exist</div>
+                <h2 class="essay-title">Investment research has always been programming.</h2>
+                <p class="essay-copy">Spreadsheets are a programming language. Nobody built the operating system around it.</p>
+                <p class="essay-copy"><strong>We think there is a better way.</strong></p>
+                <div class="final-cta">
+                    <a class="btn" href="https://app.fin123.dev">Open fin123 &rarr;</a>
+                    <a class="hero-demo-link"
+                        href="mailto:jedgore@reckoningmachines.com?subject=fin123%20demo%20request">Request Demo</a>
                 </div>
             </div>
         </section>
@@ -1168,6 +1479,32 @@
             <div class="footer-note">The Model keeps DATA, AI Formula, Methods, Results, Timeline, Report, Replay, Audit, provenance, and governance attached as emitted representations of reasoning.</div>
         </div>
     </footer>
+    <script>
+        (() => {
+            const target = document.getElementById('hero-search-placeholder');
+            if (!target) return;
+            const prompts = [
+                'AAPL',
+                'What changed?',
+                'Why did EPS move?',
+                'Lower Services growth 2%',
+                'Compare to last quarter',
+                'Retail guidance method',
+                'Promote to Model'
+            ];
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion) return;
+            let index = 0;
+            window.setInterval(() => {
+                index = (index + 1) % prompts.length;
+                target.classList.add('is-fading');
+                window.setTimeout(() => {
+                    target.textContent = prompts[index];
+                    target.classList.remove('is-fading');
+                }, 180);
+            }, 2200);
+        })();
+    </script>
 </body>
 
 </html>

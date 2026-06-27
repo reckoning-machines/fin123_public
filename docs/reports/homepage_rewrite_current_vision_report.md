@@ -2,13 +2,14 @@
 
 ## What changed
 
-Rewrote `index.html` around a more aspirational category frame: the future of investment research is not better spreadsheets, it is better thinking, and fin123 is the investment research operating system.
+Rewrote `index.html` around a more aspirational category frame: the future of investment research isn't managing files, it's better thinking, and fin123 is the investment research operating system.
 
-The homepage now leads with identity and desire rather than doctrine. It positions modern investment teams as teams that maintain living Models, then uses Model, Explore, Methods, investment language, headless research, and emitted records to support that claim.
+The homepage now leads with identity and desire rather than doctrine. The hero has been reduced to the core brand idea: Work the way you think, better thinking, and the first operating system for institutional investment research. Model, Explore, Methods, investment language, headless research, and emitted records support that claim below the fold.
 
 The section structure now emphasizes:
 
 - Research maintenance as the later "why this exists" reveal, not the opening lecture.
+- A lighter Apple-inspired hero with no bordered card, fewer words, stronger whitespace, and sans typography for the emotional copy.
 - The Model as the durable, executable representation of the thesis.
 - Explore as the place where ideas become convictions.
 - Analyst language as the public interaction model.
