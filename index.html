@@ -789,18 +789,51 @@
             margin-top: 34px;
         }
 
-        .manifesto {
-            background:
-                radial-gradient(circle at 82% 16%, rgba(88, 224, 214, 0.09), transparent 78%),
-                var(--surface);
-        }
-
         .final-cta {
             align-items: center;
             display: flex;
             flex-wrap: wrap;
             gap: 18px;
             margin-top: 38px;
+        }
+
+        .manifesto-declaration {
+            background:
+                radial-gradient(circle at 78% 22%, rgba(88, 224, 214, 0.08), transparent 78%),
+                radial-gradient(circle at 16% 86%, rgba(150, 220, 255, 0.06), transparent 74%);
+            padding: 104px 0 116px;
+        }
+
+        .manifesto-lines {
+            display: grid;
+            gap: 18px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .manifesto-lines p {
+            color: var(--fg-bright);
+            font-size: clamp(26px, 3vw, 38px);
+            font-weight: 650;
+            letter-spacing: -0.035em;
+            line-height: 1.12;
+            margin: 0;
+        }
+
+        .manifesto-lines p:nth-child(2),
+        .manifesto-lines p:nth-child(3) {
+            color: var(--fg-dim);
+            font-weight: 550;
+        }
+
+        .manifesto-lines p:nth-child(4) {
+            color: var(--accent-active);
+            font-weight: 700;
+        }
+
+        .manifesto-lines p:last-child {
+            color: var(--fg-muted);
+            font-weight: 500;
         }
 
         .product-section {
@@ -1208,6 +1241,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .manifesto-declaration {
+                padding: 72px 0 82px;
+            }
+
+            .manifesto-lines p {
+                font-size: 26px;
+            }
+
             .analyst-hook-card {
                 padding: 15px;
                 max-height: 360px;
@@ -1276,6 +1317,18 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="manifesto-declaration" aria-label="fin123 declaration">
+            <div class="container">
+                <div class="manifesto-lines">
+                    <p>Investment research has always been programming.</p>
+                    <p>Spreadsheets are a programming language.</p>
+                    <p>Nobody built the operating system around it.</p>
+                    <p>fin123 is the investment research operating system.</p>
+                    <p>We think there is a better way.</p>
                 </div>
             </div>
         </section>
@@ -1454,15 +1507,6 @@
                         <span>Not documentation.</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="why-maintenance" class="essay-section manifesto">
-            <div class="container essay-narrow">
-                <div class="essay-kicker">Why this has to exist</div>
-                <h2 class="essay-title">Investment research has always been programming.</h2>
-                <p class="essay-copy">Spreadsheets are a programming language. Nobody built the operating system around it.</p>
-                <p class="essay-copy"><strong>We think there is a better way.</strong></p>
                 <div class="final-cta">
                     <a class="btn" href="https://app.fin123.dev">Open fin123 &rarr;</a>
                     <a class="hero-demo-link"
