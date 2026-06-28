@@ -951,19 +951,33 @@
             text-align: right;
         }
 
-        .exhaust-line {
-            color: var(--fg-bright);
-            font-size: clamp(30px, 4vw, 48px);
-            font-weight: 750;
-            letter-spacing: -0.045em;
-            line-height: 1.08;
-            margin: 42px auto 0;
-            max-width: 960px;
-            text-align: center;
+        .exhaust-surfaces {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .exhaust-muted {
+        .exhaust-surface {
+            border-top: 1px solid var(--border);
+            color: var(--fg-bright);
+            font-size: 20px;
+            font-weight: 650;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            padding-top: 14px;
+        }
+
+        .exhaust-surface.muted {
             color: var(--fg-muted);
+            font-weight: 550;
+        }
+
+        .exhaust-caption {
+            color: var(--fg-muted);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 1.7;
+            margin-top: 24px;
         }
 
         .day-section {
@@ -1480,10 +1494,18 @@
                         <div class="day-kicker">Record</div>
                         <h2 class="day-title">Everything else follows.</h2>
                         <p class="day-lede">Because the reasoning happened in fin123, the institutional record follows automatically.</p>
-                        <p class="day-proof">Governance is exhaust, not the product. Audit, Replay, and Provenance remain proof-on-demand.</p>
                     </div>
                     <div class="day-visual">
-                        <p class="exhaust-line">Timeline. Memory. Report. Audit. Replay. Provenance. <span class="exhaust-muted">Governance.</span></p>
+                        <div class="exhaust-surfaces" aria-label="Emitted research surfaces">
+                            <div class="exhaust-surface">Timeline</div>
+                            <div class="exhaust-surface">Memory</div>
+                            <div class="exhaust-surface">Report</div>
+                            <div class="exhaust-surface">Audit</div>
+                            <div class="exhaust-surface">Replay</div>
+                            <div class="exhaust-surface">Provenance</div>
+                            <div class="exhaust-surface muted">Governance</div>
+                        </div>
+                        <p class="exhaust-caption">Governance is exhaust, not the product. Audit, Replay, and Provenance remain proof-on-demand.</p>
                     </div>
                 </div>
             </div>
