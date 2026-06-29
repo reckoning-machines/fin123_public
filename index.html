@@ -218,6 +218,20 @@
             text-decoration: none;
         }
 
+        .demo-disclaimer {
+            color: var(--fg-muted);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 1.55;
+            margin: 14px auto 0;
+            max-width: 620px;
+        }
+
+        .final-demo-note {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         .hero + .section {
             padding-top: 96px;
         }
@@ -1229,7 +1243,7 @@
                 <a href="#research-shell">Research Shell</a>
                 <a href="#report">Report</a>
                 <a href="#timeline">Timeline</a>
-                <a href="https://app.fin123.dev">Open fin123</a>
+                <a href="https://app.fin123.dev">Runtime demo</a>
             </nav>
         </div>
     </header>
@@ -1252,10 +1266,13 @@
                             </div>
                             <p class="hero-outcome">Built for investment analysts. Designed for institutional memory.</p>
                             <div class="hero-actions">
-                                <a class="btn" href="https://app.fin123.dev">Open fin123 &rarr;</a>
+                                <a class="btn" href="https://app.fin123.dev">Open runtime demo &rarr;</a>
                                 <a class="hero-demo-link"
                                     href="mailto:jedgore@reckoningmachines.com?subject=fin123%20demo%20request">Request Demo</a>
                             </div>
+                            <p class="demo-disclaimer">
+                                Hosted runtime demos show selected wired product flows, not the full fin123 product.
+                            </p>
                             <div class="hero-focus" aria-label="fin123 search focus">
                                 <span class="hero-focus-query" id="hero-search-placeholder">What changed?</span>
                                 <span class="hero-focus-key">/</span>
@@ -1411,10 +1428,14 @@
                     </div>
                 </div>
                 <div class="final-cta">
-                    <a class="btn" href="https://app.fin123.dev">Open fin123 &rarr;</a>
+                    <a class="btn" href="https://app.fin123.dev">Open runtime demo &rarr;</a>
                     <a class="hero-demo-link"
                         href="mailto:jedgore@reckoningmachines.com?subject=fin123%20demo%20request">Request Demo</a>
                 </div>
+                <p class="demo-disclaimer final-demo-note">
+                    app.fin123.dev is a hosted runtime demo surface with selected flows, not the full product
+                    environment.
+                </p>
             </div>
         </section>
     </main>
