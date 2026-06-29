@@ -8,18 +8,18 @@
         content="fin123 by Reckoning Machines. Work the way you think. The investment research operating system." />
     <meta property="og:title" content="fin123 -- The investment research operating system" />
     <meta property="og:description"
-        content="The future of investment research isn't managing files. It's better thinking." />
+        content="Search the model. Analyze the numbers. Ask the Research Shell what changed. Turn the work into a report. Keep the timeline." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fin123.dev" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="fin123 -- The investment research operating system" />
     <meta name="twitter:description"
-        content="The future of investment research isn't managing files. It's better thinking." />
+        content="Search the model. Analyze the numbers. Ask the Research Shell what changed. Turn the work into a report. Keep the timeline." />
     <title>fin123 -- The investment research operating system</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -428,20 +428,6 @@
             color: var(--fg-dim);
             font-size: 11px;
             border-top: 1px solid var(--border);
-        }
-
-        .yap-caption {
-            padding: 14px 20px 18px;
-            color: var(--fg);
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 1.7;
-        }
-
-        .hero-shot-wide .yap-logo {
-            width: min(110px, 28vw);
-            height: auto;
-            margin: 18px 20px 0;
         }
 
         .analyst-hook-card {
@@ -912,45 +898,6 @@
             font-size: 13px;
         }
 
-        .headless-visual {
-            background:
-                radial-gradient(circle at 80% 18%, rgba(200, 244, 242, 0.22), transparent 76%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(248, 251, 251, 0.72));
-            border: 1px solid rgba(18, 40, 55, 0.07);
-            border-radius: 28px;
-            box-shadow: 0 8px 30px rgba(18, 40, 55, 0.045);
-            margin: 50px auto 0;
-            max-width: 760px;
-            padding: 34px;
-        }
-
-        .headless-line {
-            align-items: baseline;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            gap: 16px;
-            justify-content: space-between;
-            padding: 15px 0;
-        }
-
-        .headless-line:last-child {
-            border-bottom: 0;
-        }
-
-        .headless-label {
-            color: var(--fg-muted);
-            font-family: var(--font-mono);
-            font-size: 13px;
-        }
-
-        .headless-value {
-            color: var(--fg-bright);
-            font-size: 19px;
-            font-weight: 650;
-            letter-spacing: -0.02em;
-            text-align: right;
-        }
-
         .exhaust-surfaces {
             display: grid;
             gap: 10px;
@@ -994,11 +941,11 @@
             align-items: center;
             display: grid;
             gap: 54px;
-            grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.34fr);
+            grid-template-columns: minmax(440px, 0.88fr) minmax(0, 1.34fr);
         }
 
         .day-layout.reverse {
-            grid-template-columns: minmax(0, 1.34fr) minmax(0, 0.88fr);
+            grid-template-columns: minmax(0, 1.34fr) minmax(440px, 0.88fr);
         }
 
         .day-layout.reverse .day-copy-block {
@@ -1006,7 +953,7 @@
         }
 
         .day-copy-block {
-            max-width: 440px;
+            min-width: 0;
         }
 
         .day-kicker {
@@ -1214,16 +1161,6 @@
                 font-size: 14px;
             }
 
-            .headless-line {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            .headless-value {
-                text-align: left;
-            }
-
             .day-section {
                 padding: 76px 0;
             }
@@ -1287,13 +1224,11 @@
                 <span class="runtime-identity">The Investment Research Operating System</span>
             </div>
             <nav class="nav" aria-label="Primary">
-                <a href="#language">Start</a>
-                <a href="#model">Model</a>
-                <a href="#explore">Explore</a>
-                <a href="#changed">Understand</a>
-                <a href="#methods">Methods</a>
-                <a href="#overnight">Headless</a>
-                <a href="#everything-follows">Record</a>
+                <a href="#start">Start</a>
+                <a href="#analyze">Analyze</a>
+                <a href="#research-shell">Research Shell</a>
+                <a href="#report">Report</a>
+                <a href="#timeline">Timeline</a>
                 <a href="https://app.fin123.dev">Open fin123</a>
             </nav>
         </div>
@@ -1311,14 +1246,12 @@
                             <p class="hero-punchline">The investment research operating system.</p>
                             <div class="hero-insight">
                                 <p class="hero-copy">
-                                    The future of investment research isn't managing files.
+                                    Search the model. Analyze the numbers. Ask the Research Shell what changed.
                                 </p>
-                                <p class="hero-copy">
-                                    It's better thinking.
-                                </p>
+                                <p class="hero-copy">Turn the work into a report. Keep the timeline.</p>
                             </div>
-                            <p class="hero-outcome">Test ideas. Understand what changed. Keep what matters. Everything else follows.</p>
-                            <p class="hero-identity">Built for research velocity. Designed for institutional memory.</p>
+                            <p class="hero-outcome">One operating system around the investment model.</p>
+                            <p class="hero-identity">Built for analyst work. Designed for institutional memory.</p>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open fin123 &rarr;</a>
                                 <a class="hero-demo-link"
@@ -1338,31 +1271,75 @@
             <div class="container">
                 <div class="manifesto-lines">
                     <p>Investment research has always been programming.</p>
-                    <p>Spreadsheets are a programming language.</p>
-                    <p>Nobody built the operating system around it.</p>
-                    <p>fin123 is the investment research operating system.</p>
+                    <p>Spreadsheets became the interface.</p>
+                    <p>fin123 adds the operating system around the model.</p>
                 </div>
             </div>
         </section>
 
-        <section id="language" class="day-section">
+        <section id="start" class="day-section">
             <div class="container">
                 <div class="day-layout reverse">
                     <div class="day-copy-block">
-                        <div class="day-kicker">Start</div>
-                        <h2 class="day-title">Start with the thought.</h2>
-                        <p class="day-lede">Open a Model, company, question, or Method from the same surface. Think in investment language. fin123 starts where analysts start: with intent.</p>
+                        <div class="day-kicker">Search</div>
+                        <h2 class="day-title">Start with the model.</h2>
+                        <p class="day-lede">Search is the front door. Open a company, model, question, or research surface without managing files.</p>
+                    </div>
+                    <div class="day-visual">
+                        <div class="day-shot">
+                            <img src="./search.png" alt="fin123 search surface for opening models and research surfaces" />
+                            <div class="day-caption">
+                                Search opens the current model and the research surfaces around it.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analyze" class="day-section">
+            <div class="container">
+                <div class="day-layout">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Analyze</div>
+                        <h2 class="day-title">Work in the model.</h2>
+                        <p class="day-lede">Keep the familiar grid, but attach assumptions, outputs, evidence, formulas, and reasoning to the model itself.</p>
+                        <p class="day-proof">The spreadsheet stays familiar. The context becomes durable.</p>
+                    </div>
+                    <div class="day-visual">
+                        <div class="day-shot">
+                            <img src="./analyze.png" alt="fin123 Analyze surface with spreadsheet model and Research Shell panel" />
+                            <div class="day-caption">
+                                Analyze is where model work, assumptions, outputs, and evidence stay in one governed surface.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research-shell" class="day-section">
+            <div class="container">
+                <div class="day-layout reverse">
+                    <div class="day-copy-block">
+                        <div class="day-kicker">Research Shell</div>
+                        <h2 class="day-title">Ask the model what it knows.</h2>
+                        <p class="day-lede">Research Shell is analyst language over the model. It is not a chatbot bolted on top. It routes registered intents into governed product actions, previews, and explanations.</p>
                         <ul class="day-command-list">
                             <li>What changed?</li>
-                            <li>Why did EPS move?</li>
-                            <li>Lower Services growth 2%</li>
+                            <li>Can I trust this?</li>
+                            <li>Explain this output.</li>
+                            <li>Query SQL for BJRI revenue.</li>
+                            <li>Summarize BJRI menu pricing.</li>
+                            <li>Mark these as outputs.</li>
                         </ul>
+                        <p class="day-proof">Research Shell can generate formula previews. The generated formulas are artifacts of the work, not required user vocabulary.</p>
                     </div>
                     <div class="day-visual">
                         <div class="day-shot">
-                            <img src="./search.png" alt="fin123 search surface for models, questions, and Methods" />
+                            <img src="./research%20shell.png" alt="fin123 Research Shell language reference" />
                             <div class="day-caption">
-                                Search Models, companies, questions, and Methods without turning research into file management.
+                                Registered analyst language covers authoring, transforming, and understanding model work.
                             </div>
                         </div>
                     </div>
@@ -1370,21 +1347,19 @@
             </div>
         </section>
 
-        <section id="model" class="day-section">
+        <section id="report" class="day-section">
             <div class="container">
                 <div class="day-layout">
                     <div class="day-copy-block">
-                        <div class="day-kicker">Model</div>
-                        <h2 class="day-title">Open a Model.</h2>
-                        <p class="day-lede">A serious investment thesis is not a file. It is a living Model: assumptions, evidence, Methods, outputs, and judgment moving together.</p>
-                        <p class="day-lede">Stay inside the Model. The analyst never leaves the work. Institutional memory survives because the reasoning stays attached.</p>
-                        <p class="day-proof">The Model is the thesis.</p>
+                        <div class="day-kicker">Report</div>
+                        <h2 class="day-title">Turn work into communication.</h2>
+                        <p class="day-lede">Reports are emitted from model work. The explanation stays attached to the assumptions, outputs, evidence, and changes that produced it.</p>
                     </div>
                     <div class="day-visual">
                         <div class="day-shot">
-                            <img src="./product.png" alt="fin123 model view" />
+                            <img src="./report.png" alt="fin123 Report surface inside model context" />
                             <div class="day-caption">
-                                Bring Your Model. Keep the familiar grid, then add <code>=DATA()</code>, <code>=AI()</code>, Results, Timeline, Report, Replay, and Audit as emitted surfaces of Model work.
+                                Report turns the model state into communication without detaching it from its evidence.
                             </div>
                         </div>
                     </div>
@@ -1392,120 +1367,21 @@
             </div>
         </section>
 
-        <section id="explore" class="day-section">
+        <section id="timeline" class="day-section">
             <div class="container">
                 <div class="day-layout reverse">
                     <div class="day-copy-block">
-                        <div class="day-kicker">Explore</div>
-                        <h2 class="day-title">Explore an idea.</h2>
-                        <p class="day-lede">Try an idea. See what changed. Compare alternatives. Keep what matters. Walk away from the rest.</p>
-                        <p class="day-lede">Explore gives the analyst a canvas for thinking without corrupting the house view.</p>
-                        <p class="day-proof">Explore is where ideas become convictions.</p>
+                        <div class="day-kicker">Timeline</div>
+                        <h2 class="day-title">Preserve what changed.</h2>
+                        <p class="day-lede">The timeline keeps institutional memory: what changed, when it changed, and why it mattered.</p>
                     </div>
                     <div class="day-visual">
                         <div class="day-shot">
-                            <img src="./surface.png" alt="fin123 Explore surface for scenario sensitivity" />
+                            <img src="./timeline.png" alt="fin123 Timeline surface showing model history" />
                             <div class="day-caption">
-                                AAPL -> What changed? -> Why did EPS move? -> Lower Services growth 2% -> Compare to last quarter -> Retail guidance method -> Promote to Model.
+                                Timeline records versions, reports, and memory as the model evolves.
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="changed" class="day-section">
-            <div class="container">
-                <div class="day-layout">
-                    <div class="day-copy-block">
-                        <div class="day-kicker">See what changed</div>
-                        <h2 class="day-title">Understand what changed.</h2>
-                        <p class="day-lede">PMs ask the same questions every morning: what changed, why did it change, can I trust it, and what needs attention?</p>
-                        <p class="day-lede">fin123 keeps Results, evidence, run diffs, and proof attached to the Model work that produced them.</p>
-                    </div>
-                    <div class="day-visual">
-                        <div class="day-shot">
-                            <img src="./4.png" alt="fin123 audit surface showing run inputs and outputs" />
-                            <div class="day-caption">
-                                Audit and Replay are proof-on-demand for what changed, why it changed, and which Model inputs and outputs were involved.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="methods" class="day-section">
-            <div class="container">
-                <div class="day-layout">
-                    <div class="day-copy-block">
-                        <div class="day-kicker">Preserve reasoning</div>
-                        <h2 class="day-title">Preserve how your team thinks.</h2>
-                        <p class="day-lede">Your Models are assets. Your Methods are firm IP. Method is reusable judgment, not prompt storage.</p>
-                        <p class="day-lede">AI Method can support AI Formula, but Method is bigger than AI.</p>
-                        <p class="day-proof">Methods capture how your firm thinks.</p>
-                    </div>
-                    <div class="day-visual">
-                        <div class="day-shot">
-                            <img src="./aimethod.png" alt="AI Method document in fin123" />
-                            <div class="day-caption">
-                                Every investment firm has a process. Few can preserve it across turnover, time, and scale.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="overnight" class="day-section">
-            <div class="container">
-                <div class="day-layout reverse">
-                    <div class="day-copy-block">
-                        <div class="day-kicker">Headless</div>
-                        <h2 class="day-title">Wake up to what's changed.</h2>
-                        <p class="day-lede">Headless runs can refresh evidence and prepare Model updates overnight or on schedule.</p>
-                        <p class="day-lede">The PM wakes up to changed assumptions, new evidence, and what needs attention. Overnight preparation is not hidden canonical mutation. The analyst still decides what to keep.</p>
-                        <p class="day-proof">Your research should not sleep because you did.</p>
-                    </div>
-                    <div class="day-visual">
-                        <div class="headless-visual" aria-label="Overnight research preparation">
-                            <div class="headless-line">
-                                <span class="headless-label">02:10</span>
-                                <span class="headless-value">Evidence refreshed</span>
-                            </div>
-                            <div class="headless-line">
-                                <span class="headless-label">03:40</span>
-                                <span class="headless-value">Assumptions changed</span>
-                            </div>
-                            <div class="headless-line">
-                                <span class="headless-label">06:15</span>
-                                <span class="headless-value">What needs attention is ready</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="everything-follows" class="day-section">
-            <div class="container">
-                <div class="day-layout">
-                    <div class="day-copy-block">
-                        <div class="day-kicker">Record</div>
-                        <h2 class="day-title">Everything else follows.</h2>
-                        <p class="day-lede">Because the reasoning happened in fin123, the institutional record follows automatically.</p>
-                    </div>
-                    <div class="day-visual">
-                        <div class="exhaust-surfaces" aria-label="Emitted research surfaces">
-                            <div class="exhaust-surface">Timeline</div>
-                            <div class="exhaust-surface">Memory</div>
-                            <div class="exhaust-surface">Report</div>
-                            <div class="exhaust-surface">Audit</div>
-                            <div class="exhaust-surface">Replay</div>
-                            <div class="exhaust-surface">Provenance</div>
-                            <div class="exhaust-surface muted">Governance</div>
-                        </div>
-                        <p class="exhaust-caption">Governance is exhaust, not the product. Audit, Replay, and Provenance remain proof-on-demand.</p>
                     </div>
                 </div>
             </div>
@@ -1515,7 +1391,7 @@
             <div class="container">
                 <div class="day-copy-block serious-copy">
                     <div class="day-kicker">Serious teams</div>
-                    <h2 class="day-title">Why serious teams move faster.</h2>
+                    <h2 class="day-title">Serious research teams move faster when the model remembers.</h2>
                 </div>
                 <div class="serious-lines">
                     <div class="serious-line">
@@ -1524,15 +1400,15 @@
                     </div>
                     <div class="serious-line">
                         <strong>Test ideas.</strong>
-                        <span>Not spreadsheets.</span>
+                        <span>Not spreadsheet copies.</span>
                     </div>
                     <div class="serious-line">
-                        <strong>Improve Models.</strong>
-                        <span>Not reports.</span>
+                        <strong>Explain changes.</strong>
+                        <span>Not screenshots.</span>
                     </div>
                     <div class="serious-line">
-                        <strong>Communicate conviction.</strong>
-                        <span>Not documentation.</span>
+                        <strong>Build memory.</strong>
+                        <span>Not archaeology.</span>
                     </div>
                 </div>
                 <div class="final-cta">
@@ -1547,8 +1423,7 @@
     <footer class="site-footer">
         <div class="container footer-inner">
             <div>fin123.dev</div>
-            <div class="footer-right">Work the way you think -> Test ideas -> Understand what changed -> Keep what matters</div>
-            <div class="footer-note">The Model keeps DATA, AI Formula, Methods, Results, Timeline, Report, Replay, Audit, provenance, and governance attached as emitted representations of reasoning.</div>
+            <div class="footer-right">Search -> Analyze -> Research Shell -> Report -> Timeline</div>
         </div>
     </footer>
     <script>
@@ -1556,13 +1431,13 @@
             const target = document.getElementById('hero-search-placeholder');
             if (!target) return;
             const prompts = [
-                'AAPL',
+                'Apple',
+                'BJRI revenue',
                 'What changed?',
-                'Why did EPS move?',
-                'Lower Services growth 2%',
-                'Compare to last quarter',
-                'Retail guidance method',
-                'Promote to Model'
+                'Can I trust this?',
+                'Explain this output.',
+                'Query SQL for BJRI revenue.',
+                'Summarize BJRI menu pricing.'
             ];
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (reduceMotion) return;
