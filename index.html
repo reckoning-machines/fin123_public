@@ -76,7 +76,7 @@
         }
 
         .hero-insight {
-            margin: 42px auto 0;
+            margin: 34px auto 0;
             max-width: 760px;
             text-align: center;
         }
@@ -86,10 +86,12 @@
         }
 
         .hero-insight-core {
-            color: var(--fg-bright);
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 1.55;
+            color: var(--fg-muted);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.5;
+            margin: 18px auto 0;
+            max-width: 620px;
         }
 
         .hero-category {
@@ -110,28 +112,30 @@
 
         .hero-identity {
             color: var(--fg-dim);
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 500;
-            line-height: 1.45;
-            margin: 30px auto 0;
+            line-height: 1.5;
+            margin: 18px auto 0;
             max-width: 720px;
             text-align: center;
         }
 
         .hero-outcome {
             color: var(--fg-bright);
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 1.45;
+            font-size: clamp(22px, 2.1vw, 28px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            line-height: 1.18;
             margin: 30px auto 0;
             max-width: 760px;
             text-align: center;
         }
 
         .hero-copy {
-            color: var(--fg-dim);
+            color: var(--fg);
             font-size: 24px;
-            line-height: 1.28;
+            font-weight: 500;
+            line-height: 1.35;
             margin-bottom: 8px;
             max-width: 760px;
         }
@@ -143,11 +147,11 @@
 
         .hero-punchline {
             color: var(--fg-bright);
-            font-size: clamp(32px, 3.6vw, 46px);
-            font-weight: 700;
+            font-size: clamp(27px, 2.7vw, 36px);
+            font-weight: 600;
             letter-spacing: -0.02em;
-            line-height: 1.08;
-            margin: 46px auto 0;
+            line-height: 1.16;
+            margin: 30px auto 0;
             max-width: 760px;
             text-align: center;
         }
@@ -1132,11 +1136,19 @@
             }
 
             .hero-insight-core {
-                font-size: 15px;
+                font-size: 17px;
             }
 
             .hero-punchline {
                 font-size: 24px;
+            }
+
+            .hero-outcome {
+                font-size: 24px;
+            }
+
+            .hero-identity {
+                font-size: 16px;
             }
 
             .essay-section {
@@ -1259,12 +1271,12 @@
                             </p>
                             <p class="hero-punchline">The investment research operating system.</p>
                             <div class="hero-insight">
-                                <p class="hero-copy">
-                                    Search any company. Build the model. Explain every number. See what changed.
-                                </p>
-                                <p class="hero-copy">Publish research. Preserve every decision.</p>
+                                <p class="hero-copy">The model remembers what your firm knows.</p>
+                                <p class="hero-insight-core">Every answer stays connected to the model,<br />
+                                    its evidence, and its history.</p>
                             </div>
-                            <p class="hero-outcome">Built for investment analysts. Designed for institutional memory.</p>
+                            <p class="hero-outcome">Publish research.<br />Preserve every decision.</p>
+                            <p class="hero-identity">Built for investment analysts. Designed for institutional memory.</p>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open runtime demo &rarr;</a>
                                 <a class="hero-demo-link"
@@ -1288,6 +1300,8 @@
                 <div class="manifesto-lines">
                     <p>Investment research has always been programming.</p>
                     <p>Spreadsheets became the interface.</p>
+                    <p>Copilot answers questions about spreadsheets.</p>
+                    <p>fin123 answers questions about your firm's investment work.</p>
                     <p>fin123 adds the operating system around the model.</p>
                 </div>
             </div>
@@ -1339,23 +1353,24 @@
                 <div class="day-layout reverse">
                     <div class="day-copy-block">
                         <div class="day-kicker">Research Shell</div>
-                        <h2 class="day-title">Ask the model what it knows.</h2>
-                        <p class="day-lede">Research Shell is analyst language over the model. It is not a chatbot bolted on top. It routes registered intents into product actions, previews, and explanations.</p>
+                        <h2 class="day-title">Ask the model.</h2>
+                        <p class="day-lede">Research Shell understands how investment analysts work.</p>
                         <ul class="day-command-list">
+                            <li>Why?</li>
                             <li>What changed?</li>
-                            <li>Can I trust this?</li>
-                            <li>Explain this output.</li>
-                            <li>Query SQL for BJRI revenue.</li>
-                            <li>Summarize BJRI menu pricing.</li>
-                            <li>Mark these as outputs.</li>
+                            <li>What stands out?</li>
+                            <li>Have we believed this before?</li>
+                            <li>Remember this.</li>
+                            <li>What if margin were 5%?</li>
+                            <li>Write the report.</li>
                         </ul>
-                        <p class="day-proof">Research Shell can generate formula previews. The generated formulas are artifacts of the work, not required user vocabulary.</p>
+                        <p class="day-proof">The shell speaks in the natural questions, memory checks, scenario tests, and writing tasks that already shape analyst work.</p>
                     </div>
                     <div class="day-visual">
                         <div class="day-shot">
                             <img src="./research%20shell.png" alt="fin123 Research Shell language reference" />
                             <div class="day-caption">
-                                Registered analyst language covers authoring, transforming, and understanding model work.
+                                Analyst language covers asking, remembering, comparing, testing, and writing from the model.
                             </div>
                         </div>
                     </div>
@@ -1451,13 +1466,16 @@
             const target = document.getElementById('hero-search-placeholder');
             if (!target) return;
             const prompts = [
-                'Apple',
-                'BJRI revenue',
+                'Why?',
+                'What stands out?',
+                'Have we believed this before?',
+                'Remember this.',
+                'What if margin were 5%?',
+                'Write the report.',
+                'Which Memory supports this?',
                 'What changed?',
-                'Can I trust this?',
-                'Explain this output.',
-                'Query SQL for BJRI revenue.',
-                'Summarize BJRI menu pricing.'
+                'Compare to base.',
+                'Where should I spend my time?'
             ];
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (reduceMotion) return;
