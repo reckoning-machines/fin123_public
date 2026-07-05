@@ -236,6 +236,16 @@
             margin-right: 0;
         }
 
+        .hero-repository-line {
+            color: var(--fg-dim);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.48;
+            margin: 20px auto 0;
+            max-width: 760px;
+            text-align: center;
+        }
+
         .hero + .section {
             padding-top: 96px;
         }
@@ -810,7 +820,7 @@
 
         .manifesto-lines {
             display: grid;
-            gap: 18px;
+            gap: 12px;
             margin: 0 auto;
             max-width: 900px;
         }
@@ -824,15 +834,15 @@
             margin: 0;
         }
 
-        .manifesto-lines p:nth-child(2),
-        .manifesto-lines p:nth-child(3) {
+        .manifesto-lines p:nth-child(n+2):nth-child(-n+8) {
             color: var(--fg-dim);
             font-weight: 550;
         }
 
-        .manifesto-lines p:nth-child(4) {
+        .manifesto-lines p:last-child {
             color: var(--accent-active);
             font-weight: 700;
+            margin-top: 8px;
         }
 
         .product-section {
@@ -1082,6 +1092,27 @@
             margin-top: 8px;
         }
 
+        .connected-lines {
+            display: grid;
+            gap: 10px;
+            margin-top: 52px;
+            max-width: 520px;
+        }
+
+        .connected-lines p {
+            color: var(--fg-bright);
+            font-size: clamp(25px, 2.7vw, 34px);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+            margin: 0;
+        }
+
+        .connected-lines p:last-child {
+            color: var(--accent-active);
+            margin-top: 8px;
+        }
+
         @media (max-width: 820px) {
 
             .hero-grid,
@@ -1270,6 +1301,7 @@
                                 Work the way you think.
                             </p>
                             <p class="hero-punchline">The investment research operating system.</p>
+                            <p class="hero-repository-line">Every model becomes a living repository of research, memory, assumptions, evidence, and decisions.</p>
                             <div class="hero-insight">
                                 <p class="hero-copy">The model remembers what your firm knows.</p>
                                 <p class="hero-insight-core">Every answer stays connected to the model,<br />
@@ -1282,9 +1314,6 @@
                                 <a class="hero-demo-link"
                                     href="mailto:jedgore@reckoningmachines.com?subject=IRIS%20demo%20request">Request Demo</a>
                             </div>
-                            <p class="demo-disclaimer">
-                                Hosted runtime demos show selected wired product flows, not the full IRIS product.
-                            </p>
                             <div class="hero-focus" aria-label="IRIS search focus">
                                 <span class="hero-focus-query" id="hero-search-placeholder">What changed?</span>
                                 <span class="hero-focus-key">/</span>
@@ -1300,9 +1329,8 @@
                 <div class="manifesto-lines">
                     <p>Investment research has always been programming.</p>
                     <p>Spreadsheets became the interface.</p>
-                    <p>Copilot answers questions about spreadsheets.</p>
-                    <p>IRIS answers questions about your firm's investment work.</p>
-                    <p>IRIS adds the operating system around the model.</p>
+                    <p>AI helps you think.</p>
+                    <p>IRIS helps your firm remember.</p>
                 </div>
             </div>
         </section>
@@ -1354,7 +1382,7 @@
                     <div class="day-copy-block">
                         <div class="day-kicker">Research Shell</div>
                         <h2 class="day-title">Ask the model.</h2>
-                        <p class="day-lede">Research Shell understands how investment analysts work.</p>
+                        <p class="day-lede">Research Shell is the analyst interface to the repository.</p>
                         <ul class="day-command-list">
                             <li>Why?</li>
                             <li>What changed?</li>
@@ -1364,7 +1392,7 @@
                             <li>What if margin were 5%?</li>
                             <li>Write the report.</li>
                         </ul>
-                        <p class="day-proof">The shell speaks in the natural questions, memory checks, scenario tests, and writing tasks that already shape analyst work.</p>
+                        <p class="day-proof">Ask questions. Run research. Test scenarios. Build memory.</p>
                     </div>
                     <div class="day-visual">
                         <div class="day-shot">
@@ -1404,7 +1432,7 @@
                     <div class="day-copy-block">
                         <div class="day-kicker">Timeline</div>
                         <h2 class="day-title">Preserve what changed.</h2>
-                        <p class="day-lede">The timeline keeps institutional memory: what changed, when it changed, and why it mattered.</p>
+                        <p class="day-lede">The timeline keeps institutional memory: what changed, when it changed, and why it mattered. Every decision becomes part of the model's history.</p>
                     </div>
                     <div class="day-visual">
                         <div class="day-shot">
@@ -1447,10 +1475,13 @@
                     <a class="hero-demo-link"
                         href="mailto:jedgore@reckoningmachines.com?subject=IRIS%20demo%20request">Request Demo</a>
                 </div>
-                <p class="demo-disclaimer final-demo-note">
-                    The hosted IRIS runtime demo shows selected flows, not the full product
-                    environment.
-                </p>
+                <div class="connected-lines" aria-label="Everything stays connected">
+                    <p>One repository.</p>
+                    <p>One timeline.</p>
+                    <p>One Research Shell.</p>
+                    <p>One model.</p>
+                    <p>Everything stays connected.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -1459,6 +1490,7 @@
         <div class="container footer-inner">
             <div>IRIS by Reckoning Machines</div>
             <div class="footer-right">Search -> Analyze -> Research Shell -> Report -> Timeline</div>
+            <div class="footer-note">Hosted runtime demos show selected flows, not the full product environment.</div>
         </div>
     </footer>
     <script>
