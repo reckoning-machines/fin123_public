@@ -5,26 +5,21 @@ ROOT = Path(__file__).resolve().parents[1]
 HOMEPAGE = ROOT / "index.html"
 
 
-def test_homepage_hero_contains_pm_facing_copy():
+def test_homepage_contains_iris_brand_refresh_copy():
     html = HOMEPAGE.read_text()
 
     required_copy = [
-        '<span class="prompt" aria-hidden="true">$</span>fin123',
+        '<span class="prompt" aria-hidden="true">$</span><a class="brand-link" href="./index.html"\n                        aria-label="IRIS home">IRIS</a>',
         "by Reckoning Machines",
-        "The operating system for emerging investment firms.",
-        "Investment decisions evolve.",
-        "Research changes. Estimates change. Markets change.",
-        "Your process should keep up.",
-        "Track decisions",
-        "Preserve context",
-        "Move faster",
-        "Scale your process",
-        "Less chaos",
-        "=AI()",
-        "built into the investment process.",
-        "Not bolted on.",
-        "Built for emerging managers and investment teams.",
-        "The investment process is the authority.",
+        "Work the way you think.",
+        "The investment research operating system.",
+        "Built for investment analysts. Engineered for institutional memory.",
+        "IRIS answers questions about your firm's investment work.",
+        "IRIS adds the operating system around the model.",
+        "Open IRIS runtime",
+        "IRIS by Reckoning Machines",
+        "./search%20screen.png",
+        "./screen.png",
     ]
 
     for copy in required_copy:
@@ -40,6 +35,22 @@ def test_homepage_hero_removes_ontology_heavy_copy():
         "canonical substrate",
         "durable object",
         "governed state machine",
+    ]
+
+    for copy in forbidden_copy:
+        assert copy not in html
+
+
+def test_homepage_removes_legacy_fin123_visible_branding():
+    html = HOMEPAGE.read_text()
+
+    forbidden_copy = [
+        ">fin123<",
+        "fin123 answers questions",
+        "fin123 adds the operating system",
+        "full fin123 product",
+        "fin123 search surface",
+        "fin123 Analyze surface",
     ]
 
     for copy in forbidden_copy:

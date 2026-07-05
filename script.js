@@ -1,4 +1,4 @@
-/* fin123 — minimal site interactions */
+/* IRIS — minimal site interactions */
 (function () {
     'use strict';
 
