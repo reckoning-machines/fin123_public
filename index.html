@@ -871,6 +871,112 @@
             margin-top: 8px;
         }
 
+        .flywheel-section {
+            border-bottom: 1px solid var(--border);
+            padding: 96px 0 104px;
+        }
+
+        .flywheel-drawing {
+            border: 1px solid var(--rule-strong);
+            display: grid;
+            gap: 0;
+            margin: 0 auto;
+            max-width: min(1320px, calc(100vw - 32px));
+        }
+
+        .flywheel-title {
+            border-bottom: 1px solid var(--border);
+            color: var(--fg-bright);
+            font-size: clamp(28px, 3.2vw, 42px);
+            font-weight: 660;
+            letter-spacing: 0;
+            line-height: 1.04;
+            margin: 0;
+            padding: 24px 28px 18px;
+        }
+
+        .flywheel-figure-label {
+            color: var(--accent-active);
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .flywheel-title-note {
+            color: var(--fg-dim);
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            line-height: 1.6;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .flywheel-meta {
+            border-bottom: 1px solid var(--border);
+            color: var(--fg-muted);
+            display: flex;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            justify-content: space-between;
+            letter-spacing: 0.08em;
+            line-height: 1.5;
+            padding: 10px 28px;
+            text-transform: uppercase;
+        }
+
+        .flywheel-loop {
+            background: var(--blueprint);
+            border-bottom: 1px solid var(--border);
+            padding: 14px;
+        }
+
+        .flywheel-loop img {
+            border: 1px solid rgba(246, 244, 238, 0.2);
+            border-radius: 0;
+            width: 100%;
+        }
+
+        .flywheel-stages {
+            display: grid;
+            gap: 0;
+        }
+
+        .flywheel-stage {
+            border-top: 1px solid var(--border);
+            display: grid;
+            gap: 18px;
+            grid-template-columns: minmax(160px, 0.28fr) minmax(0, 1fr);
+            padding: 18px 28px;
+        }
+
+        .flywheel-stage:first-child {
+            border-top: 0;
+        }
+
+        .flywheel-stage-label {
+            color: var(--accent-active);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .flywheel-stage-copy {
+            color: var(--fg-dim);
+            font-size: 17px;
+            line-height: 1.55;
+            margin: 0;
+        }
+
         .product-section {
             padding: 118px 0;
         }
@@ -1333,6 +1439,29 @@
                 grid-template-columns: 1fr;
             }
 
+            .flywheel-section {
+                padding: 72px 0;
+            }
+
+            .flywheel-meta {
+                gap: 6px;
+                flex-direction: column;
+            }
+
+            .flywheel-title {
+                padding: 20px 18px 16px;
+            }
+
+            .flywheel-meta {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .flywheel-stage {
+                grid-template-columns: 1fr;
+                padding: 16px 18px;
+            }
+
             .manifesto-declaration {
                 padding: 72px 0 82px;
             }
@@ -1417,18 +1546,39 @@
             </div>
         </section>
 
-        <section class="manifesto-declaration" aria-label="IRIS declaration">
-            <div class="container">
-                <div class="manifesto-lines">
-                    <p>Investment research shouldn't be disposable.</p>
-                    <p>Every earnings model.</p>
-                    <p>Every assumption.</p>
-                    <p>Every note.</p>
-                    <p>Every report.</p>
-                    <p>Every question your team asks.</p>
-                    <p>Every answer.</p>
-                    <p>Today those live across spreadsheets, chat, documents, and memory.</p>
-                    <p>IRIS keeps them together as one evolving repository.</p>
+        <section class="flywheel-section" aria-label="Research Velocity Flywheel">
+            <div class="flywheel-drawing">
+                <div>
+                    <h2 class="flywheel-title">
+                        <span class="flywheel-figure-label">Figure 1</span>
+                        The Research Velocity Flywheel
+                        <span class="flywheel-title-note">The operating model behind IRIS.</span>
+                    </h2>
+                    <div class="flywheel-meta">
+                        <span>Engineering Diagram</span>
+                        <span>IRIS Research System</span>
+                    </div>
+                    <div class="flywheel-loop">
+                        <img src="./flywheel.png" alt="Context to Orientation to Evidence to Continuity to Better Context flywheel" />
+                    </div>
+                    <div class="flywheel-stages">
+                        <div class="flywheel-stage">
+                            <div class="flywheel-stage-label">Context</div>
+                            <p class="flywheel-stage-copy">The repository already knows the model, workbook, evidence, research, and history. You start with context instead of rebuilding it.</p>
+                        </div>
+                        <div class="flywheel-stage">
+                            <div class="flywheel-stage-label">Orientation</div>
+                            <p class="flywheel-stage-copy">IRIS gets you moving quickly with concise synthesis, minimal controls, and one next action. Less time navigating. More time thinking.</p>
+                        </div>
+                        <div class="flywheel-stage">
+                            <div class="flywheel-stage-label">Evidence</div>
+                            <p class="flywheel-stage-copy">Every answer connects directly to supporting evidence. Research is one click away, not another search.</p>
+                        </div>
+                        <div class="flywheel-stage">
+                            <div class="flywheel-stage-label">Continuity</div>
+                            <p class="flywheel-stage-copy">Every interaction improves the repository. Today's work becomes tomorrow's context.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
