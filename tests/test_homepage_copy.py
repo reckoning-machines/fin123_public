@@ -9,20 +9,20 @@ def test_homepage_contains_iris_brand_refresh_copy():
     html = HOMEPAGE.read_text()
 
     required_copy = [
-        '<span class="prompt" aria-hidden="true">$</span><a class="brand-link" href="./index.html"\n                        aria-label="IRIS home">IRIS</a>',
+        '<a class="brand-link" href="./index.html" aria-label="IRIS home">IRIS</a>',
         "by Reckoning Machines",
         "Work the way you think.",
         "The investment research operating system.",
-        "Every model becomes a living repository of research, memory, assumptions, evidence, and decisions.",
         "Built for investment analysts. Engineered for institutional memory.",
-        "Investment research has always been programming.",
-        "AI helps you think.",
-        "IRIS helps your firm remember.",
+        "Investment research shouldn't be disposable.",
+        "Every earnings model.",
+        "IRIS keeps them together as one evolving repository.",
         "Research Shell is the analyst interface to the repository.",
         "Every decision becomes part of the model's history.",
         "Everything stays connected.",
         "Open IRIS runtime",
         "IRIS by Reckoning Machines",
+        "./desktop%20iris.png",
         "./search%20screen.png",
         "./screen.png",
     ]
