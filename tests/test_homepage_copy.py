@@ -23,6 +23,7 @@ def test_homepage_contains_iris_brand_refresh_copy():
         "Today's work becomes tomorrow's context.",
         "./flywheel.png",
         "Research Shell is the analyst interface to the repository.",
+        "Works on an iPhone. You don't need Excel to understand a model. You need the repository.",
         "Every decision becomes part of the model's history.",
         "Everything stays connected.",
         "Open IRIS runtime",
