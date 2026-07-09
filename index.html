@@ -1195,6 +1195,148 @@
             line-height: 1.45;
         }
 
+        .learns-work-section {
+            background: rgba(246, 244, 238, 0.52);
+        }
+
+        .learns-work-layout {
+            align-items: start;
+            display: grid;
+            gap: 56px;
+            grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.78fr);
+        }
+
+        .learns-work-copy {
+            max-width: 720px;
+        }
+
+        .learns-work-intro {
+            color: var(--fg-dim);
+            font-size: 20px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .learns-work-intro + .learns-work-intro {
+            margin-top: 14px;
+        }
+
+        .learns-work-rule {
+            border-left: 1px solid var(--rule-strong);
+            display: grid;
+            gap: 8px;
+            list-style: none;
+            margin: 28px 0 0;
+            padding-left: 20px;
+        }
+
+        .learns-work-rule li {
+            color: var(--fg-bright);
+            font-family: var(--font-mono);
+            font-size: 15px;
+            line-height: 1.45;
+        }
+
+        .learns-work-claim {
+            color: var(--fg);
+            font-size: 18px;
+            line-height: 1.55;
+            margin: 28px 0 0;
+        }
+
+        .learns-work-compounds {
+            color: var(--accent-active);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-top: 18px;
+            text-transform: uppercase;
+        }
+
+        .learns-work-flywheel {
+            background: rgba(246, 244, 238, 0.66);
+            border: 1px solid var(--rule-strong);
+            border-radius: 2px;
+            padding: 24px;
+        }
+
+        .learns-work-flywheel-title {
+            color: var(--accent-active);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .learns-work-loop {
+            counter-reset: learns-work;
+            display: grid;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .learns-work-loop li {
+            align-items: center;
+            border-top: 1px solid var(--border);
+            color: var(--fg-bright);
+            counter-increment: learns-work;
+            display: grid;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            gap: 12px;
+            grid-template-columns: 28px minmax(0, 1fr) 18px;
+            line-height: 1.35;
+            padding-top: 10px;
+        }
+
+        .learns-work-loop li:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .learns-work-loop li::before {
+            color: var(--accent-active);
+            content: counter(learns-work, decimal-leading-zero);
+            font-size: 10px;
+        }
+
+        .learns-work-loop li::after {
+            color: var(--fg-muted);
+            content: "->";
+            font-size: 11px;
+            justify-self: end;
+        }
+
+        .learns-work-loop li:last-child::after {
+            content: "";
+        }
+
+        .learns-work-close {
+            border-top: 1px solid var(--border);
+            margin-top: 38px;
+            max-width: 880px;
+            padding-top: 28px;
+        }
+
+        .learns-work-close p {
+            color: var(--fg-dim);
+            font-size: 18px;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .learns-work-close p + p {
+            margin-top: 14px;
+        }
+
+        .learns-work-close strong {
+            color: var(--fg-bright);
+        }
+
         .serious-lines {
             display: grid;
             gap: 22px;
@@ -1437,6 +1579,44 @@
 
             .day-lede {
                 font-size: 18px;
+            }
+
+            .learns-work-layout {
+                gap: 34px;
+                grid-template-columns: 1fr;
+            }
+
+            .learns-work-intro {
+                font-size: 18px;
+            }
+
+            .learns-work-rule {
+                padding-left: 16px;
+            }
+
+            .learns-work-rule li {
+                font-size: 14px;
+            }
+
+            .learns-work-flywheel {
+                padding: 18px;
+                width: 100%;
+            }
+
+            .learns-work-loop li {
+                font-size: 12px;
+                gap: 10px;
+                grid-template-columns: 26px minmax(0, 1fr) 18px;
+            }
+
+            .learns-work-close {
+                margin-top: 34px;
+                padding-top: 24px;
+            }
+
+            .learns-work-close p,
+            .learns-work-claim {
+                font-size: 17px;
             }
 
             .serious-lines {
@@ -1695,6 +1875,52 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="day-section learns-work-section" aria-labelledby="learns-work-title">
+            <div class="container">
+                <div class="learns-work-layout">
+                    <div class="learns-work-copy">
+                        <div class="day-kicker">Why it compounds</div>
+                        <h2 id="learns-work-title" class="day-title">Learns the Work.</h2>
+                        <p class="learns-work-intro">Most software stores information.</p>
+                        <p class="learns-work-intro">IRIS learns how your organization's investment research is performed.</p>
+                        <ul class="learns-work-rule" aria-label="How IRIS learns">
+                            <li>Not by watching clicks.</li>
+                            <li>Not by profiling analysts.</li>
+                            <li>By observing governed work.</li>
+                        </ul>
+                        <ul class="learns-work-rule" aria-label="Work IRIS observes">
+                            <li>Every model.</li>
+                            <li>Every report.</li>
+                            <li>Every revision.</li>
+                            <li>Every explanation.</li>
+                            <li>Every decision.</li>
+                        </ul>
+                        <p class="learns-work-claim">Every day of work expands the repository's understanding of how your firm researches investments.</p>
+                        <p class="learns-work-compounds">That understanding compounds.</p>
+                    </div>
+                    <div class="learns-work-flywheel" aria-label="IRIS work flywheel">
+                        <div class="learns-work-flywheel-title">Operating loop</div>
+                        <ol class="learns-work-loop">
+                            <li>Great Workspace</li>
+                            <li>Daily Work</li>
+                            <li>Governed Context</li>
+                            <li>Learns the Work</li>
+                            <li>Remembers</li>
+                            <li>Prepares</li>
+                            <li>Finds Things Worth Your Attention</li>
+                            <li>Better Decisions</li>
+                            <li>More Daily Work</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="learns-work-close">
+                    <p><strong>Most software gets better when the vendor ships an update.</strong></p>
+                    <p><strong>IRIS gets better every time your team works.</strong></p>
+                    <p>The more governed work your organization performs, the better IRIS understands your research process, prepares future work, preserves institutional knowledge, and helps analysts focus on what matters.</p>
                 </div>
             </div>
         </section>
