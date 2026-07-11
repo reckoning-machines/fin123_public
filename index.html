@@ -244,9 +244,40 @@
             text-align: center;
         }
 
+        .what-is-iris {
+            border-bottom: 1px solid var(--border);
+            border-top: 1px solid var(--border);
+            padding: 72px 0;
+        }
+
+        .what-is-iris-inner {
+            margin: 0 auto;
+            max-width: 980px;
+            text-align: center;
+        }
+
+        .what-is-iris h2 {
+            color: var(--accent-active);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin: 0 0 20px;
+            text-transform: uppercase;
+        }
+
+        .what-is-iris p {
+            color: var(--fg-bright);
+            font-size: clamp(25px, 2.5vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin: 0;
+        }
+
         .runtime-plate-section {
             border-bottom: 1px solid var(--border);
-            padding: 0 0 82px;
+            padding: 82px 0;
         }
 
         .runtime-plate {
@@ -1716,6 +1747,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="what-is-iris" aria-labelledby="what-is-iris-title">
+            <div class="container">
+                <div class="what-is-iris-inner">
+                    <h2 id="what-is-iris-title">What is IRIS?</h2>
+                    <p>IRIS is a research operating system that governs investment decisions, preserving the context,
+                        methods, versions, and lineage around models while making the research workflow faster.</p>
                 </div>
             </div>
         </section>
