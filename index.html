@@ -245,9 +245,7 @@
         }
 
         .what-is-iris {
-            border-bottom: 1px solid var(--border);
-            border-top: 1px solid var(--border);
-            padding: 72px 0;
+            margin: 34px auto 0;
         }
 
         .what-is-iris-inner {
@@ -257,27 +255,27 @@
         }
 
         .what-is-iris h2 {
-            color: var(--accent-active);
-            font-family: var(--font-mono);
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            margin: 0 0 20px;
-            text-transform: uppercase;
-        }
-
-        .what-is-iris p {
             color: var(--fg-bright);
             font-size: clamp(25px, 2.5vw, 36px);
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.25;
+            margin: 0 0 20px;
+        }
+
+        .what-is-iris p {
+            color: var(--accent-active);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.6;
             margin: 0;
         }
 
         .runtime-plate-section {
             border-bottom: 1px solid var(--border);
-            padding: 82px 0;
+            padding: 0 0 82px;
         }
 
         .runtime-plate {
@@ -1729,12 +1727,14 @@
                                 Work the way you think.
                             </p>
                             <p class="hero-punchline">The investment research operating system.</p>
-                            <div class="hero-insight">
-                                <p class="hero-copy">The model remembers what your firm knows.</p>
-                                <p class="hero-insight-core">Every answer stays connected to the model,<br />
-                                    its evidence, and its history.</p>
-                            </div>
-                            <p class="hero-outcome">Move faster.<br />Preserve every decision.</p>
+                            <section class="what-is-iris" aria-labelledby="what-is-iris-title">
+                                <div class="what-is-iris-inner">
+                                    <h2 id="what-is-iris-title">What is IRIS?</h2>
+                                    <p>IRIS is a research operating system that governs investment decisions,
+                                        preserving the context, methods, versions, and lineage around models while
+                                        making the research workflow faster.</p>
+                                </div>
+                            </section>
                             <p class="hero-identity">Built for investment analysts. Engineered for institutional memory.</p>
                             <div class="hero-actions">
                                 <a class="btn" href="https://app.fin123.dev">Open IRIS runtime &rarr;</a>
@@ -1747,16 +1747,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="what-is-iris" aria-labelledby="what-is-iris-title">
-            <div class="container">
-                <div class="what-is-iris-inner">
-                    <h2 id="what-is-iris-title">What is IRIS?</h2>
-                    <p>IRIS is a research operating system that governs investment decisions, preserving the context,
-                        methods, versions, and lineage around models while making the research workflow faster.</p>
                 </div>
             </div>
         </section>
